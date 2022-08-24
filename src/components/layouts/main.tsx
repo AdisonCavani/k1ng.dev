@@ -1,6 +1,7 @@
 import Navbar, { NavbarProps } from '@components/navbar'
-import { Container } from '@mantine/core'
-import { IconBrandGithub } from '@tabler/icons'
+import { Affix, Button, Container, Transition } from '@mantine/core'
+import { useWindowScroll } from '@mantine/hooks'
+import { IconArrowUp, IconBrandGithub } from '@tabler/icons'
 import { Router } from 'next/router'
 import { ReactNode } from 'react'
 
@@ -10,6 +11,8 @@ type Props = {
 }
 
 const MainLayout = ({ children, router }: Props) => {
+  const [scroll, scrollTo] = useWindowScroll()
+
   const items: NavbarProps = {
     links: [
       { href: '/about', label: 'About' },
@@ -30,6 +33,19 @@ const MainLayout = ({ children, router }: Props) => {
     <>
       <Navbar links={links} path={path} />
       <Container style={{ marginTop: 72 }}>{children}</Container>
+      <Affix position={{ bottom: 20, right: 20 }}>
+        <Transition transition="slide-up" mounted={scroll.y > 0}>
+          {transitionStyles => (
+            <Button
+              leftIcon={<IconArrowUp size={16} />}
+              style={transitionStyles}
+              onClick={() => scrollTo({ y: 0 })}
+            >
+              Scroll to top
+            </Button>
+          )}
+        </Transition>
+      </Affix>
     </>
   )
 }
