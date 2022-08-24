@@ -10,9 +10,9 @@ const Home: NextPage = () => {
       <Stack>
         <Title>Hello! I&apos;m Adison Cavani</Title>
         <Text>
-          A software engineer 👨‍💻, creator 📹, and student 👨‍🎓 living and working
-          in CT. You&apos;ve stumbled onto my online portfolio, resume, blog,
-          and all things in between.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget
+          luctus tortor. Nullam ultricies facilisis tempor. Phasellus eget nibh
+          mauris.
         </Text>
         <PersonalTimeline />
         <Title>My projects</Title>
