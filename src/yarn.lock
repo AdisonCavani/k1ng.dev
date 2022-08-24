@@ -472,6 +472,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tabler/icons@^1.82.0":
+  version "1.82.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.82.0.tgz#ff135e6fec136e2128faa6e30b93e64d8bf42b77"
+  integrity sha512-Ai5vbnOvJ38oQ7mHVvWAZ0oUzLtdd83oxQmxOnvX9jaHYDhkQbFVRofBY+Z1W/+NOPcxe5k3iI9rf8q0VINCHg==
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
@@ -991,7 +996,7 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-config-next@12.2.5:
+eslint-config-next@^12.2.5:
   version "12.2.5"
   resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-12.2.5.tgz#76ce83f18cc02f6f42ed407a127f83db54fabd3c"
   integrity sha512-SOowilkqPzW6DxKp3a3SYlrfPi5Ajs9MIzp9gVfUDxxH9QFM5ElkR1hX5m/iICJuvCbWgQqFBiA3mCMozluniw==
