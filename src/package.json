@@ -12,17 +12,17 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/server": "^11.10.0",
-    "@mantine/core": "^5.1.6",
-    "@mantine/hooks": "^5.1.6",
-    "@mantine/next": "^5.1.6",
-    "@tabler/icons": "^1.82.0",
+    "@mantine/core": "^5.2.3",
+    "@mantine/hooks": "^5.2.3",
+    "@mantine/next": "^5.2.3",
+    "@tabler/icons": "^1.87.0",
     "next": "12.2.5",
     "prettier": "^2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "18.7.6",
+    "@types/node": "18.7.13",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "eslint": "8.22.0",
