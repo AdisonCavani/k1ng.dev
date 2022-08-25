@@ -4,6 +4,8 @@ import type { NextPage } from 'next'
 import ProjectCard from '@components/projectCard'
 import TechStack from '@components/techStack'
 
+import DistroGrubThemesImage from '@public/distro-grub-themes.png'
+
 const Home: NextPage = () => {
   return (
     <Container mb="xl">
@@ -30,7 +32,7 @@ const Home: NextPage = () => {
             desc="A pack of GRUB2 themes for different Linux distributions and OSs. It aims to replace the default GRUB look, with a nice and colorful theme."
             lang="CI & CD"
             color="violet"
-            img="https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/preview/Ubuntu.png"
+            img={DistroGrubThemesImage.src}
             githubUrl="https://github.com/AdisonCavani/distro-grub-themes"
             externalUrl="https://github.com/AdisonCavani/distro-grub-themes"
           />
