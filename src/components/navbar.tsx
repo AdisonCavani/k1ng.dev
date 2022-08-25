@@ -2,14 +2,12 @@ import {
   Container,
   Group,
   Header,
-  Paper,
-  Transition,
   createStyles,
-  ActionIcon
+  ActionIcon,
+  Menu
 } from '@mantine/core'
-import { useDisclosure } from '@mantine/hooks'
 import { NextLink } from '@mantine/next'
-import { IconMenu2, IconX } from '@tabler/icons'
+import { IconMenu2 } from '@tabler/icons'
 import { ReactNode } from 'react'
 import Logo from './logo'
 import { ThemeButton } from './themeButton'
@@ -17,46 +15,33 @@ import { ThemeButton } from './themeButton'
 const HEADER_HEIGHT = 56
 
 const useStyles = createStyles(theme => ({
-  root: {
-    position: 'relative',
-    zIndex: 1
-  },
-
-  dropdown: {
-    position: 'absolute',
-    top: HEADER_HEIGHT,
-    left: 0,
-    right: 0,
-    zIndex: 0,
-    borderTopRightRadius: 0,
-    borderTopLeftRadius: 0,
-    borderTopWidth: 0,
-    overflow: 'hidden',
-
-    [theme.fn.largerThan('sm')]: {
-      display: 'none'
-    }
-  },
-
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '100%'
-  },
-
   links: {
     [theme.fn.smallerThan('sm')]: {
       display: 'none'
     }
   },
 
-  burger: {
+  menu: {
     [theme.fn.largerThan('sm')]: {
       display: 'none'
     }
   },
-
+  linkExternal: {
+    '&:hover': {
+      textDecoration: 'underline',
+      textUnderlineOffset: 3
+    }
+  },
+  item: {
+    '&, &:hover': {
+      backgroundColor: theme.fn.variant({
+        variant: 'light',
+        color: theme.primaryColor
+      }).background,
+      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
+        .color
+    }
+  },
   link: {
     display: 'block',
     cursor: 'pointer',
@@ -94,20 +79,6 @@ const useStyles = createStyles(theme => ({
       color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
         .color
     }
-  },
-  linkExternal: {
-    textDecoration: 'none',
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
-    fontSize: theme.fontSizes.sm,
-    fontWeight: 500,
-
-    '&:hover': {
-      textDecoration: 'underline',
-      textUnderlineOffset: 3
-    }
   }
 }))
 
@@ -123,14 +94,12 @@ type LinkProps = {
 }
 
 const Navbar = ({ links, path }: NavbarProps) => {
-  const [opened, { toggle }] = useDisclosure(false)
   const { classes, cx } = useStyles()
 
   const items = links.map(link => (
     <>
       {link.href.startsWith('/') ? (
         <NextLink
-          onClick={toggle}
           key={link.label}
           href={link.href}
           className={cx(classes.link, {
@@ -144,7 +113,6 @@ const Navbar = ({ links, path }: NavbarProps) => {
         </NextLink>
       ) : (
         <a
-          onClick={toggle}
           key={link.label}
           href={link.href}
           target="_blank"
@@ -158,6 +126,36 @@ const Navbar = ({ links, path }: NavbarProps) => {
             {link.label}
           </Group>
         </a>
+      )}
+    </>
+  ))
+
+  const menuItems = links.map(link => (
+    <>
+      {link.href.startsWith('/') ? (
+        <Menu.Item
+          component={NextLink}
+          key={link.label}
+          href={link.href}
+          icon={link.icon}
+          className={cx({
+            [classes.item]: path === link.href
+          })}
+        >
+          {link.label}
+        </Menu.Item>
+      ) : (
+        <Menu.Item
+          component="a"
+          key={link.label}
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          icon={link.icon}
+          className={classes.linkExternal}
+        >
+          {link.label}
+        </Menu.Item>
       )}
     </>
   ))
@@ -187,29 +185,26 @@ const Navbar = ({ links, path }: NavbarProps) => {
           </Group>
         </Group>
 
-        <Transition transition="pop-top-right" duration={200} mounted={opened}>
-          {styles => (
-            <Paper className={classes.dropdown} withBorder style={styles}>
-              {items}
-            </Paper>
-          )}
-        </Transition>
-
         <Group spacing="xs">
           <ThemeButton />
-          <ActionIcon
-            className={classes.burger}
-            onClick={toggle}
-            size="lg"
-            sx={theme => ({
-              backgroundColor:
-                theme.colorScheme === 'dark'
-                  ? theme.colors.dark[6]
-                  : theme.colors.gray[0]
-            })}
-          >
-            {opened ? <IconX size={18} /> : <IconMenu2 size={18} />}
-          </ActionIcon>
+          <div className={classes.menu}>
+            <Menu shadow="md" width={200} offset={10}>
+              <Menu.Target>
+                <ActionIcon
+                  size="lg"
+                  sx={theme => ({
+                    backgroundColor:
+                      theme.colorScheme === 'dark'
+                        ? theme.colors.dark[6]
+                        : theme.colors.gray[0]
+                  })}
+                >
+                  <IconMenu2 size={18} />
+                </ActionIcon>
+              </Menu.Target>
+              <Menu.Dropdown>{menuItems}</Menu.Dropdown>
+            </Menu>
+          </div>
         </Group>
       </Container>
     </Header>
