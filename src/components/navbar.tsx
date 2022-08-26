@@ -15,6 +15,15 @@ import { ThemeButton } from './themeButton'
 const HEADER_HEIGHT = 56
 
 const useStyles = createStyles(theme => ({
+  header: {
+    position: 'fixed',
+    backdropFilter: 'blur(10px)',
+    boxShadow: 'sm',
+    backgroundColor:
+      theme.colorScheme === 'dark'
+        ? `${theme.colors.dark[7]}80`
+        : 'rgba(255, 255, 255, .5)'
+  },
   links: {
     [theme.fn.smallerThan('sm')]: {
       display: 'none'
@@ -82,12 +91,12 @@ const useStyles = createStyles(theme => ({
   }
 }))
 
-export type NavbarProps = {
+type NavbarProps = {
   links: LinkProps[]
   path: string
 }
 
-type LinkProps = {
+export type LinkProps = {
   href: string
   label: string
   icon?: ReactNode
@@ -97,10 +106,9 @@ const Navbar = ({ links, path }: NavbarProps) => {
   const { classes, cx } = useStyles()
 
   const items = links.map(link => (
-    <>
+    <div key={link.label}>
       {link.href.startsWith('/') ? (
         <NextLink
-          key={link.label}
           href={link.href}
           className={cx(classes.link, {
             [classes.linkActive]: path === link.href
@@ -113,7 +121,6 @@ const Navbar = ({ links, path }: NavbarProps) => {
         </NextLink>
       ) : (
         <a
-          key={link.label}
           href={link.href}
           target="_blank"
           rel="noreferrer"
@@ -127,15 +134,14 @@ const Navbar = ({ links, path }: NavbarProps) => {
           </Group>
         </a>
       )}
-    </>
+    </div>
   ))
 
   const menuItems = links.map(link => (
-    <>
+    <div key={link.label}>
       {link.href.startsWith('/') ? (
         <Menu.Item
           component={NextLink}
-          key={link.label}
           href={link.href}
           icon={link.icon}
           className={cx({
@@ -147,7 +153,6 @@ const Navbar = ({ links, path }: NavbarProps) => {
       ) : (
         <Menu.Item
           component="a"
-          key={link.label}
           href={link.href}
           target="_blank"
           rel="noreferrer"
@@ -157,19 +162,11 @@ const Navbar = ({ links, path }: NavbarProps) => {
           {link.label}
         </Menu.Item>
       )}
-    </>
+    </div>
   ))
 
   return (
-    <Header
-      height={HEADER_HEIGHT}
-      style={{
-        position: 'fixed',
-        backdropFilter: 'blur(10px)',
-        boxShadow: 'sm',
-        backgroundColor: 'transparent'
-      }}
-    >
+    <Header height={HEADER_HEIGHT} className={classes.header}>
       <Container
         style={{
           height: HEADER_HEIGHT,
