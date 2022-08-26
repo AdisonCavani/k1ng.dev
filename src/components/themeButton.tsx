@@ -14,7 +14,7 @@ export function ThemeButton() {
           theme.colorScheme === 'dark'
             ? theme.colors.yellow[2]
             : theme.colors.violet[5],
-        color: theme.colorScheme === 'dark' ? 'black' : 'white'
+        color: theme.colorScheme === 'dark' ? 'black' : theme.white
       })}
     >
       {colorScheme === 'dark' ? (
