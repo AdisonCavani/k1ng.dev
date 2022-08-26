@@ -53,7 +53,8 @@ const Home: NextPage = () => {
             externalUrl="https://www.youtube.com/watch?v=17wMTF_bnnc"
           />
         </SimpleGrid>
-        <Title>Skills</Title>
+        <Title>Technologies</Title>
+        <Text>Technologies I&apos;m familiar with.</Text>
         <TechStack />
       </Stack>
     </Container>
