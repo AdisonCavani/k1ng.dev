@@ -37,6 +37,7 @@ const MainLayout = ({ children, router }: Props) => {
         <Transition transition="slide-up" mounted={scroll.y > 0}>
           {transitionStyles => (
             <ActionIcon
+              size="lg"
               variant="filled"
               color="blue"
               style={transitionStyles}
