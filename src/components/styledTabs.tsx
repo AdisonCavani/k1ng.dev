@@ -31,16 +31,9 @@ const StyledTabs = (props: TabsProps) => {
             cursor: 'not-allowed'
           },
 
-          '&:not(:first-of-type)': {
-            marginRight: theme.spacing.xs
-          },
-
-          '&:first-of-type': {
-            marginRight: theme.spacing.xs
-          },
-
-          '&:last-of-type': {
-            marginRight: 0
+          '&': {
+            marginRight: theme.spacing.xs,
+            marginTop: theme.spacing.xs
           },
 
           '&[data-active]': {
@@ -58,7 +51,8 @@ const StyledTabs = (props: TabsProps) => {
         tabsList: {
           display: 'flex',
           WebkitBoxPack: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          flexWrap: 'wrap'
         }
       })}
       {...props}
