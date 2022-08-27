@@ -2,7 +2,7 @@ import { TechIconProps } from '@components/techIcon'
 
 import TypeScriptLogo from '@public/tech/typescript.svg'
 import ReactJsLogo from '@public/tech/react.svg'
-import NextJsLogo from '@public/tech/nextjs-dark.svg'
+import NextJsLogo from '@public/tech/nextjs.svg'
 import SassLogo from '@public/tech/sass.svg'
 import MantineLogo from '@public/tech/mantine.svg'
 import ChakraLogo from '@public/tech/chakra.svg'
@@ -14,7 +14,6 @@ import RabbitMqLogo from '@public/tech/rabbitmq.svg'
 import LinuxLogo from '@public/tech/linux.svg'
 import SqlServerLogo from '@public/tech/sqlserver.svg'
 import GitLogo from '@public/tech/git.svg'
-import UwpLogo from '@public/tech/uwp.svg'
 
 import AwsLogo from '@public/tech/aws.svg'
 import AwsCognitoLogo from '@public/tech/aws-cognito.svg'
@@ -22,6 +21,13 @@ import AwsIamLogo from '@public/tech/aws-iam.svg'
 import AwsParameterStoreLogo from '@public/tech/aws-parameter-store.svg'
 import SendGridLogo from '@public/tech/sendgrid.svg'
 import GithubLogo from '@public/tech/github.svg'
+
+import VisualStudioLogo from '@public/tech/visualstudio.svg'
+import VsCodeLogo from '@public/tech/vscode.svg'
+import RiderLogo from '@public/tech/rider.svg'
+import DockerLogo from '@public/tech/docker.svg'
+import K8sLogo from '@public/tech/k8s.svg'
+import PostmanLogo from '@public/tech/postman.svg'
 
 const TechStackWebSchema: TechIconProps[] = [
   {
@@ -78,66 +84,66 @@ const TechStackSoftwareSchema: TechIconProps[] = [
   },
   {
     title: 'ASP.NET',
-    description: 'Cross-platform framework',
-    href: 'https://dotnet.microsoft.com',
+    description: '.NET Web Framework',
+    href: 'https://asp.net',
     image: DotnetLogo,
     background: '#512bd4'
   },
   {
     title: 'WPF',
-    description: 'JavaScript library',
-    href: 'https://reactjs.org',
+    description: '.NET GUI Framework',
+    href: 'https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf',
     image: DotnetLogo,
-    background: '#61dafb'
+    background: '#512bd4'
   },
   {
     title: 'UWP',
-    description: 'JavaScript library',
-    href: 'https://reactjs.org',
-    image: UwpLogo,
-    background: '#61dafb'
+    description: '.NET WinUI Framework',
+    href: 'https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide',
+    image: DotnetLogo,
+    background: '#512bd4'
   },
   {
     title: 'PostgreSQL',
-    description: 'JavaScript library',
-    href: 'https://reactjs.org',
+    description: 'Relational database',
+    href: 'https://www.postgresql.org',
     image: PostgresLogo,
-    background: '#61dafb'
+    background: '#336791'
   },
   {
     title: 'SQL Server',
-    description: 'JavaScript library',
-    href: 'https://reactjs.org',
+    description: 'Relational database',
+    href: 'https://www.microsoft.com/sql-server/sql-server-2019',
     image: SqlServerLogo,
-    background: '#61dafb'
+    background: 'gray'
   },
   {
     title: 'Redis',
-    description: 'JavaScript library',
-    href: 'https://reactjs.org',
+    description: 'In-memory database',
+    href: 'https://redis.io',
     image: RedisLogo,
     background: '#cd5d57'
   },
   {
     title: 'RabbitMQ',
-    description: 'JavaScript library',
-    href: 'https://reactjs.org',
+    description: 'Message broker',
+    href: 'https://www.rabbitmq.com',
     image: RabbitMqLogo,
-    background: '#61dafb'
+    background: '#ff6600'
   },
   {
     title: 'Git',
-    description: 'JavaScript library',
-    href: 'https://reactjs.org',
+    description: 'Version control system',
+    href: 'https://git-scm.com',
     image: GitLogo,
-    background: '#61dafb'
+    background: '#f05133'
   },
   {
     title: 'Linux',
     description: 'Arch Linux, Debian & Fedora',
-    href: 'https://reactjs.org',
+    href: 'https://www.kernel.org',
     image: LinuxLogo,
-    background: '#61dafb'
+    background: '#e7bf5d'
   }
 ]
 
@@ -182,7 +188,7 @@ const TechStackCloudSchema: TechIconProps[] = [
     description: 'Cloud version control system',
     href: 'https://github.com',
     image: GithubLogo,
-    background: '#fff'
+    background: 'white'
   }
 ]
 
@@ -191,43 +197,43 @@ const TechStackToolsSchema: TechIconProps[] = [
     title: 'Visual Studio',
     description: '',
     href: '',
-    image: AwsLogo,
-    background: '#'
+    image: VisualStudioLogo,
+    background: '#be90f3'
   },
   {
     title: 'Visual Studio Code',
     description: '',
     href: '',
-    image: AwsLogo,
-    background: '#'
+    image: VsCodeLogo,
+    background: '#23aaf2'
   },
   {
     title: 'JetBrains Rider',
     description: '',
     href: '',
-    image: AwsLogo,
-    background: '#'
+    image: RiderLogo,
+    background: '#1875ef'
   },
   {
     title: 'Docker',
     description: '',
     href: '',
-    image: AwsLogo,
-    background: '#'
+    image: DockerLogo,
+    background: '#2396ed'
   },
   {
     title: 'Kubernetes',
     description: '',
     href: '',
-    image: AwsLogo,
-    background: '#'
+    image: K8sLogo,
+    background: '#326ce5'
   },
   {
     title: 'Postman',
     description: '',
     href: '',
-    image: AwsLogo,
-    background: '#'
+    image: PostmanLogo,
+    background: '#ff6c37'
   }
 ]
 
