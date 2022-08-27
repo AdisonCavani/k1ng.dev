@@ -195,43 +195,43 @@ const TechStackCloudSchema: TechIconProps[] = [
 const TechStackToolsSchema: TechIconProps[] = [
   {
     title: 'Visual Studio',
-    description: '',
-    href: '',
+    description: 'IDE',
+    href: 'https://visualstudio.microsoft.com',
     image: VisualStudioLogo,
     background: '#be90f3'
   },
   {
     title: 'Visual Studio Code',
-    description: '',
-    href: '',
+    description: 'Code editor',
+    href: 'https://code.visualstudio.com',
     image: VsCodeLogo,
     background: '#23aaf2'
   },
   {
     title: 'JetBrains Rider',
-    description: '',
-    href: '',
+    description: 'Favourite IDE',
+    href: 'https://code.visualstudio.com',
     image: RiderLogo,
     background: '#1875ef'
   },
   {
     title: 'Docker',
-    description: '',
-    href: '',
+    description: 'Containerization software',
+    href: 'https://www.docker.com',
     image: DockerLogo,
     background: '#2396ed'
   },
   {
     title: 'Kubernetes',
-    description: '',
-    href: '',
+    description: 'Containers/pods management',
+    href: 'https://kubernetes.io',
     image: K8sLogo,
     background: '#326ce5'
   },
   {
     title: 'Postman',
-    description: '',
-    href: '',
+    description: 'API testing tool',
+    href: 'https://www.postman.com',
     image: PostmanLogo,
     background: '#ff6c37'
   }
