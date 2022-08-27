@@ -8,7 +8,7 @@ const useStyles = createStyles(theme => ({
     borderColor:
       theme.colorScheme === 'dark'
         ? theme.colors.gray[8]
-        : theme.colors.gray[2],
+        : theme.colors.gray[3],
     transition: 'all 0.25s',
     transitionTimingFunction: 'spring(1 100 10 10)',
     '&:hover': {
