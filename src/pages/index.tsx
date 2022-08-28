@@ -1,5 +1,12 @@
 import PersonalTimeline from '@components/personalTimeline'
-import { Container, Title, Text, SimpleGrid, Stack } from '@mantine/core'
+import {
+  Container,
+  Title,
+  Text,
+  SimpleGrid,
+  Stack,
+  Divider
+} from '@mantine/core'
 import type { NextPage } from 'next'
 import ProjectCard from '@components/projectCard'
 import TechStack from '@components/techStack'
@@ -17,7 +24,8 @@ const Home: NextPage = () => {
           mauris.
         </Text>
         <PersonalTimeline />
-        <Title>My projects</Title>
+        <Title align="center">My projects</Title>
+        <Divider mx={300} size="sm" />
         <SimpleGrid
           spacing="md"
           cols={3}
@@ -46,8 +54,8 @@ const Home: NextPage = () => {
             img={DistroGrubThemesImage.src}
           />
         </SimpleGrid>
-        <Title>Technologies</Title>
-        <Text>Technologies I&apos;m familiar with.</Text>
+        <Title align="center">Technologies</Title>
+        <Divider mx={300} size="sm" />
         <TechStack />
       </Stack>
     </Container>
