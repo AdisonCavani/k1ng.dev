@@ -4,11 +4,15 @@ import {
   Header,
   createStyles,
   ActionIcon,
-  Menu
+  Menu,
+  Button,
+  Dialog,
+  UnstyledButton
 } from '@mantine/core'
 import { NextLink } from '@mantine/next'
 import { IconMenu2 } from '@tabler/icons'
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
+import ContactDialog from './contactDialog'
 import Logo from './logo'
 import { ThemeButton } from './themeButton'
 
@@ -104,107 +108,142 @@ export type LinkProps = {
 
 const Navbar = ({ links, path }: NavbarProps) => {
   const { classes, cx } = useStyles()
+  const [opened, setOpened] = useState(false)
 
-  const items = links.map(link => (
-    <div key={link.label}>
-      {link.href.startsWith('/') ? (
-        <NextLink
-          href={link.href}
-          className={cx(classes.link, {
-            [classes.linkActive]: path === link.href
-          })}
-        >
-          <Group spacing="xs">
-            {link.icon && <>{link.icon}</>}
-            {link.label}
-          </Group>
-        </NextLink>
-      ) : (
-        <a
-          href={link.href}
-          target="_blank"
-          rel="noreferrer"
-          className={cx(classes.link, classes.linkExternal, {
-            [classes.linkActive]: path === link.href
-          })}
-        >
-          <Group spacing="xs">
-            {link.icon && <>{link.icon}</>}
-            {link.label}
-          </Group>
-        </a>
-      )}
-    </div>
-  ))
+  const items = links.map(function (link, index) {
+    return (
+      <div key={index}>
+        {link.href.startsWith('/') ? (
+          <NextLink
+            href={link.href}
+            className={cx(classes.link, {
+              [classes.linkActive]: path === link.href
+            })}
+          >
+            <Group spacing="xs">
+              {link.icon && <>{link.icon}</>}
+              {link.label}
+            </Group>
+          </NextLink>
+        ) : (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+            className={cx(classes.link, classes.linkExternal, {
+              [classes.linkActive]: path === link.href
+            })}
+          >
+            <Group spacing="xs">
+              {link.icon && <>{link.icon}</>}
+              {link.label}
+            </Group>
+          </a>
+        )}
+      </div>
+    )
+  })
 
-  const menuItems = links.map(link => (
-    <div key={link.label}>
-      {link.href.startsWith('/') ? (
-        <Menu.Item
-          component={NextLink}
-          href={link.href}
-          icon={link.icon}
-          className={cx({
-            [classes.item]: path === link.href
-          })}
-        >
-          {link.label}
-        </Menu.Item>
-      ) : (
-        <Menu.Item
-          component="a"
-          href={link.href}
-          target="_blank"
-          rel="noreferrer"
-          icon={link.icon}
-          className={classes.linkExternal}
-        >
-          {link.label}
-        </Menu.Item>
-      )}
-    </div>
-  ))
+  const menuItems = links.map(function (link, index) {
+    return (
+      <div key={index}>
+        {link.href.startsWith('/') ? (
+          <Menu.Item
+            component={NextLink}
+            href={link.href}
+            icon={link.icon}
+            className={cx({
+              [classes.item]: path === link.href
+            })}
+          >
+            {link.label}
+          </Menu.Item>
+        ) : (
+          <Menu.Item
+            component="a"
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+            icon={link.icon}
+            className={classes.linkExternal}
+          >
+            {link.label}
+          </Menu.Item>
+        )}
+      </div>
+    )
+  })
 
   return (
-    <Header height={HEADER_HEIGHT} className={classes.header}>
-      <Container
-        style={{
-          height: HEADER_HEIGHT,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between'
-        }}
-      >
-        <Group>
-          <Logo />
-          <Group spacing={5} className={classes.links}>
-            {items}
+    <>
+      <Header height={HEADER_HEIGHT} className={classes.header}>
+        <Container
+          style={{
+            height: HEADER_HEIGHT,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between'
+          }}
+        >
+          <Group>
+            <Logo />
+            <Group spacing={5} className={classes.links}>
+              <UnstyledButton
+                onClick={() => setOpened(o => !o)}
+                className={cx(classes.link, {
+                  [classes.linkActive]: opened
+                })}
+              >
+                Contact
+              </UnstyledButton>
+              {items}
+            </Group>
           </Group>
-        </Group>
 
-        <Group spacing="xs">
-          <ThemeButton />
-          <div className={classes.menu}>
-            <Menu shadow="md" width={200} offset={10}>
-              <Menu.Target>
-                <ActionIcon
-                  size="lg"
-                  sx={theme => ({
-                    backgroundColor:
-                      theme.colorScheme === 'dark'
-                        ? theme.colors.dark[6]
-                        : theme.colors.gray[0]
-                  })}
-                >
-                  <IconMenu2 size={18} />
-                </ActionIcon>
-              </Menu.Target>
-              <Menu.Dropdown>{menuItems}</Menu.Dropdown>
-            </Menu>
-          </div>
-        </Group>
-      </Container>
-    </Header>
+          <Group spacing="xs">
+            <ThemeButton />
+            <div className={classes.menu}>
+              <Menu shadow="md" width={200} offset={10}>
+                <Menu.Target>
+                  <ActionIcon
+                    size="lg"
+                    sx={theme => ({
+                      backgroundColor:
+                        theme.colorScheme === 'dark'
+                          ? theme.colors.dark[6]
+                          : theme.colors.gray[0]
+                    })}
+                  >
+                    <IconMenu2 size={18} />
+                  </ActionIcon>
+                </Menu.Target>
+                <Menu.Dropdown>
+                  <Menu.Item
+                    onClick={() => setOpened(o => !o)}
+                    className={cx({
+                      [classes.linkActive]: opened
+                    })}
+                  >
+                    Contact
+                  </Menu.Item>
+                  {menuItems}
+                </Menu.Dropdown>
+              </Menu>
+            </div>
+          </Group>
+        </Container>
+      </Header>
+      <Dialog
+        opened={opened}
+        withCloseButton
+        onClose={() => setOpened(false)}
+        size="md"
+        radius="md"
+        shadow="xl"
+      >
+        <ContactDialog />
+      </Dialog>
+    </>
   )
 }
 
