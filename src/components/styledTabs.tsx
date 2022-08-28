@@ -52,7 +52,8 @@ const StyledTabs = (props: TabsProps) => {
           display: 'flex',
           WebkitBoxPack: 'center',
           justifyContent: 'center',
-          flexWrap: 'wrap'
+          flexWrap: 'wrap',
+          marginBottom: theme.spacing.xl
         }
       })}
       {...props}
