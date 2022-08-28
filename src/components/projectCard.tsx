@@ -1,6 +1,5 @@
 import {
   Card,
-  Image,
   Group,
   Text,
   Badge,
@@ -9,13 +8,14 @@ import {
   Stack
 } from '@mantine/core'
 import { IconBrandGithub } from '@tabler/icons'
+import Image from 'next/image'
 
 type Props = {
   title: string
   desc: string
   lang: string
   color: DefaultMantineColor
-  img?: string
+  img: string
   githubUrl?: string
   externalUrl?: string
 }
@@ -32,7 +32,7 @@ const ProjectCard = ({
   return (
     <Card shadow="sm" p="lg" radius="md" withBorder>
       <Card.Section component="a" href={externalUrl} target="_blank">
-        <Image height={160} src={img} alt="Project image" withPlaceholder />
+        <Image width={600} height={280} src={img} alt="Project image" />
       </Card.Section>
 
       <Group position="apart" mt="md" mb="xs">
