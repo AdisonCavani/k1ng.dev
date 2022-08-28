@@ -5,7 +5,6 @@ import {
   createStyles,
   ActionIcon,
   Menu,
-  Button,
   Dialog,
   UnstyledButton
 } from '@mantine/core'
@@ -237,7 +236,7 @@ const Navbar = ({ links, path }: NavbarProps) => {
         opened={opened}
         withCloseButton
         onClose={() => setOpened(false)}
-        size="md"
+        size={280}
         radius="md"
         shadow="xl"
       >
