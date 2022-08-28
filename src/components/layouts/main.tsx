@@ -1,8 +1,6 @@
 import Navbar from '@components/navbar'
 import NavigationSchema from '@lib/navigationSchema'
-import { ActionIcon, Affix, Container, Transition } from '@mantine/core'
-import { useWindowScroll } from '@mantine/hooks'
-import { IconArrowUp } from '@tabler/icons'
+import { Container } from '@mantine/core'
 import { Router } from 'next/router'
 import { ReactNode } from 'react'
 
@@ -12,8 +10,6 @@ type Props = {
 }
 
 const MainLayout = ({ children, router }: Props) => {
-  const [scroll, scrollTo] = useWindowScroll()
-
   return (
     <>
       <Navbar links={NavigationSchema} path={router.asPath} />
