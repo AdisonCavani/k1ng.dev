@@ -26,6 +26,9 @@ const Home: NextPage = () => {
         <PersonalTimeline />
         <Title align="center">My projects</Title>
         <Divider mx={300} size="sm" />
+        <Text align="center" size="lg" weight={500} color="dimmed">
+          A list of my personal projects.
+        </Text>
         <SimpleGrid
           spacing="md"
           cols={3}
@@ -56,6 +59,9 @@ const Home: NextPage = () => {
         </SimpleGrid>
         <Title align="center">Technologies</Title>
         <Divider mx={300} size="sm" />
+        <Text align="center" size="lg" weight={500} color="dimmed">
+          A list of technologies I&apos;m familiar with.
+        </Text>
         <TechStack />
       </Stack>
     </Container>
