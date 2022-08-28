@@ -44,14 +44,6 @@ const Home: NextPage = () => {
             githubUrl="https://github.com/AdisonCavani/adisoncavani.github.io"
             externalUrl="https://adison.me"
           />
-          <ProjectCard
-            title="Word Of The Day App"
-            desc="A word of the day app built using Google's Flutter - a cross platform mobile app framework. View current and past words and save your favorites!"
-            lang="Dart"
-            color="teal"
-            githubUrl="https://github.com/bjcarlson42/wotd"
-            externalUrl="https://www.youtube.com/watch?v=17wMTF_bnnc"
-          />
         </SimpleGrid>
         <Title>Technologies</Title>
         <Text>Technologies I&apos;m familiar with.</Text>
