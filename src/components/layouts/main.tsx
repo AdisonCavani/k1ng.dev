@@ -18,21 +18,6 @@ const MainLayout = ({ children, router }: Props) => {
     <>
       <Navbar links={NavigationSchema} path={router.asPath} />
       <Container style={{ marginTop: 72 }}>{children}</Container>
-      <Affix position={{ bottom: 20, right: 20 }}>
-        <Transition transition="slide-up" mounted={scroll.y > 0}>
-          {transitionStyles => (
-            <ActionIcon
-              size="lg"
-              variant="filled"
-              color="blue"
-              style={transitionStyles}
-              onClick={() => scrollTo({ y: 0 })}
-            >
-              <IconArrowUp size={16} />
-            </ActionIcon>
-          )}
-        </Transition>
-      </Affix>
     </>
   )
 }
