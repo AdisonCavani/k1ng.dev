@@ -43,6 +43,7 @@ const Home: NextPage = () => {
             color="blue"
             githubUrl="https://github.com/AdisonCavani/adisoncavani.github.io"
             externalUrl="https://adison.me"
+            img={DistroGrubThemesImage.src}
           />
         </SimpleGrid>
         <Title>Technologies</Title>
