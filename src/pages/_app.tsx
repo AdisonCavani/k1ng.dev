@@ -5,23 +5,23 @@ import {
   ColorSchemeProvider,
   MantineProvider
 } from '@mantine/core'
-import { useColorScheme, useLocalStorage } from '@mantine/hooks'
 import MainLayout from '@components/layouts/main'
 import PlausibleAnalytics from '@lib/plausibleAnalytics'
+import { useState } from 'react'
+import { getCookie, setCookie } from 'cookies-next'
+import { GetServerSidePropsContext } from 'next'
 
-export default function App(props: AppProps) {
+export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps, router } = props
 
-  // Hook will return either 'dark' or 'light' on client
-  // and always 'light' during ssr as window.matchMedia is not available
-  const preferredColorScheme = useColorScheme()
-  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: 'mantine-color-scheme',
-    defaultValue: preferredColorScheme,
-    getInitialValueInEffect: true // TODO: false value throws UI hydration error
-  })
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
+  const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme)
+  const toggleColorScheme = (value?: ColorScheme) => {
+    const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark')
+    setColorScheme(nextColorScheme)
+    setCookie('mantine-color-scheme', nextColorScheme, {
+      maxAge: 60 * 60 * 24 * 30
+    })
+  }
 
   return (
     <>
@@ -49,3 +49,7 @@ export default function App(props: AppProps) {
     </>
   )
 }
+
+App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
+  colorScheme: getCookie('mantine-color-scheme', ctx) || 'light'
+})
