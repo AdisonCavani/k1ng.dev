@@ -21,28 +21,23 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
 
   return (
-    <>
+    <ColorSchemeProvider
+      colorScheme={colorScheme}
+      toggleColorScheme={toggleColorScheme}
+    >
       <Head>
-        <title>Page title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-
       <PlausibleAnalytics />
-
-      <ColorSchemeProvider
-        colorScheme={colorScheme}
-        toggleColorScheme={toggleColorScheme}
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{ colorScheme }}
       >
-        <MantineProvider
-          withGlobalStyles
-          withNormalizeCSS
-          theme={{ colorScheme }}
-        >
-          <MainLayout router={router}>
-            <Component {...pageProps} />
-          </MainLayout>
-        </MantineProvider>
-      </ColorSchemeProvider>
-    </>
+        <MainLayout router={router}>
+          <Component {...pageProps} />
+        </MainLayout>
+      </MantineProvider>
+    </ColorSchemeProvider>
   )
 }
