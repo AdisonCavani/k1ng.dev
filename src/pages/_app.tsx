@@ -7,21 +7,18 @@ import {
 } from '@mantine/core'
 import MainLayout from '@components/layouts/main'
 import PlausibleAnalytics from '@lib/plausibleAnalytics'
-import { useState } from 'react'
-import { getCookie, setCookie } from 'cookies-next'
-import { GetServerSidePropsContext } from 'next'
+import { useLocalStorage } from '@mantine/hooks'
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps, router } = props
 
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme)
-  const toggleColorScheme = (value?: ColorScheme) => {
-    const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark')
-    setColorScheme(nextColorScheme)
-    setCookie('mantine-color-scheme', nextColorScheme, {
-      maxAge: 60 * 60 * 24 * 30
-    })
-  }
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: 'mantine-color-scheme',
+    defaultValue: 'light',
+    getInitialValueInEffect: true
+  })
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
 
   return (
     <>
@@ -49,7 +46,3 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
     </>
   )
 }
-
-App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
-  colorScheme: getCookie('mantine-color-scheme', ctx) || 'light'
-})
