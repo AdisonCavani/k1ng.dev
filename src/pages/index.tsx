@@ -71,7 +71,7 @@ const Home: NextPage = () => {
             />
             <ProjectCard
               title="adison.me"
-              desc="This website is a personal website I built to showcase my projects and experience."
+              desc="This website is a personal website I built to showcase my projects and experience"
               lang="TypeScript"
               color="blue"
               githubUrl="https://github.com/AdisonCavani/adisoncavani.github.io"
