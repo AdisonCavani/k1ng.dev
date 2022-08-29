@@ -12,7 +12,7 @@ import type { NextPage } from 'next'
 import ProjectCard from '@components/projectCard'
 import TechStack from '@components/techStack'
 
-import DistroGrubThemesImage from '@public/distro-grub-themes.png'
+import DistroGrubThemesImage from '@public/images/distro-grub-themes.png'
 
 const Home: NextPage = () => {
   return (
