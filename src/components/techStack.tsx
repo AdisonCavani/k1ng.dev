@@ -3,7 +3,7 @@ import {
   TechStackSoftwareSchema,
   TechStackToolsSchema,
   TechStackWebSchema
-} from '@lib/techStackSchema'
+} from '@data/techStackSchema'
 import { createStyles, SimpleGrid, Tabs } from '@mantine/core'
 import {
   IconCloudComputing,

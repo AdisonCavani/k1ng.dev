@@ -1,5 +1,5 @@
 import Navbar from '@components/navbar'
-import NavigationSchema from '@lib/navigationSchema'
+import NavigationSchema from '@data/navigationSchema'
 import { Container } from '@mantine/core'
 import { Router } from 'next/router'
 import { ReactNode } from 'react'

@@ -12,7 +12,7 @@ import type { NextPage } from 'next'
 import ProjectCard from '@components/projectCard'
 import TechStack from '@components/techStack'
 import { PageSEO } from '@components/seo'
-import SiteMetadata from '@lib/siteMetadata'
+import SiteMetadata from '@data/siteMetadata'
 
 import DistroGrubThemesImage from '@images/distro-grub-themes.webp'
 
