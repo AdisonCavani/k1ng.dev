@@ -5,7 +5,8 @@ import {
   Text,
   SimpleGrid,
   Stack,
-  Divider
+  Divider,
+  Center
 } from '@mantine/core'
 import type { NextPage } from 'next'
 import ProjectCard from '@components/projectCard'
@@ -24,11 +25,15 @@ const Home: NextPage = () => {
           mauris.
         </Text>
         <PersonalTimeline />
-        <Title align="center">My projects</Title>
-        <Divider mx={300} size="sm" />
-        <Text align="center" size="lg" weight={500} color="dimmed">
-          A list of my personal projects.
-        </Text>
+        <Center>
+          <Stack>
+            <Title align="center">My projects</Title>
+            <Divider size="sm" />
+            <Text align="center" size="lg" weight={500} color="dimmed">
+              A list of my personal projects.
+            </Text>
+          </Stack>
+        </Center>
         <SimpleGrid
           spacing="md"
           cols={3}
@@ -57,11 +62,15 @@ const Home: NextPage = () => {
             img={DistroGrubThemesImage.src}
           />
         </SimpleGrid>
-        <Title align="center">Technologies</Title>
-        <Divider mx={300} size="sm" />
-        <Text align="center" size="lg" weight={500} color="dimmed">
-          A list of technologies I&apos;m familiar with.
-        </Text>
+        <Center>
+          <Stack>
+            <Title align="center">Technologies</Title>
+            <Divider size="sm" />
+            <Text align="center" size="lg" weight={500} color="dimmed">
+              A list of technologies I&apos;m familiar with.
+            </Text>
+          </Stack>
+        </Center>
         <TechStack />
       </Stack>
     </Container>
