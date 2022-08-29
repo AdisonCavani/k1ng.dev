@@ -3,11 +3,12 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: '/analytics',
-        destination: 'https://analytics.adison.me/adison.me'
+        destination: 'https://analytics.adison.me/adison.me',
+        permanent: true
       }
     ]
   }
