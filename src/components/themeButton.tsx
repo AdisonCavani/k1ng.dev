@@ -6,6 +6,7 @@ export function ThemeButton() {
 
   return (
     <ActionIcon
+      aria-label="Toggle theme"
       variant="transparent"
       onClick={() => toggleColorScheme()}
       size="lg"

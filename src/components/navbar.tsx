@@ -205,6 +205,7 @@ const Navbar = ({ links, path }: NavbarProps) => {
               <Menu shadow="md" width={200} offset={10}>
                 <Menu.Target>
                   <ActionIcon
+                    aria-label="Toggle menu"
                     size="lg"
                     sx={theme => ({
                       backgroundColor:

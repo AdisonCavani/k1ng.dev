@@ -17,7 +17,7 @@ const Logo = () => {
             padding: 10
           }}
         >
-          <ActionIcon mr="sm" color="blue" variant="transparent">
+          <ActionIcon mr="sm" color="blue" variant="transparent" component="a">
             <IconCode />
           </ActionIcon>
           <Text weight="bold">Adison Cavani</Text>
