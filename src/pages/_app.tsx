@@ -7,6 +7,7 @@ import {
 } from '@mantine/core'
 import { useColorScheme, useLocalStorage } from '@mantine/hooks'
 import MainLayout from '@components/layouts/main'
+import PlausibleAnalytics from '@lib/plausibleAnalytics'
 
 export default function App(props: AppProps) {
   const { Component, pageProps, router } = props
@@ -30,12 +31,9 @@ export default function App(props: AppProps) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
-        <script
-          defer
-          data-domain="adison.me"
-          src="https://analytics.adison.me/js/plausible.js"
-        ></script>
       </Head>
+
+      <PlausibleAnalytics />
 
       <ColorSchemeProvider
         colorScheme={colorScheme}
