@@ -11,10 +11,10 @@ import {
 import type { NextPage } from 'next'
 import ProjectCard from '@components/projectCard'
 import TechStack from '@components/techStack'
-
-import DistroGrubThemesImage from '@images/distro-grub-themes.png'
 import { PageSEO } from '@components/seo'
 import SiteMetadata from '@lib/siteMetadata'
+
+import DistroGrubThemesImage from '@images/distro-grub-themes.webp'
 
 const Home: NextPage = () => {
   return (
