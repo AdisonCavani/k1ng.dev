@@ -1,3 +1,4 @@
+import { logEvent } from '@lib/plausibleAnalytics'
 import {
   Container,
   Group,
@@ -219,7 +220,10 @@ const Navbar = ({ links, path }: NavbarProps) => {
                 </Menu.Target>
                 <Menu.Dropdown>
                   <Menu.Item
-                    onClick={() => setOpened(o => !o)}
+                    onClick={() => {
+                      logEvent('Contact')
+                      setOpened(o => !o)
+                    }}
                     className={cx({
                       [classes.linkActive]: opened
                     })}
