@@ -189,7 +189,10 @@ const Navbar = ({ links, path }: NavbarProps) => {
             <Logo />
             <Group spacing={5} className={classes.links}>
               <UnstyledButton
-                onClick={() => setOpened(o => !o)}
+                onClick={() => {
+                  logEvent('Contact')
+                  setOpened(o => !o)
+                }}
                 className={cx(classes.link, {
                   [classes.linkActive]: opened
                 })}
