@@ -164,7 +164,7 @@ const Home: NextPage = () => {
               }
               lang="TypeScript"
               color="blue"
-              githubUrl="https://github.com/AdisonCavani/adisoncavani.github.io"
+              githubUrl="https://github.com/AdisonCavani/adison.me"
               externalUrl="https://adison.me"
               img={WebsiteDark}
             />
