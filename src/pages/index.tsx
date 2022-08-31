@@ -68,7 +68,7 @@ const Home: NextPage = () => {
       />
 
       <Container mb="xl">
-        <Stack spacing="lg">
+        <Stack spacing="xl">
           <div className={classes.container}>
             <div className={classes.text}>
               <Title mb=".25rem">Adison Cavani</Title>
