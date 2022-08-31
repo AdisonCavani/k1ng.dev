@@ -14,7 +14,7 @@ import { IconMenu2 } from '@tabler/icons'
 import { ReactNode, useState } from 'react'
 import ContactDialog from './contactDialog'
 import Logo from './logo'
-import { ThemeButton } from './themeButton'
+import ThemeButton from './themeButton'
 
 const HEADER_HEIGHT = 56
 

@@ -1,7 +1,7 @@
 import { useMantineColorScheme, ActionIcon } from '@mantine/core'
 import { IconSun, IconMoonStars } from '@tabler/icons'
 
-export function ThemeButton() {
+const ThemeButton = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
 
   return (
@@ -26,3 +26,5 @@ export function ThemeButton() {
     </ActionIcon>
   )
 }
+
+export default ThemeButton
