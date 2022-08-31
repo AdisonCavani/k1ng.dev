@@ -9,7 +9,8 @@ import {
   createStyles
 } from '@mantine/core'
 import { IconBrandGithub } from '@tabler/icons'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
+import { ReactNode } from 'react'
 
 const useStyles = createStyles(theme => ({
   root: {
@@ -31,10 +32,10 @@ const useStyles = createStyles(theme => ({
 
 type Props = {
   title: string
-  desc: string
+  desc: ReactNode
   lang: string
   color: DefaultMantineColor
-  img: string
+  img: StaticImageData
   githubUrl?: string
   externalUrl?: string
 }
@@ -53,7 +54,13 @@ const ProjectCard = ({
   return (
     <Card p="lg" radius="md" withBorder className={classes.root}>
       <Card.Section component="a" href={externalUrl} target="_blank">
-        <Image width={600} height={280} src={img} alt="Project image" />
+        <Image
+          width={640}
+          height={360}
+          src={img}
+          alt="Project image"
+          placeholder="blur"
+        />
       </Card.Section>
 
       <Group position="apart" mt="md" mb="xs">

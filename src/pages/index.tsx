@@ -18,6 +18,7 @@ import Image from 'next/image'
 
 import AvatarImage from '@images/avatar.webp'
 import DistroGrubThemesImage from '@images/distro-grub-themes.webp'
+import WebsiteDark from '@images/adison-me-dark.webp'
 
 const useStyles = createStyles(theme => ({
   container: {
@@ -115,27 +116,57 @@ const Home: NextPage = () => {
               desc="A pack of GRUB2 themes for different Linux distributions and OSs. It aims to replace the default GRUB look, with a nice and colorful theme."
               lang="CI & CD"
               color="violet"
-              img={DistroGrubThemesImage.src}
+              img={DistroGrubThemesImage}
               githubUrl="https://github.com/AdisonCavani/distro-grub-themes"
               externalUrl="https://github.com/AdisonCavani/distro-grub-themes"
             />
             <ProjectCard
               title="adison.me"
-              desc="This website is a personal website I built to showcase my projects and experience."
+              desc={
+                <Text>
+                  My personal website. Built with{' '}
+                  <Text
+                    variant="link"
+                    component="a"
+                    href="https://nextjs.org"
+                    target="_blank"
+                  >
+                    Next.js
+                  </Text>
+                  , deployed to{' '}
+                  <Text
+                    variant="link"
+                    component="a"
+                    href="https://vercel.com"
+                    target="_blank"
+                  >
+                    Vercel
+                  </Text>
+                  . Uses self-hosted{' '}
+                  <Text
+                    variant="link"
+                    component="a"
+                    href="https://adison.me/analytics"
+                    target="_blank"
+                  >
+                    plausible analytics
+                  </Text>{' '}
+                  on{' '}
+                  <Text
+                    variant="link"
+                    component="a"
+                    href="https://cloud.google.com/compute"
+                    target="_blank"
+                  >
+                    GCP Compute Engine
+                  </Text>
+                </Text>
+              }
               lang="TypeScript"
               color="blue"
               githubUrl="https://github.com/AdisonCavani/adisoncavani.github.io"
               externalUrl="https://adison.me"
-              img={DistroGrubThemesImage.src}
-            />
-            <ProjectCard
-              title="adison.me"
-              desc="This website is a personal website I built to showcase my projects and experience"
-              lang="TypeScript"
-              color="blue"
-              githubUrl="https://github.com/AdisonCavani/adisoncavani.github.io"
-              externalUrl="https://adison.me"
-              img={DistroGrubThemesImage.src}
+              img={WebsiteDark}
             />
           </SimpleGrid>
           <Center>
