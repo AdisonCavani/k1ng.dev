@@ -14,7 +14,7 @@ const securityHeaders = [
   },
   {
     key: 'Referrer-Policy',
-    value: 'orgin-when-cross-orgin'
+    value: 'origin-when-cross-origin'
   },
   {
     key: 'X-Frame-Options',
@@ -30,7 +30,7 @@ const securityHeaders = [
   },
   {
     key: 'Permissions-Policy',
-    value: "'none'"
+    value: "self 'none'"
   }
 ]
 
