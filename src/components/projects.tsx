@@ -18,9 +18,8 @@ const Projects = () => {
         spacing="md"
         cols={3}
         breakpoints={[
-          { maxWidth: 1920, cols: 3, spacing: 'md' },
-          { maxWidth: 1024, cols: 2, spacing: 'md' },
-          { maxWidth: 690, cols: 1, spacing: 'md' }
+          { maxWidth: 1024, cols: 2 },
+          { maxWidth: 690, cols: 1 }
         ]}
       >
         {ProjectSchema.map((value, index) => (
