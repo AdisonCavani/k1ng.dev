@@ -30,7 +30,7 @@ const useStyles = createStyles(theme => ({
   }
 }))
 
-type Props = {
+export type ProjectCardProps = {
   title: string
   desc: ReactNode
   lang: string
@@ -48,7 +48,7 @@ const ProjectCard = ({
   img,
   githubUrl,
   externalUrl
-}: Props) => {
+}: ProjectCardProps) => {
   const { classes } = useStyles()
 
   return (

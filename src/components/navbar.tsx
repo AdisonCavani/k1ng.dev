@@ -110,7 +110,7 @@ const Navbar = ({ links, path }: NavbarProps) => {
   const { classes, cx } = useStyles()
   const [opened, setOpened] = useState(false)
 
-  const items = links.map(function (link, index) {
+  const items = links.map((link, index) => {
     return (
       <div key={index}>
         {link.href.startsWith('/') ? (
@@ -144,7 +144,7 @@ const Navbar = ({ links, path }: NavbarProps) => {
     )
   })
 
-  const menuItems = links.map(function (link, index) {
+  const menuItems = links.map((link, index) => {
     return (
       <div key={index}>
         {link.href.startsWith('/') ? (

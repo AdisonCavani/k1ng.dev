@@ -109,9 +109,9 @@ const TechStack = () => {
             cols={2}
             breakpoints={[{ maxWidth: BREAKPOINT_VALUE, cols: 1 }]}
           >
-            {TechStackWebSchema.map((value, index) => {
-              return <TechIcon key={index} {...value} />
-            })}
+            {TechStackWebSchema.map((value, index) => (
+              <TechIcon key={index} {...value} />
+            ))}
           </SimpleGrid>
         </Tabs.Panel>
 
@@ -120,9 +120,9 @@ const TechStack = () => {
             cols={2}
             breakpoints={[{ maxWidth: BREAKPOINT_VALUE, cols: 1 }]}
           >
-            {TechStackSoftwareSchema.map((value, index) => {
-              return <TechIcon key={index} {...value} />
-            })}
+            {TechStackSoftwareSchema.map((value, index) => (
+              <TechIcon key={index} {...value} />
+            ))}
           </SimpleGrid>
         </Tabs.Panel>
 
@@ -131,9 +131,9 @@ const TechStack = () => {
             cols={2}
             breakpoints={[{ maxWidth: BREAKPOINT_VALUE, cols: 1 }]}
           >
-            {TechStackCloudSchema.map((value, index) => {
-              return <TechIcon key={index} {...value} />
-            })}
+            {TechStackCloudSchema.map((value, index) => (
+              <TechIcon key={index} {...value} />
+            ))}
           </SimpleGrid>
         </Tabs.Panel>
 
@@ -142,9 +142,9 @@ const TechStack = () => {
             cols={2}
             breakpoints={[{ maxWidth: BREAKPOINT_VALUE, cols: 1 }]}
           >
-            {TechStackToolsSchema.map((value, index) => {
-              return <TechIcon key={index} {...value} />
-            })}
+            {TechStackToolsSchema.map((value, index) => (
+              <TechIcon key={index} {...value} />
+            ))}
           </SimpleGrid>
         </Tabs.Panel>
       </StyledTabs>
