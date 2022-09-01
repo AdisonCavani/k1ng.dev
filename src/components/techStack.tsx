@@ -67,7 +67,7 @@ const TechStack = () => {
         <Stack>
           <Title align="center">Technologies</Title>
           <Divider size="sm" />
-          <Text align="center" size="lg" weight={500} color="dimmed">
+          <Text align="center" size="lg" weight={500} color="secondary">
             A list of technologies I&apos;m familiar with.
           </Text>
         </Stack>

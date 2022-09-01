@@ -63,7 +63,7 @@ const ErrorPage = ({ number, title, description }: ErrorPageProps) => {
       <div className={classes.label}>{number}</div>
       <Title className={classes.title}>{title}</Title>
       <Text
-        color="dimmed"
+        color="secondary"
         size="lg"
         align="center"
         className={classes.description}

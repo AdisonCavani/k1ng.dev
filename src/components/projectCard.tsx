@@ -69,7 +69,7 @@ const ProjectCard = ({
       </Group>
 
       <Stack spacing="md">
-        <Text size="sm" color="dimmed">
+        <Text size="sm" color="secondary">
           {desc}
         </Text>
 

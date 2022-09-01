@@ -10,7 +10,7 @@ const PersonalTimeline = () => {
   return (
     <Timeline active={2} bulletSize={24} lineWidth={2}>
       <Timeline.Item title="Birth" bullet={<IconCake size={14} />}>
-        <Text color="dimmed" size="sm">
+        <Text color="secondary" size="sm">
           Born in Cracow, Poland
         </Text>
         <Text size="xs" mt={4}>
@@ -22,7 +22,7 @@ const PersonalTimeline = () => {
         title="Technical college"
         bullet={<IconBackpack size={14} />}
       >
-        <Text color="dimmed" size="sm">
+        <Text color="secondary" size="sm">
           Started the IT spacialist qualification in the Technical School no. 25
           in Cracow, Poland
         </Text>
@@ -36,7 +36,7 @@ const PersonalTimeline = () => {
         lineVariant="dotted"
         bullet={<IconBuildingCommunity size={14} />}
       >
-        <Text color="dimmed" size="sm">
+        <Text color="secondary" size="sm">
           Developed open-source{' '}
           <Text
             inherit
@@ -54,7 +54,7 @@ const PersonalTimeline = () => {
       </Timeline.Item>
 
       <Timeline.Item title="Graduated" bullet={<IconSchool size={14} />}>
-        <Text color="dimmed" size="sm">
+        <Text color="secondary" size="sm">
           Graduated with INF.02 & INF.03 IT qualifications
         </Text>
         <Text size="xs" mt={4}>

@@ -32,7 +32,23 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
-        theme={{ colorScheme }}
+        theme={{
+          colorScheme,
+          colors: {
+            secondary: [
+              '#616161',
+              '#616161',
+              '#616161',
+              '#616161',
+              '#616161',
+              '#616161',
+              '#616161',
+              '#616161',
+              '#616161',
+              '#616161'
+            ]
+          }
+        }}
       >
         <MainLayout router={router}>
           <Component {...pageProps} />

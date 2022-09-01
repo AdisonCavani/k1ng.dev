@@ -10,7 +10,7 @@ const Projects = () => {
         <Stack>
           <Title align="center">My projects</Title>
           <Divider size="sm" />
-          <Text align="center" size="lg" weight={500} color="dimmed">
+          <Text align="center" size="lg" weight={500} color="secondary">
             A list of my personal projects.
           </Text>
         </Stack>

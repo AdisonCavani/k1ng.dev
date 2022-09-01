@@ -82,8 +82,7 @@ const TechIcon = ({
           <Text weight="bold" size="md">
             {title}
           </Text>
-          {/* TODO: change dimmed color to darker  */}
-          <Text size="sm" color="dimmed">
+          <Text size="sm" color="secondary">
             {description}
           </Text>
         </Stack>
