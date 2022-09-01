@@ -1,15 +1,32 @@
+import crypto from 'crypto'
 import { createGetInitialProps } from '@mantine/next'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 const getInitialProps = createGetInitialProps()
+const cspHashOf = (text: string) => {
+  const hash = crypto.createHash('sha256')
+  hash.update(text)
+  return `'sha256-${hash.digest('base64')}'`
+}
 
 export default class _Document extends Document {
   static getInitialProps = getInitialProps
 
   render() {
+    let csp = `default-src 'self'; script-src 'self' ${cspHashOf(
+      NextScript.getInlineScriptSource(this.props)
+    )}`
+
+    if (process.env.NODE_ENV !== 'production') {
+      csp = `style-src 'self' 'unsafe-inline'; font-src 'self' data:; default-src 'self'; script-src 'unsafe-eval' 'self' ${cspHashOf(
+        NextScript.getInlineScriptSource(this.props)
+      )}`
+    }
+
     return (
       <Html lang="en">
         <Head>
+          <meta httpEquiv="Content-Security-Policy" content={csp} />
           <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/static/favicons/site.webmanifest" rel="manifest" />
           <link
