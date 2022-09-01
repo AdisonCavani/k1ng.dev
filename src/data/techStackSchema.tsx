@@ -223,7 +223,7 @@ const TechStackToolsSchema: TechIconProps[] = [
   },
   {
     title: 'Kubernetes',
-    description: 'Containers/pods management',
+    description: 'Pods management',
     href: 'https://kubernetes.io',
     image: K8sLogo,
     background: '#326ce5'
