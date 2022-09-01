@@ -13,20 +13,31 @@ export default class _Document extends Document {
   static getInitialProps = getInitialProps
 
   render() {
-    let csp = `default-src 'self'; script-src 'self' ${cspHashOf(
+    let csp = `
+    default-src 'self';
+    script-src 'self' ${cspHashOf(
       NextScript.getInlineScriptSource(this.props)
-    )}`
+    )} analytics.adison.me vitals.vercel-insights.com;
+    connect-src: 'self' analytics.adison.me vitals.vercel-insights.com;`
 
     if (process.env.NODE_ENV !== 'production') {
-      csp = `style-src 'self' 'unsafe-inline'; font-src 'self' data:; default-src 'self'; script-src 'unsafe-eval' 'self' ${cspHashOf(
+      csp = `
+      style-src 'self' 'unsafe-inline';
+      font-src 'self' data:;
+      default-src 'self';
+      script-src 'unsafe-eval' 'self' ${cspHashOf(
         NextScript.getInlineScriptSource(this.props)
-      )}`
+      )};
+      img-src * 'self' data: https:;`
     }
 
     return (
       <Html lang="en">
         <Head>
-          <meta httpEquiv="Content-Security-Policy" content={csp} />
+          <meta
+            httpEquiv="Content-Security-Policy"
+            content={csp.replace(/\s{2,}/g, ' ').trim()}
+          />
           <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/static/favicons/site.webmanifest" rel="manifest" />
           <link
