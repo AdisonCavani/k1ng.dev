@@ -21,7 +21,6 @@ export default class _Document extends Document {
     connect-src 'self' analytics.adison.me vitals.vercel-insights.com;
     img-src * 'self' data: https:;
     style-src 'unsafe-inline';
-    object-src 'none';
     `
 
     return (
