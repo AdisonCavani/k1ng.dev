@@ -20,17 +20,6 @@ export default class _Document extends Document {
     )} analytics.adison.me vitals.vercel-insights.com;
     connect-src: 'self' analytics.adison.me vitals.vercel-insights.com;`
 
-    if (process.env.NODE_ENV !== 'production') {
-      csp = `
-      style-src 'self' 'unsafe-inline';
-      font-src 'self' data:;
-      default-src 'self';
-      script-src 'unsafe-eval' 'self' ${cspHashOf(
-        NextScript.getInlineScriptSource(this.props)
-      )};
-      img-src * 'self' data: https:;`
-    }
-
     return (
       <Html lang="en">
         <Head>
