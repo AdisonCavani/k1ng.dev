@@ -18,7 +18,7 @@ export default class _Document extends Document {
     script-src 'self' ${cspHashOf(
       NextScript.getInlineScriptSource(this.props)
     )} analytics.adison.me vitals.vercel-insights.com;
-    connect-src: 'self' analytics.adison.me vitals.vercel-insights.com;`
+    connect-src 'self' analytics.adison.me vitals.vercel-insights.com;`
 
     return (
       <Html lang="en">
