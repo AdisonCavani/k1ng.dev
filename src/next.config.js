@@ -13,12 +13,24 @@ const securityHeaders = [
     value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
   },
   {
+    key: 'Referrer-Policy',
+    value: 'orgin-when-cross-orgin'
+  },
+  {
     key: 'X-Frame-Options',
-    value: 'SAMEORIGIN'
+    value: 'DENY'
   },
   {
     key: 'X-Content-Type-Options',
     value: 'nosniff'
+  },
+  {
+    key: 'X-DNS-Prefetch-Control',
+    value: 'on'
+  },
+  {
+    key: 'Permissions-Policy',
+    value: "'none'"
   }
 ]
 
