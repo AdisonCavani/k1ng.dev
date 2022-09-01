@@ -19,6 +19,7 @@ export default class _Document extends Document {
       NextScript.getInlineScriptSource(this.props)
     )} analytics.adison.me vitals.vercel-insights.com;
     connect-src 'self' analytics.adison.me vitals.vercel-insights.com;
+    img-src * 'self' data: https:;
     style-src 'unsafe-inline';
     `
 
