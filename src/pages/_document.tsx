@@ -15,12 +15,13 @@ export default class _Document extends Document {
   render() {
     let csp = `
     default-src 'self';
-    script-src 'self' ${cspHashOf(
+    script-src 'strict-dynamic' 'unsafe-inline' ${cspHashOf(
       NextScript.getInlineScriptSource(this.props)
     )} analytics.adison.me vitals.vercel-insights.com;
     connect-src 'self' analytics.adison.me vitals.vercel-insights.com;
     img-src * 'self' data: https:;
     style-src 'unsafe-inline';
+    object-src 'none';
     `
 
     return (
