@@ -22,6 +22,7 @@ export default class _Document extends Document {
     img-src * 'self' data: https:;
     style-src 'unsafe-inline';
     object-src 'none';
+    require-trusted-types-for 'script';
     `
 
     return (
