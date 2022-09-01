@@ -30,7 +30,7 @@ const securityHeaders = [
   },
   {
     key: 'Permissions-Policy',
-    value: "self 'none'"
+    value: ''
   }
 ]
 
