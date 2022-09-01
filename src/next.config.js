@@ -1,7 +1,7 @@
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' analytics.adison.me;
-  connect-src 'self' analytics.adison.me;
+  script-src 'self' 'unsafe-eval' analytics.adison.me vitals.vercel-insights.com;
+  connect-src 'self' analytics.adison.me vitals.vercel-insights.com;
   style-src 'unsafe-inline';
   font-src 'self';  
   img-src * 'self' data: https:;
@@ -14,7 +14,7 @@ const securityHeaders = [
   },
   {
     key: 'Referrer-Policy',
-    value: 'origin-when-cross-origin'
+    value: 'strict-origin-when-cross-origin'
   },
   {
     key: 'X-Frame-Options',
