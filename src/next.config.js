@@ -1,10 +1,5 @@
 const ContentSecurityPolicy = `
-  default-src 'self';
-  script-src 'self' 'unsafe-eval' analytics.adison.me vitals.vercel-insights.com;
-  connect-src 'self' analytics.adison.me vitals.vercel-insights.com;
-  style-src 'unsafe-inline';
-  font-src 'self';
-  img-src * 'self' data: https:;
+  frame-ancestors 'none';
 `
 
 const securityHeaders = [
