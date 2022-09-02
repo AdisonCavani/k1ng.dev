@@ -2,6 +2,9 @@ name: Lighthouse CI
 on:
   push:
     branches: [ master ]
+    paths: [ src/** ]
+  pull_request:
+    paths: [ src/** ]
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
@@ -10,7 +13,6 @@ jobs:
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v9
         with:
-          urls: |
-            https://adison.me/
+          urls: 'https://adison.me/'
           uploadArtifacts: true # Save results as an action artifacts
           temporaryPublicStorage: true # Upload lighthouse report to the temporary storage
