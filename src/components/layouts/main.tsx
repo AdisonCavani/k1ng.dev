@@ -1,6 +1,5 @@
 import Navbar from '@components/navbar'
 import NavigationSchema from '@data/navigationSchema'
-import { Container } from '@mantine/core'
 import { Router } from 'next/router'
 import { ReactNode } from 'react'
 
@@ -13,7 +12,7 @@ const MainLayout = ({ children, router }: Props) => {
   return (
     <>
       <Navbar links={NavigationSchema} path={router.asPath} />
-      <Container style={{ marginTop: 72 }}>{children}</Container>
+      <div style={{ marginTop: 72 }}>{children}</div>
     </>
   )
 }

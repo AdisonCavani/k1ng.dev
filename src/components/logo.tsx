@@ -14,7 +14,8 @@ const Logo = () => {
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            padding: 10
+            padding: 10,
+            paddingLeft: 0
           }}
         >
           <ActionIcon
