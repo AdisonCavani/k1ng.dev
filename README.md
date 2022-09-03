@@ -7,7 +7,20 @@
 - **Analytics**: [Plausible Analytics](https://plausible.io) - self-hosted
 
 ### Website hosting
-This website is using Next.js SSG
+This website is using Next.js SSG (static site generation) deployed to [Vercel](https://vercel.com).  
+You can check it on https://adison.me/analytics
+
+### DNS - Cloudflare
+DNS records are managed with [Cloudflare](https://www.cloudflare.com).  
+It provides DDoS protection, CDN, caching, proxing with load balancing and much more...
+
+### Analytics - self-hosting
+
+[Plausible Analytics](https://plausible.io) is self-hosted on [Google Cloud Provider](https://cloud.google.com) - [Compute Engine](https://cloud.google.com/compute) e2-micro instance.  
+
+It has assigned subdomain - [analytics.adison.me](https://analytics.adison.me).  
+[Cerbot](https://certbot.eff.org) is used for SSL certificate management.
+
 
 ## Development
 Project files are located in ``src`` directory:
