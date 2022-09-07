@@ -9,6 +9,8 @@ import MainLayout from '@components/layouts/main'
 import PlausibleAnalytics from '@lib/plausibleAnalytics'
 import { useLocalStorage } from '@mantine/hooks'
 
+import '@styles/globals.css'
+
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps, router } = props
 
