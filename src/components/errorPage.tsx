@@ -1,53 +1,4 @@
-import {
-  Button,
-  Container,
-  Group,
-  Title,
-  Text,
-  createStyles
-} from '@mantine/core'
 import Link from 'next/link'
-
-const useStyles = createStyles(theme => ({
-  root: {
-    paddingTop: 80,
-    paddingBottom: 80
-  },
-
-  label: {
-    textAlign: 'center',
-    fontWeight: 900,
-    fontSize: 220,
-    lineHeight: 1,
-    marginBottom: theme.spacing.xl * 1.5,
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[4]
-        : theme.colors.gray[2],
-
-    [theme.fn.smallerThan('sm')]: {
-      fontSize: 120
-    }
-  },
-
-  title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    textAlign: 'center',
-    fontWeight: 900,
-    fontSize: 38,
-
-    [theme.fn.smallerThan('sm')]: {
-      fontSize: 32
-    }
-  },
-
-  description: {
-    maxWidth: 500,
-    margin: 'auto',
-    marginTop: theme.spacing.xl,
-    marginBottom: theme.spacing.xl * 1.5
-  }
-}))
 
 export type ErrorPageProps = {
   number: number
@@ -56,28 +7,23 @@ export type ErrorPageProps = {
 }
 
 const ErrorPage = ({ number, title, description }: ErrorPageProps) => {
-  const { classes } = useStyles()
-
   return (
-    <Container className={classes.root}>
-      <div className={classes.label}>{number}</div>
-      <Title className={classes.title}>{title}</Title>
-      <Text
-        color="secondary"
-        size="lg"
-        align="center"
-        className={classes.description}
-      >
+    <div className="py-10">
+      <div className="font-black text-9xl text-center mb-10 text-neutral-200">
+        {number}
+      </div>
+      <h1 className="text-center font-black text-4xl">{title}</h1>
+      <p className="text-center m-auto max-w-lg my-8 text-lg text-gray-600">
         {description}
-      </Text>
-      <Group position="center">
+      </p>
+      <div className="flex justify-center">
         <Link href="/" passHref>
-          <Button variant="subtle" size="md">
+          <button className="font-semibold text-blue-500 hover:bg-blue-100 px-4 py-3 rounded">
             Take me back to home page
-          </Button>
+          </button>
         </Link>
-      </Group>
-    </Container>
+      </div>
+    </div>
   )
 }
 

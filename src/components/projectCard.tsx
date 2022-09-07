@@ -1,40 +1,12 @@
-import {
-  Card,
-  Group,
-  Text,
-  Badge,
-  DefaultMantineColor,
-  Button,
-  Stack,
-  createStyles
-} from '@mantine/core'
 import { IconBrandGithub } from '@tabler/icons'
 import Image, { StaticImageData } from 'next/image'
 import { ReactNode } from 'react'
-
-const useStyles = createStyles(theme => ({
-  root: {
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor:
-      theme.colorScheme === 'dark'
-        ? theme.colors.gray[8]
-        : theme.colors.gray[3],
-    transition: 'all 0.25s',
-    transitionTimingFunction: 'spring(1 100 10 10)',
-    '&:hover': {
-      transform: 'translateY(-4px)',
-      boxShadow:
-        '0 10px 15px -3px rgba(0, 0, 0, 0.1),0 4px 6px -2px rgba(0, 0, 0, 0.05)'
-    }
-  }
-}))
 
 export type ProjectCardProps = {
   title: string
   desc: ReactNode
   lang: string
-  color: DefaultMantineColor
+  color: string
   img: StaticImageData
   githubUrl?: string
   externalUrl?: string
@@ -49,44 +21,47 @@ const ProjectCard = ({
   githubUrl,
   externalUrl
 }: ProjectCardProps) => {
-  const { classes } = useStyles()
-
   return (
-    <Card p="lg" radius="md" withBorder className={classes.root}>
-      <Card.Section component="a" href={externalUrl} target="_blank">
-        <Image
-          width={640}
-          height={360}
-          src={img}
-          alt="Project image"
-          placeholder="blur"
-        />
-      </Card.Section>
-
-      <Group position="apart" mt="md" mb="xs">
-        <Text weight={500}>{title}</Text>
-        <Badge color={color}>{lang}</Badge>
-      </Group>
-
-      <Stack spacing="md">
-        <Text size="sm" color="secondary">
-          {desc}
-        </Text>
-
-        <Button
-          leftIcon={<IconBrandGithub size={20} />}
-          variant="light"
-          color="blue"
-          fullWidth
-          radius="md"
-          component="a"
-          target="_blank"
-          href={githubUrl}
-        >
-          Github
-        </Button>
-      </Stack>
-    </Card>
+    <div className="rounded-lg border-2 overflow-hidden">
+      <div className="w-full cursor-pointer">
+        <a href={externalUrl} target="_blank" rel="noreferrer">
+          <Image
+            width={640}
+            height={360}
+            src={img}
+            alt="Project image"
+            placeholder="blur"
+          />
+        </a>
+      </div>
+      <div className="px-6 pb-5">
+        <div className="flex flex-row justify-between mt-4 mb-3">
+          <p className="font-medium">{title}</p>
+          <div>
+            <span
+              className={`bg-${color}-100 text-${color}-500 font-bold px-2.5 py-0.5 rounded-xl uppercase`}
+              style={{ fontSize: 11 }}
+            >
+              {lang}
+            </span>
+          </div>
+        </div>
+        <div className="flex flex-col">
+          <p className="text-sm text-neutral-600">{desc}</p>
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full font-semibold text-sm text-blue-500 hover:bg-blue-100 rounded-md py-2"
+          >
+            <div className="flex gap-2 justify-center">
+              <IconBrandGithub size={20} />
+              Github
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
   )
 }
 

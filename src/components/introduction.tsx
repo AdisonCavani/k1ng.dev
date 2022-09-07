@@ -1,61 +1,22 @@
-import { createStyles, Title, Text } from '@mantine/core'
 import Image from 'next/image'
 import AvatarImage from '@images/avatar.webp'
 
-const useStyles = createStyles(theme => ({
-  container: {
-    display: 'flex',
-    flexDirection: 'column-reverse',
-    alignItems: 'flex-start',
-
-    maxWidth: '42rem',
-
-    '@media (min-width: 640px)': {
-      flexDirection: 'row'
-    }
-  },
-
-  text: {
-    display: 'flex',
-    flexDirection: 'column',
-    paddingRight: '2rem'
-  },
-
-  image: {
-    position: 'relative',
-    marginBottom: '2rem',
-    marginRight: 'auto',
-    width: 80,
-
-    borderWidth: 2,
-    borderRadius: '50%',
-    borderStyle: 'solid',
-    borderColor:
-      theme.colorScheme === 'dark' ? theme.colors.gray[6] : 'transparent',
-
-    '@media (min-width: 640px)': {
-      width: 176,
-      marginBottom: 0
-    }
-  }
-}))
-
 const Introduction = () => {
-  const { classes } = useStyles()
-
   return (
-    <div className={classes.container}>
-      <div className={classes.text}>
-        <Title mb=".25rem">Adison Cavani</Title>
-        <Text mb="1rem">
-          Full-stack Developer, <strong>student</strong>
-        </Text>
-        <Text>
+    <div className="flex flex-col-reverse items-start max-w-2xl sm:flex-row">
+      <div className="flex flex-col pr-8">
+        <h1 className="font-bold text-4xl tracking-tight mb-2">
+          Adison Cavani
+        </h1>
+        <h2 className="mb-4">
+          Full-stack Developer, <span className="font-semibold">student</span>
+        </h2>
+        <p className="mb-4">
           .NET Backend Developer. Currently learning web development - cloud,
           serverless and React w/ Next.js.
-        </Text>
+        </p>
       </div>
-      <div className={classes.image}>
+      <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
         <Image
           src={AvatarImage}
           alt="Adison Cavani"
