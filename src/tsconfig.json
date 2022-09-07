@@ -21,7 +21,8 @@
       "@lib/*": ["lib/*"],
       "@pages/*": ["pages/*"],
       "@public/*": ["public/*"],
-      "@images/*": ["public/static/images/*"]
+      "@images/*": ["public/static/images/*"],
+      "@styles/*": ["styles/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
