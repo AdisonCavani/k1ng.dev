@@ -1,19 +1,19 @@
-import { Center, SimpleGrid, Stack, Text, Title, Divider } from '@mantine/core'
+import { SimpleGrid } from '@mantine/core'
 import ProjectCard from './projectCard'
 import ProjectSchema from '@data/projectSchema'
 
 const Projects = () => {
   return (
     <>
-      <Center>
-        <Stack>
-          <Title align="center">My projects</Title>
-          <Divider size="sm" />
-          <Text align="center" size="lg" weight={500} color="secondary">
+      <div className="flex justify-center">
+        <div className="flex flex-col gap-4">
+          <h2 className="text-center font-bold text-4xl">My projects</h2>
+          <div className="border border-neutral-300"></div>
+          <p className="text-center font-medium text-lg text-neutral-600">
             A list of my personal projects.
-          </Text>
-        </Stack>
-      </Center>
+          </p>
+        </div>
+      </div>
       <SimpleGrid
         spacing="md"
         cols={3}

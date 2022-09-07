@@ -4,16 +4,7 @@ import {
   TechStackToolsSchema,
   TechStackWebSchema
 } from '@data/techStackSchema'
-import {
-  Center,
-  createStyles,
-  Divider,
-  SimpleGrid,
-  Stack,
-  Tabs,
-  Title,
-  Text
-} from '@mantine/core'
+import { createStyles, SimpleGrid, Tabs } from '@mantine/core'
 import {
   IconCloudComputing,
   IconBrandChrome,
@@ -63,15 +54,15 @@ const TechStack = () => {
 
   return (
     <>
-      <Center>
-        <Stack>
-          <Title align="center">Technologies</Title>
-          <Divider size="sm" />
-          <Text align="center" size="lg" weight={500} color="secondary">
+      <div className="flex justify-center">
+        <div className="flex flex-col gap-4">
+          <h2 className="text-center font-bold text-4xl">Technologies</h2>
+          <div className="border border-neutral-300"></div>
+          <p className="text-center font-medium text-lg text-neutral-600">
             A list of technologies I&apos;m familiar with.
-          </Text>
-        </Stack>
-      </Center>
+          </p>
+        </div>
+      </div>
       <StyledTabs defaultValue="web" unstyled>
         <Tabs.List>
           <Tabs.Tab
