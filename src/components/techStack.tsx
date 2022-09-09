@@ -4,7 +4,6 @@ import {
   TechStackToolsSchema,
   TechStackWebSchema
 } from '@data/techStackSchema'
-import { createStyles, SimpleGrid, Tabs } from '@mantine/core'
 import { Tab } from '@headlessui/react'
 import {
   IconCloudComputing,
@@ -12,47 +11,9 @@ import {
   IconDevices,
   IconTools
 } from '@tabler/icons'
-import StyledTabs from './styledTabs'
 import TechIcon from './techIcon'
 
-const BREAKPOINT_VALUE = 620
-
-const useStyles = createStyles(theme => ({
-  web: {
-    '&[data-active]': {
-      backgroundColor: theme.colors.red[1],
-      color: '#822727'
-    }
-  },
-  software: {
-    '&[data-active]': {
-      backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.colors.gray[0]
-          : theme.colors.dark[9],
-      color:
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[9]
-          : theme.colors.gray[0]
-    }
-  },
-  cloud: {
-    '&[data-active]': {
-      backgroundColor: theme.colors.blue[1],
-      color: theme.colors.blue[8]
-    }
-  },
-  tools: {
-    '&[data-active]': {
-      backgroundColor: theme.colors.green[1],
-      color: theme.colors.teal[9]
-    }
-  }
-}))
-
 const TechStack = () => {
-  const { classes } = useStyles()
-
   return (
     <>
       <div className="flex justify-center">
