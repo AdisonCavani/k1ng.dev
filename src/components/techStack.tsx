@@ -5,6 +5,7 @@ import {
   TechStackWebSchema
 } from '@data/techStackSchema'
 import { createStyles, SimpleGrid, Tabs } from '@mantine/core'
+import { Tab } from '@headlessui/react'
 import {
   IconCloudComputing,
   IconBrandChrome,
@@ -63,82 +64,64 @@ const TechStack = () => {
           </p>
         </div>
       </div>
-      <StyledTabs defaultValue="web" unstyled>
-        <Tabs.List>
-          <Tabs.Tab
-            value="web"
-            className={classes.web}
-            icon={<IconBrandChrome size={18} />}
-          >
-            Web
-          </Tabs.Tab>
-          <Tabs.Tab
-            value="software"
-            className={classes.software}
-            icon={<IconDevices size={18} />}
-          >
-            Software
-          </Tabs.Tab>
-          <Tabs.Tab
-            value="cloud"
-            className={classes.cloud}
-            icon={<IconCloudComputing size={18} />}
-          >
-            Cloud
-          </Tabs.Tab>
-          <Tabs.Tab
-            value="tools"
-            className={classes.tools}
-            icon={<IconTools size={18} />}
-          >
-            Tools
-          </Tabs.Tab>
-        </Tabs.List>
-
-        <Tabs.Panel value="web" pt="xs">
-          <SimpleGrid
-            cols={2}
-            breakpoints={[{ maxWidth: BREAKPOINT_VALUE, cols: 1 }]}
-          >
-            {TechStackWebSchema.map((value, index) => (
-              <TechIcon key={index} {...value} />
-            ))}
-          </SimpleGrid>
-        </Tabs.Panel>
-
-        <Tabs.Panel value="software" pt="xs">
-          <SimpleGrid
-            cols={2}
-            breakpoints={[{ maxWidth: BREAKPOINT_VALUE, cols: 1 }]}
-          >
-            {TechStackSoftwareSchema.map((value, index) => (
-              <TechIcon key={index} {...value} />
-            ))}
-          </SimpleGrid>
-        </Tabs.Panel>
-
-        <Tabs.Panel value="cloud" pt="xs">
-          <SimpleGrid
-            cols={2}
-            breakpoints={[{ maxWidth: BREAKPOINT_VALUE, cols: 1 }]}
-          >
-            {TechStackCloudSchema.map((value, index) => (
-              <TechIcon key={index} {...value} />
-            ))}
-          </SimpleGrid>
-        </Tabs.Panel>
-
-        <Tabs.Panel value="tools" pt="xs">
-          <SimpleGrid
-            cols={2}
-            breakpoints={[{ maxWidth: BREAKPOINT_VALUE, cols: 1 }]}
-          >
-            {TechStackToolsSchema.map((value, index) => (
-              <TechIcon key={index} {...value} />
-            ))}
-          </SimpleGrid>
-        </Tabs.Panel>
-      </StyledTabs>
+      <Tab.Group>
+        <Tab.List className="flex flex-wrap mb-3 justify-center gap-2">
+          <Tab className="rounded-3xl px-4 py-2 bg-neutral-200 ui-selected:bg-red-100">
+            <div className="flex items-center flex-row text-sm font-bold text-neutral-500 ui-selected:text-red-800">
+              <IconBrandChrome size={18} className="mr-2" />
+              <p>Web</p>
+            </div>
+          </Tab>
+          <Tab className="rounded-3xl px-4 py-2 bg-neutral-200 ui-selected:bg-black">
+            <div className="flex items-center flex-row text-sm font-bold text-neutral-500 ui-selected:text-white">
+              <IconDevices size={18} className="mr-2" />
+              <p>Software</p>
+            </div>
+          </Tab>
+          <Tab className="rounded-3xl px-4 py-2 bg-neutral-200 ui-selected:bg-blue-100">
+            <div className="flex items-center flex-row text-sm font-bold text-neutral-500 ui-selected:text-blue-500">
+              <IconCloudComputing size={18} className="mr-2" />
+              <p>Cloud</p>
+            </div>
+          </Tab>
+          <Tab className="rounded-3xl px-4 py-2 bg-neutral-200 ui-selected:bg-green-100">
+            <div className="flex items-center flex-row text-sm font-bold text-neutral-500 ui-selected:text-green-700">
+              <IconTools size={18} className="mr-2" />
+              <p>Tools</p>
+            </div>
+          </Tab>
+        </Tab.List>
+        <Tab.Panels>
+          <Tab.Panel>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {TechStackWebSchema.map((value, index) => (
+                <TechIcon key={index} {...value} />
+              ))}
+            </div>
+          </Tab.Panel>
+          <Tab.Panel>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {TechStackSoftwareSchema.map((value, index) => (
+                <TechIcon key={index} {...value} />
+              ))}
+            </div>
+          </Tab.Panel>
+          <Tab.Panel>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {TechStackCloudSchema.map((value, index) => (
+                <TechIcon key={index} {...value} />
+              ))}
+            </div>
+          </Tab.Panel>
+          <Tab.Panel>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {TechStackToolsSchema.map((value, index) => (
+                <TechIcon key={index} {...value} />
+              ))}
+            </div>
+          </Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
     </>
   )
 }
