@@ -22,7 +22,7 @@ const ProjectCard = ({
   externalUrl
 }: ProjectCardProps) => {
   return (
-    <div className="rounded-lg border-2 overflow-hidden">
+    <div className="rounded-lg border-2 overflow-hidden transition-all duration-200 ease-[spring(1 100 10 10)] hover:-translate-y-1 hover:shadow-lg">
       <div className="w-full cursor-pointer">
         <a href={externalUrl} target="_blank" rel="noreferrer">
           <Image
