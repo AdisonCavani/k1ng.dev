@@ -1,51 +1,47 @@
 import { ProjectCardProps } from '@components/projectCard'
-import { Text } from '@mantine/core'
 import DistroGrubThemesImage from '@images/distro-grub-themes.webp'
 import WebsiteDark from '@images/adison-me-dark.webp'
 import RsaWpfImage from '@images/rsa-wpf.webp'
+import Link from '@ui/text/link'
 
 const ProjectSchema: ProjectCardProps[] = [
   {
     title: 'adison.me',
     desc: (
-      <Text>
+      <p>
         My personal website. Built with{' '}
-        <Text
-          variant="link"
-          component="a"
-          href="https://nextjs.org"
-          target="_blank"
-        >
-          Next.js
-        </Text>
+        <Link>
+          <a href="https://nextjs.org" target="_blank" rel="noreferrer">
+            Next.js
+          </a>
+        </Link>
         , deployed to{' '}
-        <Text
-          variant="link"
-          component="a"
-          href="https://vercel.com"
-          target="_blank"
-        >
-          Vercel
-        </Text>
+        <Link>
+          <a href="https://vercel.com" target="_blank" rel="noreferrer">
+            Vercel
+          </a>
+        </Link>
         . Uses self-hosted{' '}
-        <Text
-          variant="link"
-          component="a"
-          href="https://adison.me/analytics"
-          target="_blank"
-        >
-          plausible analytics
-        </Text>{' '}
+        <Link>
+          <a
+            href="https://adison.me/analytics"
+            target="_blank"
+            rel="noreferrer"
+          >
+            plausible analytics
+          </a>
+        </Link>{' '}
         on{' '}
-        <Text
-          variant="link"
-          component="a"
-          href="https://cloud.google.com/compute"
-          target="_blank"
-        >
-          GCP Compute Engine
-        </Text>
-      </Text>
+        <Link>
+          <a
+            href="https://cloud.google.com/compute"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GCP Compute Engine
+          </a>
+        </Link>
+      </p>
     ),
 
     lang: 'TypeScript',

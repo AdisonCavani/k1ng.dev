@@ -3,9 +3,9 @@ import AvatarImage from '@images/avatar.webp'
 
 const Introduction = () => {
   return (
-    <div className="flex flex-col-reverse items-start max-w-2xl sm:flex-row">
+    <div className="flex max-w-2xl flex-col-reverse items-start sm:flex-row">
       <div className="flex flex-col pr-8">
-        <h1 className="font-bold text-4xl tracking-tight mb-2">
+        <h1 className="mb-2 text-4xl font-bold tracking-tight">
           Adison Cavani
         </h1>
         <h2 className="mb-4">
@@ -16,7 +16,7 @@ const Introduction = () => {
           serverless and React w/ Next.js.
         </p>
       </div>
-      <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
+      <div className="relative mb-8 mr-auto w-[80px] rounded-full border-2 dark:border-neutral-500 sm:mb-0 sm:w-[176px]">
         <Image
           src={AvatarImage}
           alt="Adison Cavani"
