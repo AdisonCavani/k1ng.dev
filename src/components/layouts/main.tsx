@@ -12,7 +12,7 @@ const MainLayout = ({ children, router }: Props) => {
   return (
     <>
       <Navbar links={NavigationSchema} path={router.asPath} />
-      <div style={{ marginTop: 72 }}>{children}</div>
+      <div className="mt-[72px]">{children}</div>
     </>
   )
 }

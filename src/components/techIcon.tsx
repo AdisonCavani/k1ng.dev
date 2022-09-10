@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { ReactNode } from 'react'
 
 export type TechIconProps = {
   title: string
@@ -6,6 +7,20 @@ export type TechIconProps = {
   href: string
   image: string
   background: string
+}
+
+export type TechIconPropsArr = {
+  [key: string]: TechIconProps[]
+}
+
+export type TechStackColorSchemaProps = {
+  background: string
+  color: string
+  icon: ReactNode
+}
+
+export type TechStackColorSchemaPropsArr = {
+  [key: string]: TechStackColorSchemaProps
 }
 
 const TechIcon = ({
@@ -20,25 +35,27 @@ const TechIcon = ({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="border rounded-lg border-neutral-300 p-4 border-opacity-75 transition-all duration-200 ease-[spring(1 100 10 10)] hover:-translate-y-1 hover:shadow-lg"
+      className="ease-[spring(1 100 10 10)] rounded-lg border border-neutral-200 bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-[#25262b] dark:bg-[#212226]"
     >
       <div className="flex flex-row gap-4">
         <div className="relative overflow-hidden p-2">
           <div
             style={{ backgroundColor: background }}
-            className="absolute w-[52px] h-[52px] opacity-20 rounded-md inset-0"
+            className="absolute inset-0 h-[52px] w-[52px] rounded-md opacity-20"
           ></div>
           <Image
             src={image}
             alt={`${title} logo`}
             width={36}
             height={36}
-            className="w-9 h-9 rounded-md"
+            className="h-9 w-9 rounded-md"
           />
         </div>
         <div className="flex flex-col">
           <p className="font-bold">{title}</p>
-          <p className="text-[14px] text-neutral-600">{description}</p>
+          <p className="text-[14px] text-neutral-600 dark:text-neutral-500">
+            {description}
+          </p>
         </div>
       </div>
     </a>

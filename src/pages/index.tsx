@@ -1,5 +1,5 @@
 import PersonalTimeline from '@components/personalTimeline'
-import { Container, Stack } from '@mantine/core'
+import { Stack } from '@mantine/core'
 import type { NextPage } from 'next'
 import TechStack from '@components/techStack'
 import { PageSEO } from '@components/seo'
@@ -15,14 +15,14 @@ const Home: NextPage = () => {
         description={SiteMetadata.description}
       />
 
-      <Container mb="xl">
-        <Stack spacing="xl">
+      <div className="mx-auto mb-6 max-w-4xl px-4">
+        <div className="flex flex-col gap-6">
           <Introduction />
-          <PersonalTimeline />
+          {/* <PersonalTimeline /> */}
           <Projects />
           <TechStack />
-        </Stack>
-      </Container>
+        </div>
+      </div>
     </>
   )
 }
