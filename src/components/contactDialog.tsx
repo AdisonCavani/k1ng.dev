@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ActionIcon, Group, Stack, Text } from '@mantine/core'
 import { IconMail, IconMapPin } from '@tabler/icons'
 
