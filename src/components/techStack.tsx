@@ -1,11 +1,5 @@
 import { TechStackSchema, TechStackColorSchema } from '@data/techStackSchema'
 import { Tab } from '@headlessui/react'
-import {
-  IconCloudComputing,
-  IconBrandChrome,
-  IconDevices,
-  IconTools
-} from '@tabler/icons'
 import Divider from '@ui/text/divider'
 import SecondaryText from '@ui/text/secondary'
 import TechIcon from './techIcon'
