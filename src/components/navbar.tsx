@@ -1,89 +1,9 @@
-import { logEvent } from '@lib/plausibleAnalytics'
 import { IconMenu2 } from '@tabler/icons'
-import { ReactNode, useState } from 'react'
-import ContactDialog from './contactDialog'
+import { Fragment, ReactNode } from 'react'
+import NextLink from 'next/link'
 import Logo from './logo'
 import ThemeButton from './themeButton'
-import { Menu } from '@headlessui/react'
-
-const HEADER_HEIGHT = 56
-
-// const useStyles = createStyles(theme => ({
-//   header: {
-//     position: 'fixed',
-//     backdropFilter: 'blur(10px)',
-//     boxShadow: 'sm',
-//     backgroundColor:
-//       theme.colorScheme === 'dark'
-//         ? `${theme.colors.dark[7]}80`
-//         : 'rgba(255, 255, 255, .5)'
-//   },
-//   links: {
-//     [theme.fn.smallerThan('sm')]: {
-//       display: 'none'
-//     }
-//   },
-
-//   menu: {
-//     [theme.fn.largerThan('sm')]: {
-//       display: 'none'
-//     }
-//   },
-//   linkExternal: {
-//     '&:hover': {
-//       textDecoration: 'underline',
-//       textUnderlineOffset: 3
-//     }
-//   },
-//   item: {
-//     '&, &:hover': {
-//       backgroundColor: theme.fn.variant({
-//         variant: 'light',
-//         color: theme.primaryColor
-//       }).background,
-//       color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
-//         .color
-//     }
-//   },
-//   link: {
-//     display: 'block',
-//     cursor: 'pointer',
-//     lineHeight: 1,
-//     padding: '8px 12px',
-//     borderRadius: theme.radius.sm,
-
-//     '&:hover': {
-//       backgroundColor:
-//         theme.colorScheme === 'dark'
-//           ? theme.colors.dark[6]
-//           : theme.colors.gray[0]
-//     },
-
-//     [theme.fn.smallerThan('sm')]: {
-//       borderRadius: 0,
-//       padding: theme.spacing.md
-//     },
-
-//     textDecoration: 'none',
-//     color:
-//       theme.colorScheme === 'dark'
-//         ? theme.colors.dark[0]
-//         : theme.colors.gray[7],
-//     fontSize: theme.fontSizes.sm,
-//     fontWeight: 500
-//   },
-
-//   linkActive: {
-//     '&, &:hover': {
-//       backgroundColor: theme.fn.variant({
-//         variant: 'light',
-//         color: theme.primaryColor
-//       }).background,
-//       color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
-//         .color
-//     }
-//   }
-// }))
+import { Menu, Transition } from '@headlessui/react'
 
 type NavbarProps = {
   links: LinkProps[]
@@ -97,17 +17,15 @@ export type LinkProps = {
 }
 
 const Navbar = ({ links, path }: NavbarProps) => {
-  /*const items = links.map((link, index) => {
+  const items = links.map((link, index) => {
     return (
-      <div key={index}>
+      <Fragment key={index}>
         {link.href.startsWith('/') ? (
           <NextLink
             href={link.href}
-            className={cx(classes.link, {
-              [classes.linkActive]: path === link.href
-            })}
+            className="cursor-pointer rounded px-3 py-2 text-sm font-medium leading-none text-neutral-600 hover:bg-neutral-600/5"
           >
-            <div className="flex flex-row gap-2">
+            <div className="flex flex-row items-center gap-2">
               {link.icon && <>{link.icon}</>}
               {link.label}
             </div>
@@ -117,145 +35,80 @@ const Navbar = ({ links, path }: NavbarProps) => {
             href={link.href}
             target="_blank"
             rel="noreferrer"
-            className={cx(classes.link, classes.linkExternal, {
-              [classes.linkActive]: path === link.href
-            })}
+            className="cursor-pointer rounded px-3 py-2 text-sm font-medium leading-none text-neutral-600 hover:bg-neutral-600/5 dark:text-neutral-300 dark:hover:bg-neutral-200/5"
           >
-            <div className="flex flex-row gap-2">
+            <div className="flex flex-row items-center gap-2">
               {link.icon && <>{link.icon}</>}
               {link.label}
             </div>
           </a>
         )}
-      </div>
+      </Fragment>
     )
   })
 
   const menuItems = links.map((link, index) => {
     return (
-      <div key={index}>
+      <Fragment key={index}>
         {link.href.startsWith('/') ? (
           <Menu.Item
-            component={NextLink}
+            as={NextLink}
             href={link.href}
-            icon={link.icon}
-            className={cx({
-              [classes.item]: path === link.href
-            })}
+            className="group flex w-full items-center gap-2 rounded-md py-2 px-3 text-sm hover:bg-neutral-100 dark:hover:bg-[#383a40]"
           >
+            {link.icon}
             {link.label}
           </Menu.Item>
         ) : (
           <Menu.Item
-            component="a"
+            as="a"
             href={link.href}
             target="_blank"
-            rel="noreferrer"
-            icon={link.icon}
-            className={classes.linkExternal}
+            className="group flex w-full items-center gap-2 rounded-md py-2 px-3 text-sm hover:bg-neutral-100 dark:hover:bg-[#383a40]"
           >
+            {link.icon}
             {link.label}
           </Menu.Item>
         )}
-      </div>
+      </Fragment>
     )
-  })*/
-
-  const links2 = [
-    { href: '/account-settings', label: 'Account settings' },
-    { href: '/support', label: 'Support' },
-    { href: '/license', label: 'License' },
-    { href: '/sign-out', label: 'Sign out' }
-  ]
+  })
 
   return (
-    <>
-      {/* dark:border-neutral-700 */}
-      {/* dark:bg-black */}
-      <header className="fixed top-0 left-0 right-0 z-50 h-[56px] border-b border-neutral-200 bg-[#fff]/25 shadow-sm backdrop-blur dark:border-[#2c2e33] dark:bg-[#1a1b1e]/50">
-        <nav className="mx-auto flex h-[56px] max-w-4xl items-center justify-between px-4">
-          <div className="flex flex-row gap-4">
-            <Logo />
-            <div className="sm:hidden">
-              {/* <button
-                onClick={() => {
-                  logEvent('Contact')
-                }}
-                className={cx(classes.link, {
-                  [classes.linkActive]: opened
-                })}
-              >
-                Contact
-              </button>
-              {items} */}
-            </div>
+    <header className="fixed top-0 left-0 right-0 z-50 h-[56px] border-b border-neutral-200 bg-[#fff]/60 shadow-sm backdrop-blur dark:border-[#2c2e33] dark:bg-[#1a1b1e]/50">
+      <nav className="mx-auto flex h-[56px] max-w-4xl items-center justify-between px-4">
+        <div className="flex flex-row items-center gap-6">
+          <Logo />
+          <div className="flex flex-row gap-4 [@media(max-width:768px)]:hidden">
+            {items}
           </div>
+        </div>
 
-          <div className="flex flex-row gap-2">
-            <ThemeButton />
-            <div className="sm:hidden">
-              {/* <Menu shadow="md" width={200} offset={10}>
-                <Menu.Target>
-                  <ActionIcon
-                    aria-label="Toggle menu"
-                    size="lg"
-                    sx={theme => ({
-                      backgroundColor:
-                        theme.colorScheme === 'dark'
-                          ? theme.colors.dark[6]
-                          : theme.colors.gray[0]
-                    })}
-                  >
-                    <IconMenu2 size={18} />
-                  </ActionIcon>
-                </Menu.Target>
-                <Menu.Dropdown>
-                  <Menu.Item
-                    onClick={() => {
-                      logEvent('Contact')
-                      setOpened(o => !o)
-                    }}
-                    className={cx({
-                      [classes.linkActive]: opened
-                    })}
-                  >
-                    Contact
-                  </Menu.Item>
-                  {menuItems}
-                </Menu.Dropdown>
-              </Menu> */}
-              <Menu>
-                <Menu.Button className="rounded-md bg-neutral-200 p-2 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
-                  <IconMenu2 size={18} />
-                </Menu.Button>
-                <Menu.Items>
-                  {links2.map(link => (
-                    <Menu.Item
-                      as="a"
-                      key={link.href}
-                      href={link.href}
-                      className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
-                    >
-                      {link.label}
-                    </Menu.Item>
-                  ))}
+        <div className="flex flex-row gap-2">
+          <ThemeButton />
+          <div className="md:hidden">
+            <Menu>
+              <Menu.Button className="rounded-md bg-neutral-200 p-2 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
+                <IconMenu2 size={18} />
+              </Menu.Button>
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute right-0 mt-[11px] mr-[1px] w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-[#212226]">
+                  <div className="px-1 py-1">{menuItems}</div>
                 </Menu.Items>
-              </Menu>
-            </div>
+              </Transition>
+            </Menu>
           </div>
-        </nav>
-      </header>
-      {/* <Dialog
-        opened={opened}
-        withCloseButton
-        onClose={() => setOpened(false)}
-        size={280}
-        radius="md"
-        shadow="xl"
-      >
-        <ContactDialog />
-      </Dialog> */}
-    </>
+        </div>
+      </nav>
+    </header>
   )
 }
 
