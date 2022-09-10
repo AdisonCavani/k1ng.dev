@@ -1,5 +1,3 @@
-import PersonalTimeline from '@components/personalTimeline'
-import { Stack } from '@mantine/core'
 import type { NextPage } from 'next'
 import TechStack from '@components/techStack'
 import { PageSEO } from '@components/seo'
@@ -18,7 +16,6 @@ const Home: NextPage = () => {
       <div className="mx-auto mb-6 max-w-4xl px-4">
         <div className="flex flex-col gap-6">
           <Introduction />
-          {/* <PersonalTimeline /> */}
           <Projects />
           <TechStack />
         </div>
