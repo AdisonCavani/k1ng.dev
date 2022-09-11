@@ -1,8 +1,8 @@
 ## Architecture
+- **CSS**: [Tailwind CSS](https://tailwindcss.com)
 - **Language**: [TypeScript](https://www.typescriptlang.org)
 - **Library**: [React.js](https://reactjs.org)
 - **Framework**: [Next.js](https://nextjs.org)
-- **UI Library**: [Mantine](https://mantine.dev)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Analytics**: [Plausible Analytics](https://plausible.io) - self-hosted
 
