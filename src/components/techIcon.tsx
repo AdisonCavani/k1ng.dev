@@ -1,3 +1,4 @@
+import SecondaryText from '@ui/text/secondary'
 import Image from 'next/future/image'
 import { ReactNode } from 'react'
 
@@ -53,9 +54,7 @@ const TechIcon = ({
         </div>
         <div className="flex flex-col">
           <p className="font-bold">{title}</p>
-          <p className="text-[14px] text-neutral-600 dark:text-neutral-500">
-            {description}
-          </p>
+          <SecondaryText className="text-sm">{description}</SecondaryText>
         </div>
       </div>
     </a>

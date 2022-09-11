@@ -7,7 +7,7 @@ type Props = {
 
 const SecondaryText = ({ children, className }: Props) => {
   return (
-    <div className={`text-neutral-600 dark:text-neutral-500 ${className}`}>
+    <div className={`text-neutral-600 dark:text-neutral-400/80 ${className}`}>
       {children}
     </div>
   )
