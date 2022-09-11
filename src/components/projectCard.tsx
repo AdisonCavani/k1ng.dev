@@ -14,10 +14,10 @@ export type ProjectCardProps = {
 }
 
 const Colors = {
-  blue: 'bg-blue-100 text-blue-500 dark:bg-[#1971c2]/20 dark:text-blue-300',
+  blue: 'bg-[#dbeafe] text-[#3766c0] dark:bg-[#1971c2]/20 dark:text-blue-300',
   violet:
-    'bg-violet-100 text-violet-500 dark:bg-[#6741d9]/20 dark:text-violet-300',
-  green: 'bg-violet-100 text-green-500 dark:bg-[#2f9e44]/20 dark:text-green-200'
+    'bg-[#ede9fe] text-[#8b5cf6] dark:bg-[#6741d9]/20 dark:text-violet-300',
+  green: 'bg-[#dcfce7] text-[#22c55e] dark:bg-[#2f9e44]/20 dark:text-green-200'
 }
 
 const ProjectCard = ({
@@ -61,7 +61,7 @@ const ProjectCard = ({
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-4 w-full self-end rounded-md bg-blue-100 py-2 text-sm font-semibold text-blue-500 dark:bg-[#1970c2]/20 dark:text-[#a5d8ff]"
+            className="mt-4 w-full self-end rounded-md bg-[#dbeafe] text-[#3766c0] py-2 text-sm font-semibold dark:bg-[#1970c2]/20 dark:text-[#a5d8ff]"
           >
             <div className="flex justify-center gap-2">
               <IconBrandGithub size={20} />
