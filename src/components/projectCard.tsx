@@ -16,7 +16,7 @@ export type ProjectCardProps = {
 const Colors = {
   blue: 'bg-blue-100 text-[#3766c0] dark:bg-[#1971c2]/20 dark:text-blue-300',
   violet:
-    'bg-violet-100 text-[#8b5cf6] dark:bg-[#6741d9]/20 dark:text-violet-300',
+    'bg-violet-100 text-[#6F49C4] dark:bg-[#6741d9]/20 dark:text-violet-300',
   green: 'bg-green-100 text-[#157A3A] dark:bg-[#2f9e44]/20 dark:text-green-200'
 }
 
