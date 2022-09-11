@@ -42,7 +42,7 @@ const ProjectCard = ({
             height={360}
             src={img}
             alt="Project image"
-            placeholder="blur"
+            placeholder={priority ? 'empty' : 'blur'}
             priority={priority}
           />
         </a>
