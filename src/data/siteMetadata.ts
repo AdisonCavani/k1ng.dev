@@ -1,4 +1,5 @@
 const SiteMetadata = {
+  author: 'Adison Cavani',
   title: 'Adison Cavani',
   description:
     'Full-stack Developer, student. Projects showcase and blog posts.',

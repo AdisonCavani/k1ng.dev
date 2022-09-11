@@ -1,7 +1,7 @@
 import { IconBrandGithub } from '@tabler/icons'
-import { LinkProps } from '@components/navbar'
+import { NavbarLinkProps } from '@components/navbar'
 
-const NavigationSchema: LinkProps[] = [
+const NavigationSchema: NavbarLinkProps[] = [
   {
     href: 'https://github.com/AdisonCavani/adisoncavani.github.io',
     label: 'Source',
