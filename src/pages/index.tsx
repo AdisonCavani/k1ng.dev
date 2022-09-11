@@ -8,10 +8,7 @@ import Projects from '@components/projects'
 const Home: NextPage = () => {
   return (
     <>
-      <PageSEO
-        title={SiteMetadata.title}
-        description={SiteMetadata.description}
-      />
+      <PageSEO title="Home" description={SiteMetadata.description} />
 
       <div className="mx-auto mb-6 max-w-4xl px-4">
         <div className="flex flex-col gap-6">

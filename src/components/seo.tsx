@@ -73,7 +73,7 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
   const twImageUrl = SiteMetadata.siteUrl + SiteMetadata.socialBanner
   return (
     <CommonSEO
-      title={title}
+      title={`${title} - ${SiteMetadata.title}`}
       description={description}
       ogType="website"
       ogImage={ogImageUrl}
