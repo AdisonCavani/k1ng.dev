@@ -34,7 +34,11 @@ const securityHeaders = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+
+  experimental: {
+    legacyBrowsers: false,
+    browsersListForSwc: true
+  },
 
   async redirects() {
     return [

@@ -1,6 +1,6 @@
 import { IconBrandGithub } from '@tabler/icons'
 import SecondaryText from '@ui/text/secondary'
-import Image, { StaticImageData } from 'next/image'
+import Image, { StaticImageData } from 'next/future/image'
 import { ReactNode } from 'react'
 
 export type ProjectCardProps = {
