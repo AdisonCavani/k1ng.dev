@@ -88,7 +88,10 @@ const Navbar = ({ links, path }: NavbarProps) => {
           <ThemeButton />
           <div className="md:hidden">
             <Menu>
-              <Menu.Button className="rounded-md bg-neutral-200 p-2 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
+              <Menu.Button
+                className="rounded-md bg-neutral-200 p-2 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
+                aria-label="Toggle menu"
+              >
                 <IconMenu2 size={18} />
               </Menu.Button>
               <Transition
