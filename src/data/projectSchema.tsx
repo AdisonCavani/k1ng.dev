@@ -56,7 +56,8 @@ const ProjectSchema = () => {
       color: 'blue',
       githubUrl: 'https://github.com/AdisonCavani/adison.me',
       externalUrl: 'https://adison.me',
-      img: resolvedTheme === 'light' ? WebsiteImage : WebsiteImageDark
+      img: resolvedTheme === 'light' ? WebsiteImage : WebsiteImageDark,
+      priority: true
     },
     {
       title: 'distro-grub-themes',

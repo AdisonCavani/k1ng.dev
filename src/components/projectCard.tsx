@@ -9,6 +9,7 @@ export type ProjectCardProps = {
   lang: string
   color: 'blue' | 'violet' | 'green'
   img: StaticImageData
+  priority?: boolean
   githubUrl?: string
   externalUrl?: string
 }
@@ -26,6 +27,7 @@ const ProjectCard = ({
   lang,
   color,
   img,
+  priority,
   githubUrl,
   externalUrl
 }: ProjectCardProps) => {
@@ -41,6 +43,7 @@ const ProjectCard = ({
             src={img}
             alt="Project image"
             placeholder="blur"
+            priority={priority}
           />
         </a>
       </div>
