@@ -12,7 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.0",
     "@headlessui/tailwindcss": "^0.1.1",
-    "@tabler/icons": "^1.95.0",
+    "@tabler/icons": "^1.95.1",
     "next": "12.3.0",
     "next-themes": "^0.2.1",
     "prettier": "^2.7.1",
