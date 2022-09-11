@@ -249,22 +249,22 @@ const TechStackColorSchema: TechStackColorSchemaPropsArr = {
   Web: {
     background: 'ui-selected:bg-red-100 dark:ui-selected:bg-red-100',
     color: 'ui-selected:text-red-800 dark:ui-selected:text-red-800',
-    icon: <IconBrandChrome size={18} className="mr-2" />
+    icon: <IconBrandChrome size={18} />
   },
   Software: {
     background: 'ui-selected:bg-black dark:ui-selected:bg-white',
     color: 'ui-selected:text-white dark:ui-selected:text-black',
-    icon: <IconDevices size={18} className="mr-2" />
+    icon: <IconDevices size={18} />
   },
   Cloud: {
     background: 'ui-selected:bg-blue-100 dark:ui-selected:bg-blue-100',
     color: 'ui-selected:text-blue-500 dark:ui-selected:text-blue-500',
-    icon: <IconCloudComputing size={18} className="mr-2" />
+    icon: <IconCloudComputing size={18} />
   },
   Tools: {
     background: 'ui-selected:bg-green-100 dark:ui-selected:bg-green-100',
     color: 'ui-selected:text-green-700 dark:ui-selected:text-green-700',
-    icon: <IconTools size={18} className="mr-2" />
+    icon: <IconTools size={18} />
   }
 }
 

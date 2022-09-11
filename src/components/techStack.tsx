@@ -21,9 +21,11 @@ const TechStack = () => {
           {Object.keys(TechStackSchema).map((value, index) => (
             <Tab
               key={index}
-              className="rounded-3xl bg-neutral-200 px-4 py-2 ui-selected:bg-black dark:bg-zinc-800 dark:ui-selected:bg-white"
+              className={`focus:outline-none rounded-3xl bg-neutral-200 px-4 py-2 dark:bg-zinc-800 ${TechStackColorSchema[value].background}`}
             >
-              <div className="flex flex-row items-center gap-2 text-sm font-bold text-neutral-500 ui-selected:text-white dark:text-neutral-200 dark:ui-selected:text-black">
+              <div
+                className={`flex flex-row items-center gap-2 text-sm font-bold text-neutral-500 dark:text-neutral-200 ${TechStackColorSchema[value].color}`}
+              >
                 {TechStackColorSchema[value].icon}
                 <p>{value}</p>
               </div>
