@@ -6,11 +6,11 @@ import ThemeButton from './themeButton'
 import { Menu, Transition } from '@headlessui/react'
 
 type NavbarProps = {
-  links: LinkProps[]
+  links: NavbarLinkProps[]
   path: string
 }
 
-export type LinkProps = {
+export type NavbarLinkProps = {
   href: string
   label: string
   icon?: ReactNode
