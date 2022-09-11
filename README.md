@@ -1,3 +1,6 @@
+# Archived
+This is archived branch. It's not maintained anymore. Switch to ``master`` branch for latest code.
+
 ## Architecture
 - **Language**: [TypeScript](https://www.typescriptlang.org)
 - **Library**: [React.js](https://reactjs.org)
