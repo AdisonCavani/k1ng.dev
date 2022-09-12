@@ -1,6 +1,4 @@
 {
-  "name": "adisoncavani",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -23,7 +21,7 @@
     "@types/node": "18.7.16",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
-    "autoprefixer": "^10.4.8",
+    "autoprefixer": "^10.4.9",
     "eslint": "8.23.0",
     "eslint-config-next": "^12.3.0",
     "postcss": "^8.4.16",
