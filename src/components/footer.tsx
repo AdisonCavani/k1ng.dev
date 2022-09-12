@@ -47,8 +47,4 @@ const Footer = ({ links }: FooterProps) => {
   )
 }
 
-{
-  /* <div className="h-4 w-px bg-slate-500/20" /> */
-}
-
 export default Footer
