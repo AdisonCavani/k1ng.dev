@@ -1,9 +1,10 @@
 import Divider from '@ui/text/divider'
 import SecondaryText from '@ui/text/secondary'
 import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
 
 const TechStackList = dynamic(() => import('./techStackList'), {
-  loading: () => <p>Loading...</p>
+  suspense: true
 })
 
 const TechStack = () => {
@@ -18,7 +19,9 @@ const TechStack = () => {
           </SecondaryText>
         </div>
       </div>
-      <TechStackList />
+      <Suspense fallback={null}>
+        <TechStackList />
+      </Suspense>
     </>
   )
 }

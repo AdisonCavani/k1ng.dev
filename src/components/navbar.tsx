@@ -17,7 +17,7 @@ export type NavbarLinkProps = {
 }
 
 const MobileMenu = dynamic(() => import('./mobileMenu'), {
-  loading: () => <p>Loading...</p>
+  suspense: true
 })
 
 const Navbar = ({ links, path }: NavbarProps) => {
@@ -64,7 +64,7 @@ const Navbar = ({ links, path }: NavbarProps) => {
         <div className="flex flex-row gap-2">
           <ThemeButton />
           <div className="md:hidden">
-            <Suspense>
+            <Suspense fallback={null}>
               <MobileMenu links={links} />
             </Suspense>
           </div>
