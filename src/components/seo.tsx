@@ -129,7 +129,7 @@ export const BlogSEO = ({
   return (
     <>
       <CommonSEO
-        title={title}
+        title={`${title} - ${SiteMetadata.title}`}
         description={description}
         ogType="article"
         ogImage={ogImageUrl}
