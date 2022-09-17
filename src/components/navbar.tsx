@@ -25,6 +25,8 @@ function classNames(...classes: string[]) {
 }
 
 const Navbar = ({ links, path }: NavbarProps) => {
+  const classes =
+    'cursor-pointer rounded px-3 py-2 text-sm font-medium leading-none text-neutral-600 hover:bg-neutral-600/5 dark:text-neutral-300 dark:hover:bg-neutral-200/5'
   const items = links.map((link, index) => {
     return (
       <Fragment key={index}>
@@ -32,8 +34,10 @@ const Navbar = ({ links, path }: NavbarProps) => {
           <NextLink href={link.href}>
             <div
               className={classNames(
-                'flex flex-row items-center gap-2 cursor-pointer rounded px-3 py-2 text-sm font-medium leading-none text-neutral-600 hover:bg-neutral-600/5',
-                path === link.href ? 'bg-blue-100 text-blue-600/80' : ''
+                classes,
+                path === link.href
+                  ? 'bg-blue-100 text-blue-600/80 hover:bg-blue-200/75 dark:bg-[#1971c2]/20 dark:text-[#a5d8ff] dark:hover:bg-[#1971c2]/30'
+                  : ''
               )}
             >
               {link.icon && <>{link.icon}</>}
@@ -45,7 +49,7 @@ const Navbar = ({ links, path }: NavbarProps) => {
             href={link.href}
             target="_blank"
             rel="noreferrer"
-            className="cursor-pointer rounded px-3 py-2 text-sm font-medium leading-none text-neutral-600 hover:bg-neutral-600/5 dark:text-neutral-300 dark:hover:bg-neutral-200/5"
+            className={classes}
           >
             <div className="flex flex-row items-center gap-2">
               {link.icon && <>{link.icon}</>}
@@ -71,7 +75,7 @@ const Navbar = ({ links, path }: NavbarProps) => {
           <ThemeButton />
           <div className="md:hidden">
             <Suspense fallback={null}>
-              <MobileMenu links={links} />
+              <MobileMenu links={links} path={path} />
             </Suspense>
           </div>
         </div>
