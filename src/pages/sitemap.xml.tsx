@@ -20,7 +20,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const allPosts = await SanityClient.fetch(postSlugsQuery)
   const allPages = [
     ...allPosts.map((slug: string) => `blog/${slug}`),
-    ...['/', 'blog']
+    ...['', 'blog']
   ]
 
   res.setHeader('Content-Type', 'text/xml')
