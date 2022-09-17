@@ -1,6 +1,6 @@
 import SiteMetadata from '@data/siteMetadata'
+import { postSlugsQuery } from '@lib/queries'
 import { SanityClient } from '@lib/sanityServer'
-import { postSlugsQuery } from 'lib/queries'
 import { GetServerSideProps } from 'next'
 
 const createSitemap = (slugs: any[]) => `<?xml version="1.0" encoding="UTF-8"?>
