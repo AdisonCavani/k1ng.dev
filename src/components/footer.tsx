@@ -13,7 +13,7 @@ export type FooterLinkProps = {
 
 const Footer = ({ links }: FooterProps) => {
   return (
-    <footer className="mx-auto mt-32 w-full max-w-container px-4 sm:px-6 lg:px-8">
+    <footer className="mx-auto mt-14 w-full max-w-container px-4 sm:px-6 lg:px-8">
       <div className="border-t border-slate-900/5 dark:border-slate-200/10 py-10">
         <p className="text-center text-sm leading-6 text-slate-600 dark:text-neutral-400">
           © {new Date().getFullYear()} {SiteMetadata.author}. All rights

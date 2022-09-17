@@ -20,16 +20,22 @@ const MobileMenu = dynamic(() => import('./mobileMenu'), {
   suspense: true
 })
 
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+
 const Navbar = ({ links, path }: NavbarProps) => {
   const items = links.map((link, index) => {
     return (
       <Fragment key={index}>
         {link.href.startsWith('/') ? (
-          <NextLink
-            href={link.href}
-            className="cursor-pointer rounded px-3 py-2 text-sm font-medium leading-none text-neutral-600 hover:bg-neutral-600/5"
-          >
-            <div className="flex flex-row items-center gap-2">
+          <NextLink href={link.href}>
+            <div
+              className={classNames(
+                'flex flex-row items-center gap-2 cursor-pointer rounded px-3 py-2 text-sm font-medium leading-none text-neutral-600 hover:bg-neutral-600/5',
+                path === link.href ? 'bg-blue-100 text-blue-600/80' : ''
+              )}
+            >
               {link.icon && <>{link.icon}</>}
               {link.label}
             </div>

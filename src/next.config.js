@@ -40,6 +40,10 @@ const nextConfig = {
     browsersListForSwc: true
   },
 
+  images: {
+    domains: ['cdn.sanity.io']
+  },
+
   async redirects() {
     return [
       {

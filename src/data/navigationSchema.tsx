@@ -3,6 +3,10 @@ import { NavbarLinkProps } from '@components/navbar'
 
 const NavigationSchema: NavbarLinkProps[] = [
   {
+    href: '/blog',
+    label: 'Blog'
+  },
+  {
     href: 'https://github.com/AdisonCavani/adisoncavani.github.io',
     label: 'Source',
     icon: <IconBrandGithub size={16} />
