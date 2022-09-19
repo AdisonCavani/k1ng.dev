@@ -1,18 +1,18 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@headlessui/react': ^1.7.0
+  '@headlessui/react': ^1.7.2
   '@headlessui/tailwindcss': ^0.1.1
   '@next/bundle-analyzer': ^12.3.0
   '@portabletext/react': ^1.0.6
   '@sanity/image-url': ^1.0.1
-  '@tabler/icons': ^1.95.1
+  '@tabler/icons': ^1.96.0
   '@tailwindcss/typography': ^0.5.7
   '@types/mdx': ^2.0.2
   '@types/node': 18.7.16
   '@types/react': 18.0.18
   '@types/react-dom': 18.0.6
-  autoprefixer: ^10.4.9
+  autoprefixer: ^10.4.11
   cross-env: ^7.0.3
   eslint: 8.23.0
   eslint-config-next: ^12.3.0
