@@ -1,9 +1,13 @@
-import Footer from '@components/footer'
 import Navbar from '@components/navbar'
 import FooterSchema from '@data/footerSchema'
 import NavigationSchema from '@data/navigationSchema'
 import { Router } from 'next/router'
-import { ReactNode } from 'react'
+import { ReactNode, Suspense } from 'react'
+import dynamic from 'next/dynamic'
+
+const Footer = dynamic(() => import('@components/footer'), {
+  suspense: true
+})
 
 type Props = {
   children: ReactNode
@@ -15,7 +19,9 @@ const MainLayout = ({ children, router }: Props) => {
     <>
       <Navbar links={NavigationSchema} path={router.asPath} />
       <div className="mt-[72px]">{children}</div>
-      <Footer links={FooterSchema} />
+      <Suspense fallback={null}>
+        <Footer links={FooterSchema} />
+      </Suspense>
     </>
   )
 }

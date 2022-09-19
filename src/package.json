@@ -4,6 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint",
     "prettier": "prettier --write ."
   },
@@ -24,11 +25,13 @@
     "sharp": "^0.31.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^12.3.0",
     "@types/mdx": "^2.0.2",
     "@types/node": "18.7.16",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.9",
+    "cross-env": "^7.0.3",
     "eslint": "8.23.0",
     "eslint-config-next": "^12.3.0",
     "postcss": "^8.4.16",

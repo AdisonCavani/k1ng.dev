@@ -1,3 +1,5 @@
+const shouldAnalyzeBundles = process.env.ANALYZE === 'true'
+
 const ContentSecurityPolicy = `
   frame-ancestors 'none';
 `
@@ -32,7 +34,7 @@ const securityHeaders = [
 ]
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+let nextConfig = {
   reactStrictMode: true,
 
   experimental: {
@@ -62,6 +64,14 @@ const nextConfig = {
       }
     ]
   }
+}
+
+if (shouldAnalyzeBundles) {
+  const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    openAnalyzer: true,
+    enabled: true
+  })
+  nextConfig = withBundleAnalyzer(nextConfig)
 }
 
 module.exports = nextConfig

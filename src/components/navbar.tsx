@@ -5,6 +5,10 @@ import ThemeButton from './themeButton'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 
+const MobileMenu = dynamic(() => import('./mobileMenu'), {
+  suspense: true
+})
+
 type NavbarProps = {
   links: NavbarLinkProps[]
   path: string
@@ -15,10 +19,6 @@ export type NavbarLinkProps = {
   label: string
   icon?: ReactNode
 }
-
-const MobileMenu = dynamic(() => import('./mobileMenu'), {
-  suspense: true
-})
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
