@@ -38,7 +38,7 @@ const BlogLayout = ({ children, title, publishedAt, readingTime }: Props) => {
         </p>
       </div>
       <Suspense fallback={null}>
-        <div className="w-full mt-4 prose dark:prose-dark max-w-none">
+        <div className="w-full mt-4 prose dark:prose-invert max-w-none">
           {children}
         </div>
       </Suspense>
