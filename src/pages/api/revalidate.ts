@@ -9,7 +9,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const signature = req.headers[SIGNATURE_HEADER_NAME]
+  const signature = req.headers[SIGNATURE_HEADER_NAME] as string
   const body = await readBody(req) // Read the body into a string
   if (!isValidSignature(body, signature, secret)) {
     res.status(401).json({ success: false, message: 'Invalid signature' })
@@ -32,6 +32,13 @@ export default async function handler(
     return res.status(200).json({ message: `Updated ${slug}` })
   } catch (err: any) {
     return res.status(500).json({ message: err.message })
+  }
+}
+
+// Next.js will by default parse the body, which can lead to invalid signatures
+export const config = {
+  api: {
+    bodyParser: false
   }
 }
 
