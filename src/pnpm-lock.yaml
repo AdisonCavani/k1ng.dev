@@ -6,6 +6,7 @@ specifiers:
   '@next/bundle-analyzer': ^12.3.0
   '@portabletext/react': ^1.0.6
   '@sanity/image-url': ^1.0.1
+  '@sanity/webhook': ^2.0.0
   '@tabler/icons': ^1.96.0
   '@tailwindcss/typography': ^0.5.7
   '@types/mdx': ^2.0.2
@@ -36,6 +37,7 @@ dependencies:
   '@headlessui/tailwindcss': 0.1.1_tailwindcss@3.1.8
   '@portabletext/react': 1.0.6_react@18.2.0
   '@sanity/image-url': 1.0.1
+  '@sanity/webhook': 2.0.0
   '@tabler/icons': 1.96.0_biqbaboplfbrettd7655fr4n2y
   '@tailwindcss/typography': 0.5.7_tailwindcss@3.1.8
   fuse.js: 6.6.2
@@ -421,6 +423,14 @@ packages:
       - supports-color
     dev: false
 
+  /@sanity/webhook/2.0.0:
+    resolution: {integrity: sha512-KusHeWVy6yW3hcgVHbGx6qVv//bUj3CD9Nr0EOw086+mo/ESrUV21HjOCrNQ+AYqXvJ9H5qhqmMiuc8H5dXUGA==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      base64url: 3.0.1
+      tslib: 2.4.0
+    dev: false
+
   /@swc/helpers/0.4.11:
     resolution: {integrity: sha512-rEUrBSGIoSFuYxwBYtlUFMlE2CwGhmW+w9355/5oduSw8e5h2+Tj4UrAGNNgP9915++wj5vkQo0UuOBqOAq4nw==}
     dependencies:
@@ -759,6 +769,11 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    dev: false
+
+  /base64url/3.0.1:
+    resolution: {integrity: sha512-ir1UPr3dkwexU7FdV8qBBbNDRUhMmIekYMFZfi+C/sLNnRESKPl23nB9b2pltqfOQNnGzsDdId90AEtG5tCx4A==}
+    engines: {node: '>=6.0.0'}
     dev: false
 
   /binary-extensions/2.2.0:

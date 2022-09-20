@@ -1,6 +1,4 @@
-import { groq } from 'next-sanity'
-
-const postFields = groq`
+const postFields = `
   _id,
   title,
   description,
@@ -9,12 +7,12 @@ const postFields = groq`
   "slug": slug.current
 `
 
-export const indexQuery = groq`
+export const indexQuery = `
 *[_type == "post"] | order(publishedAt desc) {
   ${postFields}
 }`
 
-export const postQuery = groq`
+export const postQuery = `
 {
   "post": *[_type == "post" && slug.current == $slug] | order(publishedAt desc) [0] {
     content,
@@ -22,6 +20,6 @@ export const postQuery = groq`
   }
 }`
 
-export const postSlugsQuery = groq`
-*[_type == "post" && defined(slug.current)][].slug.current
-`
+export const postSlugsQuery = `*[_type == "post" && defined(slug.current)][].slug.current`
+
+export const postUpdatedQuery = `*[_type == "post" && _id == $id].slug.current`
