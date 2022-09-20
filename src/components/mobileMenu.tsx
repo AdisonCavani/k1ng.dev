@@ -26,7 +26,7 @@ const MobileMenu = ({ links, path }: Props) => {
               className={classNames(
                 classes,
                 path === link.href
-                  ? 'bg-blue-100 text-blue-600/80 hover:bg-blue-200/75 dark:bg-[#1971c2]/20 dark:text-[#a5d8ff] dark:hover:bg-[#1971c2]/30'
+                  ? 'bg-blue-100 text-blue-600 hover:bg-blue-200 dark:bg-blue-400/20 dark:text-blue-300 dark:hover:bg-blue-500/20'
                   : ''
               )}
             >
