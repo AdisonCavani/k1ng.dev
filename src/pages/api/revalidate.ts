@@ -9,15 +9,15 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const signature = req.headers[SIGNATURE_HEADER_NAME] as string
-  const body = await readBody(req)
-
+  const signature = req.headers[SIGNATURE_HEADER_NAME]
+  const body = await readBody(req) // Read the body into a string
   if (!isValidSignature(body, signature, secret)) {
-    res.status(401).json({ message: 'Invalid signature' })
+    res.status(401).json({ success: false, message: 'Invalid signature' })
     return
   }
 
-  const { _id: id } = JSON.parse(req.body)
+  const jsonBody = JSON.parse(body)
+  const { _id: id } = jsonBody
 
   if (typeof id !== 'string' || !id) {
     return res.status(400).json({ message: 'Invalid _id' })
