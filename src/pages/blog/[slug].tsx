@@ -20,7 +20,7 @@ const PostPage: NextPage<PageProps> = ({ post }) => {
       <BlogSEO {...post} />
 
       <BlogLayout {...post}>
-        <MDXRemote {...post.content} components={{ ...MDXComponents }} />
+        <MDXRemote {...post.content} components={{ ...MDXComponents }} lazy />
       </BlogLayout>
     </>
   )
