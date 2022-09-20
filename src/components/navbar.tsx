@@ -26,30 +26,32 @@ function classNames(...classes: string[]) {
 
 const Navbar = ({ links, path }: NavbarProps) => {
   const classes =
-    'cursor-pointer rounded px-3 py-2 text-sm font-medium leading-none text-neutral-600 hover:bg-neutral-600/5 dark:text-neutral-300 dark:hover:bg-neutral-200/5'
+    'cursor-pointer rounded px-3 py-2 text-sm font-medium leading-none'
+  const colors =
+    'text-neutral-600 hover:bg-neutral-600/5 dark:text-neutral-300 dark:hover:bg-neutral-200/5'
+
   const items = links.map((link, index) => {
     return (
       <Fragment key={index}>
         {link.href.startsWith('/') ? (
           <NextLink href={link.href}>
-            <div
-              className={classNames(
-                classes,
+            <a
+              className={`${classes} ${
                 path === link.href
-                  ? 'bg-blue-100 text-blue-600 hover:bg-blue-200 dark:bg-blue-400/20 dark:text-blue-300 dark:hover:bg-blue-500/20'
-                  : ''
-              )}
+                  ? 'text-blue-600 bg-blue-100 hover:bg-blue-200 dark:text-blue-300 dark:bg-blue-400/20 dark:hover:bg-blue-500/20'
+                  : colors
+              }`}
             >
               {link.icon && <>{link.icon}</>}
               {link.label}
-            </div>
+            </a>
           </NextLink>
         ) : (
           <a
             href={link.href}
             target="_blank"
             rel="noreferrer"
-            className={classes}
+            className={`${classes} ${colors}`}
           >
             <div className="flex flex-row items-center gap-2">
               {link.icon && <>{link.icon}</>}

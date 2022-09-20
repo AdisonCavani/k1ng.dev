@@ -14,7 +14,8 @@ function classNames(...classes: string[]) {
 }
 
 const classes =
-  'cursor-pointer group flex w-full items-center gap-2 rounded-md py-2 px-3 text-sm hover:bg-neutral-100 dark:hover:bg-[#383a40]'
+  'cursor-pointer group flex w-full items-center gap-2 rounded-md py-2 px-3 text-sm'
+const colors = 'hover:bg-neutral-100 dark:hover:bg-[#383a40]'
 
 const MobileMenu = ({ links, path }: Props) => {
   const menuItems = links.map((link, index) => {
@@ -22,24 +23,24 @@ const MobileMenu = ({ links, path }: Props) => {
       <Fragment key={index}>
         {link.href.startsWith('/') ? (
           <Menu.Item as={NextLink} href={link.href}>
-            <div
+            <a
               className={classNames(
                 classes,
                 path === link.href
-                  ? 'bg-blue-100 text-blue-600 hover:bg-blue-200 dark:bg-blue-400/20 dark:text-blue-300 dark:hover:bg-blue-500/20'
-                  : ''
+                  ? 'text-blue-600 bg-blue-100 hover:bg-blue-200 dark:text-blue-300 dark:bg-blue-400/20 dark:hover:bg-blue-500/20'
+                  : colors
               )}
             >
               {link.icon}
               {link.label}
-            </div>
+            </a>
           </Menu.Item>
         ) : (
           <Menu.Item
             as="a"
             href={link.href}
             target="_blank"
-            className={classes}
+            className={`${classes} ${colors}`}
           >
             {link.icon}
             {link.label}
