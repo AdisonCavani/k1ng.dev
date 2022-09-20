@@ -64,7 +64,7 @@ const Navbar = ({ links, path }: NavbarProps) => {
   })
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 h-[56px] border-b border-neutral-200 bg-[#fff]/60 shadow-sm backdrop-blur dark:border-[#2c2e33] dark:bg-[#1a1b1e]/50">
+    <header className="fixed top-0 left-0 right-0 z-50 h-[56px] border-b border-neutral-200 bg-white/60 shadow-sm backdrop-blur dark:border-dark-500 dark:bg-dark-700/50">
       <nav className="mx-auto flex h-[56px] max-w-4xl items-center justify-between px-4">
         <div className="flex flex-row items-center gap-6">
           <Logo />

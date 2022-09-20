@@ -15,7 +15,7 @@ function classNames(...classes: string[]) {
 
 const classes =
   'cursor-pointer group flex w-full items-center gap-2 rounded-md py-2 px-3 text-sm'
-const colors = 'hover:bg-neutral-100 dark:hover:bg-[#383a40]'
+const colors = 'hover:bg-neutral-100 dark:hover:bg-dark-500'
 
 const MobileMenu = ({ links, path }: Props) => {
   const menuItems = links.map((link, index) => {
@@ -67,7 +67,7 @@ const MobileMenu = ({ links, path }: Props) => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-[11px] mr-[1px] w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-[#212226]">
+        <Menu.Items className="absolute right-0 mt-[11px] mr-[1px] w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-dark-700">
           <div className="px-1 py-1 space-y-1">{menuItems}</div>
         </Menu.Items>
       </Transition>

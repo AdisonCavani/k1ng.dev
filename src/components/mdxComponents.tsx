@@ -15,8 +15,6 @@ const CustomLink = (
   const href = props.href
   const isExternal = href && (href.startsWith('/') || href.startsWith('#'))
 
-  const classes = 'text-[#3A73DC] underline dark:text-blue-400 font-medium'
-
   if (isExternal)
     return (
       <NextLink href={href}>

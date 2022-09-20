@@ -9,7 +9,7 @@ const TechStackList = () => {
         {Object.keys(TechStackSchema).map((value, index) => (
           <Tab
             key={index}
-            className={`focus:outline-none rounded-3xl bg-neutral-200 px-4 py-2 dark:bg-zinc-800 ${TechStackColorSchema[value].background}`}
+            className={`focus:outline-none rounded-3xl bg-neutral-200 px-4 py-2 dark:bg-dark-500 ${TechStackColorSchema[value].background}`}
           >
             <div
               className={`flex flex-row items-center gap-2 text-sm font-bold text-neutral-600 dark:text-neutral-200 ${TechStackColorSchema[value].color}`}

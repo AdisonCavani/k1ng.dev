@@ -6,7 +6,7 @@ type Props = {
 
 const Link = ({ children }: Props) => {
   return (
-    <span className="text-[#3A73DC] hover:underline dark:text-blue-400">
+    <span className="text-blue-800 hover:underline dark:text-blue-400">
       {children}
     </span>
   )
