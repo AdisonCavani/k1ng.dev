@@ -7,6 +7,24 @@ export type Post = {
   publishedAt: string
   readingTime: string
   coverImage: string
+  authors: Array<Author>
+  categories: Array<Category>
   content: MDXRemoteSerializeResult
   slug: string
+}
+
+type Author = {
+  firstName: string
+  lastName: string
+  image: string
+  slug: Slug
+}
+
+export type Category = {
+  name: string
+  slug: Slug
+}
+
+export type Slug = {
+  current: string
 }

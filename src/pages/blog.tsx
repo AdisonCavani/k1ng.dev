@@ -14,9 +14,7 @@ type PageProps = {
 
 const BlogPage: NextPage<PageProps> = ({ posts }) => {
   // Store Array of ids. We don't need to mutate ``posts`` object, and only change filtered indexes
-  const [results, setResults] = useState<Array<string>>(
-    posts.map(post => post._id)
-  )
+  const [ids, setIds] = useState<Array<string>>(posts.map(post => post._id))
 
   return (
     <>
@@ -34,16 +32,16 @@ const BlogPage: NextPage<PageProps> = ({ posts }) => {
             by title.
           </p>
 
-          <div className="relative w-full mb-4">
+          <div className="flex relative w-full mb-4">
             <input
               type="text"
               aria-label="Search articles"
               placeholder="Search articles"
+              className="rounded-md w-full border border-gray-400 pl-8 pr-3 py-1 placeholder-dark-300"
               onChange={async e => {
                 const { value } = e.currentTarget
 
-                if (!value.length)
-                  return setResults(posts.map(post => post._id))
+                if (!value.length) return setIds(posts.map(post => post._id))
 
                 // Dynamically load fuse.js
                 const Fuse = (await import('fuse.js')).default
@@ -51,26 +49,23 @@ const BlogPage: NextPage<PageProps> = ({ posts }) => {
                   keys: ['title', ['description']]
                 })
 
-                setResults(fuse.search(value).map(result => result.item._id))
+                setIds(fuse.search(value).map(result => result.item._id))
               }}
-              className="block w-full pl-4 pr-10 py-2 text-gray-900 bg-white border border-gray-200 rounded-md dark:border-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-gray-100"
             />
-            <IconSearch
-              size={20}
-              className="absolute text-gray-400 right-3 top-3 dark:text-gray-300"
-            />
+            <IconSearch size={18} className="absolute left-2 top-2" />
           </div>
 
           <h2 className="mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             All Posts
           </h2>
 
-          {results.map((value, index) => (
-            <BlogCard
-              key={index}
-              {...(posts.find(post => post._id === value) as Post)}
-            />
-          ))}
+          {ids.length > 0 ? (
+            posts
+              .filter(post => ids.includes(post._id))
+              .map((post, index) => <BlogCard key={index} {...post} />)
+          ) : (
+            <p>No articles found...</p>
+          )}
         </div>
       </div>
     </>
