@@ -38,7 +38,7 @@ const Navbar = ({ links, path }: NavbarProps) => {
             <a
               className={`${classes} ${
                 path === link.href
-                  ? 'text-blue-600 bg-blue-100 hover:bg-blue-200 dark:text-blue-300 dark:bg-blue-400/20 dark:hover:bg-blue-500/20'
+                  ? 'text-blue-600 bg-blue-100/75 hover:bg-blue-200/50 dark:text-blue-300 dark:bg-blue-400/20 dark:hover:bg-blue-500/20'
                   : colors
               }`}
             >

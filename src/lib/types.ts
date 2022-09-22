@@ -13,7 +13,7 @@ export type Post = {
   slug: string
 }
 
-type Author = {
+export type Author = {
   firstName: string
   lastName: string
   image: string
