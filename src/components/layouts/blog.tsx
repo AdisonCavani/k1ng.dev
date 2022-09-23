@@ -32,18 +32,18 @@ const BlogLayout = ({
           ({readingTime})
         </p>
         <div className="relative mt-8">
-          <div className="flex flex-row sm:overflow-x-hidden overflow-x-scroll pb-8 px-2 sm:justify-center">
+          <div className="flex flex-row sm:block text-center sm:overflow-x-visible overflow-x-scroll pb-8 px-2 sm:justify-center">
             {authors.map((author, index) => (
               <AuthorCard key={index} {...author} />
             ))}
           </div>
           <div
             aria-hidden
-            className="block absolute h-full w-8 top-0 left-0 bg-gradient-to-r from-neutral-100 to-white/0 dark:from-dark-700"
+            className="block sm:hidden absolute h-[80%] w-8 top-0 left-0 bg-gradient-to-r from-neutral-100 to-white/0 dark:from-dark-700"
           />
           <div
             aria-hidden
-            className="block absolute h-full w-8 top-0 right-0 bg-gradient-to-l from-neutral-100 to-white/0 dark:from-dark-700"
+            className="block sm:hidden absolute h-[80%] w-8 top-0 right-0 bg-gradient-to-l from-neutral-100 to-white/0 dark:from-dark-700"
           />
         </div>
       </header>

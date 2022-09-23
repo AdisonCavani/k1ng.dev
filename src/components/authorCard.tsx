@@ -10,7 +10,7 @@ type Props = {
 
 const AuthorCard = ({ firstName, lastName, image, github }: Props) => {
   return (
-    <div className="flex flex-shrink-0 items-center whitespace-nowrap mx-4 space-x-2">
+    <div className="inline-flex flex-shrink-0 items-center whitespace-nowrap mx-4 space-x-2">
       <Image
         src={urlFor(image).width(80).height(80).url()}
         alt="Author image"
