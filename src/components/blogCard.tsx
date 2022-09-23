@@ -32,22 +32,18 @@ const BlogCard = ({
             <h2 className="text-xl font-semibold">{title}</h2>
             <div className="mt-6 flex items-center">
               <div className="flex-shrink-0">
-                <NextLink href={`/blog/author/${authors[0].slug.current}`}>
-                  <Image
-                    src={urlFor(authors[0].image).width(40).height(40).url()}
-                    alt="Author image"
-                    width={40}
-                    height={40}
-                    className="rounded-full"
-                  />
-                </NextLink>
+                <Image
+                  src={urlFor(authors[0].image).width(40).height(40).url()}
+                  alt="Author image"
+                  width={40}
+                  height={40}
+                  className="rounded-full"
+                />
               </div>
               <div className="ml-4">
-                <NextLink href={`/blog/author/${authors[0].slug.current}`}>
-                  <a className="text-sm font-medium">
-                    {authors[0].firstName} {authors[0].lastName}
-                  </a>
-                </NextLink>
+                <a className="text-sm font-medium">
+                  {authors[0].firstName} {authors[0].lastName}
+                </a>
                 <p className="text-sm text-gray-600">
                   Published on{' '}
                   {new Intl.DateTimeFormat('en-US', {

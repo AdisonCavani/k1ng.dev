@@ -17,6 +17,7 @@ export type Author = {
   firstName: string
   lastName: string
   image: string
+  github: string
   slug: Slug
 }
 
