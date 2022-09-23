@@ -20,7 +20,7 @@ const BlogLayout = ({
   authors
 }: Props) => {
   return (
-    <article className="mx-auto mb-6 max-w-4xl px-4 space-y-12">
+    <article className="mx-auto mb-6 max-w-4xl px-4">
       <header>
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-black md:text-5xl dark:text-white text-center">
           {title}
@@ -31,14 +31,24 @@ const BlogLayout = ({
           }).format(new Date(publishedAt))}{' '}
           ({readingTime})
         </p>
-        <div className="pt-4 flex justify-center items-center sm:space-y-0 space-y-6 space-x-0 sm:space-x-6 flex-col sm:flex-row">
-          {authors.map((author, index) => (
-            <AuthorCard key={index} {...author} />
-          ))}
+        <div className="relative mt-8">
+          <div className="flex flex-row sm:overflow-x-hidden overflow-x-scroll pb-8 px-2 sm:justify-center">
+            {authors.map((author, index) => (
+              <AuthorCard key={index} {...author} />
+            ))}
+          </div>
+          <div
+            aria-hidden
+            className="block absolute h-full w-8 top-0 left-0 bg-gradient-to-r from-neutral-100 to-white/0 dark:from-dark-700"
+          />
+          <div
+            aria-hidden
+            className="block absolute h-full w-8 top-0 right-0 bg-gradient-to-l from-neutral-100 to-white/0 dark:from-dark-700"
+          />
         </div>
       </header>
 
-      <Divider />
+      <Divider className="mt-4 mb-12" />
 
       <Suspense fallback={null}>
         <div className="w-full mt-4 prose dark:prose-invert max-w-none">
