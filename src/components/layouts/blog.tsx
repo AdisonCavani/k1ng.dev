@@ -32,7 +32,7 @@ const BlogLayout = ({
           ({readingTime})
         </p>
         <div className="relative mt-8">
-          <div className="flex flex-row sm:block text-center sm:overflow-x-visible overflow-x-scroll pb-8 px-2 sm:justify-center">
+          <div className="flex flex-row sm:block text-center sm:overflow-x-visible overflow-x-scroll pb-8 px-2 sm:justify-center sm:space-y-4 space-y-0">
             {authors.map((author, index) => (
               <AuthorCard key={index} {...author} />
             ))}
