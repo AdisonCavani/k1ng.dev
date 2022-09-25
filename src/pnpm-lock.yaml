@@ -7,7 +7,7 @@ specifiers:
   '@portabletext/react': ^1.0.6
   '@sanity/image-url': ^1.0.1
   '@sanity/webhook': ^2.0.0
-  '@tabler/icons': ^1.99.0
+  '@tabler/icons': ^1.100.0
   '@tailwindcss/typography': ^0.5.7
   '@types/mdx': ^2.0.2
   '@types/node': 18.7.16
@@ -38,7 +38,7 @@ dependencies:
   '@portabletext/react': 1.0.6_react@18.2.0
   '@sanity/image-url': 1.0.1
   '@sanity/webhook': 2.0.0
-  '@tabler/icons': 1.99.0_biqbaboplfbrettd7655fr4n2y
+  '@tabler/icons': 1.100.0_biqbaboplfbrettd7655fr4n2y
   '@tailwindcss/typography': 0.5.7_tailwindcss@3.1.8
   fuse.js: 6.6.2
   next: 12.3.0_biqbaboplfbrettd7655fr4n2y
@@ -437,8 +437,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@tabler/icons/1.99.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-H0+QJ6DtAhvK+u63FTjSMHQlvKNyA3Z8a1GCYUvi2FTIOaQmAXxJWfzZrHJLaqfs0DcG/L6Qcop1GyjRz5I9sQ==}
+  /@tabler/icons/1.100.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-zEKXzqsWu4AJF1OBTIRPzYPU0oRu1/fWoLXHOe0mf6KPcw19HZMlTzT9arDem3gFMbTJjkUX5eoVafcGVIN7kQ==}
     peerDependencies:
       react: ^16.x || 17.x || 18.x
       react-dom: ^16.x || 17.x || 18.x
@@ -742,7 +742,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.4
-      caniuse-lite: 1.0.30001410
+      caniuse-lite: 1.0.30001412
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -806,8 +806,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001410
-      electron-to-chromium: 1.4.258
+      caniuse-lite: 1.0.30001412
+      electron-to-chromium: 1.4.261
       node-releases: 2.0.6
       update-browserslist-db: 1.0.9_browserslist@4.21.4
     dev: true
@@ -835,8 +835,8 @@ packages:
     resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
     engines: {node: '>= 6'}
 
-  /caniuse-lite/1.0.30001410:
-    resolution: {integrity: sha512-QoblBnuE+rG0lc3Ur9ltP5q47lbguipa/ncNMyyGuqPk44FxbScWAeEO+k5fSQ8WekdAK4mWqNs1rADDAiN5xQ==}
+  /caniuse-lite/1.0.30001412:
+    resolution: {integrity: sha512-+TeEIee1gS5bYOiuf+PS/kp2mrXic37Hl66VY6EAfxasIk5fELTktK2oOezYed12H8w7jt3s512PpulQidPjwA==}
 
   /capture-stack-trace/1.0.1:
     resolution: {integrity: sha512-mYQLZnx5Qt1JgB1WEiMCf2647plpGeQ2NMR/5L0HNZzGQo4fuSPnK+wjfPnKZV0aiJDgzmWqqkV/g7JD+DW0qw==}
@@ -1091,8 +1091,8 @@ packages:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
     dev: true
 
-  /electron-to-chromium/1.4.258:
-    resolution: {integrity: sha512-vutF4q0dTUXoAFI7Vbtdwen/BJVwPgj8GRg/SElOodfH7VTX+svUe62A5BG41QRQGk5HsZPB0M++KH1lAlOt0A==}
+  /electron-to-chromium/1.4.261:
+    resolution: {integrity: sha512-fVXliNUGJ7XUVJSAasPseBbVgJIeyw5M1xIkgXdTSRjlmCqBbiSTsEdLOCJS31Fc8B7CaloQ/BFAg8By3ODLdg==}
     dev: true
 
   /emoji-regex/9.2.2:
@@ -1119,7 +1119,7 @@ packages:
       has-property-descriptors: 1.0.0
       has-symbols: 1.0.3
       internal-slot: 1.0.3
-      is-callable: 1.2.6
+      is-callable: 1.2.7
       is-negative-zero: 2.0.2
       is-regex: 1.1.4
       is-shared-array-buffer: 1.0.2
@@ -1145,7 +1145,7 @@ packages:
     resolution: {integrity: sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA==}
     engines: {node: '>= 0.4'}
     dependencies:
-      is-callable: 1.2.6
+      is-callable: 1.2.7
       is-date-object: 1.0.5
       is-symbol: 1.0.4
     dev: true
@@ -1898,8 +1898,8 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /is-callable/1.2.6:
-    resolution: {integrity: sha512-krO72EO2NptOGAX2KYyqbP9vYMlNAXdB53rq6f8LXY6RY7JdSR/3BD6wLUlPHSAesmY9vstNrjvqGaCiRK/91Q==}
+  /is-callable/1.2.7:
+    resolution: {integrity: sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==}
     engines: {node: '>= 0.4'}
     dev: true
 
@@ -2635,7 +2635,7 @@ packages:
     dependencies:
       '@next/env': 12.3.0
       '@swc/helpers': 0.4.11
-      caniuse-lite: 1.0.30001410
+      caniuse-lite: 1.0.30001412
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
