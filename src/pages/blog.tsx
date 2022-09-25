@@ -36,7 +36,7 @@ const BlogPage: NextPage<PageProps> = ({ posts }) => {
               type="text"
               aria-label="Search articles"
               placeholder="Search articles"
-              className="rounded dark:bg-dark-600 w-full border border-gray-400 dark:border-dark-400 py-1 placeholder-gray-500 dark:placeholder-dark-300 pl-3 pr-9 focus-visible:border-blue-500 dark:focus-visible:border-blue-800 outline-none transition-colors"
+              className="rounded dark:bg-dark-600 w-full border border-gray-400 dark:border-dark-400 py-1 placeholder-gray-500 dark:placeholder-dark-300 pr-3 pl-10 focus-visible:border-blue-500 dark:focus-visible:border-blue-800 outline-none transition-colors"
               onChange={async e => {
                 const { value } = e.currentTarget
 
@@ -51,7 +51,7 @@ const BlogPage: NextPage<PageProps> = ({ posts }) => {
                 setIds(fuse.search(value).map(result => result.item._id))
               }}
             />
-            <div className="h-full absolute right-0 top-0 flex items-center justify-center mr-2 text-gray-500 dark:text-dark-200">
+            <div className="h-full absolute left-0 top-0 flex items-center justify-center ml-3 text-gray-500 dark:text-dark-200">
               <IconSearch size={18} />
             </div>
           </div>
