@@ -1,8 +1,18 @@
 import { urlFor } from '@lib/sanity'
-import { Post } from '@lib/types'
+import { Author, Category } from '@lib/types'
 import Image from 'next/future/image'
 import NextLink from 'next/link'
 import PostCategory from './postCategory'
+
+type Props = {
+  title: string
+  authors: Array<Author>
+  categories: Array<Category>
+  publishedAt: string
+  coverImage: string
+  slug: string
+  index: number
+}
 
 const BlogCard = ({
   title,
@@ -10,8 +20,9 @@ const BlogCard = ({
   categories,
   publishedAt,
   coverImage,
-  slug
-}: Post) => {
+  slug,
+  index
+}: Props) => {
   return (
     <NextLink href={`/blog/${encodeURIComponent(slug)}`}>
       <div className="ease-[spring(1 100 10 10)] w-full cursor-pointer bg-white border dark:border-dark-500 dark:bg-dark-600 rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
@@ -22,6 +33,8 @@ const BlogCard = ({
             width={320}
             height={180}
             className="flex-shrink-0 rounded-lg"
+            // Mobile view - add priority
+            priority={index === 0}
           />
           <div className="flex-grow space-y-4 px-6 py-4">
             <div className="flex flex-wrap space-x-2">
@@ -41,9 +54,9 @@ const BlogCard = ({
                 />
               </div>
               <div className="ml-4">
-                <a className="text-sm font-medium">
+                <p className="text-sm font-medium">
                   {authors[0].firstName} {authors[0].lastName}
-                </a>
+                </p>
                 <p className="text-sm text-gray-600">
                   Published on{' '}
                   {new Intl.DateTimeFormat('en-US', {

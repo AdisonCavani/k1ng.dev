@@ -63,7 +63,9 @@ const BlogPage: NextPage<PageProps> = ({ posts }) => {
           {ids.length > 0 ? (
             posts
               .filter(post => ids.includes(post._id))
-              .map((post, index) => <BlogCard key={index} {...post} />)
+              .map((post, index) => (
+                <BlogCard key={index} {...post} index={index} />
+              ))
           ) : (
             <p>No articles found...</p>
           )}
