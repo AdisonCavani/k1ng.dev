@@ -29,7 +29,7 @@ const BlogCard = ({
                 <PostCategory key={index} {...value} />
               ))}
             </div>
-            <h2 className="text-xl font-semibold">{title}</h2>
+            <h2 className="text-xl font-semibold dark:text-white">{title}</h2>
             <div className="mt-6 flex items-center">
               <div className="flex-shrink-0">
                 <Image

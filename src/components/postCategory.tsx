@@ -9,7 +9,7 @@ type Props = {
 const PostCategory = ({ name, slug }: Props) => {
   return (
     <NextLink href={`/blog/category/${slug.current}`}>
-      <a className="inline-flex items-center rounded bg-gray-300 px-2 py-0.5 text-xs font-medium text-gray-800">
+      <a className="inline-flex items-center rounded bg-gray-300 dark:bg-dark-800/40 text-gray-800 dark:text-gray-100 px-2 py-1 text-xs font-medium">
         {name}
       </a>
     </NextLink>

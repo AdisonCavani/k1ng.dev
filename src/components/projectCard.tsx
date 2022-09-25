@@ -34,7 +34,7 @@ const ProjectCard = ({
   const colorType = Colors[color]
 
   return (
-    <div className="ease-[spring(1 100 10 10)] overflow-hidden rounded-lg border bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-dark-500 dark:bg-dark-600">
+    <div className="flex flex-col ease-[spring(1 100 10 10)] overflow-hidden rounded-lg border bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-dark-500 dark:bg-dark-600">
       <div className="w-full cursor-pointer">
         <a href={externalUrl} target="_blank" rel="noreferrer">
           <Image
@@ -47,7 +47,7 @@ const ProjectCard = ({
           />
         </a>
       </div>
-      <div className="px-6 pb-5">
+      <div className="px-6 pb-5 flex flex-col flex-grow">
         <div className="mt-4 mb-3 flex flex-row justify-between">
           <p className="font-medium">{title}</p>
           <div>
@@ -58,13 +58,13 @@ const ProjectCard = ({
             </span>
           </div>
         </div>
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col justify-between h-full">
           <SecondaryText className="text-sm">{desc}</SecondaryText>
           <a
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-4 w-full self-end rounded-md bg-blue-000 text-blue-600 py-2 text-sm font-semibold dark:bg-blue-800/20 dark:text-blue-200"
+            className="w-full mt-4 rounded-md bg-blue-000 text-blue-600 py-2 text-sm font-semibold dark:bg-blue-800/20 dark:text-blue-200"
           >
             <div className="flex justify-center gap-2">
               <IconBrandGithub size={20} />
