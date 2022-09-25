@@ -21,17 +21,20 @@ const BlogLayout = ({
 }: Props) => {
   return (
     <article className="mx-auto mb-6 max-w-4xl px-4">
-      <header>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight text-black md:text-5xl dark:text-white text-center">
+      <header className="space-y-6">
+        <h1 className="text-4xl font-bold tracking-tight text-black md:text-5xl dark:text-white text-center">
           {title}
         </h1>
-        <p className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 text-center my-4">
+        <p className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300 text-center">
           {new Intl.DateTimeFormat('en-US', {
-            dateStyle: 'medium'
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
           }).format(new Date(publishedAt))}{' '}
           ({readingTime})
         </p>
-        <div className="relative mt-8">
+        <div className="relative">
           <div className="flex flex-row sm:block text-center sm:overflow-x-visible overflow-x-scroll pb-8 px-2 sm:justify-center sm:space-y-4 space-y-0">
             {authors.map((author, index) => (
               <AuthorCard key={index} {...author} />

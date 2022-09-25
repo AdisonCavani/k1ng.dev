@@ -21,23 +21,22 @@ const BlogPage: NextPage<PageProps> = ({ posts }) => {
       <PageSEO title="Blog" description="Blog" />
 
       <div className="mx-auto mb-6 max-w-4xl px-4">
-        <div className="flex flex-col gap-6">
-          <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+        <div className="flex flex-col gap-y-6">
+          <h1 className="text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
             Blog
           </h1>
-          <p className="mb-4 text-gray-600 dark:text-gray-400">
-            I&apos;ve been writing online since 2014, mostly about web
-            development and tech careers. In total, I&apos;ve written{' '}
-            {posts.length} articles on my blog. Use the search below to filter
-            by title.
+          <p className="text-gray-600 dark:text-gray-400">
+            I&apos;m writing mostly about web development and backend
+            technologies. In total, I&apos;ve written {posts.length} articles on
+            my blog. Use the search below to filter by title and description.
           </p>
 
-          <div className="flex relative w-full mb-4">
+          <div className="block relative w-full">
             <input
               type="text"
               aria-label="Search articles"
               placeholder="Search articles"
-              className="rounded-md w-full border border-gray-400 pl-8 pr-3 py-1 placeholder-dark-300"
+              className="rounded dark:bg-dark-600 w-full border border-gray-400 dark:border-dark-400 py-1 placeholder-gray-500 dark:placeholder-dark-300 pl-3 pr-9 focus-visible:border-blue-500 dark:focus-visible:border-blue-800 outline-none transition-colors"
               onChange={async e => {
                 const { value } = e.currentTarget
 
@@ -52,10 +51,12 @@ const BlogPage: NextPage<PageProps> = ({ posts }) => {
                 setIds(fuse.search(value).map(result => result.item._id))
               }}
             />
-            <IconSearch size={18} className="absolute left-2 top-2" />
+            <div className="h-full absolute right-0 top-0 flex items-center justify-center mr-2 text-gray-500 dark:text-dark-200">
+              <IconSearch size={18} />
+            </div>
           </div>
 
-          <h2 className="mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+          <h2 className="text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             All Posts
           </h2>
 

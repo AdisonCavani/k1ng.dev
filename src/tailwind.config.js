@@ -203,6 +203,7 @@ module.exports = {
   },
   plugins: [
     require('@headlessui/tailwindcss'),
-    require('@tailwindcss/typography')
+    require('@tailwindcss/typography'),
+    require('prettier-plugin-tailwindcss')
   ]
 }

@@ -26,7 +26,7 @@ const AuthorCard = ({ firstName, lastName, image, github }: Props) => {
           href={`https://github.com/${github}`}
           target="_blank"
           rel="noreferrer"
-          className="mt-1 rounded-full dark:text-blue-300 text-xs font-medium text-blue-900"
+          className="mt-1 rounded-full dark:text-blue-400 text-xs font-medium text-blue-900"
         >
           @{github}
         </a>
