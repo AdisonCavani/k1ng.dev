@@ -36,7 +36,7 @@ const TechIcon = ({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="ease-[spring(1 100 10 10)] rounded-lg border border-neutral-200 bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-[#25262b] dark:bg-[#212226]"
+      className="ease-[spring(1 100 10 10)] rounded-lg border border-neutral-200 bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-dark-500 dark:bg-dark-600"
     >
       <div className="flex flex-row gap-4">
         <div className="relative overflow-hidden p-2">

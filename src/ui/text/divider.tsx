@@ -1,8 +1,11 @@
-const Divider = () => {
+type Props = {
+  className?: string
+}
+
+const Divider = ({ className }: Props) => {
   return (
     <div
-      // TODO: fix error in class name?
-      className="border-t-2 border-neutral-300 dark:border-neutral-700"
+      className={`${className} border-t-2 border-neutral-300 dark:border-neutral-700`}
     />
   )
 }
