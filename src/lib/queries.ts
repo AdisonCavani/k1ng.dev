@@ -12,8 +12,14 @@ const postFields = groq`
 `
 
 export const indexQuery = groq`
-*[_type == "post"] | order(publishedAt desc) {
-  ${postFields}
+{
+  "posts": *[_type == "post"] | order(publishedAt desc) {
+    ${postFields}
+  },
+  "categories": *[_type == "category"] {
+    name,
+    slug
+  }
 }`
 
 export const postQuery = groq`
@@ -27,3 +33,9 @@ export const postQuery = groq`
 export const postSlugsQuery = groq`*[_type == "post" && defined(slug.current)][].slug.current`
 
 export const postUpdatedQuery = groq`*[_type == "post" && _id == $id].slug.current`
+
+export const categoriesQuery = groq`
+*[_type == "category"] {
+  name,
+  "slug": slug.current
+}`
