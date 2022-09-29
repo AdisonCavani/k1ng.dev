@@ -65,7 +65,7 @@
 
 .token.comment,
 .token.blockquote {
-  @apply text-gray-600;
+  @apply text-dark-300;
 }
 
 .token.cdata {
@@ -76,7 +76,7 @@
 .token.punctuation,
 .token.variable,
 .token.macro.property {
-  color: #333;
+  @apply text-gray-800;
 }
 
 .token.operator,
@@ -84,7 +84,7 @@
 .token.keyword,
 .token.rule,
 .token.builtin {
-  @apply text-red-700;
+  @apply text-red-900;
 }
 
 .token.string,
@@ -103,7 +103,7 @@
 .token.symbol,
 .token.command,
 .token.code {
-  color: #0086b3;
+  @apply text-blue-800;
 }
 
 .token.tag,
@@ -121,7 +121,7 @@
 .token.id,
 .token.url-reference .token.variable,
 .token.attr-name {
-  color: #795da3;
+  @apply text-violet-900;
 }
 
 .token.entity {
@@ -130,89 +130,86 @@
 
 .token.title,
 .token.title .token.punctuation {
-  font-weight: bold;
-  color: #1d3e81;
+  @apply font-bold text-indigo-900;
 }
 
 .token.list {
-  color: #ed6a43;
+  @apply text-orange-700;
 }
 
 .token.inserted {
-  background-color: #eaffea;
-  color: #55a532;
+  @apply text-green-800;
 }
 
 .token.deleted {
-  background-color: #ffecec;
-  color: #bd2c00;
+  @apply text-red-900;
 }
 
 .token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
+  @apply font-bold;
 }
 
 /* JSON */
 
 .language-json .token.property {
-  color: #183691;
+  @apply text-indigo-900;
+}
+
+.language-json .token.string {
+  @apply text-green-800;
 }
 
 .language-markup .token.tag .token.punctuation {
-  color: #333;
+  @apply text-gray-800;
 }
 
 /* CSS */
 
 code.language-css,
 .language-css .token.function {
-  color: #0086b3;
+  @apply text-blue-800;
 }
 
 /* YAML */
 
 .language-yaml .token.atrule {
-  color: #63a35c;
+  @apply text-green-800;
 }
 
 code.language-yaml {
-  color: #183691;
+  @apply text-indigo-900;
 }
 
 /* Ruby */
 
 .language-ruby .token.function {
-  color: #333;
+  @apply text-gray-800;
 }
 
 /* Markdown */
 
 .language-markdown .token.url {
-  color: #795da3;
+  @apply text-violet-900;
 }
 
 /* Makefile */
 
 .language-makefile .token.symbol {
-  color: #795da3;
+  @apply text-violet-900;
 }
 
 .language-makefile .token.variable {
-  color: #183691;
+  @apply text-indigo-900;
 }
 
 .language-makefile .token.builtin {
-  color: #0086b3;
+  @apply text-blue-800;
 }
 
 /* Bash */
 
 .language-bash .token.keyword {
-  color: #0086b3;
+  @apply text-blue-800;
 }
 
 /* End of section */
