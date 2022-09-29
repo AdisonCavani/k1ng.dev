@@ -4,6 +4,7 @@
 - **Language**: [TypeScript](https://www.typescriptlang.org)
 - **Library**: [React.js](https://reactjs.org)
 - **Framework**: [Next.js](https://nextjs.org)
+- **Headless CMS**: [Sanity.io](https://www.sanity.io)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Analytics**: [Plausible Analytics](https://plausible.io) - self-hosted
 
