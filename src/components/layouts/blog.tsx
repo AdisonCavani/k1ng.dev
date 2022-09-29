@@ -1,4 +1,4 @@
-import { ReactNode, Suspense } from 'react'
+import { ReactNode } from 'react'
 import { Author } from '@lib/types'
 import AuthorCard from '@components/authorCard'
 import Divider from '@ui/text/divider'
@@ -53,11 +53,9 @@ const BlogLayout = ({
 
       <Divider className="mt-4 mb-12" />
 
-      <Suspense fallback={null}>
-        <div className="w-full max-w-none prose dark:prose-invert">
-          {children}
-        </div>
-      </Suspense>
+      <div className="w-full max-w-none prose dark:prose-invert">
+        {children}
+      </div>
     </article>
   )
 }

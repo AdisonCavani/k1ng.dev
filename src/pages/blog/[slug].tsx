@@ -7,8 +7,13 @@ import mdxToHtml from '@lib/mdx'
 import { MDXRemote } from 'next-mdx-remote'
 import MDXComponents from '@components/mdxComponents'
 import readingTime from 'reading-time'
-import BlogLayout from '@components/layouts/blog'
 import { BlogSEO } from '@components/seo'
+import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
+
+const BlogLayout = dynamic(() => import('@components/layouts/blog'), {
+  suspense: true
+})
 
 type PageProps = {
   post: Post
@@ -19,9 +24,11 @@ const PostPage: NextPage<PageProps> = ({ post }) => {
     <>
       <BlogSEO {...post} />
 
-      <BlogLayout {...post}>
-        <MDXRemote {...post.content} components={{ ...MDXComponents }} />
-      </BlogLayout>
+      <Suspense fallback={null}>
+        <BlogLayout {...post}>
+          <MDXRemote {...post.content} components={{ ...MDXComponents }} />
+        </BlogLayout>
+      </Suspense>
     </>
   )
 }
