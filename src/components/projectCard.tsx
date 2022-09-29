@@ -38,8 +38,8 @@ const ProjectCard = ({
       <div className="w-full cursor-pointer">
         <a href={externalUrl} target="_blank" rel="noreferrer">
           <Image
-            width={640}
-            height={360}
+            width={480}
+            height={270}
             src={img}
             alt="Project image"
             placeholder={priority ? 'empty' : 'blur'}
