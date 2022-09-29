@@ -248,7 +248,7 @@ const TechStackSchema: TechIconPropsArr = {
 const TechStackColorSchema: TechStackColorSchemaPropsArr = {
   Web: {
     background: 'ui-selected:bg-red-100 dark:ui-selected:bg-red-100',
-    color: 'ui-selected:text-red-800 dark:ui-selected:text-red-800',
+    color: 'ui-selected:text-red-900 dark:ui-selected:text-red-900',
     icon: <IconBrandChrome size={18} />
   },
   Software: {
@@ -258,12 +258,12 @@ const TechStackColorSchema: TechStackColorSchemaPropsArr = {
   },
   Cloud: {
     background: 'ui-selected:bg-blue-100 dark:ui-selected:bg-blue-100',
-    color: 'ui-selected:text-blue-500 dark:ui-selected:text-blue-500',
+    color: 'ui-selected:text-blue-900 dark:ui-selected:text-blue-900',
     icon: <IconCloudComputing size={18} />
   },
   Tools: {
     background: 'ui-selected:bg-green-100 dark:ui-selected:bg-green-100',
-    color: 'ui-selected:text-green-700 dark:ui-selected:text-green-700',
+    color: 'ui-selected:text-green-900 dark:ui-selected:text-green-900',
     icon: <IconTools size={18} />
   }
 }

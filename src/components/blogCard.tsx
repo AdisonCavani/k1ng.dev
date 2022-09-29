@@ -1,5 +1,6 @@
 import { urlFor } from '@lib/sanity'
 import { Author, Category } from '@lib/types'
+import SecondaryText from '@ui/text/secondary'
 import Image from 'next/future/image'
 import NextLink from 'next/link'
 import PostCategory from './postCategory'
@@ -57,12 +58,12 @@ const BlogCard = ({
                 <p className="text-sm font-medium">
                   {authors[0].firstName} {authors[0].lastName}
                 </p>
-                <p className="text-sm text-gray-600">
+                <SecondaryText className="text-sm">
                   Published on{' '}
                   {new Intl.DateTimeFormat('en-US', {
                     dateStyle: 'medium'
                   }).format(new Date(publishedAt))}
-                </p>
+                </SecondaryText>
               </div>
             </div>
           </div>

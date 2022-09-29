@@ -38,12 +38,14 @@ const ProjectCard = ({
       <div className="w-full cursor-pointer">
         <a href={externalUrl} target="_blank" rel="noreferrer">
           <Image
-            width={640}
-            height={360}
+            width={480}
+            height={270}
             src={img}
             alt="Project image"
             placeholder={priority ? 'empty' : 'blur'}
             priority={priority}
+            className="w-full"
+            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
           />
         </a>
       </div>
@@ -64,7 +66,7 @@ const ProjectCard = ({
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="w-full mt-4 rounded-md bg-blue-000 text-blue-600 py-2 text-sm font-semibold dark:bg-blue-800/20 dark:text-blue-200"
+            className="w-full mt-4 rounded-md bg-blue-000 text-blue-800 py-2 text-sm font-semibold dark:bg-blue-800/20 dark:text-blue-200"
           >
             <div className="flex justify-center gap-2">
               <IconBrandGithub size={20} />

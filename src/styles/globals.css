@@ -8,36 +8,13 @@
   font-display: swap;
 }
 
-.prose .anchor {
-  @apply absolute invisible no-underline;
-
-  margin-left: -1em;
-  padding-right: 0.5em;
-  width: 80%;
-  max-width: 700px;
-  cursor: pointer;
-}
-
-.anchor:hover {
-  @apply visible;
-}
-
 .prose a {
-  @apply transition-all;
-}
-
-.prose .anchor:after {
-  @apply text-gray-300 dark:text-gray-700;
-  content: '#';
-}
-
-.prose *:hover > .anchor {
-  @apply visible;
+  @apply text-blue-800 dark:text-blue-500 no-underline hover:underline underline-offset-2;
 }
 
 /* Section - code title */
 .rehype-code-title {
-  @apply px-5 py-3 font-mono text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t-lg dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
+  @apply px-5 py-3 font-mono text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t-lg dark:text-gray-200 dark:border-gray-800 dark:bg-gray-800;
 }
 
 .rehype-code-title + pre {
@@ -46,15 +23,19 @@
 
 /* Section - code block */
 .prose pre {
-  @apply border border-gray-200 leading-5 bg-gray-000 dark:border-gray-700 dark:bg-gray-900;
+  @apply border border-gray-200 leading-5 bg-gray-000 dark:border-gray-800 dark:bg-gray-900;
 }
 
 .prose code {
-  @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-lg dark:bg-gray-900;
+  @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-lg bg-gray-200 dark:bg-gray-900;
+}
+
+.prose a code {
+  @apply text-blue-900 dark:text-blue-500 no-underline hover:underline underline-offset-2;
 }
 
 .prose pre code {
-  @apply text-gray-800 dark:text-gray-200 p-0;
+  @apply text-gray-800 dark:text-gray-200 p-0 bg-transparent dark:bg-transparent;
   border: initial;
   font-family: 'Cascadia Code';
 }
@@ -156,7 +137,7 @@
 }
 
 .language-json .token.string {
-  @apply text-green-800 dark:text-blue-200;
+  @apply text-green-900 dark:text-blue-200;
 }
 
 .language-markup .token.tag .token.punctuation {

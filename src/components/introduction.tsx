@@ -22,6 +22,7 @@ const Introduction = () => {
           alt="Adison Cavani"
           width={176}
           height={176}
+          sizes="20vw"
           priority
         />
       </div>
