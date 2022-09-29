@@ -44,6 +44,8 @@ const ProjectCard = ({
             alt="Project image"
             placeholder={priority ? 'empty' : 'blur'}
             priority={priority}
+            className="w-full"
+            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
           />
         </a>
       </div>
