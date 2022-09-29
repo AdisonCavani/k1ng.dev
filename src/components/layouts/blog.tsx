@@ -28,9 +28,9 @@ const BlogLayout = ({
         <p className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300 text-center">
           {new Intl.DateTimeFormat('en-US', {
             weekday: 'long',
-            year: 'numeric',
             month: 'long',
-            day: 'numeric'
+            day: 'numeric',
+            year: 'numeric'
           }).format(new Date(publishedAt))}{' '}
           ({readingTime})
         </p>
@@ -54,7 +54,7 @@ const BlogLayout = ({
       <Divider className="mt-4 mb-12" />
 
       <Suspense fallback={null}>
-        <div className="w-full mt-4 prose dark:prose-invert max-w-none">
+        <div className="w-full max-w-none prose dark:prose-invert">
           {children}
         </div>
       </Suspense>

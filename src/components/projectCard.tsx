@@ -64,7 +64,7 @@ const ProjectCard = ({
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="w-full mt-4 rounded-md bg-blue-000 text-blue-600 py-2 text-sm font-semibold dark:bg-blue-800/20 dark:text-blue-200"
+            className="w-full mt-4 rounded-md bg-blue-000 text-blue-800 py-2 text-sm font-semibold dark:bg-blue-800/20 dark:text-blue-200"
           >
             <div className="flex justify-center gap-2">
               <IconBrandGithub size={20} />

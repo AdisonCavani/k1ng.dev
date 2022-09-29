@@ -156,7 +156,7 @@ module.exports = {
         600: '#40C057',
         700: '#37B24D',
         800: '#2F9E44',
-        900: '#2B8A3E'
+        900: '#237133'
       },
       'lime-000': '#F4FCE3',
       lime: {
@@ -198,7 +198,8 @@ module.exports = {
       neutral: colors.neutral,
       white: colors.white,
       black: colors.black,
-      slate: colors.slate
+      slate: colors.slate,
+      transparent: colors.transparent
     }
   },
   plugins: [

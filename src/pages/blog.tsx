@@ -8,6 +8,7 @@ import BlogCard from '@components/blogCard'
 import { useState, Fragment } from 'react'
 import { IconCaretDown, IconCheck, IconSearch } from '@tabler/icons'
 import { Listbox, Transition } from '@headlessui/react'
+import SecondaryText from '@ui/text/secondary'
 
 type PageProps = {
   posts: Array<Post>
@@ -29,11 +30,11 @@ const BlogPage: NextPage<PageProps> = ({ posts, categories }) => {
           <h1 className="text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
             Blog
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <SecondaryText>
             I&apos;m writing mostly about web development and backend
             technologies. In total, I&apos;ve written {posts.length} articles on
             my blog. Use the search below to filter by title and description.
-          </p>
+          </SecondaryText>
 
           <div className="flex w-full">
             <Listbox value={filters} onChange={setFilters} multiple>
