@@ -1,3 +1,215 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Cascadia Code';
+  src: local('Cascadia Code') url('/fonts/CascadiaCode.woff2') format(woff2);
+  font-display: swap;
+}
+
+.prose .anchor {
+  @apply absolute invisible no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose a {
+  @apply transition-all;
+}
+
+.prose .anchor:after {
+  @apply text-gray-300 dark:text-gray-700;
+  content: '#';
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+/* Section - code title */
+.rehype-code-title {
+  @apply px-5 py-3 font-mono text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t-lg dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
+}
+
+.rehype-code-title + pre {
+  @apply mt-0 rounded-t-none;
+}
+
+/* Section - code block */
+.prose pre {
+  @apply border border-gray-200 leading-5 bg-gray-000 dark:border-gray-700 dark:bg-gray-900;
+}
+
+.prose code {
+  @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-lg dark:bg-gray-900;
+}
+
+.prose pre code {
+  @apply text-gray-800 dark:text-gray-200 p-0;
+  border: initial;
+  font-family: 'Cascadia Code';
+}
+
+/* Section - tokens */
+
+/* Inline code */
+
+.token.comment,
+.token.blockquote {
+  @apply text-dark-300 dark:text-gray-500;
+}
+
+.token.cdata {
+  @apply text-indigo-900 dark:text-indigo-400;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  @apply text-gray-800 dark:text-gray-200;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  @apply text-red-900 dark:text-red-500;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  @apply text-indigo-900 dark:text-indigo-400;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  @apply text-blue-800 dark:text-blue-400;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  @apply text-green-900 dark:text-green-400;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  @apply text-violet-900 dark:text-violet-300;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  @apply font-bold text-indigo-900 dark:text-indigo-400;
+}
+
+.token.list {
+  @apply text-orange-700 dark:text-orange-300;
+}
+
+.token.inserted {
+  @apply text-green-800 dark:text-green-300;
+}
+
+.token.deleted {
+  @apply text-red-900 dark:text-red-500;
+}
+
+.token.bold {
+  @apply font-bold;
+}
+
+/* JSON */
+
+.language-json .token.property {
+  @apply text-indigo-900 dark:text-green-400;
+}
+
+.language-json .token.string {
+  @apply text-green-800 dark:text-blue-200;
+}
+
+.language-markup .token.tag .token.punctuation {
+  @apply text-gray-800 dark:text-gray-200;
+}
+
+/* CSS */
+
+code.language-css,
+.language-css .token.function {
+  @apply text-blue-800 dark:text-blue-400;
+}
+
+/* YAML */
+
+.language-yaml .token.atrule {
+  @apply text-green-800 dark:text-green-300;
+}
+
+code.language-yaml {
+  @apply text-indigo-900 dark:text-indigo-400;
+}
+
+/* Ruby */
+
+.language-ruby .token.function {
+  @apply text-gray-800 dark:text-gray-200;
+}
+
+/* Markdown */
+
+.language-markdown .token.url {
+  @apply text-violet-900 dark:text-violet-300;
+}
+
+/* Makefile */
+
+.language-makefile .token.symbol {
+  @apply text-violet-900 dark:text-violet-300;
+}
+
+.language-makefile .token.variable {
+  @apply text-indigo-900;
+}
+
+.language-makefile .token.builtin {
+  @apply text-blue-800 dark:text-blue-400;
+}
+
+/* Bash */
+
+.language-bash .token.keyword {
+  @apply text-blue-800 dark:text-blue-400;
+}
+
+/* End of section */

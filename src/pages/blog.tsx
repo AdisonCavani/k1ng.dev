@@ -98,22 +98,18 @@ const BlogPage: NextPage<PageProps> = ({ posts, categories }) => {
             All Posts
           </h2>
 
-          {ids.length > 0 ? (
-            posts
-              .filter(post => ids.includes(post._id))
-              .filter(post =>
-                filters
-                  .map(filter => filter.slug.current)
-                  .some(cat =>
-                    post.categories.map(cat => cat.slug.current).includes(cat)
-                  )
-              )
-              .map((post, index) => (
-                <BlogCard key={index} {...post} index={index} />
-              ))
-          ) : (
-            <p>No articles found...</p>
-          )}
+          {posts
+            .filter(post => ids.includes(post._id))
+            .filter(post =>
+              filters
+                .map(filter => filter.slug.current)
+                .some(cat =>
+                  post.categories.map(cat => cat.slug.current).includes(cat)
+                )
+            )
+            .map((post, index) => (
+              <BlogCard key={index} {...post} index={index} />
+            ))}
         </div>
       </div>
     </>

@@ -60,7 +60,16 @@ let nextConfig = {
     return [
       {
         source: '/:path*',
-        headers: securityHeaders
+        headers: securityHeaders,
+
+        // Caching
+        source: '/fonts/CascadiaCode.woff2',
+        headers: [
+          {
+            key: 'Cache-control',
+            value: 'public, immutable, max-age=31536000'
+          }
+        ]
       }
     ]
   }
