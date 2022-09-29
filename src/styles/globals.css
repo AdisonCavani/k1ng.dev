@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Cascadia Code';
+  src: local('Cascadia Code') url('/fonts/CascadiaCode.woff2') format(woff2);
+  font-display: swap;
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 
@@ -40,7 +46,7 @@
 
 /* Section - code block */
 .prose pre {
-  @apply border border-gray-200 bg-gray-000 dark:border-gray-700 dark:bg-gray-900;
+  @apply border border-gray-200 leading-5 bg-gray-000 dark:border-gray-700 dark:bg-gray-900;
 }
 
 .prose code {
@@ -50,67 +56,163 @@
 .prose pre code {
   @apply text-gray-800 dark:text-gray-200 p-0;
   border: initial;
+  font-family: 'Cascadia Code';
 }
 
-/* Section - rehype */
+/* Section - tokens */
+
+/* Inline code */
+
 .token.comment,
-.token.prolog,
-.token.doctype,
+.token.blockquote {
+  @apply text-gray-600;
+}
+
 .token.cdata {
-  @apply text-gray-700 dark:text-gray-300;
+  @apply text-indigo-900;
 }
 
-.token.punctuation {
-  @apply text-gray-700 dark:text-gray-300;
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  @apply text-green-500;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  @apply text-violet-500;
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
 }
 
 .token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  @apply text-yellow-500;
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  @apply text-red-700;
 }
 
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  @apply text-indigo-900;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
 .token.atrule,
-.token.attr-value,
-.token.keyword {
-  @apply text-blue-500;
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  @apply text-green-900;
 }
 
 .token.function,
-.token.class-name {
-  @apply text-pink-500;
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
 }
 
-.token.regex,
-.token.important,
-.token.variable {
-  @apply text-yellow-500;
+.token.entity {
+  cursor: help;
 }
 
-code[class*='language-'],
-pre[class*='language-'] {
-  @apply text-gray-800 dark:text-gray-000;
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+/* JSON */
+
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+
+.language-bash .token.keyword {
+  color: #0086b3;
 }
 
 /* End of section */
