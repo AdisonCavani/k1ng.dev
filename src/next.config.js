@@ -43,7 +43,8 @@ let nextConfig = {
   },
 
   images: {
-    domains: ['cdn.sanity.io']
+    domains: ['cdn.sanity.io'],
+    formats: ['image/avif', 'image/webp']
   },
 
   async redirects() {
