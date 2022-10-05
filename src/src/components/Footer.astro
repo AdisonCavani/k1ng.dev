@@ -1,7 +1,23 @@
 ---
+import { SITE_AUTHOR } from "../config";
+
 const today = new Date();
 ---
 
-<footer class="p-6 text-center">
-  &copy; {today.getFullYear()} Adison Cavani. All rights reserved.
+<footer class="mx-auto mt-14 w-full max-w-container px-4 sm:px-6 lg:px-8">
+  <div class="border-t border-slate-900/15 py-10">
+    <p class="text-center text-sm leading-6 text-slate-600">
+      © {today.getFullYear()}
+      {SITE_AUTHOR}. All rights reserved.
+    </p>
+    <div
+      class="mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700"
+    >
+      <a href="/analytics" target="_blank" rel="noreferrer">Analytics</a>
+      <div class="h-4 w-px bg-slate-500/40"></div>
+      <a href="https://plausible.io/privacy" target="_blank" rel="noreferrer"
+        >Privacy</a
+      >
+    </div>
+  </div>
 </footer>
