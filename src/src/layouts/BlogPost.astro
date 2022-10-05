@@ -14,7 +14,7 @@ export interface Props {
 }
 
 const {
-  content: { title, description, pubDate, updatedDate, heroImage },
+  frontmatter: { title, description, pubDate, updatedDate, heroImage },
 } = Astro.props;
 ---
 
@@ -26,18 +26,18 @@ const {
   <body>
     <Header />
     <main>
-      <article>
-        {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-        <h1 class="text-3xl mt-1">{title}</h1>
-        {pubDate && <time>{pubDate}</time>}
-        {
-          updatedDate && (
-            <div>
-              Last updated on <time>{updatedDate}</time>
-            </div>
-          )
-        }
-        <hr class="border-t border-neutral-200 my-4" />
+      {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+      <h1 class="text-3xl mt-1">{title}</h1>
+      {pubDate && <time>{pubDate}</time>}
+      {
+        updatedDate && (
+          <div>
+            Last updated on <time>{updatedDate}</time>
+          </div>
+        )
+      }
+      <hr class="border-t border-neutral-200 my-4" />
+      <article class="prose">
         <slot />
       </article>
     </main>
