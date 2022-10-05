@@ -2,9 +2,7 @@
 
 - **CSS**: [Tailwind CSS](https://tailwindcss.com)
 - **Language**: [TypeScript](https://www.typescriptlang.org)
-- **Library**: [React.js](https://reactjs.org)
-- **Framework**: [Next.js](https://nextjs.org)
-- **Headless CMS**: [Sanity.io](https://www.sanity.io)
+- **Framework**: [Astro](https://astro.build)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Analytics**: [Plausible Analytics](https://plausible.io) - self-hosted
 
@@ -58,14 +56,6 @@ pnpm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Analyze bundle
-
-Run [next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer) - Webpack Bundle Analyzer for Next.js:
-
-```bash
-pnpm analyze
-```
 
 ### Linter
 
