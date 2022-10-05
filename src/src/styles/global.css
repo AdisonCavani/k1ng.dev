@@ -1,6 +1,6 @@
 body {
   font-family: Verdana, sans-serif;
-  @apply m-auto p-5 max-w-xl text-left bg-white break-words leading-6 text-neutral-700
+  @apply m-auto p-5 max-w-xl text-left bg-white break-words leading-6 text-neutral-700;
 }
 
 h1,
@@ -11,49 +11,49 @@ h5,
 h6,
 strong,
 b {
-  @apply text-neutral-800
+  @apply text-neutral-800;
 }
 
 a {
-  @apply text-blue-600
+  @apply text-blue-600;
 }
 
 nav a {
-  @apply mr-3
+  @apply mr-3;
 }
 
 textarea {
-  @apply w-full text-base
+  @apply w-full text-base;
 }
 
 input {
-  @apply text-base
+  @apply text-base;
 }
 
 content {
-  @apply leading-6
+  @apply leading-6;
 }
 
 table {
-  @apply w-full
+  @apply w-full;
 }
 
 img {
-  @apply max-w-full h-auto
+  @apply max-w-full h-auto;
 }
 
 code {
-  @apply px-1 py-2 bg-neutral-200
+  @apply px-1 py-2 bg-neutral-200;
 }
 
 pre {
-  @apply p-4
+  @apply p-4;
 }
 
-pre>code {
+pre > code {
   all: unset;
 }
 
 blockquote {
-  @apply border border-neutral-400 text-neutral-800 py-1 pl-5 m-0 italic
+  @apply border border-neutral-400 text-neutral-800 py-1 pl-5 m-0 italic;
 }
