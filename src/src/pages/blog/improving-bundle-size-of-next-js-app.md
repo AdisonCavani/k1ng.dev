@@ -10,7 +10,7 @@ heroImage: /images/uploads/1st.png
 
 Next.js currently targets [ES5](https://www.w3schools.com/js/js_es5.asp) for JS output and autoprefixes CSS in order to support legacy browsers. This results in much larger JS and CSS output because newer features need to be down-leveled. You can opt-out of this behavior with experimental flags below:
 
-```js:next.config.js
+```js
 const nextConfig = {
   experimental: {
     legacyBrowsers:  false,
@@ -29,7 +29,7 @@ module.exports = nextConfig
 The `next/future/image` component improves both the performance and developer experience of `next/image` by using the native `<img>` element with better default behavior.
 This component uses browser native [lazy loading](https://caniuse.com/loading-lazy-attr).
 
-```jsx:component.jsx
+```jsx
 // Before
 import Image from 'next/image'
 
@@ -105,7 +105,7 @@ export default function Page() {
 
 Here is basic `package.json` needed for replacing React with Preact
 
-```json:package.json
+```json
 {
   "scripts": {
     ...
@@ -129,7 +129,7 @@ Here is basic `package.json` needed for replacing React with Preact
 
 Then you need to tweak your `next.config.js` to use `next-plugin-preact`:
 
-```js:next.config.js
+```js
 const withPreact = require('next-plugin-preact')
 
 /** @type {import('next').NextConfig} */
