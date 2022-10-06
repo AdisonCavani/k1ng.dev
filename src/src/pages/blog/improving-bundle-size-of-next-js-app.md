@@ -5,7 +5,7 @@ description: Lorem ipsum dolor sit amet
 pubDate: 2022-09-28T17:00:10.447Z
 heroImage: /images/uploads/1st.png
 tags:
-  - siema;siema;witam;xDD
+  - Frontend;Next.js
 ---
 
 ## Shipping only modern JavaScript
