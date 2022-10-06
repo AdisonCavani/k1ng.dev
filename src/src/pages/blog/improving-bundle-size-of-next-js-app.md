@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: "@layouts/BlogPost.astro"
 title: Improving bundle size of Next.js app
 date: 2022-09-28T17:00:10.447Z
 thumbnail: /images/uploads/1st.png
