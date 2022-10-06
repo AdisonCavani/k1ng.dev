@@ -1,9 +1,11 @@
 ---
 layout: "@layouts/BlogPost.astro"
 title: Improving bundle size of Next.js app
-description: "Lorem ipsum dolor sit amet"
+description: Lorem ipsum dolor sit amet
 pubDate: 2022-09-28T17:00:10.447Z
 heroImage: /images/uploads/1st.png
+tags:
+  - siema;siema;witam;xDD
 ---
 
 ## Shipping only modern JavaScript
