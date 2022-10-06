@@ -15,8 +15,14 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template
     fields: # The fields for each document, usually in front matter
-      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "@layouts/BlogPost.astro",
+        }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Featured Image", name: "heroImage", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }

@@ -1,13 +1,14 @@
 ---
 layout: "@layouts/BlogPost.astro"
 title: Improving bundle size of Next.js app
-date: 2022-09-28T17:00:10.447Z
-thumbnail: /images/uploads/1st.png
+description: "Lorem ipsum dolor sit amet"
+pubDate: 2022-09-28T17:00:10.447Z
+heroImage: /images/uploads/1st.png
 ---
 
-##  Shipping only modern JavaScript
+## Shipping only modern JavaScript
 
-Next.js currently targets [ES5](https://www.w3schools.com/js/js_es5.asp) for JS output and autoprefixes CSS in order to support legacy browsers. This results in much larger JS and CSS output because newer features need to be down-leveled. You can opt-out of this behavior with  experimental flags below:
+Next.js currently targets [ES5](https://www.w3schools.com/js/js_es5.asp) for JS output and autoprefixes CSS in order to support legacy browsers. This results in much larger JS and CSS output because newer features need to be down-leveled. You can opt-out of this behavior with experimental flags below:
 
 ```js:next.config.js
 const nextConfig = {
@@ -23,7 +24,7 @@ module.exports = nextConfig
 - [Related Github discussion](https://github.com/vercel/next.js/discussions/33227)
 - [Next.js blog article](https://nextjs.org/blog/next-12-2#other-improvements)
 
-##  Use `next/future/image`
+## Use `next/future/image`
 
 The `next/future/image` component improves both the performance and developer experience of `next/image` by using the native `<img>` element with better default behavior.
 This component uses browser native [lazy loading](https://caniuse.com/loading-lazy-attr).
@@ -42,39 +43,39 @@ You might need to tweak some properties, because `layout` is not available.
 
 ## Use `next/dynamic` imports
 
-Next.js supports lazy loading external libraries with  `import()`  and React components with  `next/dynamic`. Deferred loading helps improve the initial loading performance by decreasing the amount of JavaScript necessary to render the page. Components or libraries are only imported and included in the JavaScript bundle when they're used.
+Next.js supports lazy loading external libraries with `import()` and React components with `next/dynamic`. Deferred loading helps improve the initial loading performance by decreasing the amount of JavaScript necessary to render the page. Components or libraries are only imported and included in the JavaScript bundle when they're used.
 
-`next/dynamic`  is an extension of  [`React.lazy`](https://reactjs.org/docs/code-splitting.html#reactlazy). When used in combination with  [`Suspense`](https://reactjs.org/docs/react-api.html#reactsuspense), components can delay hydration until the Suspense boundary is resolved.
+`next/dynamic` is an extension of [`React.lazy`](https://reactjs.org/docs/code-splitting.html#reactlazy). When used in combination with [`Suspense`](https://reactjs.org/docs/react-api.html#reactsuspense), components can delay hydration until the Suspense boundary is resolved.
 
 By using `next/dynamic`, the header component will not be included in the page's initial JavaScript bundle. The page will render the Suspense `fallback` first, followed by the `Header` component when the `Suspense` boundary is resolved.
 
 ```jsx
-import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
-const DynamicHeader = dynamic(() => import('../components/header'), {
+const DynamicHeader = dynamic(() => import("../components/header"), {
   suspense: true,
-})
+});
 
 export default function Home() {
   return (
     <Suspense fallback={`Loading...`}>
       <DynamicHeader />
     </Suspense>
-  )
+  );
 }
 ```
 
 We can also defer loading external libraries until module is needed, a.k.a user types in the search input.  
-This example uses ``fuse.js``.
+This example uses `fuse.js`.
 
 ```jsx
-import { useState } from 'react'
+import { useState } from "react";
 
-const names = ['Tim', 'Joe', 'Bel', 'Lee']
+const names = ["Tim", "Joe", "Bel", "Lee"];
 
 export default function Page() {
-  const [results, setResults] = useState()
+  const [results, setResults] = useState();
 
   return (
     <div>
@@ -82,17 +83,17 @@ export default function Page() {
         type="text"
         placeholder="Search"
         onChange={async (e) => {
-          const { value } = e.currentTarget
+          const { value } = e.currentTarget;
           // Dynamically load fuse.js
-          const Fuse = (await import('fuse.js')).default
-          const fuse = new Fuse(names)
+          const Fuse = (await import("fuse.js")).default;
+          const fuse = new Fuse(names);
 
-          setResults(fuse.search(value))
+          setResults(fuse.search(value));
         }}
       />
       <pre>Results: {JSON.stringify(results, null, 2)}</pre>
     </div>
-  )
+  );
 }
 ```
 
@@ -103,6 +104,7 @@ export default function Page() {
 [`Preact`](https://preactjs.com) is a fast 3kB alternative to React with the same modern API. It doesn't ship Virtual DOM and uses native browser APIs. You can give it a shot, but some packages might not work and you might run into some issues. Make sure to test changes before deploying to production!
 
 Here is basic `package.json` needed for replacing React with Preact
+
 ```json:package.json
 {
   "scripts": {
