@@ -1,10 +1,10 @@
 import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import { SITE_URL } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://adison.me",
-  integrations: [mdx(), sitemap(), tailwind()],
+  site: SITE_URL,
+  integrations: [sitemap(), tailwind()],
 });
