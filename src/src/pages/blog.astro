@@ -1,52 +1,55 @@
 ---
-import BaseHead from "@components/BaseHead.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import BaseLayout from "@layouts/Base.astro";
+import SEO from "@layouts/SEO.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
+const posts = (await Astro.glob("./blog/*.md")).sort(
   (a, b) =>
     new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
 );
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <section>
-        <ul class="list-none">
-          {
-            posts.map((post) => (
-              <li class="flex">
-                <time
-                  datetime={post.frontmatter.pubDate}
-                  class="basis-32 italic text-neutral-600"
-                >
-                  {new Date(post.frontmatter.pubDate).toLocaleDateString(
-                    "en-us",
-                    {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    }
-                  )}
-                </time>
-                <a href={post.url} class="visited:text-purple-700">
-                  {post.frontmatter.title}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<SEO title="Blog" description="Blog">
+  <BaseLayout>
+    <h1 class="text-5xl font-bold">Blog</h1>
+    <section class="mt-8">
+      {
+        posts.map((post) => (
+          <div class="py-8 border-t border-gray-200 grid sm:grid-cols-3 gap-2">
+            <div class="w-56 text-gray-500">
+              <time datetime={post.frontmatter.pubDate}>
+                {new Date(post.frontmatter.pubDate).toLocaleDateString(
+                  "en-us",
+                  {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  }
+                )}
+              </time>
+              <div class="flow-root mt-8 text-neutral-800 text-xs font-medium">
+                <div class="-m-2 flex flex-wrap">
+                  {post.frontmatter.tags[0].split(";").map((tag: string) => (
+                    <a
+                      href={`/blog/tag/${tag.toLowerCase()}`}
+                      class="m-2 px-2 py-1 rounded bg-neutral-200"
+                    >
+                      {tag}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <a href={post.url} class="sm:col-span-2">
+              <h2 class="text-2xl text-gray-900 font-bold">
+                {post.frontmatter.title}
+              </h2>
+              <p class="mt-4 text-gray-900">{post.frontmatter.description}</p>
+            </a>
+          </div>
+        ))
+      }
+    </section>
+  </BaseLayout>
+</SEO>

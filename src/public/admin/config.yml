@@ -19,10 +19,11 @@ collections:
           label: "Layout",
           name: "layout",
           widget: "hidden",
-          default: "@layouts/BlogPost.astro",
+          default: "@layouts/Post.astro",
         }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Publish Date", name: "pubDate", widget: "datetime" }
       - { label: "Featured Image", name: "heroImage", widget: "image" }
+      - { label: "Tags", name: "tags", widget: "list", min: 1 }
       - { label: "Body", name: "body", widget: "markdown" }
