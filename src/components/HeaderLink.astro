@@ -9,7 +9,7 @@ const isActive = href === Astro.url.pathname.replace(/\/$/, "");
   href={href}
   class={`flex flex-row items-center gap-2 px-3 py-2 rounded text-sm font-medium leading-none ${
     isActive
-      ? " text-blue-500 bg-blue-100"
+      ? " text-blue-600 bg-blue-100/60"
       : "text-neutral-600 hover:bg-neutral-600/5"
   }`}
   {...props}
