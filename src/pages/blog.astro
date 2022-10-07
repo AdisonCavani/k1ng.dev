@@ -52,7 +52,7 @@ const tags = [...new Set([].concat.apply([], tagsNotMerged))];
                 <div class="-m-2 flex flex-wrap">
                   {post.frontmatter.tags[0].split(";").map((tag: string) => (
                     <a
-                      href={`/blog/tag/${tag.toLowerCase()}`}
+                      href={`/blog/tag/${slugify(tag)}`}
                       class="m-2 px-2 py-1 rounded bg-neutral-200"
                     >
                       {tag}
