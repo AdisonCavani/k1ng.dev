@@ -9,7 +9,7 @@ export default defineConfig({
   site: SITE_URL,
   integrations: [
     sitemap({
-      filter: (page) => page != `${SITE_URL}/admin`,
+      filter: (page) => page != `${SITE_URL}/admin/`,
     }),
     tailwind(),
   ],
