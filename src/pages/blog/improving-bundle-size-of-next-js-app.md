@@ -3,7 +3,7 @@ layout: "@layouts/Post.astro"
 title: Improving bundle size of Next.js app
 description: "This post will cover reducing your Next.js app bundle size. Reducing it can significantly improve your Lighthouse performance score."
 pubDate: 2022-09-28T17:00:10.447Z
-heroImage: /images/uploads/1st.png
+heroImage: /static/images/uploads/1st.avif
 tags:
   - Frontend;Next.js
 ---

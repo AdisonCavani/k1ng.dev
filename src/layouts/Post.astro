@@ -1,13 +1,14 @@
 ---
 import SEO from "./SEO.astro";
 import BaseLayout from "./Base.astro";
+import { slugify } from "@lib/Slug";
 
 export interface Props {
   content: {
     title: string;
     description: string;
     pubDate?: string;
-    heroImage: string;
+    heroImage?: string;
     tags: Array<string>;
   };
 }
@@ -19,13 +20,17 @@ const {
 
 <SEO {title} {description}>
   <BaseLayout>
-    <img
-      width={720}
-      height={360}
-      src={heroImage}
-      alt=""
-      class="mx-auto max-w-lg w-full mt-4 sm:mt-0 rounded-xl"
-    />
+    {
+      heroImage && (
+        <img
+          width={720}
+          height={360}
+          src={heroImage}
+          alt=""
+          class="mx-auto max-w-lg w-full mt-4 sm:mt-0 rounded-xl"
+        />
+      )
+    }
     <h1 class="pt-8 md:pt-16 text-5xl font-bold">{title}</h1>
     <div class="mt-8 text-gray-500">
       <p class="flex gap-2 items-center">
@@ -70,7 +75,7 @@ const {
           {
             tags[0].split(";").map((tag: string) => (
               <a
-                href={`/blog/tag/${tag.toLowerCase()}`}
+                href={`/blog/tag/${slugify(tag)}`}
                 class="m-2 px-2 py-1 rounded bg-neutral-200"
               >
                 {tag}
