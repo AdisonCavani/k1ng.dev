@@ -1,0 +1,51 @@
+---
+import SEO from "@layouts/SEO.astro";
+import BaseLayout from "@layouts/Base.astro";
+import BlogLayout from "@layouts/Blog.astro";
+import { slugify } from "@lib/Slug";
+
+const { tag } = Astro.params;
+
+const posts = (await Astro.glob("../*.md")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
+);
+
+const filteredPosts = posts.filter((post) =>
+  post.frontmatter.tags[0]
+    .split(";")
+    .map((e: string) => slugify(e))
+    .includes(tag)
+);
+
+const tagsNotMerged = posts.map((post) => post.frontmatter.tags[0].split(";"));
+const tags = [...new Set([].concat.apply([], tagsNotMerged))];
+
+export async function getStaticPaths() {
+  const posts = (await Astro.glob("../*.md")).sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
+  );
+
+  const tagsNotMerged = posts.map((post) =>
+    post.frontmatter.tags[0].split(";")
+  );
+  const tags = [...new Set([].concat.apply([], tagsNotMerged))];
+
+  return tags.map((tag) => {
+    return {
+      params: {
+        tag: slugify(tag),
+      },
+    };
+  });
+}
+---
+
+<SEO title="Blog" description="Blog">
+  <BaseLayout>
+    <BlogLayout currentTag={tag as string} posts={filteredPosts} tags={tags} />
+  </BaseLayout>
+</SEO>
