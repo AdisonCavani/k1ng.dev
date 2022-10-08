@@ -1,13 +1,14 @@
 ---
-import { slugify } from "@lib/Helpers";
+import { GetTagsData } from "@lib/Queries";
+import type { PostSchema } from "@lib/Types";
 
 interface Props {
   currentTag?: string | undefined;
-  posts: any;
-  tags: any;
+  posts: Array<PostSchema>;
 }
 
-const { currentTag, posts, tags } = Astro.props;
+const allTags = await GetTagsData();
+const { currentTag, posts } = Astro.props;
 ---
 
 <h1 class="text-5xl font-bold">Blog</h1>
@@ -15,16 +16,14 @@ const { currentTag, posts, tags } = Astro.props;
 <div class="flow-root mt-8 text-sm text-gray-400">
   <div class="-m-4 flex flex-row">
     {
-      tags.map((tag: any) => (
+      allTags.map(({ name, slug }) => (
         <a
-          href={`/blog/tag/${slugify(tag)}`}
+          href={`/blog/tag/${slug}`}
           class={`m-2 px-2 py-1 ${
-            slugify(tag) === currentTag
-              ? "rounded bg-neutral-100"
-              : "hover:underline"
+            slug === currentTag ? "rounded bg-neutral-100" : "hover:underline"
           }`}
         >
-          {tag}
+          {name}
         </a>
       ))
     }
@@ -33,11 +32,11 @@ const { currentTag, posts, tags } = Astro.props;
 
 <section class="mt-8">
   {
-    posts.map((post: any) => (
+    posts.map(({ categories, description, publishedAt, title, slug }) => (
       <div class="py-8 border-t border-gray-200 grid sm:grid-cols-3 gap-2">
         <div class="w-56 text-gray-500">
-          <time datetime={post.frontmatter.pubDate}>
-            {new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
+          <time datetime={publishedAt}>
+            {new Date(publishedAt).toLocaleDateString("en-us", {
               month: "long",
               day: "numeric",
               year: "numeric",
@@ -45,22 +44,17 @@ const { currentTag, posts, tags } = Astro.props;
           </time>
           <div class="flow-root mt-8 text-sm text-neutral-400">
             <div class="-m-2 flex flex-wrap">
-              {post.frontmatter.tags[0].split(";").map((tag: string) => (
-                <a
-                  href={`/blog/tag/${slugify(tag)}`}
-                  class="m-2 hover:underline"
-                >
-                  {tag}
+              {categories.map(({ name, slug }) => (
+                <a href={`/blog/tag/${slug}`} class="m-2 hover:underline">
+                  {name}
                 </a>
               ))}
             </div>
           </div>
         </div>
-        <a href={post.url} class="sm:col-span-2">
-          <h2 class="text-2xl text-gray-900 font-bold">
-            {post.frontmatter.title}
-          </h2>
-          <p class="mt-4 text-gray-900">{post.frontmatter.description}</p>
+        <a href={`/blog/${slug}`} class="sm:col-span-2">
+          <h2 class="text-2xl text-gray-900 font-bold">{title}</h2>
+          <p class="mt-4 text-gray-900">{description}</p>
         </a>
       </div>
     ))

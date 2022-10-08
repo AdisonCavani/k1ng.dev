@@ -1,37 +1,37 @@
 ---
-import SEO from "./SEO.astro";
-import BaseLayout from "./Base.astro";
-import { slugify } from "@lib/Helpers";
+import { GetPostData, GetPostSlugsData } from "@lib/Queries";
+import SEO from "@layouts/SEO.astro";
+import BaseLayout from "@layouts/Base.astro";
 
-export interface Props {
-  content: {
-    title: string;
-    description: string;
-    pubDate?: string;
-    heroImage?: string;
-    tags: Array<string>;
-  };
+const { slug } = Astro.params;
+const { title, description, publishedAt, categories, coverImage, content } =
+  await GetPostData(slug! as string);
+
+export async function getStaticPaths() {
+  const slugs = await GetPostSlugsData();
+
+  return slugs.map((slug) => {
+    return {
+      params: {
+        slug: slug,
+      },
+    };
+  });
 }
-
-const {
-  frontmatter: { title, description, pubDate, heroImage, tags },
-} = Astro.props;
 ---
 
-<SEO {title} {description}>
+<SEO title={title} description={description}>
   <BaseLayout>
-    {
-      heroImage && (
-        <img
-          width={720}
-          height={360}
-          src={heroImage}
-          alt=""
-          class="mx-auto max-w-lg w-full mt-4 sm:mt-0 rounded-xl"
-        />
-      )
-    }
+    <img
+      width={720}
+      height={360}
+      src={coverImage}
+      alt=""
+      class="mx-auto max-w-lg w-full mt-4 sm:mt-0 rounded-xl"
+    />
+
     <h1 class="pt-8 md:pt-16 text-5xl font-bold">{title}</h1>
+
     <div class="mt-8 text-gray-500">
       <p class="flex gap-2 items-center">
         <a
@@ -41,9 +41,9 @@ const {
           class="hover:underline">Adison Cavani</a
         >
         {"•"}
-        <time datetime={pubDate}>
+        <time datetime={publishedAt}>
           {
-            new Date(pubDate).toLocaleDateString("en-us", {
+            new Date(publishedAt).toLocaleDateString("en-us", {
               month: "long",
               day: "numeric",
               year: "numeric",
@@ -73,12 +73,12 @@ const {
       <div class="flow-root mt-8 text-neutral-800 text-xs font-medium">
         <p class="-m-2 flex flex-row">
           {
-            tags[0].split(";").map((tag: string) => (
+            categories.map(({ name, slug }) => (
               <a
-                href={`/blog/tag/${slugify(tag)}`}
+                href={`/blog/tag/${slug}`}
                 class="m-2 px-2 py-1 rounded bg-neutral-200"
               >
-                {tag}
+                {name}
               </a>
             ))
           }
@@ -89,7 +89,7 @@ const {
     <hr class="border-t border-neutral-200 my-8" />
 
     <article class="w-full max-w-none prose">
-      <slot />
+      <p>{content}</p>
     </article>
   </BaseLayout>
 </SEO>

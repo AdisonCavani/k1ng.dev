@@ -1,0 +1,27 @@
+---
+import SEO from "@layouts/SEO.astro";
+import BaseLayout from "@layouts/Base.astro";
+import BlogLayout from "@layouts/Blog.astro";
+import { GetBlogTagData, GetTagsData } from "@lib/Queries";
+
+const { slug } = Astro.params;
+const filteredPosts = await GetBlogTagData(slug! as string);
+
+export async function getStaticPaths() {
+  const tags = await GetTagsData();
+
+  return tags.map(({ slug }) => {
+    return {
+      params: {
+        slug: slug,
+      },
+    };
+  });
+}
+---
+
+<SEO title="Blog" description="Blog">
+  <BaseLayout>
+    <BlogLayout currentTag={slug as string} posts={filteredPosts} />
+  </BaseLayout>
+</SEO>

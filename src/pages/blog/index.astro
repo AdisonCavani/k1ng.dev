@@ -1,0 +1,14 @@
+---
+import BaseLayout from "@layouts/Base.astro";
+import SEO from "@layouts/SEO.astro";
+import BlogLayout from "@layouts/Blog.astro";
+import { GetBlogData } from "@lib/Queries";
+
+const posts = await GetBlogData();
+---
+
+<SEO title="Blog" description="Blog">
+  <BaseLayout>
+    <BlogLayout posts={posts} />
+  </BaseLayout>
+</SEO>
