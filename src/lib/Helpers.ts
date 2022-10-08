@@ -5,3 +5,6 @@ export const slugify = (str: string) =>
     .replace(/[^\w\s-]/g, "")
     .replace(/[\s_-]+/g, "-")
     .replace(/^-+|-+$/g, "");
+
+export const isUrlInternal = (href: string) =>
+  href && (href.startsWith("/") || href.startsWith("#"));

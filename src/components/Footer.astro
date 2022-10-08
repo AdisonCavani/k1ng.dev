@@ -1,7 +1,10 @@
 ---
 import { SITE_AUTHOR } from "../config";
+import { GetFooterData } from "@lib/Queries";
+import { isUrlInternal } from "@lib/Helpers";
 
 const today = new Date();
+const data = await GetFooterData();
 ---
 
 <footer class="mx-auto mt-14 w-full max-w-container px-4 sm:px-6 lg:px-8">
@@ -13,13 +16,34 @@ const today = new Date();
     <div
       class="mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700"
     >
-      <a href="https://analytics.adison.me" target="_blank" rel="noreferrer"
-        >Analytics</a
-      >
-      <div class="h-4 w-px bg-slate-500/40"></div>
-      <a href="https://plausible.io/privacy" target="_blank" rel="noreferrer"
-        >Privacy</a
-      >
+      {
+        data.map(({ name, url }, index) => (
+          <>
+            {isUrlInternal(url) ? (
+              <>
+                <a href={url}>{name}</a>
+                {index !== data.length - 1 && (
+                  <hr class="h-4 w-px bg-neutral-300" />
+                )}
+              </>
+            ) : (
+              <>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="hover:underline"
+                >
+                  {name}
+                </a>
+                {index !== data.length - 1 && (
+                  <hr class="h-4 w-px bg-neutral-300" />
+                )}
+              </>
+            )}
+          </>
+        ))
+      }
     </div>
   </div>
 </footer>
