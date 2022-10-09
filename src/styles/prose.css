@@ -1,0 +1,140 @@
+.prose a {
+  @apply text-blue-600 no-underline hover:underline underline-offset-2;
+}
+
+/* Section - code block */
+.prose pre {
+  @apply border border-gray-200 leading-5 bg-neutral-100;
+}
+
+.prose code {
+  @apply text-neutral-800 px-1 py-0.5 border border-neutral-100 rounded-lg bg-neutral-200;
+}
+
+.prose a code {
+  @apply text-blue-600 no-underline hover:underline underline-offset-2;
+}
+
+.prose pre code {
+  @apply text-neutral-800 p-0 bg-transparent;
+  border: initial;
+  font-family: "Cascadia Code";
+}
+
+/* Prism-js theme */
+.token.comment,
+.token.blockquote {
+  @apply text-neutral-500;
+}
+
+.token.cdata {
+  @apply text-blue-600;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  @apply text-gray-800;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  @apply text-red-600;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  @apply text-blue-600;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  @apply text-blue-600;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  @apply text-green-700;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  @apply text-violet-600;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  @apply font-bold text-blue-600;
+}
+
+.token.list {
+  @apply text-orange-500;
+}
+
+.token.inserted {
+  @apply text-green-700;
+}
+
+.token.deleted {
+  @apply text-red-600;
+}
+
+.token.bold {
+  @apply font-bold;
+}
+
+/* JSON */
+
+.language-json .token.property {
+  @apply text-blue-600;
+}
+
+.language-json .token.string {
+  @apply text-green-700;
+}
+
+.language-markup .token.tag .token.punctuation {
+  @apply text-gray-800;
+}
+
+/* CSS */
+
+code.language-css,
+.language-css .token.function {
+  @apply text-blue-600;
+}
+
+/* YAML */
+
+.language-yaml .token.atrule {
+  @apply text-green-700;
+}
+
+code.language-yaml {
+  @apply text-indigo-900;
+}

@@ -1,4 +1,5 @@
 import sanityClient, { ClientConfig } from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 import type { FooterSchema, PostSchema, TagSchema } from "./Types";
 
 const config: ClientConfig = {
@@ -8,6 +9,12 @@ const config: ClientConfig = {
 };
 
 const client = sanityClient(config);
+
+const builder = imageUrlBuilder(client);
+
+export const urlFor = (source: string) => {
+  return builder.image(source);
+};
 
 const FooterQuery = `
 *[_type == "footer"] {
@@ -80,7 +87,8 @@ export const GetBlogTagData = async (
 
 const PostQuery = `
 *[_type == "post" && slug.current == $slug] | order(publishedAt desc) [0] {
-  ${PostFields}
+  ${PostFields},
+  content
 }
 `;
 

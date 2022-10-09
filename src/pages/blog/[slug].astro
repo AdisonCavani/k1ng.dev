@@ -1,5 +1,11 @@
 ---
-import { GetPostData, GetPostSlugsData } from "@lib/Queries";
+import "@styles/prose.css";
+
+import { marked } from "marked";
+import prism from "prismjs";
+import "prismjs/components";
+
+import { GetPostData, GetPostSlugsData, urlFor } from "@lib/Queries";
 import SEO from "@layouts/SEO.astro";
 import BaseLayout from "@layouts/Base.astro";
 
@@ -18,6 +24,19 @@ export async function getStaticPaths() {
     };
   });
 }
+
+marked.setOptions({
+  highlight: function (code, lang) {
+    if (prism.languages[lang]) {
+      console.log(`Works: ${lang}`);
+      return prism.highlight(code, prism.languages[lang]!, lang);
+    } else {
+      console.log(`Doesnt: ${lang}`);
+      return code;
+    }
+  },
+});
+const markdown = marked.parse(content);
 ---
 
 <SEO title={title} description={description}>
@@ -25,7 +44,7 @@ export async function getStaticPaths() {
     <img
       width={720}
       height={360}
-      src={coverImage}
+      src={urlFor(coverImage).url()}
       alt=""
       class="mx-auto max-w-lg w-full mt-4 sm:mt-0 rounded-xl"
     />
@@ -88,8 +107,6 @@ export async function getStaticPaths() {
 
     <hr class="border-t border-neutral-200 my-8" />
 
-    <article class="w-full max-w-none prose">
-      <p>{content}</p>
-    </article>
+    <article class="w-full max-w-none prose" set:html={markdown}></article>
   </BaseLayout>
 </SEO>

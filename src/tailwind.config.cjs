@@ -4,7 +4,7 @@ module.exports = {
     "./components/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
     "./layouts/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
     "./pages/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
-    "./styles/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    "./styles/**/*.css",
   ],
   theme: {
     extend: {},
