@@ -3,7 +3,7 @@ import "@styles/prose.css";
 
 import { marked } from "marked";
 import prism from "prismjs";
-import "prismjs/components";
+import loadLanguages from "prismjs/components/";
 
 import { GetPostData, GetPostSlugsData, urlFor } from "@lib/Queries";
 import SEO from "@layouts/SEO.astro";
@@ -25,15 +25,12 @@ export async function getStaticPaths() {
   });
 }
 
+loadLanguages();
 marked.setOptions({
   highlight: function (code, lang) {
-    if (prism.languages[lang]) {
-      console.log(`Works: ${lang}`);
+    if (prism.languages[lang])
       return prism.highlight(code, prism.languages[lang]!, lang);
-    } else {
-      console.log(`Doesnt: ${lang}`);
-      return code;
-    }
+    return code;
   },
 });
 const markdown = marked.parse(content);
