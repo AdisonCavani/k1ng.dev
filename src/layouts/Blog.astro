@@ -13,14 +13,14 @@ const { currentTag, posts } = Astro.props;
 
 <h1 class="text-5xl font-bold">Blog</h1>
 
-<div class="flow-root mt-8 text-sm text-gray-400">
+<div class="flow-root mt-8 text-sm text-gray-600">
   <div class="-m-4 flex flex-row">
     {
       allTags.map(({ name, slug }) => (
         <a
           href={`/blog/tag/${slug}`}
           class={`m-2 px-2 py-1 ${
-            slug === currentTag ? "rounded bg-neutral-100" : "hover:underline"
+            slug === currentTag ? "rounded bg-neutral-200" : "hover:underline"
           }`}
         >
           {name}
@@ -34,15 +34,15 @@ const { currentTag, posts } = Astro.props;
   {
     posts.map(({ categories, description, publishedAt, title, slug }) => (
       <div class="py-8 border-t border-gray-200 grid sm:grid-cols-3 gap-2">
-        <div class="w-56 text-gray-500">
-          <time datetime={publishedAt}>
+        <div class="w-56">
+          <time datetime={publishedAt} class="text-gray-800">
             {new Date(publishedAt).toLocaleDateString("en-us", {
               month: "long",
               day: "numeric",
               year: "numeric",
             })}
           </time>
-          <div class="flow-root mt-8 text-sm text-neutral-400">
+          <div class="flow-root mt-8 text-sm text-gray-600">
             <div class="-m-2 flex flex-wrap">
               {categories.map(({ name, slug }) => (
                 <a href={`/blog/tag/${slug}`} class="m-2 hover:underline">
@@ -53,8 +53,8 @@ const { currentTag, posts } = Astro.props;
           </div>
         </div>
         <a href={`/blog/${slug}`} class="sm:col-span-2">
-          <h2 class="text-2xl text-gray-900 font-bold">{title}</h2>
-          <p class="mt-4 text-gray-900">{description}</p>
+          <h2 class="text-2xl font-bold">{title}</h2>
+          <p class="mt-4">{description}</p>
         </a>
       </div>
     ))
