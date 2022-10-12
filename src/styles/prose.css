@@ -18,7 +18,7 @@
 .prose pre code {
   @apply text-neutral-800 p-0 bg-transparent;
   border: initial;
-  font-family: "Cascadia Code";
+  font-family: "Cascadia Code", "ui-monospace", "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "Liberation Mono", "monospace";
 }
 
 /* Prism-js theme */
