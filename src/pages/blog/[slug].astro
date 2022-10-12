@@ -36,7 +36,11 @@ marked.setOptions({
 const markdown = marked.parse(content);
 ---
 
-<SEO title={title} description={description}>
+<SEO
+  title={title}
+  description={description}
+  image={urlFor(coverImage).width(1200).height(630).url()}
+>
   <BaseLayout>
     <img
       width={720}
