@@ -12,7 +12,7 @@
 }
 
 .prose a code {
-  @apply text-blue-600 no-underline hover:underline underline-offset-2;
+  @apply text-blue-700 no-underline hover:underline underline-offset-2;
 }
 
 .prose pre code {
@@ -24,7 +24,7 @@
 /* Prism-js theme */
 .token.comment,
 .token.blockquote {
-  @apply text-neutral-500;
+  @apply text-neutral-600;
 }
 
 .token.cdata {
@@ -43,7 +43,7 @@
 .token.keyword,
 .token.rule,
 .token.builtin {
-  @apply text-red-600;
+  @apply text-red-700;
 }
 
 .token.string,
@@ -101,7 +101,7 @@
 }
 
 .token.deleted {
-  @apply text-red-600;
+  @apply text-red-700;
 }
 
 .token.bold {
