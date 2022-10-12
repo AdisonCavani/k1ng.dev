@@ -1,5 +1,44 @@
+h1[id]::before,
+h2[id]::before,
+h3[id]::before,
+h4[id]::before,
+h5[id]::before,
+h6[id]::before {
+  content: "";
+  display: block;
+  height: 54px;
+  margin-top: -54px;
+  visibility: hidden;
+}
+
 .prose a {
   @apply text-blue-600 no-underline hover:underline underline-offset-2;
+}
+
+.prose .anchor {
+  @apply absolute invisible cursor-pointer pr-2 w-9/12 max-w-2xl -ml-6 !no-underline;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose .anchor:after {
+  @apply text-gray-500;
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+/* Section - code title */
+.rehype-code-title {
+  @apply px-5 py-3 font-mono text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t-lg;
+}
+
+.rehype-code-title + pre {
+  @apply mt-0 rounded-t-none;
 }
 
 /* Section - code block */
@@ -18,7 +57,8 @@
 .prose pre code {
   @apply text-neutral-800 p-0 bg-transparent;
   border: initial;
-  font-family: "Cascadia Code", ui-monospace, "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+  font-family: "Cascadia Code", ui-monospace, "SFMono-Regular", "SF Mono",
+    "Menlo", "Consolas", "Liberation Mono", monospace;
 }
 
 /* Prism-js theme */

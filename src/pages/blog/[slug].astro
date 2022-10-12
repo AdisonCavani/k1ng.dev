@@ -1,13 +1,12 @@
 ---
 import "@styles/prose.css";
 
-import { marked } from "marked";
-import prism from "prismjs";
-import loadLanguages from "prismjs/components/";
+import { MDXRemote } from "next-mdx-remote";
 
 import { GetPostData, GetPostSlugsData, urlFor } from "@lib/Queries";
 import SEO from "@layouts/SEO.astro";
 import BaseLayout from "@layouts/Base.astro";
+import mdxToHtml from "../../lib/Markdown";
 
 const { slug } = Astro.params;
 const { title, description, publishedAt, categories, coverImage, content } =
@@ -25,15 +24,7 @@ export async function getStaticPaths() {
   });
 }
 
-loadLanguages();
-marked.setOptions({
-  highlight: function (code, lang) {
-    if (prism.languages[lang])
-      return prism.highlight(code, prism.languages[lang]!, lang);
-    return code;
-  },
-});
-const markdown = marked.parse(content);
+const mdxSource = await mdxToHtml(content);
 ---
 
 <SEO
@@ -70,6 +61,7 @@ const markdown = marked.parse(content);
             })
           }
         </time>
+        {"•"}
         <a
           href="/rss.xml"
           target="_blank"
@@ -108,6 +100,8 @@ const markdown = marked.parse(content);
 
     <hr class="border-t border-neutral-200 my-8" />
 
-    <article class="w-full max-w-none prose" set:html={markdown}></article>
+    <article class="w-full max-w-none prose">
+      <MDXRemote {...mdxSource} />
+    </article>
   </BaseLayout>
 </SEO>

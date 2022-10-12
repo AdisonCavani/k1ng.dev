@@ -6,7 +6,7 @@ const config: ClientConfig = {
   apiVersion: import.meta.env.PUBLIC_SANITY_API_VERSION,
   dataset: import.meta.env.PUBLIC_SANITY_DATASET || "production",
   projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
-  useCdn: import.meta.env.PROD
+  useCdn: import.meta.env.PROD,
 };
 
 const client = sanityClient(config);
