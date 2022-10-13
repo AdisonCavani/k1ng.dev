@@ -1,10 +1,10 @@
 ---
 import BaseLayout from "@layouts/Base.astro";
-import SEO from "@layouts/SEO.astro";
+import PageSEO from "@components/SEO/Page.astro";
 ---
 
-<SEO title="Home">
-  <BaseLayout>
-    <h1>Hello, Astronaut!</h1>
-  </BaseLayout>
-</SEO>
+<BaseLayout>
+  <PageSEO slot="seo" title="Home" />
+
+  <h1>Hello, Astronaut!</h1>
+</BaseLayout>

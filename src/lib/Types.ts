@@ -19,7 +19,8 @@ export type TagSchema = {
 export type PostSchema = {
   title: string;
   description: string;
-  publishedAt: string;
+  datePublished: string;
+  dateModified: string;
   coverImage: string;
   // authors: Array<AuthorSchema>;
   categories: Array<TagSchema>;

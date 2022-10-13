@@ -1,0 +1,46 @@
+---
+import BaseSEO from "./Base.astro";
+import { urlFor } from "@lib/Queries";
+import type { TagSchema } from "@lib/Types";
+
+type Props = {
+  title: string;
+  description: string;
+  datePublished: string;
+  dateModified: string;
+  coverImage: string;
+  authors: any[];
+  tags: Array<TagSchema>;
+};
+
+const {
+  title,
+  description,
+  datePublished,
+  dateModified,
+  coverImage,
+  authors,
+  tags,
+} = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  datePublished: datePublished,
+  dateModified: dateModified,
+  description: description,
+};
+---
+
+<BaseSEO
+  title={title}
+  description={description}
+  ogType="article"
+  ogImage={urlFor(coverImage).width(1200).height(630).url()}
+  datePublished={datePublished}
+  dateModified={dateModified}
+  authors={authors}
+  tags={tags}
+  structuredData={JSON.stringify(structuredData)}
+/>

@@ -1,6 +1,6 @@
 ---
-import SEO from "@layouts/SEO.astro";
 import BaseLayout from "@layouts/Base.astro";
+import PageSEO from "@components/SEO/Page.astro";
 import BlogLayout from "@layouts/Blog.astro";
 import { GetBlogTagData, GetTagsData } from "@lib/Queries";
 
@@ -20,8 +20,12 @@ export async function getStaticPaths() {
 }
 ---
 
-<SEO title="Blog" description="Blog">
-  <BaseLayout>
-    <BlogLayout currentTag={slug as string} posts={filteredPosts} />
-  </BaseLayout>
-</SEO>
+<BaseLayout>
+  <PageSEO
+    slot="seo"
+    title="Blog"
+    description="Articles about programming, new technologies, frameworks ect."
+  />
+
+  <BlogLayout currentTag={slug as string} posts={filteredPosts} />
+</BaseLayout>

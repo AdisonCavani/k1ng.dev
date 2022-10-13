@@ -53,7 +53,8 @@ const TagFields = `
 const PostFields = `
   title,
   description,
-  publishedAt,
+  "datePublished": _createdAt,
+  "dateModified": _updatedAt,
   coverImage,
   "authors": authors[]-> {
     ${AuthorFields}
@@ -65,7 +66,7 @@ const PostFields = `
 `;
 
 const BlogQuery = `
-*[_type == "post"] | order(publishedAt desc) {
+*[_type == "post"] | order(_createdAt desc) {
   ${PostFields}
 }
 `;
@@ -87,7 +88,7 @@ export const GetBlogTagData = async (
 };
 
 const PostQuery = `
-*[_type == "post" && slug.current == $slug] | order(publishedAt desc) [0] {
+*[_type == "post" && slug.current == $slug] | order(_createdAt desc) [0] {
   ${PostFields},
   content
 }

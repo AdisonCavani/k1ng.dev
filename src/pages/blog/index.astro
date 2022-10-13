@@ -1,17 +1,19 @@
 ---
 import BaseLayout from "@layouts/Base.astro";
-import SEO from "@layouts/SEO.astro";
+import PageSEO from "@components/SEO/Page.astro";
+
 import BlogLayout from "@layouts/Blog.astro";
 import { GetBlogData } from "@lib/Queries";
 
 const posts = await GetBlogData();
 ---
 
-<SEO
-  title="Blog"
-  description="Articles about programming, new technologies, frameworks ect."
->
-  <BaseLayout>
-    <BlogLayout posts={posts} />
-  </BaseLayout>
-</SEO>
+<BaseLayout>
+  <PageSEO
+    slot="seo"
+    title="Blog"
+    description="Articles about programming, new technologies, frameworks ect."
+  />
+
+  <BlogLayout posts={posts} />
+</BaseLayout>

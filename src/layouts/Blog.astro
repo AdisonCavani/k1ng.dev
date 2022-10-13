@@ -32,11 +32,11 @@ const { currentTag, posts } = Astro.props;
 
 <section class="mt-8">
   {
-    posts.map(({ categories, description, publishedAt, title, slug }) => (
+    posts.map(({ categories, description, datePublished, title, slug }) => (
       <div class="py-8 border-t border-gray-200 grid sm:grid-cols-3 gap-2">
         <div class="w-56">
-          <time datetime={publishedAt} class="text-gray-800">
-            {new Date(publishedAt).toLocaleDateString("en-us", {
+          <time datetime={datePublished} class="text-gray-800">
+            {new Date(datePublished).toLocaleDateString("en-us", {
               month: "long",
               day: "numeric",
               year: "numeric",

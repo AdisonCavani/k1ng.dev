@@ -1,16 +1,22 @@
 ---
 import "@styles/prose.css";
 
-import { MDXRemote } from "next-mdx-remote";
-
-import { GetPostData, GetPostSlugsData, urlFor } from "@lib/Queries";
-import SEO from "@layouts/SEO.astro";
+import PostSEO from "@components/SEO/Post.astro";
 import BaseLayout from "@layouts/Base.astro";
-import mdxToHtml from "../../lib/Markdown";
+import { GetPostData, GetPostSlugsData, urlFor } from "@lib/Queries";
+import { MDXRemote } from "next-mdx-remote";
+import mdxToHtml from "@lib/Markdown";
 
 const { slug } = Astro.params;
-const { title, description, publishedAt, categories, coverImage, content } =
-  await GetPostData(slug! as string);
+const {
+  title,
+  description,
+  datePublished,
+  dateModified,
+  categories,
+  coverImage,
+  content,
+} = await GetPostData(slug! as string);
 
 export async function getStaticPaths() {
   const slugs = await GetPostSlugsData();
@@ -27,81 +33,90 @@ export async function getStaticPaths() {
 const mdxSource = await mdxToHtml(content);
 ---
 
-<SEO
-  title={title}
-  description={description}
-  image={urlFor(coverImage).width(1200).height(630).url()}
->
-  <BaseLayout>
-    <img
-      width={720}
-      height={360}
-      src={urlFor(coverImage).url()}
-      alt=""
-      class="mx-auto max-w-lg w-full mt-4 sm:mt-0 rounded-xl"
-    />
+<BaseLayout>
+  <PostSEO
+    slot="seo"
+    title={title}
+    description={description}
+    datePublished={datePublished}
+    dateModified={dateModified}
+    coverImage={coverImage}
+    authors={["Adison Cavani"]}
+    tags={categories}
+  />
 
-    <h1 class="pt-8 md:pt-16 text-5xl font-bold">{title}</h1>
+  <article itemscope itemtype="http://schema.org/Article">
+    <header>
+      <img
+        width={720}
+        height={360}
+        src={urlFor(coverImage).url()}
+        alt=""
+        class="mx-auto max-w-lg w-full mt-4 sm:mt-0 rounded-xl"
+      />
 
-    <div class="mt-8 text-gray-600">
-      <p class="flex gap-2 items-center">
-        <a
-          href="https://github.com/AdisonCavani"
-          target="_blank"
-          rel="noreferrer"
-          class="hover:underline">Adison Cavani</a
-        >
-        {"•"}
-        <time datetime={publishedAt}>
-          {
-            new Date(publishedAt).toLocaleDateString("en-us", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })
-          }
-        </time>
-        {"•"}
-        <a
-          href="/rss.xml"
-          target="_blank"
-          rel="noreferrer"
-          class="hover:text-gray-700"
-          title="RSS feed"
-        >
-          <svg
-            class="w-4 h-4"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            ><path
-              d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z"
-            ></path><path
-              d="M4 9a1 1 0 011-1 7 7 0 017 7 1 1 0 11-2 0 5 5 0 00-5-5 1 1 0 01-1-1zM3 15a2 2 0 114 0 2 2 0 01-4 0z"
-            ></path>
-          </svg>
-        </a>
-      </p>
-      <div class="flow-root mt-8 text-neutral-800 text-xs font-medium">
-        <p class="-m-2 flex flex-row">
-          {
-            categories.map(({ name, slug }) => (
-              <a
-                href={`/blog/tag/${slug}`}
-                class="m-2 px-2 py-1 rounded bg-neutral-200"
-              >
-                {name}
-              </a>
-            ))
-          }
+      <h1 class="pt-8 md:pt-16 sm:text-5xl text-3xl font-bold">{title}</h1>
+
+      <div class="mt-8 text-gray-600">
+        <p class="flex gap-2 items-center sm:text-base text-sm">
+          <a
+            href="https://github.com/AdisonCavani"
+            target="_blank"
+            rel="noreferrer"
+            class="hover:underline">Adison Cavani</a
+          >
+          {"•"}
+          <time datetime={datePublished}>
+            {
+              new Date(datePublished).toLocaleDateString("en-us", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })
+            }
+          </time>
+          {"•"}
+          <a
+            href="/rss.xml"
+            target="_blank"
+            rel="noreferrer"
+            class="hover:text-gray-700"
+            title="RSS feed"
+          >
+            <svg
+              class="w-4 h-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              ><path
+                d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z"
+              ></path><path
+                d="M4 9a1 1 0 011-1 7 7 0 017 7 1 1 0 11-2 0 5 5 0 00-5-5 1 1 0 01-1-1zM3 15a2 2 0 114 0 2 2 0 01-4 0z"
+              ></path>
+            </svg>
+          </a>
         </p>
+        <div class="flow-root mt-8 text-neutral-800 text-xs font-medium">
+          <p class="-m-2 flex flex-row">
+            {
+              categories.map(({ name, slug }) => (
+                <a
+                  href={`/blog/tag/${slug}`}
+                  class="m-2 px-2 py-1 rounded bg-neutral-200"
+                >
+                  {name}
+                </a>
+              ))
+            }
+          </p>
+        </div>
       </div>
-    </div>
+    </header>
 
     <hr class="border-t border-neutral-200 my-8" />
 
-    <article class="w-full max-w-none prose">
+    <section class="w-full max-w-none prose">
       <MDXRemote {...mdxSource} />
-    </article>
-  </BaseLayout>
-</SEO>
+    </section>
+  </article>
+</BaseLayout>
