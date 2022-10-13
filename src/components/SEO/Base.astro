@@ -30,9 +30,14 @@ const {
 const fullTitle = `${title} - ${SITE_TITLE}`;
 ---
 
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
 <title>{fullTitle}</title>
 <meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
+<link rel="canonical" href={Astro.url} />
 
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={Astro.url} />
@@ -62,6 +67,37 @@ const fullTitle = `${title} - ${SITE_TITLE}`;
     authors.map((author) => <meta property="article:author" content={author} />)
 }
 {tags && tags.map(({ name }) => <meta property="article:tag" content={name} />)}
+
+<link href="/static/favicons/favicon.ico" rel="shortcut icon" />
+<link href="/static/favicons/site.webmanifest" rel="manifest" />
+<link
+  href="/static/favicons/apple-touch-icon.png"
+  rel="apple-touch-icon"
+  sizes="180x180"
+/>
+<link
+  href="/static/favicons/favicon-32x32.png"
+  rel="icon"
+  sizes="32x32"
+  type="image/png"
+/>
+<link
+  href="/static/favicons/favicon-16x16.png"
+  rel="icon"
+  sizes="16x16"
+  type="image/png"
+/>
+<link
+  color="#4a9885"
+  href="/static/favicons/safari-pinned-tab.svg"
+  rel="mask-icon"
+/>
+<meta content="#ffffff" name="theme-color" />
+<meta content="#ffffff" name="msapplication-TileColor" />
+<meta
+  content="/static/favicons/browserconfig.xml"
+  name="msapplication-config"
+/>
 
 {
   structuredData && (
