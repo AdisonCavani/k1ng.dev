@@ -1,7 +1,7 @@
 ---
 import BaseSEO from "./Base.astro";
 import { urlFor } from "@lib/Queries";
-import type { TagSchema } from "@lib/Types";
+import type { AuthorSchema, TagSchema } from "@lib/Types";
 
 type Props = {
   title: string;
@@ -9,7 +9,7 @@ type Props = {
   datePublished: string;
   dateModified: string;
   coverImage: string;
-  authors: any[];
+  authors: Array<AuthorSchema>;
   tags: Array<TagSchema>;
 };
 
@@ -23,13 +23,33 @@ const {
   tags,
 } = Astro.props;
 
+const imageHref = urlFor(coverImage).width(1200).height(630).url();
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: title,
+  author: [
+    authors.map((author) => ({
+      "@type": "Person",
+      name: `${author.firstName} ${author.lastName}`,
+      image: {
+        "@type": "ImageObject",
+        url: urlFor(author.image).width(256).height(256).url(),
+        width: 256,
+        height: 256,
+      },
+    })),
+  ],
   datePublished: datePublished,
   dateModified: dateModified,
   description: description,
+  image: {
+    "@type": "ImageObject",
+    url: imageHref,
+    width: 1200,
+    height: 630,
+  },
 };
 ---
 
@@ -37,7 +57,7 @@ const structuredData = {
   title={title}
   description={description}
   ogType="article"
-  ogImage={urlFor(coverImage).width(1200).height(630).url()}
+  ogImage={imageHref}
   datePublished={datePublished}
   dateModified={dateModified}
   authors={authors}

@@ -13,6 +13,7 @@ const {
   description,
   datePublished,
   dateModified,
+  authors,
   categories,
   coverImage,
   content,
@@ -41,7 +42,7 @@ const mdxSource = await mdxToHtml(content);
     datePublished={datePublished}
     dateModified={dateModified}
     coverImage={coverImage}
-    authors={["Adison Cavani"]}
+    authors={authors}
     tags={categories}
   />
 

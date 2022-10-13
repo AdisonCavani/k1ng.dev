@@ -8,13 +8,13 @@ export type TagSchema = {
   slug: string;
 };
 
-// export type AuthorSchema = {
-//   firstName: string;
-//   lastName: string;
-//   image: string;
-//   github: string;
-//   slug: string;
-// };
+export type AuthorSchema = {
+  firstName: string;
+  lastName: string;
+  image: string;
+  github: string;
+  slug: string;
+};
 
 export type PostSchema = {
   title: string;
@@ -22,7 +22,7 @@ export type PostSchema = {
   datePublished: string;
   dateModified: string;
   coverImage: string;
-  // authors: Array<AuthorSchema>;
+  authors: Array<AuthorSchema>;
   categories: Array<TagSchema>;
   content: string;
   slug: string;
