@@ -8,8 +8,9 @@ const isProd = import.meta.env.PROD;
       type="application/javascript"
       data-domain="adison.me"
       src="https://analytics.adison.me/js/plausible.js"
+      defer
     />
-    <script type="application/javascript" id="plausible-script" defer is:inline>
+    <script type="application/javascript" id="plausible-script" is:inline>
       window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
     </script>
   )
