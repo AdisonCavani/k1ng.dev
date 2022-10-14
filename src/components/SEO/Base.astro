@@ -1,4 +1,5 @@
 ---
+import Plausible from "@components/Plausible.astro";
 import type { TagSchema } from "@lib/Types";
 import { SITE_TITLE, TWITTER_USERNAME } from "../../config";
 
@@ -108,3 +109,5 @@ const fullTitle = `${title} - ${SITE_TITLE}`;
     <script type="application/ld+json" set:html={structuredData} />
   )
 }
+
+<Plausible />

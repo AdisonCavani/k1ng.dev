@@ -2,9 +2,9 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
+import partytown from "@astrojs/partytown";
 import { SITE_URL } from "./config";
 
-// https://astro.build/config
 export default defineConfig({
   srcDir: ".",
   site: SITE_URL,
@@ -14,5 +14,10 @@ export default defineConfig({
     }),
     tailwind(),
     react(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
   ],
 });
