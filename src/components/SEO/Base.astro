@@ -6,7 +6,7 @@ type Props = {
   title: string;
   description: string;
   ogType: string;
-  ogImage: string;
+  ogImage?: string;
   canonicalUrl?: string;
   datePublished?: string;
   dateModified?: string;
@@ -19,7 +19,7 @@ const {
   title,
   description,
   ogType,
-  ogImage,
+  ogImage = "/static/images/twitter-card.webp",
   datePublished,
   dateModified,
   authors,

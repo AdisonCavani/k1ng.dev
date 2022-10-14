@@ -10,9 +10,4 @@ type Props = {
 const { title, description = SITE_DESCRIPTION } = Astro.props;
 ---
 
-<BaseSEO
-  title={title}
-  description={description}
-  ogType="website"
-  ogImage="xd"
-/>
+<BaseSEO title={title} description={description} ogType="website" />
