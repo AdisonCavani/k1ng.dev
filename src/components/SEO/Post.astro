@@ -33,7 +33,7 @@ const structuredData = {
     authors.map((author) => ({
       "@type": "Person",
       name: `${author.firstName} ${author.lastName}`,
-      url: author.github,
+      url: `https://github.com/${author.github}`,
       image: {
         "@type": "ImageObject",
         url: urlFor(author.image).width(256).height(256).url(),
