@@ -46,7 +46,7 @@ const mdxSource = await mdxToHtml(content);
     tags={categories}
   />
 
-  <article itemscope itemtype="http://schema.org/Article">
+  <article>
     <header>
       <img
         width={720}
@@ -58,15 +58,9 @@ const mdxSource = await mdxToHtml(content);
 
       <h1 class="pt-8 md:pt-16 sm:text-5xl text-3xl font-bold">{title}</h1>
 
-      <div class="mt-8 text-gray-600">
+      <div class="mt-8 text-gray-600 block space-y-4">
+        <!-- Date -->
         <p class="flex gap-2 items-center sm:text-base text-sm">
-          <a
-            href="https://github.com/AdisonCavani"
-            target="_blank"
-            rel="noreferrer"
-            class="hover:underline">Adison Cavani</a
-          >
-          {"•"}
           <time datetime={datePublished}>
             {
               new Date(datePublished).toLocaleDateString("en-us", {
@@ -76,7 +70,6 @@ const mdxSource = await mdxToHtml(content);
               })
             }
           </time>
-          {"•"}
           <a
             href="/rss.xml"
             target="_blank"
@@ -97,6 +90,24 @@ const mdxSource = await mdxToHtml(content);
             </svg>
           </a>
         </p>
+
+        <!-- Authors -->
+        <div>
+          {
+            authors.map((value) => (
+              <a
+                href={`https://github.com/${value.github}`}
+                target="_blank"
+                rel="noreferrer"
+                class="hover:underline"
+              >
+                {`${value.firstName} ${value.lastName}`}
+              </a>
+            ))
+          }
+        </div>
+
+        <!-- Categories -->
         <div class="flow-root mt-8 text-neutral-800 text-xs font-medium">
           <p class="-m-2 flex flex-row">
             {
