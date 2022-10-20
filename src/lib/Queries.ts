@@ -1,6 +1,12 @@
 import sanityClient, { ClientConfig } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
-import type { FooterSchema, PostSchema, TagSchema } from "./Types";
+import type {
+  FooterSchema,
+  PostSchema,
+  TagSchema,
+  TechCategorySchema,
+  TechItemSchema,
+} from "./Types";
 
 const config: ClientConfig = {
   apiVersion: import.meta.env.PUBLIC_SANITY_API_VERSION,
@@ -17,16 +23,7 @@ export const urlFor = (source: string) => {
   return builder.image(source);
 };
 
-const FooterQuery = `
-*[_type == "footer"] {
-  name,
-  url
-}`;
-
-export const GetFooterData = async (): Promise<Array<FooterSchema>> => {
-  return await client.fetch(FooterQuery);
-};
-
+// Blog queries
 const TagsQuery = `
 *[_type == "category"] {
   name,
@@ -104,4 +101,48 @@ const PostSlugsQuery = `
 
 export const GetPostSlugsData = async (): Promise<Array<string>> => {
   return await client.fetch(PostSlugsQuery);
+};
+
+// Index queries
+const FooterQuery = `
+*[_type == "footer"] {
+  name,
+  url
+}`;
+
+export const GetFooterData = async (): Promise<Array<FooterSchema>> => {
+  return await client.fetch(FooterQuery);
+};
+
+const TechCategoryFields = `
+  "id": _id,
+  name,
+  image
+`;
+
+const TechCategoryQuery = `
+*[_type == "tech-category"] | order(name asc) {
+  ${TechCategoryFields}
+}`;
+
+export const GetTechCategoryData = async (): Promise<
+  Array<TechCategorySchema>
+> => {
+  return await client.fetch(TechCategoryQuery);
+};
+
+const TechItemsQuery = `
+*[_type == "tech-item"] | order(name asc) {
+  name,
+  description,
+  href,
+  image,
+  "background": background.hex,
+  category -> {
+    ${TechCategoryFields}
+  }
+}`;
+
+export const GetTechItemsData = async (): Promise<Array<TechItemSchema>> => {
+  return await client.fetch(TechItemsQuery);
 };

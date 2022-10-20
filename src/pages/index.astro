@@ -1,10 +1,52 @@
 ---
 import BaseLayout from "@layouts/Base.astro";
 import PageSEO from "@components/SEO/Page.astro";
+import { GetTechCategoryData, GetTechItemsData } from "@lib/Queries";
+import TechStack from "@components/Index/TechStack";
+
+const categories = await GetTechCategoryData();
+const items = await GetTechItemsData();
 ---
 
 <BaseLayout>
   <PageSEO slot="seo" title="Home" />
+  <div class="flex flex-col gap-6">
+    <div class="flex max-w-2xl flex-col-reverse items-start sm:flex-row">
+      <div class="flex flex-col pr-8">
+        <h1 class="mb-2 text-4xl font-bold tracking-tight">Adison Cavani</h1>
+        <h2 class="mb-4">
+          Full-stack Developer, <span class="font-semibold">student</span>
+        </h2>
+        <p class="mb-4">
+          .NET Backend Developer. Currently learning web development - cloud,
+          serverless and React w/ Next.js.
+        </p>
+      </div>
+      <div
+        class="relative mb-8 mr-auto w-20 rounded-full border-2 sm:mb-0 sm:w-44"
+      >
+        <img
+          src="/static/images/avatar.webp"
+          alt="Adison Cavani"
+          width={176}
+          height={176}
+          sizes="20vw"
+        />
+      </div>
+    </div>
 
-  <h1>Hello, Astronaut!</h1>
+    <div class="flex justify-center">
+      <div class="flex flex-col gap-4">
+        <h2 class="text-center text-4xl font-bold">Technologies</h2>
+
+        <hr class="undefined border-t-2 border-neutral-300" />
+
+        <p class="text-center text-lg font-medium text-neutral-600">
+          A list of technologies I&apos;m familiar with.
+        </p>
+      </div>
+    </div>
+
+    <TechStack client:visible categories={categories} items={items} />
+  </div>
 </BaseLayout>
