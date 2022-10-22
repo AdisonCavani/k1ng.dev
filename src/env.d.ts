@@ -1,4 +1,4 @@
-/// <reference types="astro/client" />
+/// <reference types="@astrojs/image/client" />
 
 interface ImportMetaEnv {
   readonly PUBLIC_SANITY_API_VERSION: string;

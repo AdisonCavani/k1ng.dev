@@ -4,6 +4,7 @@ import { urlFor } from "@lib/Queries";
 import type { ProjectSchema } from "@lib/Types";
 import { MDXRemote } from "next-mdx-remote";
 import MdxComponents from "@components/MdxComponents";
+import { Image } from "@astrojs/image/components";
 
 interface Props extends ProjectSchema {}
 
@@ -18,13 +19,14 @@ const mdxSource = await mdxToHtml(description);
 >
   <div class="w-full cursor-pointer">
     <a href={url} target="_blank" rel="noreferrer">
-      <img
+      <Image
         width={480}
         height={270}
         src={urlFor(image).url()}
         alt="Project image"
         class="w-full"
         sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
+        format="avif"
       />
     </a>
   </div>

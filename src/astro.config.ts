@@ -3,6 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import { SITE_URL } from "./config";
+import image from "@astrojs/image";
 
 export default defineConfig({
   srcDir: ".",
@@ -13,5 +14,6 @@ export default defineConfig({
     }),
     tailwind(),
     react(),
+    image({ serviceEntryPoint: "@astrojs/image/sharp" }),
   ],
 });

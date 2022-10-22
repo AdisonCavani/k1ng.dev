@@ -6,6 +6,7 @@ import BaseLayout from "@layouts/Base.astro";
 import { GetPostData, GetPostSlugsData, urlFor } from "@lib/Queries";
 import { MDXRemote } from "next-mdx-remote";
 import mdxToHtml from "@lib/Markdown";
+import { Image } from "@astrojs/image/components";
 
 const { slug } = Astro.params;
 const {
@@ -48,12 +49,13 @@ const mdxSource = await mdxToHtml(content);
 
   <article>
     <header>
-      <img
+      <Image
         width={720}
         height={360}
         src={urlFor(coverImage).url()}
         alt="Cover image"
         class="mx-auto max-w-lg w-full mt-4 sm:mt-0 rounded-xl"
+        format="avif"
       />
 
       <h1 class="pt-8 md:pt-16 sm:text-5xl text-3xl font-bold">{title}</h1>

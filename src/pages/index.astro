@@ -6,9 +6,12 @@ import {
   GetTechCategoryData,
   GetTechItemsData,
 } from "@lib/Queries";
+import { Image } from "@astrojs/image/components";
 import TechStack from "@components/Index/TechStack";
-import sanitizeHtml from "sanitize-html";
 import ProjectCard from "@components/Index/ProjectCard.astro";
+import sanitizeHtml from "sanitize-html";
+
+import avatarImage from "@images/avatar.webp";
 
 const projects = await GetProjectsData();
 
@@ -62,12 +65,13 @@ const categories = unsafeCategories.map((cat) => {
       <div
         class="relative mb-8 mr-auto w-20 rounded-full border-2 sm:mb-0 sm:w-44"
       >
-        <img
-          src="/static/images/avatar.webp"
+        <Image
+          src={avatarImage}
           alt="Adison Cavani"
           width={176}
           height={176}
           sizes="20vw"
+          format="avif"
         />
       </div>
     </div>

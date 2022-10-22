@@ -7,7 +7,9 @@
       "@components/*": ["components/*"],
       "@layouts/*": ["layouts/*"],
       "@lib/*": ["lib/*"],
-      "@styles/*": ["styles/*"]
-    }
+      "@styles/*": ["styles/*"],
+      "@images/*": ["public/static/images/*"]
+    },
+    "types": ["@astrojs/image/client"]
   }
 }
