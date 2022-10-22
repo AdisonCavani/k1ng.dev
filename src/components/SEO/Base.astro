@@ -1,5 +1,5 @@
 ---
-import type { TagSchema } from "@lib/Types";
+import type { AuthorSchema, TagSchema } from "@lib/Types";
 import { SITE_TITLE, TWITTER_USERNAME } from "../../config";
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
   canonicalUrl?: string;
   datePublished?: string;
   dateModified?: string;
-  authors?: any[];
+  authors?: Array<AuthorSchema>;
   tags?: Array<TagSchema>;
   structuredData?: string;
 };
@@ -68,7 +68,12 @@ const fullTitle = `${title} - ${SITE_TITLE}`;
 }
 {
   authors &&
-    authors.map((author) => <meta property="article:author" content={author} />)
+    authors.map((author) => (
+      <meta
+        property="article:author"
+        content={`${author.firstName} ${author.lastName}`}
+      />
+    ))
 }
 {tags && tags.map(({ name }) => <meta property="article:tag" content={name} />)}
 
