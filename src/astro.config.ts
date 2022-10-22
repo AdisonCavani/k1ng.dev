@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
+import solidJs from "@astrojs/solid-js";
 import { SITE_URL } from "./config";
 
 export default defineConfig({
@@ -13,5 +14,6 @@ export default defineConfig({
     }),
     tailwind(),
     react(),
+    solidJs(),
   ],
 });

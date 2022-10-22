@@ -1,6 +1,6 @@
-import { Tab } from "@headlessui/react";
 import { urlFor } from "@lib/Queries";
 import type { TechCategorySchema, TechItemSchema } from "@lib/Types";
+import { createSignal } from "solid-js";
 import TechIcon from "./TechIcon";
 
 type Props = {
@@ -9,41 +9,40 @@ type Props = {
 };
 
 const TechStack = ({ categories, items }: Props) => {
+  const [id, setId] = createSignal<string>(categories.find(() => true)!.id);
+
   return (
-    <Tab.Group>
-      <Tab.List className="mb-3 flex flex-wrap justify-center gap-2">
-        {categories.map((value, index) => (
-          <Tab
-            key={index}
-            className="focus:outline-none rounded-3xl bg-neutral-200 px-4 py-2"
+    <>
+      <div
+        class="mb-3 flex flex-wrap justify-center gap-2"
+        role="tablist"
+        aria-orientation="horizontal"
+      >
+        {categories.map(({ id, image, name }) => (
+          <button
+            class="focus:outline-none rounded-3xl bg-neutral-200 px-4 py-2"
+            onClick={() => setId(id)}
           >
-            <div className="flex flex-row items-center gap-2 text-sm font-bold text-neutral-600">
+            <div class="flex flex-row items-center gap-2 text-sm font-bold text-neutral-600">
               <img
-                src={urlFor(value.image).url()}
-                alt="Category logo"
+                src={urlFor(image).url()}
+                alt="Category image"
                 width={18}
                 height={18}
-                className="text-neutral-600"
               />
-              <p>{value.name}</p>
+              <p>{name}</p>
             </div>
-          </Tab>
+          </button>
         ))}
-      </Tab.List>
-      <Tab.Panels>
-        {categories.map((category, catIndex) => (
-          <Tab.Panel key={catIndex}>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {items
-                .filter((item) => item.category.id === category.id)
-                .map((value, index) => (
-                  <TechIcon key={index} {...value} />
-                ))}
-            </div>
-          </Tab.Panel>
-        ))}
-      </Tab.Panels>
-    </Tab.Group>
+      </div>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {items
+          .filter((item) => item.category.id === id())
+          .map((value) => (
+            <TechIcon {...value} />
+          ))}
+      </div>
+    </>
   );
 };
 
