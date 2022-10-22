@@ -3,6 +3,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import type {
   FooterSchema,
   PostSchema,
+  ProjectSchema,
   TagSchema,
   TechCategorySchema,
   TechItemSchema,
@@ -119,7 +120,7 @@ const TechCategoryFields = `
 `;
 
 const TechCategoryQuery = `
-*[_type == "tech-category"] | order(name asc) {
+*[_type == "tech-category"] | order(lower(name) asc) {
   ${TechCategoryFields},
   name,
   image,
@@ -134,7 +135,7 @@ export const GetTechCategoryData = async (): Promise<
 };
 
 const TechItemsQuery = `
-*[_type == "tech-item"] | order(name asc) {
+*[_type == "tech-item"] | order(lower(name) asc) {
   name,
   description,
   href,
@@ -147,4 +148,19 @@ const TechItemsQuery = `
 
 export const GetTechItemsData = async (): Promise<Array<TechItemSchema>> => {
   return await client.fetch(TechItemsQuery);
+};
+
+const ProjectsQuery = `
+*[_type == "project"] | order(lower(name) asc) {
+  name,
+  description,
+  url,
+  github,
+  image,
+  technology,
+  "color": color.hex
+}`;
+
+export const GetProjectsData = async (): Promise<Array<ProjectSchema>> => {
+  return await client.fetch(ProjectsQuery);
 };

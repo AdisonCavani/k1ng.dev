@@ -4,6 +4,16 @@ export type FooterSchema = {
   url: string;
 };
 
+export type ProjectSchema = {
+  name: string;
+  description: string;
+  url: string;
+  github: string;
+  image: string;
+  technology: string;
+  color: string;
+};
+
 export type TechCategorySchema = {
   id: string;
   name: string;
