@@ -25,12 +25,14 @@
     "rehype-prism-plus": "^1.5.0",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
+    "sanitize-html": "^2.7.2",
     "tailwindcss": "^3.2.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "@types/sanitize-html": "^2.6.2",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.5"
   }

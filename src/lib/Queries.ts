@@ -115,14 +115,16 @@ export const GetFooterData = async (): Promise<Array<FooterSchema>> => {
 };
 
 const TechCategoryFields = `
-  "id": _id,
-  name,
-  image
+  "id": _id
 `;
 
 const TechCategoryQuery = `
 *[_type == "tech-category"] | order(name asc) {
-  ${TechCategoryFields}
+  ${TechCategoryFields},
+  name,
+  image,
+  "color": color.hex,
+  "background": background.hex
 }`;
 
 export const GetTechCategoryData = async (): Promise<

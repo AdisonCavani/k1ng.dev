@@ -1,6 +1,6 @@
 import { Tab } from "@headlessui/react";
-import { urlFor } from "@lib/Queries";
 import type { TechCategorySchema, TechItemSchema } from "@lib/Types";
+import { Fragment } from "react";
 import TechIcon from "./TechIcon";
 
 type Props = {
@@ -12,21 +12,22 @@ const TechStack = ({ categories, items }: Props) => {
   return (
     <Tab.Group>
       <Tab.List className="mb-3 flex flex-wrap justify-center gap-2">
-        {categories.map((value, index) => (
-          <Tab
-            key={index}
-            className="focus:outline-none rounded-3xl bg-neutral-200 px-4 py-2"
-          >
-            <div className="flex flex-row items-center gap-2 text-sm font-bold text-neutral-600">
-              <img
-                src={urlFor(value.image).url()}
-                alt="Category logo"
-                width={18}
-                height={18}
-                className="text-neutral-600"
-              />
-              <p>{value.name}</p>
-            </div>
+        {categories.map(({ color, background, image, name }, index) => (
+          <Tab as={Fragment} key={index}>
+            {({ selected }) => (
+              <button
+                className="focus:outline-none rounded-3xl px-4 py-2 bg-neutral-200 text-neutral-600"
+                style={{
+                  color: selected ? color : undefined,
+                  backgroundColor: selected ? background : undefined,
+                }}
+              >
+                <div className="flex flex-row items-center gap-2 text-sm font-bold">
+                  <div dangerouslySetInnerHTML={{ __html: image }} />
+                  <p>{name}</p>
+                </div>
+              </button>
+            )}
           </Tab>
         ))}
       </Tab.List>

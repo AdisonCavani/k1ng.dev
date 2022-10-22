@@ -8,6 +8,8 @@ export type TechCategorySchema = {
   id: string;
   name: string;
   image: string;
+  color: string;
+  background: string;
 };
 
 export type TechItemSchema = {

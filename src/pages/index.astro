@@ -3,9 +3,38 @@ import BaseLayout from "@layouts/Base.astro";
 import PageSEO from "@components/SEO/Page.astro";
 import { GetTechCategoryData, GetTechItemsData } from "@lib/Queries";
 import TechStack from "@components/Index/TechStack";
+import sanitizeHtml from "sanitize-html";
 
-const categories = await GetTechCategoryData();
+const unsafeCategories = await GetTechCategoryData();
 const items = await GetTechItemsData();
+
+const categories = unsafeCategories.map((cat) => {
+  return {
+    ...cat,
+    image: sanitizeHtml(cat.image, {
+      allowedTags: [
+        "svg",
+        "path",
+        "rect",
+        "circle",
+        "ellipse",
+        "line",
+        "polyline",
+        "polygon",
+      ],
+      allowedAttributes: {
+        svg: ["*"],
+        path: ["*"],
+        rect: ["*"],
+        circle: ["*"],
+        ellipse: ["*"],
+        line: ["*"],
+        polyline: ["*"],
+        polygon: ["*"],
+      },
+    }),
+  };
+});
 ---
 
 <BaseLayout>
