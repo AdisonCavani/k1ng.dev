@@ -22,13 +22,13 @@ specifiers:
   rehype-prism-plus: ^1.5.0
   rehype-slug: ^5.0.1
   remark-gfm: ^3.0.1
-  tailwindcss: ^3.2.0
+  tailwindcss: ^3.2.1
 
 dependencies:
   '@astrojs/react': 1.2.1_5uumaiclxbdbzaqafclbf6maf4
   '@astrojs/rss': 1.0.2
   '@astrojs/sitemap': 1.0.0
-  '@astrojs/tailwind': 2.1.1_tailwindcss@3.2.0
+  '@astrojs/tailwind': 2.1.1_tailwindcss@3.2.1
   '@headlessui/react': 1.7.3_biqbaboplfbrettd7655fr4n2y
   '@sanity/client': 3.4.1
   '@sanity/image-url': 1.0.1
@@ -41,10 +41,10 @@ dependencies:
   rehype-prism-plus: 1.5.0
   rehype-slug: 5.0.1
   remark-gfm: 3.0.1
-  tailwindcss: 3.2.0
+  tailwindcss: 3.2.1
 
 devDependencies:
-  '@tailwindcss/typography': 0.5.7_tailwindcss@3.2.0
+  '@tailwindcss/typography': 0.5.7_tailwindcss@3.2.1
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
   prettier: 2.7.1
@@ -169,7 +169,7 @@ packages:
       zod: 3.19.1
     dev: false
 
-  /@astrojs/tailwind/2.1.1_tailwindcss@3.2.0:
+  /@astrojs/tailwind/2.1.1_tailwindcss@3.2.1:
     resolution: {integrity: sha512-Il6FODtu4AlwadleJS3VWmAOOmeCDKvAo3iof46p4iHtdeWLClyuH9kJXWrlzCS+QOfBSIfXxvwPJ3cbK5COlA==}
     peerDependencies:
       tailwindcss: ^3.0.24
@@ -177,7 +177,7 @@ packages:
       '@proload/core': 0.3.3
       autoprefixer: 10.4.12_postcss@8.4.18
       postcss: 8.4.18
-      tailwindcss: 3.2.0
+      tailwindcss: 3.2.1
     dev: false
 
   /@astrojs/telemetry/1.0.1:
@@ -641,7 +641,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /@tailwindcss/typography/0.5.7_tailwindcss@3.2.0:
+  /@tailwindcss/typography/0.5.7_tailwindcss@3.2.1:
     resolution: {integrity: sha512-JTTSTrgZfp6Ki4svhPA4mkd9nmQ/j9EfE7SbHJ1cLtthKkpW2OxsFXzSmxbhYbEkfNIyAyhle5p4SYyKRbz/jg==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
@@ -650,7 +650,7 @@ packages:
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.2.0
+      tailwindcss: 3.2.1
     dev: true
 
   /@types/acorn/4.0.6:
@@ -991,7 +991,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.4
-      caniuse-lite: 1.0.30001422
+      caniuse-lite: 1.0.30001423
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -1048,7 +1048,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001422
+      caniuse-lite: 1.0.30001423
       electron-to-chromium: 1.4.284
       node-releases: 2.0.6
       update-browserslist-db: 1.0.10_browserslist@4.21.4
@@ -1070,8 +1070,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /caniuse-lite/1.0.30001422:
-    resolution: {integrity: sha512-hSesn02u1QacQHhaxl/kNMZwqVG35Sz/8DgvmgedxSH8z9UUpcDYSPYgsj3x5dQNRcNp6BwpSfQfVzYUTm+fog==}
+  /caniuse-lite/1.0.30001423:
+    resolution: {integrity: sha512-09iwWGOlifvE1XuHokFMP7eR38a0JnajoyL3/i87c8ZjRWRrdKo1fqjNfugfBD0UDBIOz0U+jtNhJ0EPm1VleQ==}
     dev: false
 
   /capture-stack-trace/1.0.2:
@@ -4085,8 +4085,8 @@ packages:
       '@pkgr/utils': 2.3.1
       tslib: 2.4.0
 
-  /tailwindcss/3.2.0:
-    resolution: {integrity: sha512-ARh/W0uH5UlWIC2nn02V0+5fyF0k6qZliyt4QYic2upOhPUE/Spu1EURNc9txJ3+4j8OEmdigqfDpw4d2tA4vA==}
+  /tailwindcss/3.2.1:
+    resolution: {integrity: sha512-Uw+GVSxp5CM48krnjHObqoOwlCt5Qo6nw1jlCRwfGy68dSYb/LwS9ZFidYGRiM+w6rMawkZiu1mEMAsHYAfoLg==}
     engines: {node: '>=12.13.0'}
     hasBin: true
     dependencies:
@@ -4100,6 +4100,7 @@ packages:
       glob-parent: 6.0.2
       is-glob: 4.0.3
       lilconfig: 2.0.6
+      micromatch: 4.0.5
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
