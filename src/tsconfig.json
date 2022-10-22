@@ -4,20 +4,10 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "components/*"
-      ],
-      "@layouts/*": [
-        "layouts/*"
-      ],
-      "@lib/*": [
-        "lib/*"
-      ],
-      "@styles/*": [
-        "styles/*"
-      ]
-    },
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js"
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"],
+      "@lib/*": ["lib/*"],
+      "@styles/*": ["styles/*"]
+    }
   }
 }
