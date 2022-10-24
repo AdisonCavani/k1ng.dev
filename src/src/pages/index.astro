@@ -70,6 +70,7 @@ const categories = unsafeCategories.map((cat) => {
           height={176}
           sizes="20vw"
           format="avif"
+          loading="eager"
         />
       </div>
     </div>
@@ -87,7 +88,11 @@ const categories = unsafeCategories.map((cat) => {
       </div>
     </div>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {projects.map((value) => <ProjectCard {...value} />)}
+      {
+        projects.map((value, index) => (
+          <ProjectCard {...value} priority={index === 0} />
+        ))
+      }
     </div>
 
     <!-- Tech-stack -->

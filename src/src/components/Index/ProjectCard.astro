@@ -6,9 +6,11 @@ import { MDXRemote } from "next-mdx-remote";
 import MdxComponents from "@components/MdxComponents";
 import { Image } from "@astrojs/image/components";
 
-interface Props extends ProjectSchema {}
+interface Props extends ProjectSchema {
+  priority?: boolean;
+}
 
-const { name, description, url, github, image, technology, color } =
+const { name, description, url, github, image, technology, color, priority } =
   Astro.props;
 
 const mdxSource = await mdxToHtml(description);
@@ -27,6 +29,7 @@ const mdxSource = await mdxToHtml(description);
         class="w-full"
         sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
         format="avif"
+        loading={priority ? "eager" : "lazy"}
       />
     </a>
   </div>
