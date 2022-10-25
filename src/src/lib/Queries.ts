@@ -13,7 +13,7 @@ const config: ClientConfig = {
   apiVersion: import.meta.env.PUBLIC_SANITY_API_VERSION,
   dataset: import.meta.env.PUBLIC_SANITY_DATASET || "production",
   projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
-  useCdn: import.meta.env.PROD,
+  useCdn: false,
 };
 
 const client = sanityClient(config);
@@ -106,7 +106,7 @@ export const GetPostSlugsData = async (): Promise<Array<string>> => {
 
 // Index queries
 const FooterQuery = `
-*[_type == "footer"] {
+*[_type == "footer"] | order(lower(name) asc)  {
   name,
   url
 }`;
