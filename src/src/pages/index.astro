@@ -6,7 +6,7 @@ import {
   GetTechCategoryData,
   GetTechItemsData,
 } from "@lib/Queries";
-import { Picture } from "@astrojs/image/components";
+import { Image } from "@astrojs/image/components";
 import TechStack from "@components/Index/TechStack";
 import ProjectCard from "@components/Index/ProjectCard.astro";
 import sanitizeHtml from "sanitize-html";
@@ -63,15 +63,14 @@ const categories = unsafeCategories.map((cat) => {
       <div
         class="relative mb-8 mr-auto w-20 rounded-full border-2 sm:mb-0 sm:w-44"
       >
-        <Picture
+        <Image
           src="/static/images/avatar.webp"
           alt="Adison Cavani"
           width={176}
           height={176}
-          loading="eager"
           sizes="20vw"
-          widths={[176]}
-          aspectRatio="1:1"
+          format="avif"
+          loading="eager"
         />
       </div>
     </div>
