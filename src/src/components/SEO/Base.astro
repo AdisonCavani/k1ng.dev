@@ -40,6 +40,12 @@ const fullTitle = `${title} - ${SITE_TITLE}`;
 <meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 <link rel="canonical" href={Astro.url} />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={`RSS feed - ${SITE_TITLE}`}
+  href="/rss.xml"
+/>
 
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={Astro.url} />
