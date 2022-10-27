@@ -3,13 +3,14 @@
 - **CSS**: [Tailwind CSS](https://tailwindcss.com)
 - **Language**: [TypeScript](https://www.typescriptlang.org)
 - **Framework**: [Astro](https://astro.build)
-- **Deployment**: [Vercel](https://vercel.com)
+- **Deployment**: [Netlify](https://netlify.com)
+- **Headless CMS**: [Sanity](https://sanity.io)
 - **Analytics**: [Plausible Analytics](https://plausible.io) - self-hosted
 
 ### Website hosting
 
-This website is using Next.js SSG (static site generation) deployed to [Vercel](https://vercel.com).  
-You can check it on https://adison.me/analytics
+This website is using SSG (static site generation) deployed to [Netlify](https://netlify.com).  
+When content changes, [Sanity](https://sanity.io) triggers page rebuild via webhook.
 
 ### DNS - Cloudflare
 
@@ -33,7 +34,13 @@ cd src
 
 ### Running locally
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+pnpm install
+```
+
+Then run the development server:
 
 ```bash
 pnpm dev
@@ -56,14 +63,6 @@ pnpm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Linter
-
-Run integrated [ESLint](https://eslint.org) - see [docs](https://nextjs.org/docs/basic-features/eslint):
-
-```bash
-pnpm lint
-```
 
 ### Prettier
 
