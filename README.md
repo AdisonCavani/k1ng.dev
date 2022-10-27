@@ -35,7 +35,13 @@ cd src
 
 ### Running locally
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+pnpm install
+```
+
+Then run the development server:
 
 ```bash
 pnpm dev
@@ -58,22 +64,6 @@ pnpm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Analyze bundle
-
-Run [next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer) - Webpack Bundle Analyzer for Next.js:
-
-```bash
-pnpm analyze
-```
-
-### Linter
-
-Run integrated [ESLint](https://eslint.org) - see [docs](https://nextjs.org/docs/basic-features/eslint):
-
-```bash
-pnpm lint
-```
 
 ### Prettier
 
