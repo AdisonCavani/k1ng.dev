@@ -7,10 +7,13 @@ import HeaderLink from "./HeaderLink.astro";
   class="fixed top-0 left-0 right-0 z-50 h-14 border-b border-neutral-200 bg-white/60 backdrop-blur shadow-sm"
 >
   <nav class="flex h-full max-w-5xl px-8 mx-auto items-center gap-x-6">
-    <a href="/" class="inline-flex font-bold p-2 pl-0">
+    <a
+      href="/"
+      class="inline-flex font-bold p-2 pl-0 [&>svg]:hover:rotate-12 [&>svg]:active:translate-y-[2px]"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="mr-3 text-blue-600"
+        class="mr-3 text-blue-600 transition-transform duration-200"
         width="24"
         height="24"
         viewBox="0 0 24 24"
