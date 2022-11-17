@@ -2,7 +2,9 @@ import { Octokit } from "@octokit/core";
 
 const octokit = new Octokit({ auth: import.meta.env.GITHUB_PAT });
 
-export const getBySlug = async (slug: string) => {
+export const getBySlug = async (slug: string | undefined) => {
+  if (!slug) slug = "index";
+
   const res = await octokit.request(
     "GET /repos/{owner}/{repo}/contents/{path}{?ref}",
     {
@@ -25,7 +27,13 @@ export const getDocsDir = async () => {
     }
   );
 
-  return (res.data as any[]).map((item) => slugify(item.name.split(".")[0]));
+  return (res.data as any[]).map((item) => {
+    const slug = slugify(item.name.split(".")[0]);
+
+    if (slug === "index") return undefined;
+
+    return slug;
+  });
 };
 
 const slugify = (str: string) =>
