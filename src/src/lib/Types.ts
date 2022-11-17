@@ -56,3 +56,15 @@ export type PostSchema = {
   content: string;
   slug: string;
 };
+
+// Wiki types
+export type WikiPreviewSchema = {
+  distros: WikiThemeSchema[];
+  vendors: WikiThemeSchema[];
+};
+
+export type WikiThemeSchema = {
+  name: string;
+  image: string;
+  theme: string;
+};
