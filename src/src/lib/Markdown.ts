@@ -5,7 +5,7 @@ import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrism from "rehype-prism-plus";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
-const mdxToHtml = async (source: string) => {
+export const mdxToHtml = async (source: string) => {
   const mdxSource = await serialize(source, {
     mdxOptions: {
       format: "mdx",
@@ -30,4 +30,15 @@ const mdxToHtml = async (source: string) => {
   return mdxSource;
 };
 
-export default mdxToHtml;
+export function getHeadings(source: string) {
+  const headingLines = source.split("\n").filter((line) => {
+    return line.match(/^(#{1,6}\s*[\S]+)/);
+  });
+
+  return headingLines.map((raw) => {
+    const text = raw.replace(/^#*\s/, "");
+    const level = raw.lastIndexOf("#") + 1;
+
+    return { text, level };
+  });
+}

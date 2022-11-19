@@ -47,67 +47,69 @@ const categories = unsafeCategories.map((cat) => {
 
 <BaseLayout>
   <PageSEO slot="seo" title="Home" />
-  <div class="flex flex-col gap-6">
-    <!-- Introduction -->
-    <div class="flex max-w-2xl flex-col-reverse items-start sm:flex-row">
-      <div class="flex flex-col pr-8">
-        <h1 class="mb-2 text-4xl font-bold tracking-tight">Adison Cavani</h1>
-        <h2 class="mb-4">
-          Full-stack Developer, <span class="font-semibold">student</span>
-        </h2>
-        <p class="mb-4">
-          .NET Backend Developer. Currently learning web development - cloud,
-          serverless and React w/ Next.js.
-        </p>
+  <main class="max-w-5xl pt-8 px-8 mx-auto mt-14">
+    <div class="flex flex-col gap-6">
+      <!-- Introduction -->
+      <div class="flex max-w-2xl flex-col-reverse items-start sm:flex-row">
+        <div class="flex flex-col pr-8">
+          <h1 class="mb-2 text-4xl font-bold tracking-tight">Adison Cavani</h1>
+          <h2 class="mb-4">
+            Full-stack Developer, <span class="font-semibold">student</span>
+          </h2>
+          <p class="mb-4">
+            .NET Backend Developer. Currently learning web development - cloud,
+            serverless and React w/ Next.js.
+          </p>
+        </div>
+        <div
+          class="relative mb-8 mr-auto w-20 rounded-full border-2 sm:mb-0 sm:w-44"
+        >
+          <Image
+            src="/static/images/avatar.webp"
+            alt="Adison Cavani"
+            width={176}
+            height={176}
+            sizes="20vw"
+            format="avif"
+            loading="eager"
+          />
+        </div>
       </div>
-      <div
-        class="relative mb-8 mr-auto w-20 rounded-full border-2 sm:mb-0 sm:w-44"
-      >
-        <Image
-          src="/static/images/avatar.webp"
-          alt="Adison Cavani"
-          width={176}
-          height={176}
-          sizes="20vw"
-          format="avif"
-          loading="eager"
-        />
+
+      <!-- Projects -->
+      <div class="flex justify-center">
+        <div class="flex flex-col gap-4">
+          <h2 class="text-center text-4xl font-bold">My projects</h2>
+
+          <hr class="undefined border-t-2 border-neutral-300" />
+
+          <p class="text-center text-lg font-medium text-neutral-600">
+            A list of my personal projects.
+          </p>
+        </div>
       </div>
-    </div>
-
-    <!-- Projects -->
-    <div class="flex justify-center">
-      <div class="flex flex-col gap-4">
-        <h2 class="text-center text-4xl font-bold">My projects</h2>
-
-        <hr class="undefined border-t-2 border-neutral-300" />
-
-        <p class="text-center text-lg font-medium text-neutral-600">
-          A list of my personal projects.
-        </p>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          projects.map((value, index) => (
+            <ProjectCard {...value} priority={index === 0} />
+          ))
+        }
       </div>
-    </div>
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        projects.map((value, index) => (
-          <ProjectCard {...value} priority={index === 0} />
-        ))
-      }
-    </div>
 
-    <!-- Tech-stack -->
-    <div class="flex justify-center">
-      <div class="flex flex-col gap-4">
-        <h2 class="text-center text-4xl font-bold">Technologies</h2>
+      <!-- Tech-stack -->
+      <div class="flex justify-center">
+        <div class="flex flex-col gap-4">
+          <h2 class="text-center text-4xl font-bold">Technologies</h2>
 
-        <hr class="undefined border-t-2 border-neutral-300" />
+          <hr class="undefined border-t-2 border-neutral-300" />
 
-        <p class="text-center text-lg font-medium text-neutral-600">
-          A list of technologies I&apos;m familiar with.
-        </p>
+          <p class="text-center text-lg font-medium text-neutral-600">
+            A list of technologies I&apos;m familiar with.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <TechStack client:visible categories={categories} items={items} />
-  </div>
+      <TechStack client:visible categories={categories} items={items} />
+    </div>
+  </main>
 </BaseLayout>

@@ -1,4 +1,5 @@
 import { Octokit } from "@octokit/core";
+import type { WikiSidebarSchema } from "./Types";
 
 const octokit = new Octokit({ auth: import.meta.env.GITHUB_PAT });
 
@@ -34,6 +35,39 @@ export const getDocsDir = async () => {
 
     return slug;
   });
+};
+
+export const getSidebarData = async () => {
+  const res = await octokit.request(
+    "GET /repos/{owner}/{repo}/contents/{path}{?ref}",
+    {
+      owner: "AdisonCavani",
+      repo: "distro-grub-themes",
+      path: "/docs",
+    }
+  );
+
+  const arr = res.data as any[];
+
+  const result: WikiSidebarSchema = {
+    count: arr.length,
+    items: arr.map((item) => {
+      const name = item.name.split(".")[0] as string;
+
+      if (name.toLowerCase() === "index")
+        return {
+          name: "Index",
+          href: "",
+        };
+
+      return {
+        name: name,
+        href: slugify(item.name.split(".")[0]),
+      };
+    }),
+  };
+
+  return result;
 };
 
 const slugify = (str: string) =>

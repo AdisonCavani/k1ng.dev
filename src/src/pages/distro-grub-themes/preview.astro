@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/Base.astro";
+import WikiLayout from "@layouts/Wiki.astro";
 import PageSEO from "@components/SEO/Page.astro";
 import type { WikiPreviewSchema } from "@lib/Types";
 import ThemeComponent from "@components/Wiki/Theme.astro";
@@ -19,9 +20,8 @@ const vendors = data.vendors.sort((a, b) => a.name.localeCompare(b.name));
     title="Wiki"
     description="Wiki page of distro-grub-themes project."
   />
-
-  <section class="flex flex-col gap-y-6 w-full max-w-none">
-    <div class="flex justify-center">
+  <WikiLayout>
+    <div class="flex justify-center my-6">
       <div class="flex flex-col gap-4">
         <h2 class="text-center text-4xl font-bold">Distro themes</h2>
         <hr class="undefined border-t-2 border-neutral-300" />
@@ -34,7 +34,7 @@ const vendors = data.vendors.sort((a, b) => a.name.localeCompare(b.name));
       {distros.map((theme) => <ThemeComponent {...theme} />)}
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center my-6">
       <div class="flex flex-col gap-4">
         <h2 class="text-center text-4xl font-bold">Vendor themes</h2>
         <hr class="undefined border-t-2 border-neutral-300" />
@@ -46,5 +46,5 @@ const vendors = data.vendors.sort((a, b) => a.name.localeCompare(b.name));
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {vendors.map((theme) => <ThemeComponent {...theme} />)}
     </div>
-  </section>
+  </WikiLayout>
 </BaseLayout>

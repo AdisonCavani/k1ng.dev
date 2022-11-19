@@ -27,5 +27,7 @@ export async function getStaticPaths() {
     description="Articles about programming, new technologies, frameworks ect."
   />
 
-  <BlogLayout currentTag={slug as string} posts={filteredPosts} />
+  <main class="max-w-5xl pt-8 px-8 mx-auto mt-14">
+    <BlogLayout currentTag={slug as string} posts={filteredPosts} />
+  </main>
 </BaseLayout>

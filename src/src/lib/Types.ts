@@ -68,3 +68,13 @@ export type WikiThemeSchema = {
   image: string;
   theme: string;
 };
+
+export type WikiSidebarSchema = {
+  count: number;
+  items: WikiSidebarItemSchema[];
+};
+
+type WikiSidebarItemSchema = {
+  name: string;
+  href: string;
+};
