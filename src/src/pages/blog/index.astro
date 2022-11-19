@@ -14,6 +14,7 @@ const posts = await GetBlogData();
     title="Blog"
     description="Articles about programming, new technologies, frameworks ect."
   />
-
-  <BlogLayout posts={posts} />
+  <main class="max-w-5xl pt-8 px-8 mx-auto mt-14">
+    <BlogLayout posts={posts} />
+  </main>
 </BaseLayout>

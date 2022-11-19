@@ -1,0 +1,75 @@
+---
+import { getBySlug, getSidebarData } from "@lib/Github";
+import { slugify } from "@lib/Helpers";
+import { getHeadings } from "@lib/Markdown";
+
+const { count, items } = await getSidebarData();
+
+let slug = Astro.url.pathname.match(/([^\/]*)\/*$/)![1];
+if (slug === "distro-grub-themes") slug = "index";
+
+const data = await getBySlug(slug);
+const headings = getHeadings(data);
+---
+
+<aside class="flex flex-col w-full md:w-80 border rounded-lg h-min">
+  <div class="px-4 py-2 bg-neutral-200 w-full inline-flex items-center gap-x-2">
+    <p class="font-bold text-sm">Pages</p>
+    <span
+      class="bg-neutral-600 text-white rounded-full w-5 h-5 inline-flex items-center justify-center text-xs"
+    >
+      {count}
+    </span>
+  </div>
+  <ul>
+    {
+      items.map(({ name, href }, index) => (
+        <li
+          class={`block px-2 py-2 ${
+            index !== 0 && index !== items.length - 1 && "border-y"
+          }`}
+        >
+          <summary class="flex items-center gap-x-2">
+            <button
+              class={`hover:bg-neutral-200 rounded aspect-square text-neutral-500 fill-neutral-500 p-1 ${
+                slugify(name) === slug && slug !== "preview" ? "" : "invisible"
+              }`}
+            >
+              <svg
+                aria-hidden="true"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                version="1.1"
+                stroke="currentColor"
+                class="-rotate-90"
+              >
+                <path d="M4.427 7.427l3.396 3.396a.25.25 0 00.354 0l3.396-3.396A.25.25 0 0011.396 7H4.604a.25.25 0 00-.177.427z" />
+              </svg>
+            </button>
+            <a
+              href={`/distro-grub-themes/${href}`}
+              class="flex-1 font-semibold text-blue-600 text-sm"
+            >
+              {name}
+            </a>
+          </summary>
+          {slugify(name) === slug && slug !== "preview" && (
+            <ul class="mx-6 text-sm">
+              {headings.map(({ text, level }) => (
+                <li class="my-2" style={{ "padding-left": `${12 * level}px` }}>
+                  <a
+                    href={`#${slugify(text)}`}
+                    class="hover:text-blue-600 hover:underline"
+                  >
+                    {text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</aside>

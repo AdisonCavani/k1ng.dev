@@ -1,0 +1,50 @@
+---
+import BaseLayout from "@layouts/Base.astro";
+import WikiLayout from "@layouts/Wiki.astro";
+import PageSEO from "@components/SEO/Page.astro";
+import type { WikiPreviewSchema } from "@lib/Types";
+import ThemeComponent from "@components/Wiki/Theme.astro";
+
+const json = await fetch(
+  "https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes.json"
+).then((res) => res.json());
+const data = json as WikiPreviewSchema;
+
+const distros = data.distros.sort((a, b) => a.name.localeCompare(b.name));
+const vendors = data.vendors.sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<BaseLayout>
+  <PageSEO
+    slot="seo"
+    title="Wiki"
+    description="Wiki page of distro-grub-themes project."
+  />
+  <WikiLayout>
+    <div class="flex justify-center my-6">
+      <div class="flex flex-col gap-4">
+        <h2 class="text-center text-4xl font-bold">Distro themes</h2>
+        <hr class="undefined border-t-2 border-neutral-300" />
+        <p class="text-center text-lg font-medium text-neutral-600">
+          Preview of themes for distributions
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {distros.map((theme) => <ThemeComponent {...theme} />)}
+    </div>
+
+    <div class="flex justify-center my-6">
+      <div class="flex flex-col gap-4">
+        <h2 class="text-center text-4xl font-bold">Vendor themes</h2>
+        <hr class="undefined border-t-2 border-neutral-300" />
+        <p class="text-center text-lg font-medium text-neutral-600">
+          Preview of themes for vendors
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {vendors.map((theme) => <ThemeComponent {...theme} />)}
+    </div>
+  </WikiLayout>
+</BaseLayout>

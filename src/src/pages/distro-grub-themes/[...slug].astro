@@ -1,0 +1,38 @@
+---
+import "@styles/prose.css";
+
+import BaseLayout from "@layouts/Base.astro";
+import WikiLayout from "@layouts/Wiki.astro";
+import PageSEO from "@components/SEO/Page.astro";
+
+import { getBySlug, getDocsDir } from "@lib/Github";
+import { mdxToHtml } from "@lib/Markdown";
+import { MDXRemote } from "next-mdx-remote";
+
+const { slug } = Astro.params;
+const content = await getBySlug(slug! as string);
+const mdxSource = await mdxToHtml(content);
+
+export async function getStaticPaths() {
+  const slugs = await getDocsDir();
+
+  return slugs.map((slug) => {
+    return {
+      params: {
+        slug: slug,
+      },
+    };
+  });
+}
+---
+
+<BaseLayout>
+  <PageSEO
+    slot="seo"
+    title="Wiki"
+    description="Wiki page of distro-grub-themes project."
+  />
+  <WikiLayout prose={true}>
+    <MDXRemote {...mdxSource} />
+  </WikiLayout>
+</BaseLayout>

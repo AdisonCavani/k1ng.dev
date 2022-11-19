@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "skipLibCheck": true,
+    "jsx": "preserve",
     "baseUrl": "src",
     "paths": {
       "@components/*": ["components/*"],
