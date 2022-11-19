@@ -31,6 +31,7 @@ const headings = getHeadings(data);
         >
           <summary class="flex items-center gap-x-2">
             <button
+              aria-hidden={true}
               class={`hover:bg-neutral-200 rounded aspect-square text-neutral-500 fill-neutral-500 p-1 ${
                 slugify(name) === slug && slug !== "preview" ? "" : "invisible"
               }`}
