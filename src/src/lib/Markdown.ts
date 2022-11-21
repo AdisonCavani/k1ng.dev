@@ -29,16 +29,3 @@ export const mdxToHtml = async (source: string) => {
 
   return mdxSource;
 };
-
-export function getHeadings(source: string) {
-  const headingLines = source.split("\n").filter((line) => {
-    return line.match(/^(#{1,6}\s*[\S]+)/);
-  });
-
-  return headingLines.map((raw) => {
-    const text = raw.replace(/^#*\s/, "");
-    const level = raw.lastIndexOf("#") + 1;
-
-    return { text, level };
-  });
-}

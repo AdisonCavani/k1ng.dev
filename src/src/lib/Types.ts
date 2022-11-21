@@ -78,3 +78,8 @@ type WikiSidebarItemSchema = {
   name: string;
   href: string;
 };
+
+export type WikiHeadingsSchema = {
+  text: string;
+  level: number;
+};
