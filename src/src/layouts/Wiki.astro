@@ -8,7 +8,7 @@ type Props = {
 const { prose } = Astro.props;
 ---
 
-<main class="max-w-7xl pt-8 px-8 mx-auto mt-14 flex gap-4 flex-col md:flex-row">
+<main class="max-w-7xl pt-8 px-8 mx-auto mt-14 flex gap-4 flex-col lg:flex-row">
   <article class={`w-full max-w-none ${prose && "prose"}`}>
     <slot />
   </article>
