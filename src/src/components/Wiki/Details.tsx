@@ -1,13 +1,12 @@
 import { slugify } from "@lib/Helpers";
+import type { WikiHeadingsSchema } from "@lib/Types";
 
 type Props = {
-  headings: {
-    text: string;
-    level: number;
-  }[];
+  headings: WikiHeadingsSchema[];
+  slug: string;
 };
 
-const Details = ({ headings }: Props) => {
+const Details = ({ headings, slug }: Props) => {
   return (
     <ul className="mx-6 text-sm">
       {headings.map(({ text, level }, index) => (
@@ -17,7 +16,7 @@ const Details = ({ headings }: Props) => {
           style={{ paddingLeft: `${12 * level}px` }}
         >
           <a
-            href={`#${slugify(text)}`}
+            href={`/distro-grub-themes/${slug}#${slugify(text)}`}
             className="hover:text-blue-600 hover:underline"
           >
             {text}

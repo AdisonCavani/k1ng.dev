@@ -20,7 +20,13 @@ const Summary = ({ index, itemsCount, name, href, slug, headings }: Props) => {
   const [state, setState] = useState<boolean>(revealed);
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<WikiHeadingsSchema[] | undefined>(headings);
-  const [visible, setVisible] = useState<boolean>(currentSlug !== "preview");
+  const [visible, setVisible] = useState<boolean>(
+    currentSlug !== "preview" &&
+      !(
+        currentSlug === slug &&
+        (headings === undefined || headings.length === 0)
+      )
+  );
 
   return (
     <li
@@ -96,7 +102,12 @@ const Summary = ({ index, itemsCount, name, href, slug, headings }: Props) => {
         </a>
       </summary>
 
-      {data && state && <DetailsComponent headings={data} />}
+      {data && state && (
+        <DetailsComponent
+          headings={data}
+          slug={currentSlug === "index" ? "" : currentSlug}
+        />
+      )}
     </li>
   );
 };

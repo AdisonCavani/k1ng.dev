@@ -1,21 +1,20 @@
 ---
 import { SITE_TITLE } from "../config";
 import HeaderLink from "./HeaderLink.astro";
+import MobileNav from "./MobileNav";
 ---
 
 <header
-  class="fixed top-0 left-0 right-0 z-50 h-14 border-b border-neutral-200 bg-white/60 backdrop-blur shadow-sm"
+  class="fixed top-0 left-0 right-0 z-50 w-full max-w-[1440px] mx-auto px-6 bg-neutral-100/70 backdrop-blur"
 >
-  <nav class="flex h-full max-w-5xl px-8 mx-auto items-center gap-x-6">
-    <a
-      href="/"
-      class="inline-flex font-bold p-2 pl-0 [&>svg]:hover:rotate-12 [&>svg]:active:translate-y-[2px]"
-    >
+  <nav
+    class="flex h-16 items-center py-4 gap-x-6 md:gap-x-10 border-b border-neutral-200"
+  >
+    <a href="/" class="hidden items-center space-x-2 md:flex">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="mr-3 text-blue-600 transition-transform duration-200"
-        width="24"
-        height="24"
+        width="26"
+        height="26"
         viewBox="0 0 24 24"
         stroke-width="2"
         stroke="currentColor"
@@ -28,34 +27,19 @@ import HeaderLink from "./HeaderLink.astro";
         <polyline points="17 8 21 12 17 16"></polyline>
         <line x1="14" y1="4" x2="10" y2="20"></line>
       </svg>
-      {SITE_TITLE}
+      <span class="font-bold ml-2">{SITE_TITLE}</span>
     </a>
-    <div class="flex flex-row gap-x-4">
+
+    <div class="hidden md:flex gap-x-6">
       <HeaderLink href="/blog">Blog</HeaderLink>
       <HeaderLink href="/distro-grub-themes">Wiki</HeaderLink>
       <HeaderLink
         href="https://github.com/AdisonCavani/adison.me"
         target="_blank"
-        rel="noreferrer"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-brand-github"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path
-            d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
-          ></path>
-        </svg>Github</HeaderLink
+        rel="noreferrer">Github</HeaderLink
       >
     </div>
+
+    <MobileNav client:visible />
   </nav>
 </header>
