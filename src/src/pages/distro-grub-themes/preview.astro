@@ -31,7 +31,11 @@ const vendors = data.vendors.sort((a, b) => a.name.localeCompare(b.name));
       </div>
     </div>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {distros.map((theme) => <ThemeComponent {...theme} />)}
+      {
+        distros.map((theme, index) => (
+          <ThemeComponent {...theme} priority={index < 3} />
+        ))
+      }
     </div>
 
     <div class="flex justify-center my-6">
@@ -44,7 +48,11 @@ const vendors = data.vendors.sort((a, b) => a.name.localeCompare(b.name));
       </div>
     </div>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {vendors.map((theme) => <ThemeComponent {...theme} />)}
+      {
+        vendors.map((theme, index) => (
+          <ThemeComponent {...theme} priority={index < 3} />
+        ))
+      }
     </div>
   </WikiLayout>
 </BaseLayout>

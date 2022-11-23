@@ -3,9 +3,11 @@ import type { WikiThemeSchema } from "@lib/Types";
 import { Image } from "@astrojs/image/components";
 import { DISTRO_GRUB_THEMES, DISTRO_GRUB_THEMES_IMAGES } from "../../config";
 
-interface Props extends WikiThemeSchema {}
+interface Props extends WikiThemeSchema {
+  priority: boolean;
+}
 
-const { name, image, theme } = Astro.props;
+const { name, image, theme, priority } = Astro.props;
 ---
 
 <div
@@ -20,6 +22,7 @@ const { name, image, theme } = Astro.props;
       class="w-full"
       format="webp"
       sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
+      loading={priority ? "eager" : "lazy"}
     />
   </div>
   <div class="px-6 pb-5 flex flex-col flex-grow">
