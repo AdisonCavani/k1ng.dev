@@ -36,7 +36,7 @@ const Summary = ({ index, itemsCount, name, href, slug, headings }: Props) => {
     >
       <summary className="flex items-center gap-x-2">
         <button
-          aria-hidden={true}
+          aria-hidden={!visible}
           className={`hover:bg-neutral-200 rounded aspect-square text-neutral-500 fill-neutral-500 p-1 ${
             visible ? "" : "invisible"
           }`}
@@ -82,7 +82,7 @@ const Summary = ({ index, itemsCount, name, href, slug, headings }: Props) => {
             </svg>
           ) : (
             <svg
-              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
               viewBox="0 0 16 16"
