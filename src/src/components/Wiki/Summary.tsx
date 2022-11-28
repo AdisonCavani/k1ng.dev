@@ -36,6 +36,7 @@ const Summary = ({ index, itemsCount, name, href, slug, headings }: Props) => {
     >
       <summary className="flex items-center gap-x-2">
         <button
+          aria-label={state ? "Show less" : "Show more"}
           aria-hidden={!visible}
           className={`hover:bg-neutral-200 rounded aspect-square text-neutral-500 fill-neutral-500 p-1 ${
             visible ? "" : "invisible"
