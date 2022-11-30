@@ -50,16 +50,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Run production locally
 
-Start production build:
+Start production build and serve page:
 
 ```bash
-pnpm build
-```
-
-Start production server:
-
-```bash
-pnpm start
+pnpm preview
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
