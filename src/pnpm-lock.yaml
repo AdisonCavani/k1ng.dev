@@ -4,6 +4,7 @@ specifiers:
   '@headlessui/react': ^1.7.4
   '@sanity/client': ^3.4.1
   '@sanity/image-url': ^1.0.1
+  '@types/mdx': ^2.0.3
   '@types/node': 18.11.10
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
@@ -41,6 +42,7 @@ dependencies:
   sharp: 0.31.2
 
 devDependencies:
+  '@types/mdx': 2.0.3
   '@types/node': 18.11.10
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
@@ -396,7 +398,6 @@ packages:
 
   /@types/mdx/2.0.3:
     resolution: {integrity: sha512-IgHxcT3RC8LzFLhKwP3gbMPeaK7BM9eBH46OdapPA7yvuIUJ8H6zHZV53J8hGZcTSnt95jANt+rTBNUUc22ACQ==}
-    dev: false
 
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
