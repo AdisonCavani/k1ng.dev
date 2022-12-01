@@ -1,6 +1,0 @@
-{
-  "files.associations": {
-    "*.mdx": "markdown"
-  },
-  "prettier.documentSelectors": ["**/*.astro"]
-}
