@@ -1,5 +1,7 @@
-import "@styles/globals.css";
+import "./globals.css";
 import type { ReactNode } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 
 type Props = {
   children: ReactNode;
@@ -13,7 +15,12 @@ function RootLayout({ children }: Props) {
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body className="bg-neutral-100">
+        <Header />
+        {children}
+        {/* @ts-expect-error */}
+        <Footer />
+      </body>
     </html>
   );
 }

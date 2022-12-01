@@ -7,9 +7,19 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.4",
+    "@sanity/client": "^3.4.1",
+    "@sanity/image-url": "^1.0.1",
     "next": "13.0.5",
+    "next-mdx-remote": "^4.2.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-code-titles": "^1.1.0",
+    "rehype-prism-plus": "^1.5.0",
+    "rehype-slug": "^5.1.0",
+    "remark-gfm": "^3.0.1",
+    "sharp": "^0.31.2"
   },
   "devDependencies": {
     "@types/node": "18.11.10",
