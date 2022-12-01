@@ -1,26 +1,24 @@
 "use client";
 
 import type { MDXComponents } from "mdx/types";
-import type { AnchorHTMLAttributes, DetailedHTMLProps } from "react";
+import type { ReactNode } from "react";
 import Link from "next/link";
+import { isUrlInternal } from "@lib/helpers";
 
 const MdxComponents: MDXComponents = {
   a: (props) => <CustomLink {...props} />,
 };
 
-const CustomLink = (
-  props: DetailedHTMLProps<
-    AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  >
-) => {
-  const href = props.href;
-  const isInternal = href && (href.startsWith("/") || href.startsWith("#"));
+type Props = {
+  href?: string | undefined;
+  children?: ReactNode;
+};
 
-  if (isInternal && href)
+const CustomLink = ({ children, href }: Props) => {
+  if (href && isUrlInternal(href))
     return (
-      <Link href={href} className="text-blue-600 no-underline" {...props}>
-        {props.children}
+      <Link href={href} className="text-blue-600 no-underline">
+        {children}
       </Link>
     );
 
@@ -30,9 +28,8 @@ const CustomLink = (
       target="_blank"
       rel="noreferrer"
       className="text-blue-600 no-underline hover:underline underline-offset-2"
-      {...props}
     >
-      {props.children}
+      {children}
     </a>
   );
 };
