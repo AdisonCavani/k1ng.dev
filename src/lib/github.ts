@@ -29,13 +29,15 @@ export const getDocsDir = async () => {
     }
   );
 
-  return (res.data as any[]).map((item) => {
-    const slug = slugify(item.name.split(".")[0]);
+  return (res.data as any[])
+    .map((item) => {
+      const slug = slugify(item.name.split(".")[0]);
 
-    if (slug === "index") return "";
+      if (slug === "index") return "";
 
-    return slug;
-  });
+      return slug;
+    })
+    .filter((slug) => slug !== "preview");
 };
 
 export const getSidebarData = async () => {
