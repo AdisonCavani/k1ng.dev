@@ -1,6 +1,6 @@
+import Anchor from "@components/Anchor";
 import { isUrlInternal } from "@lib/helpers";
-import Link from "next/link";
-import type { AnchorHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
+import type { AnchorHTMLAttributes, DetailedHTMLProps } from "react";
 
 interface Props
   extends DetailedHTMLProps<
@@ -16,9 +16,9 @@ function HeaderLink(props: Props) {
   return (
     <>
       {props.href && isUrlInternal(props.href) ? (
-        <Link href={props.href} className={classes}>
+        <Anchor href={props.href} className={classes}>
           {props.children}
-        </Link>
+        </Anchor>
       ) : (
         <a className={classes} {...props}>
           {props.children}

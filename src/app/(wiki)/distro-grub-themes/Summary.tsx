@@ -1,8 +1,8 @@
 "use client";
 
+import Anchor from "@components/Anchor";
 import { getHeadings, slugify } from "@lib/helpers";
 import type { WikiHeadingsSchema } from "@lib/types";
-import Link from "next/link";
 import { useState } from "react";
 import Details from "./Details";
 
@@ -98,12 +98,12 @@ function Summary({ href, index, itemsCount, name, slug, headings }: Props) {
             </svg>
           )}
         </button>
-        <Link
+        <Anchor
           href={`/distro-grub-themes/${href}`}
           className="flex-1 font-semibold text-blue-600 text-sm"
         >
           {name}
-        </Link>
+        </Anchor>
       </summary>
 
       {data && state && (

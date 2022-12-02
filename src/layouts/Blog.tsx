@@ -1,6 +1,6 @@
+import Anchor from "@components/Anchor";
 import { GetTagsData } from "@lib/queries";
 import type { PostSchema } from "@lib/types";
-import Link from "next/link";
 
 type Props = {
   currentTag?: string | undefined;
@@ -61,10 +61,10 @@ async function BlogLayout({ posts, currentTag }: Props) {
                   </div>
                 </div>
               </div>
-              <Link href={`/blog/${slug}`} className="sm:col-span-2 mt-2">
+              <Anchor href={`/blog/${slug}`} className="sm:col-span-2 mt-2">
                 <h2 className="text-2xl font-bold">{title}</h2>
                 <p className="mt-4">{description}</p>
-              </Link>
+              </Anchor>
             </div>
           )
         )}

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Anchor from "@components/Anchor";
 import HeaderLink from "./HeaderLink";
 import MobileNav from "./MobileNav";
 
@@ -6,7 +6,7 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full max-w-[1440px] mx-auto px-6 bg-neutral-100/70 backdrop-blur">
       <nav className="flex h-16 items-center py-4 gap-x-6 md:gap-x-10 border-b border-neutral-200">
-        <Link href="/" className="hidden items-center space-x-2 md:flex">
+        <Anchor href="/" className="hidden items-center space-x-2 md:flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="26"
@@ -24,7 +24,7 @@ function Header() {
             <line x1="14" y1="4" x2="10" y2="20"></line>
           </svg>
           <span className="font-bold ml-2">Adison Cavani</span>
-        </Link>
+        </Anchor>
 
         <div className="hidden md:flex gap-x-6">
           <HeaderLink href="/blog">Blog</HeaderLink>

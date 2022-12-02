@@ -2,8 +2,8 @@
 
 import type { MDXComponents } from "mdx/types";
 import type { ReactNode } from "react";
-import Link from "next/link";
 import { isUrlInternal } from "@lib/helpers";
+import Anchor from "./Anchor";
 
 const MdxComponents: MDXComponents = {
   a: (props) => <CustomLink {...props} />,
@@ -17,9 +17,9 @@ type Props = {
 const CustomLink = ({ children, href }: Props) => {
   if (href && isUrlInternal(href))
     return (
-      <Link href={href} className="text-blue-600 no-underline">
+      <Anchor href={href} className="text-blue-600 no-underline">
         {children}
-      </Link>
+      </Anchor>
     );
 
   return (

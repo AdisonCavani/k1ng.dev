@@ -2,6 +2,7 @@ import "./globals.css";
 import type { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import RootLayoutClient from "./layout.client";
 
 type Props = {
   children: ReactNode;
@@ -16,10 +17,12 @@ function RootLayout({ children }: Props) {
       */}
       <head />
       <body className="bg-neutral-100">
-        <Header />
-        {children}
-        {/* @ts-expect-error */}
-        <Footer />
+        <RootLayoutClient>
+          <Header />
+          {children}
+          {/* @ts-expect-error */}
+          <Footer />
+        </RootLayoutClient>
       </body>
     </html>
   );

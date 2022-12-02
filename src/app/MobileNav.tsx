@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Anchor from "@components/Anchor";
 import { useState } from "react";
 
 function MobileNav() {
@@ -57,7 +57,7 @@ function MobileNav() {
       {visible && (
         <div className="fixed inset-0 top-16 z-50 grid h-[calc(100vh-4rem)] grid-flow-row auto-rows-max overflow-auto p-6 pb-32 shadow-md md:hidden">
           <div className="relative z-20 grid gap-6 rounded-md bg-white p-4 shadow-md">
-            <Link href="/" className="flex items-center space-x-2">
+            <Anchor href="/" className="flex items-center space-x-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="26"
@@ -75,21 +75,21 @@ function MobileNav() {
                 <line x1="14" y1="4" x2="10" y2="20"></line>
               </svg>
               <span className="font-bold">Adison Cavani</span>
-            </Link>
+            </Anchor>
 
             <nav className="grid grid-flow-row auto-rows-max text-sm">
-              <Link
+              <Anchor
                 href="/blog"
                 className="flex w-full items-center rounded-md px-2 py-2 text-sm font-medium hover:underline"
               >
                 Blog
-              </Link>
-              <Link
+              </Anchor>
+              <Anchor
                 href="/distro-grub-themes"
                 className="flex w-full items-center rounded-md px-2 py-2 text-sm font-medium hover:underline"
               >
                 Wiki
-              </Link>
+              </Anchor>
               <a
                 href="https://github.com/AdisonCavani/adison.me"
                 target="_blank"
