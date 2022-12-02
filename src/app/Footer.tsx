@@ -15,7 +15,7 @@ async function Footer() {
         <div className="mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">
           {data.map(({ name, url }, index) => (
             <Fragment key={index}>
-              {isUrlInternal(url) ? (
+              {isUrlInternal(url) && url !== "/rss.xml" ? (
                 <>
                   <Link href={url}>{name}</Link>
                   {index !== data.length - 1 && (

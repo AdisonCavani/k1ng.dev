@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",
+    "@octokit/core": "^4.1.0",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "next": "13.0.5",
@@ -22,6 +23,7 @@
     "sharp": "^0.31.2"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.8",
     "@types/mdx": "^2.0.3",
     "@types/node": "18.11.10",
     "@types/react": "18.0.25",
