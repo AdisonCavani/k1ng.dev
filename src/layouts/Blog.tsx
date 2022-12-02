@@ -11,7 +11,7 @@ async function BlogLayout({ posts, currentTag }: Props) {
   const allTags = await GetTagsData();
 
   return (
-    <main className="max-w-5xl pt-8 px-8 mx-auto mt-14">
+    <main className="max-w-5xl pt-8 px-8 mx-auto mt-16">
       <h1 className="text-5xl font-bold">Blog</h1>
 
       <div className="flow-root mt-8 text-sm text-gray-600">

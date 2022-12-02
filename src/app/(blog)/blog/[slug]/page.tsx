@@ -25,7 +25,7 @@ async function BlogPost({ params: { slug } }: Props) {
   const mdxSource = await mdxToHtml(content);
 
   return (
-    <main className="max-w-5xl pt-8 px-8 mx-auto mt-14">
+    <main className="max-w-5xl pt-8 px-8 mx-auto mt-16">
       <article>
         <header>
           <Image

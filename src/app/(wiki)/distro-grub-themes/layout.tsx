@@ -7,7 +7,7 @@ type Props = {
 
 function WikiLayout({ children }: Props) {
   return (
-    <main className="max-w-7xl pt-8 px-8 mx-auto mt-14 flex gap-4 flex-col lg:flex-row">
+    <main className="max-w-7xl pt-8 px-8 mx-auto mt-16 flex gap-4 flex-col lg:flex-row">
       {children}
 
       {/* @ts-expect-error */}
