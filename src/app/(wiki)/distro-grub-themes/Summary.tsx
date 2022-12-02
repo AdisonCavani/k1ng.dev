@@ -55,7 +55,6 @@ function Summary({ href, index, itemsCount, name, slug, headings }: Props) {
               }.mdx`
             );
             const res = await json.json();
-            console.log(res.content);
             const markdown = atob(res.content ?? "");
             const items = getHeadings(markdown);
 
