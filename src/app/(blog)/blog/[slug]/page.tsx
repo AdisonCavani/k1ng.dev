@@ -1,7 +1,7 @@
 import "@styles/prose.css";
 import Markdown from "@components/Markdown";
 import { mdxToHtml } from "@lib/markdown";
-import { GetPostData } from "@lib/queries";
+import { GetPostData, GetPostSlugsData } from "@lib/queries";
 import { urlFor } from "@lib/sanity";
 import Image from "next/image";
 
@@ -113,3 +113,11 @@ async function BlogPost({ params: { slug } }: Props) {
 }
 
 export default BlogPost;
+
+export async function generateStaticParams() {
+  const slugs = await GetPostSlugsData();
+
+  return slugs.map((slug) => ({
+    slug: slug,
+  }));
+}

@@ -1,7 +1,7 @@
 import "@styles/prose.css";
 
 import Markdown from "@components/Markdown";
-import { getBySlug } from "@lib/github";
+import { getBySlug, getDocsDir } from "@lib/github";
 import { mdxToHtml } from "@lib/markdown";
 
 type Props = {
@@ -22,3 +22,11 @@ async function Wiki({ params: { slugs } }: Props) {
 }
 
 export default Wiki;
+
+export async function generateStaticParams() {
+  const slugs = await getDocsDir();
+
+  return slugs.map((slug) => ({
+    slugs: [slug],
+  }));
+}

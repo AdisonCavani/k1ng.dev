@@ -32,7 +32,7 @@ export const getDocsDir = async () => {
   return (res.data as any[]).map((item) => {
     const slug = slugify(item.name.split(".")[0]);
 
-    if (slug === "index") return undefined;
+    if (slug === "index") return "";
 
     return slug;
   });
