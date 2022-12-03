@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@headlessui/react': ^1.7.4
+  '@next/font': ^13.0.6
   '@octokit/core': ^4.1.0
   '@sanity/image-url': ^1.0.1
   '@sanity/webhook': ^2.0.0
@@ -12,6 +13,7 @@ specifiers:
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
   autoprefixer: ^10.4.13
+  clsx: ^1.2.1
   eslint: 8.28.0
   eslint-config-next: 13.0.5
   next: 13.0.5
@@ -28,14 +30,17 @@ specifiers:
   rehype-slug: ^5.1.0
   remark-gfm: ^3.0.1
   sharp: ^0.31.2
+  tailwind-merge: ^1.8.0
   tailwindcss: ^3.2.4
   typescript: 4.9.3
 
 dependencies:
   '@headlessui/react': 1.7.4_biqbaboplfbrettd7655fr4n2y
+  '@next/font': 13.0.6
   '@octokit/core': 4.1.0
   '@sanity/image-url': 1.0.1
   '@sanity/webhook': 2.0.0
+  clsx: 1.2.1
   next: 13.0.5_biqbaboplfbrettd7655fr4n2y
   next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
   next-sanity: 3.1.2_next@13.0.5+react@18.2.0
@@ -48,6 +53,7 @@ dependencies:
   rehype-slug: 5.1.0
   remark-gfm: 3.0.1
   sharp: 0.31.2
+  tailwind-merge: 1.8.0
 
 devDependencies:
   '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.4
@@ -173,6 +179,10 @@ packages:
     dependencies:
       glob: 7.1.7
     dev: true
+
+  /@next/font/13.0.6:
+    resolution: {integrity: sha512-5vxNmvnV0CbYjQGtztD5Axft9C7npKihbQpiFhnDwdb99f9K/QSFfcJqxz0E5QBkf67O2niVGJ5lApJDu78w0w==}
+    dev: false
 
   /@next/swc-android-arm-eabi/13.0.5:
     resolution: {integrity: sha512-YO691dxHlviy6H0eghgwqn+5kU9J3iQnKERHTDSppqjjGDBl6ab4wz9XfI5AhljjkaTg3TknHoIEWFDoZ4Ve8g==}
@@ -963,6 +973,11 @@ packages:
 
   /client-only/0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert/2.0.1:
@@ -3865,6 +3880,10 @@ packages:
       '@pkgr/utils': 2.3.1
       tslib: 2.4.1
     dev: true
+
+  /tailwind-merge/1.8.0:
+    resolution: {integrity: sha512-tER/2SbYRdfPYg6m4pDWZSlbymLTmDi+dx4iCsJmgmz4UDGzgnVelOvBe3GNtGCw9Bmc4MiObfJJbKeVL+KnMQ==}
+    dev: false
 
   /tailwindcss/3.2.4_postcss@8.4.19:
     resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==}

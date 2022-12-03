@@ -4,7 +4,7 @@ import MobileNav from "./MobileNav";
 
 function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full max-w-[1440px] mx-auto px-6 bg-neutral-100/70 backdrop-blur">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full max-w-[1440px] mx-auto px-6 bg-white/70 backdrop-blur">
       <nav className="flex h-16 items-center py-4 gap-x-6 md:gap-x-10 border-b border-neutral-200">
         <Link href="/" className="hidden items-center space-x-2 md:flex">
           <svg

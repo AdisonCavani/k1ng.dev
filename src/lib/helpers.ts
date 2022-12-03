@@ -1,3 +1,5 @@
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 import type { WikiHeadingsSchema } from "./types";
 
 export const slugify = (str: string) =>
@@ -23,3 +25,5 @@ export function getHeadings(source: string) {
     return { text, level } as WikiHeadingsSchema;
   });
 }
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
