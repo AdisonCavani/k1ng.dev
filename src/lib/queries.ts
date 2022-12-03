@@ -148,3 +148,7 @@ const ProjectsQuery = `
 export const GetProjectsData = async (): Promise<Array<ProjectSchema>> => {
   return await sanityClient.fetch(ProjectsQuery);
 };
+
+export const PostUpdatedQuery = `
+*[_type == "post" && _id == $id].slug.current
+`;
