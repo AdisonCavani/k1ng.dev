@@ -1,7 +1,7 @@
 import { GetFooterData } from "@lib/queries";
 import { isUrlInternal } from "@lib/helpers";
 import { Fragment } from "react";
-import Anchor from "@components/Anchor";
+import Link from "next/link";
 
 async function Footer() {
   const data = await GetFooterData();
@@ -17,7 +17,7 @@ async function Footer() {
             <Fragment key={index}>
               {isUrlInternal(url) && url !== "/rss.xml" ? (
                 <>
-                  <Anchor href={url}>{name}</Anchor>
+                  <Link href={url}>{name}</Link>
                   {index !== data.length - 1 && (
                     <hr className="h-4 w-px bg-neutral-300" />
                   )}

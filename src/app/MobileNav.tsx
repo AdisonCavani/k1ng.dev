@@ -1,7 +1,7 @@
 "use client";
 
-import Anchor from "@components/Anchor";
 import { Menu } from "@headlessui/react";
+import Link from "next/link";
 
 function MobileNav() {
   return (
@@ -29,7 +29,7 @@ function MobileNav() {
         <div className="relative z-20 grid gap-6 rounded-md bg-white p-4 shadow-md">
           <Menu.Item>
             {({ close }) => (
-              <Anchor
+              <Link
                 onClick={close}
                 href="/"
                 className="flex items-center space-x-2"
@@ -51,31 +51,31 @@ function MobileNav() {
                   <line x1="14" y1="4" x2="10" y2="20"></line>
                 </svg>
                 <span className="font-bold">Adison Cavani</span>
-              </Anchor>
+              </Link>
             )}
           </Menu.Item>
 
           <nav className="grid grid-flow-row auto-rows-max text-sm">
             <Menu.Item>
               {({ close }) => (
-                <Anchor
+                <Link
                   onClick={close}
                   href="/blog"
                   className="flex w-full items-center rounded-md px-2 py-2 text-sm font-medium hover:underline"
                 >
                   Blog
-                </Anchor>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ close }) => (
-                <Anchor
+                <Link
                   onClick={close}
                   href="/distro-grub-themes"
                   className="flex w-full items-center rounded-md px-2 py-2 text-sm font-medium hover:underline"
                 >
                   Wiki
-                </Anchor>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>

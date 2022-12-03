@@ -1,4 +1,3 @@
-import Anchor from "@components/Anchor";
 import Markdown from "@components/Markdown";
 import MdxComponents from "@components/MdxComponents";
 import { isUrlInternal } from "@lib/helpers";
@@ -6,6 +5,7 @@ import { mdxToHtml } from "@lib/markdown";
 import { urlFor } from "@lib/sanity";
 import type { ProjectSchema } from "@lib/types";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props extends ProjectSchema {
   priority?: boolean;
@@ -27,7 +27,7 @@ async function ProjectCard({
     <div className="flex flex-col ease-[spring(1 100 10 10)] overflow-hidden rounded-lg border bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
       <div className="w-full cursor-pointer">
         {isUrlInternal(url) ? (
-          <Anchor href={url}>
+          <Link href={url}>
             <Image
               width={480}
               height={270}
@@ -37,7 +37,7 @@ async function ProjectCard({
               sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
               loading={priority ? "eager" : "lazy"}
             />
-          </Anchor>
+          </Link>
         ) : (
           <a href={url} target="_blank" rel="noreferrer">
             <Image
