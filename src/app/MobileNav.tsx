@@ -6,14 +6,7 @@ import { Menu } from "@headlessui/react";
 function MobileNav() {
   return (
     <Menu>
-      <Menu.Button
-        className="flex items-center space-x-2 md:hidden"
-        onClick={() => {
-          if (document.body.classList.contains("overflow-hidden"))
-            document.body.classList.remove("overflow-hidden");
-          else document.body.classList.add("overflow-hidden");
-        }}
-      >
+      <Menu.Button className="flex items-center space-x-2 md:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
