@@ -3,11 +3,14 @@ import { getHeadings, slugify } from "@lib/helpers";
 import type { WikiHeadingsSchema } from "@lib/types";
 import Summary from "./Summary";
 
-async function Sidebar() {
+type Props = {
+  slug: string;
+};
+
+async function Sidebar({ slug }: Props) {
   const { count, items } = await getSidebarData();
 
-  let slug = "preview";
-  if (slug === "distro-grub-themes") slug = "index";
+  if (slug === undefined) slug = "index";
 
   let data: string | undefined;
   let headings: WikiHeadingsSchema[] | undefined;

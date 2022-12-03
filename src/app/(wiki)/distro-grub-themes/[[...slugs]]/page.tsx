@@ -3,6 +3,7 @@ import "@styles/prose.css";
 import Markdown from "@components/Markdown";
 import { getBySlug, getDocsDir } from "@lib/github";
 import { mdxToHtml } from "@lib/markdown";
+import Sidebar from "../Sidebar";
 
 type Props = {
   params: {
@@ -15,9 +16,14 @@ async function Wiki({ params: { slugs } }: Props) {
   const mdxSource = await mdxToHtml(content);
 
   return (
-    <article className="w-full max-w-none prose">
-      <Markdown mdxSource={mdxSource} />
-    </article>
+    <main className="max-w-7xl pt-8 px-8 mx-auto mt-16 flex gap-4 flex-col lg:flex-row">
+      <article className="w-full max-w-none prose">
+        <Markdown mdxSource={mdxSource} />
+      </article>
+
+      {/* @ts-expect-error */}
+      <Sidebar slug={slugs ? slugs[0] : undefined} />
+    </main>
   );
 }
 
