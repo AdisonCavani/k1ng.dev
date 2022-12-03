@@ -1,3 +1,4 @@
+import { formatDate } from "@lib/helpers";
 import { GetBlogData } from "@lib/queries";
 import { urlFor } from "@lib/sanity";
 import Image from "next/image";
@@ -39,11 +40,7 @@ async function Blog() {
               <h2 className="text-2xl font-extrabold">{title}</h2>
               <p className="text-slate-600">{description}</p>
               <time dateTime={datePublished} className="text-sm text-slate-600">
-                {new Date(datePublished).toLocaleDateString("en-us", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}
+                {formatDate(datePublished)}
               </time>
               <Link href={`/blog/${slug}`} className="absolute inset-0">
                 <span className="sr-only">View Article</span>

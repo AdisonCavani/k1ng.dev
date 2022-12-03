@@ -5,5 +5,3 @@
 [data-nextjs-scroll-focus-boundary] {
   @apply contents;
 }
-
-@import "nprogress/nprogress.css";
