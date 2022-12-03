@@ -7,6 +7,8 @@ import Image from "next/image";
 import ProjectCard from "./ProjectCard";
 import TechStack from "./TechStack";
 
+export const dynamic = "force-static";
+
 async function Home() {
   const projects = await GetProjectsData();
   const items = await GetTechItemsData();

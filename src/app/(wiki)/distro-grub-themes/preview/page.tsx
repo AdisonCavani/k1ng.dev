@@ -1,6 +1,8 @@
 import type { WikiPreviewSchema } from "@lib/types";
 import Theme from "./Theme";
 
+export const dynamic = "force-static";
+
 async function Preview() {
   const data = (await fetch(
     "https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes.json"
