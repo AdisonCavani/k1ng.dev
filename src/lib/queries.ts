@@ -1,4 +1,4 @@
-import { sanityClient } from "./sanity";
+import { sanityClient } from "./sanityServer";
 import type {
   FooterSchema,
   PostSchema,

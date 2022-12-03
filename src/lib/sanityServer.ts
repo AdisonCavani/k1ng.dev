@@ -7,4 +7,4 @@ import { createClient } from "next-sanity";
 import { sanityConfig } from "./sanityConfig";
 
 // Set up the client for fetching data in the getProps page functions
-export const SanityClient = createClient(sanityConfig);
+export const sanityClient = createClient(sanityConfig);
