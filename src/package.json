@@ -38,6 +38,6 @@
     "@types/react-dom": "^18.0.9",
     "@types/sanitize-html": "^2.6.2",
     "prettier": "^2.8.0",
-    "prettier-plugin-astro": "^0.5.5"
+    "prettier-plugin-astro": "^0.7.0"
   }
 }

@@ -18,7 +18,7 @@ specifiers:
   astro: ^1.6.12
   next-mdx-remote: ^4.2.0
   prettier: ^2.8.0
-  prettier-plugin-astro: ^0.5.5
+  prettier-plugin-astro: ^0.7.0
   react: ^18.2.0
   react-dom: ^18.2.0
   rehype-autolink-headings: ^6.1.1
@@ -60,7 +60,7 @@ devDependencies:
   '@types/react-dom': 18.0.9
   '@types/sanitize-html': 2.6.2
   prettier: 2.8.0
-  prettier-plugin-astro: 0.5.5
+  prettier-plugin-astro: 0.7.0
 
 packages:
 
@@ -76,13 +76,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.17
     dev: false
 
-  /@astrojs/compiler/0.23.5:
-    resolution: {integrity: sha512-vBMPy9ok4iLapSyCCT1qsZ9dK7LkVFl9mObtLEmWiec9myGHS9h2kQY2xzPeFNJiWXUf9O6tSyQpQTy5As/p3g==}
-    dev: true
-
   /@astrojs/compiler/0.29.17:
     resolution: {integrity: sha512-6ZbRGVunUMHxROD9Cleqkrfrj/kM9o43nLVwycdxCexCB5G372evy2ZM46LhaG/k5B5yC0PByNHTaGny0ll3iQ==}
-    dev: false
 
   /@astrojs/image/0.10.0_sharp@0.31.2:
     resolution: {integrity: sha512-/lkQ8YbqwHEA3bU6W7igEHqqQs6V6sx4rMbhkur4qWQP61kAOnvacSSKN7GJ+YswZOiUhPGY9DTtyLRqLFLv5g==}
@@ -3795,16 +3790,6 @@ packages:
       which-pm: 2.0.0
     dev: false
 
-  /prettier-plugin-astro/0.5.5:
-    resolution: {integrity: sha512-tEJiPjTB1eVT5Czcbkj9GoRG/oMewOnG9x737p/hJUD5QXJmn7LiYFM2dKkX0i4A1fhhsGfXT+uqsAXcw2r8JQ==}
-    engines: {node: ^14.15.0 || >=16.0.0, npm: '>=6.14.0'}
-    dependencies:
-      '@astrojs/compiler': 0.23.5
-      prettier: 2.8.0
-      sass-formatter: 0.7.5
-      synckit: 0.7.3
-    dev: true
-
   /prettier-plugin-astro/0.7.0:
     resolution: {integrity: sha512-ehCUx7MqHWvkHwUmxxAWLsL35pFaCTM5YXQ8xjG/1W6dY2yBhvEks+2aCfjeI5zmMrZNCXkiMQtpznSlLSLrxw==}
     engines: {node: ^14.15.0 || >=16.0.0, npm: '>=6.14.0'}
@@ -3813,7 +3798,6 @@ packages:
       prettier: 2.8.0
       sass-formatter: 0.7.5
       synckit: 0.8.4
-    dev: false
 
   /prettier/2.8.0:
     resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
@@ -4478,21 +4462,12 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /synckit/0.7.3:
-    resolution: {integrity: sha512-jNroMv7Juy+mJ/CHW5H6TzsLWpa1qck6sCHbkv8YTur+irSq2PjbvmGnm2gy14BUQ6jF33vyR4DPssHqmqsDQw==}
-    engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
-    dependencies:
-      '@pkgr/utils': 2.3.1
-      tslib: 2.4.1
-    dev: true
-
   /synckit/0.8.4:
     resolution: {integrity: sha512-Dn2ZkzMdSX827QbowGbU/4yjWuvNaCoScLLoMo/yKbu+P4GBR6cRGKZH27k6a9bRzdqcyd1DE96pQtQ6uNkmyw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
       '@pkgr/utils': 2.3.1
       tslib: 2.4.1
-    dev: false
 
   /tailwindcss/3.2.4:
     resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==}
