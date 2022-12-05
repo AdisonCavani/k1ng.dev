@@ -74,13 +74,13 @@ const MdxComponents2: MDXComponents = {
     />
   ),
   ul: ({ className, ...props }) => (
-    <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
+    <ul className={cn("my-6 ml-6 p-0 list-disc", className)} {...props} />
   ),
   ol: ({ className, ...props }) => (
-    <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
+    <ol className={cn("my-6 ml-6 p-0 list-decimal", className)} {...props} />
   ),
   li: ({ className, ...props }) => (
-    <li className={cn("mt-2", className)} {...props} />
+    <li className={cn("mt-2 p-0", className)} {...props} />
   ),
   blockquote: ({ className, ...props }) => (
     <blockquote

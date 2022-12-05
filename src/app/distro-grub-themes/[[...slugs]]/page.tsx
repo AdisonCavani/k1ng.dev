@@ -16,7 +16,7 @@ async function Wiki({ params: { slugs } }: Props) {
   const mdxSource = await mdxToHtml(content);
 
   return (
-    <main className="max-w-7xl pt-8 px-8 mx-auto mt-16 flex gap-4 flex-col lg:flex-row">
+    <main className="max-w-7xl py-8 px-8 mx-auto mt-16 flex gap-4 flex-col lg:flex-row">
       <article className="w-full max-w-none prose">
         <Markdown mdxSource={mdxSource} />
       </article>

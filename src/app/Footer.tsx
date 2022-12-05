@@ -7,7 +7,7 @@ async function Footer() {
   const data = await GetFooterData();
 
   return (
-    <footer className="mx-auto mt-16 w-full max-w-container px-4 sm:px-6 lg:px-8">
+    <footer className="mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8">
       <div className="border-t border-slate-900/15 py-10">
         <p className="text-center text-sm leading-6 text-slate-600">
           © {new Date().getFullYear()} Adison Cavani. All rights reserved.

@@ -20,7 +20,7 @@ async function BlogPost({ params: { slug } }: Props) {
   const mdxSource = await mdxToHtml(content);
 
   return (
-    <main className="container relative mt-16 max-w-3xl pt-6 lg:pt-10">
+    <main className="container relative mt-16 max-w-3xl py-6 lg:py-10">
       <Link
         href="/blog"
         className="absolute top-14 -left-[200px] hidden items-center justify-center text-sm font-medium text-slate-600 hover:text-slate-900 xl:inline-flex"
@@ -86,7 +86,7 @@ async function BlogPost({ params: { slug } }: Props) {
         <Markdown mdxSource={mdxSource} mdxComponents={MdxComponents2} />
       </article>
       <hr className="my-4 border-slate-200" />
-      <div className="flex justify-center pt-6 lg:pt-10">
+      <div className="flex justify-center py-6 lg:py-10">
         <Link
           href="/blog"
           className="inline-flex items-center justify-center text-sm font-medium text-slate-600 hover:text-slate-900"

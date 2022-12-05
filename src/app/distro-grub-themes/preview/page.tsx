@@ -13,7 +13,7 @@ async function Preview() {
   const vendors = data.vendors.sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <main className="max-w-7xl pt-8 px-8 mx-auto mt-16 flex gap-4 flex-col lg:flex-row">
+    <main className="max-w-7xl py-8 px-8 mx-auto mt-16 flex gap-4 flex-col lg:flex-row">
       <article className="w-full max-w-none">
         <div className="flex justify-center my-6">
           <div className="flex flex-col gap-4">
