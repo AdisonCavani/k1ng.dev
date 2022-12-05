@@ -18,7 +18,7 @@ function Theme({ image, name, priority, theme }: Props) {
           alt="Theme preview"
           className="w-full"
           sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
-          loading={priority ? "eager" : "lazy"}
+          priority={priority ?? false}
         />
       </div>
       <div className="px-6 pb-5 flex flex-col flex-grow">

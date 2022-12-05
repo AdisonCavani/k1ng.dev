@@ -35,7 +35,7 @@ async function ProjectCard({
               alt="Project image"
               className="w-full"
               sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
-              loading={priority ? "eager" : "lazy"}
+              priority={priority ?? false}
             />
           </Link>
         ) : (
@@ -47,7 +47,7 @@ async function ProjectCard({
               alt="Project image"
               className="w-full"
               sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
-              loading={priority ? "eager" : "lazy"}
+              priority={priority ?? false}
             />
           </a>
         )}

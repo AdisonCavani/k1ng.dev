@@ -39,7 +39,7 @@ async function Home() {
               width={176}
               height={176}
               sizes="20vw"
-              loading="eager"
+              priority
             />
           </div>
         </div>
