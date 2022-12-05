@@ -11,6 +11,7 @@ specifiers:
   '@types/node': 18.11.10
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
+  '@types/rss': ^0.0.29
   autoprefixer: ^10.4.13
   clsx: ^1.2.1
   eslint: 8.28.0
@@ -27,6 +28,7 @@ specifiers:
   rehype-prism-plus: ^1.5.0
   rehype-slug: ^5.1.0
   remark-gfm: ^3.0.1
+  rss: ^1.2.2
   sharp: ^0.31.2
   tailwind-merge: ^1.8.0
   tailwindcss: ^3.2.4
@@ -49,6 +51,7 @@ dependencies:
   rehype-prism-plus: 1.5.0
   rehype-slug: 5.1.0
   remark-gfm: 3.0.1
+  rss: 1.2.2
   sharp: 0.31.2
   tailwind-merge: 1.8.0
 
@@ -58,6 +61,7 @@ devDependencies:
   '@types/node': 18.11.10
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
+  '@types/rss': 0.0.29
   autoprefixer: 10.4.13_postcss@8.4.19
   eslint: 8.28.0
   eslint-config-next: 13.0.5_hsf322ms6xhhd4b5ne6lb74y4a
@@ -600,6 +604,10 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
       csstype: 3.1.1
+
+  /@types/rss/0.0.29:
+    resolution: {integrity: sha512-9hAYKyOcoxWqkJMue6bi0fcNXxjJiRutVvqyImy732LmTCxRz9BYPmSmujG7uddK0ZEP/35K3QVZ0sfAVyPnQw==}
+    dev: true
 
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
@@ -2855,6 +2863,18 @@ packages:
       picomatch: 2.3.1
     dev: true
 
+  /mime-db/1.25.0:
+    resolution: {integrity: sha512-5k547tI4Cy+Lddr/hdjNbBEWBwSl8EBc5aSdKvedav8DReADgWJzcYiktaRIw3GtGC1jjwldXtTzvqJZmtvC7w==}
+    engines: {node: '>= 0.6'}
+    dev: false
+
+  /mime-types/2.1.13:
+    resolution: {integrity: sha512-ryBDp1Z/6X90UvjUK3RksH0IBPM137T7cmg4OgD5wQBojlAiUwuok0QeELkim/72EtcYuNlmbkrcGuxj3Kl0YQ==}
+    engines: {node: '>= 0.6'}
+    dependencies:
+      mime-db: 1.25.0
+    dev: false
+
   /mimic-response/3.1.0:
     resolution: {integrity: sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==}
     engines: {node: '>=10'}
@@ -3605,6 +3625,13 @@ packages:
       glob: 7.2.3
     dev: true
 
+  /rss/1.2.2:
+    resolution: {integrity: sha512-xUhRTgslHeCBeHAqaWSbOYTydN2f0tAzNXvzh3stjz7QDhQMzdgHf3pfgNIngeytQflrFPfy6axHilTETr6gDg==}
+    dependencies:
+      mime-types: 2.1.13
+      xml: 1.0.1
+    dev: false
+
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
@@ -4219,6 +4246,10 @@ packages:
 
   /wrappy/1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
+
+  /xml/1.0.1:
+    resolution: {integrity: sha512-huCv9IH9Tcf95zuYCsQraZtWnJvBtLVE0QHMOs8bWyZAFZNDcYjsPq1nEx8jKA9y+Beo9v+7OBPRisQTjinQMw==}
+    dev: false
 
   /xtend/4.0.2:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}
