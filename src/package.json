@@ -9,7 +9,7 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/image": "^0.10.0",
+    "@astrojs/image": "^0.12.0",
     "@astrojs/react": "^1.2.2",
     "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",

@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@astrojs/image': ^0.10.0
+  '@astrojs/image': ^0.12.0
   '@astrojs/react': ^1.2.2
   '@astrojs/rss': ^1.0.3
   '@astrojs/sitemap': ^1.0.0
@@ -31,7 +31,7 @@ specifiers:
   tailwindcss: ^3.2.4
 
 dependencies:
-  '@astrojs/image': 0.10.0_sharp@0.31.2
+  '@astrojs/image': 0.12.0_sharp@0.31.2
   '@astrojs/react': 1.2.2_cn3ejhfta5lq2dae4xucvtkwvu
   '@astrojs/rss': 1.0.3
   '@astrojs/sitemap': 1.0.0
@@ -84,8 +84,8 @@ packages:
     resolution: {integrity: sha512-6ZbRGVunUMHxROD9Cleqkrfrj/kM9o43nLVwycdxCexCB5G372evy2ZM46LhaG/k5B5yC0PByNHTaGny0ll3iQ==}
     dev: false
 
-  /@astrojs/image/0.10.0_sharp@0.31.2:
-    resolution: {integrity: sha512-/lkQ8YbqwHEA3bU6W7igEHqqQs6V6sx4rMbhkur4qWQP61kAOnvacSSKN7GJ+YswZOiUhPGY9DTtyLRqLFLv5g==}
+  /@astrojs/image/0.12.0_sharp@0.31.2:
+    resolution: {integrity: sha512-daX4pKHpOjRDgU4VieXUjrNgxI2NQVif47zihGEycaHUCxbMJr9rtdk6snT8m9+hdyFHTuihiUFsu7TJLFGGdw==}
     peerDependencies:
       sharp: '>=0.31.0'
     peerDependenciesMeta:
@@ -100,6 +100,7 @@ packages:
       mime: 3.0.0
       sharp: 0.31.2
       slash: 4.0.0
+      web-streams-polyfill: 3.2.1
     dev: false
 
   /@astrojs/language-server/0.28.3:
@@ -4345,6 +4346,7 @@ packages:
 
   /sourcemap-codec/1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    deprecated: Please use @jridgewell/sourcemap-codec instead
     dev: false
 
   /space-separated-tokens/2.0.2:
