@@ -1,4 +1,5 @@
 import type { WikiThemeSchema } from "@lib/types";
+import { DISTRO_GRUB_THEMES, DISTRO_GRUB_THEMES_CONTENT } from "config";
 import Image from "next/image";
 
 interface Props extends WikiThemeSchema {
@@ -12,7 +13,7 @@ function Theme({ image, name, priority, theme }: Props) {
         <Image
           width={480}
           height={270}
-          src={`https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/preview/${encodeURIComponent(
+          src={`${DISTRO_GRUB_THEMES_CONTENT}/preview/${encodeURIComponent(
             image
           )}`}
           alt="Theme preview"
@@ -37,7 +38,7 @@ function Theme({ image, name, priority, theme }: Props) {
             </p>
           </div>
           <a
-            href={`https://github.com/AdisonCavani/distro-grub-themes/raw/master/themes/${encodeURIComponent(
+            href={`${DISTRO_GRUB_THEMES}/raw/master/themes/${encodeURIComponent(
               theme
             )}`}
             target="_blank"

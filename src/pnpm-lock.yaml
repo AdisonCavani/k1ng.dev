@@ -19,6 +19,7 @@ specifiers:
   next: 13.0.5
   next-mdx-remote: ^4.2.0
   next-sanity: ^3.1.2
+  next-seo: ^5.15.0
   postcss: ^8.4.19
   prettier: ^2.8.0
   react: 18.2.0
@@ -44,6 +45,7 @@ dependencies:
   next: 13.0.5_biqbaboplfbrettd7655fr4n2y
   next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
   next-sanity: 3.1.2_next@13.0.5+react@18.2.0
+  next-seo: 5.15.0_7iuvftg57tblwyxclfkwku5xo4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   rehype-autolink-headings: 6.1.1
@@ -2973,6 +2975,18 @@ packages:
       react: 18.2.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /next-seo/5.15.0_7iuvftg57tblwyxclfkwku5xo4:
+    resolution: {integrity: sha512-LGbcY91yDKGMb7YI+28n3g+RuChUkt6pXNpa8FkfKkEmNiJkeRDEXTnnjVtwT9FmMhG6NH8qwHTelGrlYm9rgg==}
+    peerDependencies:
+      next: ^8.1.1-canary.54 || >=9.0.0
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      next: 13.0.5_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /next/13.0.5_biqbaboplfbrettd7655fr4n2y:

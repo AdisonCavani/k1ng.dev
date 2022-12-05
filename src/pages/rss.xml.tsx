@@ -1,6 +1,7 @@
 import RSS from "rss";
 import type { GetServerSideProps } from "next";
 import { GetBlogData, GetTagsData } from "@lib/queries";
+import { SITE_URL } from "config";
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const blogData = await GetBlogData();
@@ -10,9 +11,9 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     title: "Feed - Adison Cavani",
     description: "adison.me RSS feed",
     language: "en",
-    site_url: "https://adison.me",
-    feed_url: "https://adison.me/rss.xml",
-    image_url: "",
+    site_url: SITE_URL,
+    feed_url: `${SITE_URL}/rss.xml`,
+    image_url: `${SITE_URL}/og-image.webp`,
     categories: allTags.map((tag) => tag.name),
   });
 

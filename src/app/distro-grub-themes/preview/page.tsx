@@ -1,13 +1,14 @@
 import type { WikiPreviewSchema } from "@lib/types";
 import Theme from "./Theme";
 import Sidebar from "../Sidebar";
+import { DISTRO_GRUB_THEMES_CONTENT } from "config";
 
 export const dynamic = "force-static";
 
 async function Preview() {
-  const data = (await fetch(
-    "https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes.json"
-  ).then((res) => res.json())) as WikiPreviewSchema;
+  const data = (await fetch(`${DISTRO_GRUB_THEMES_CONTENT}/themes.json`).then(
+    (res) => res.json()
+  )) as WikiPreviewSchema;
 
   const distros = data.distros.sort((a, b) => a.name.localeCompare(b.name));
   const vendors = data.vendors.sort((a, b) => a.name.localeCompare(b.name));
