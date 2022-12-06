@@ -24,10 +24,6 @@ function RootLayout({ children }: Props) {
         fontSans.variable
       )}
     >
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -61,12 +57,8 @@ function RootLayout({ children }: Props) {
           content="/static/favicons/browserconfig.xml"
           name="msapplication-config"
         />
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          title="Feed - Adison Cavani"
-          href="/rss.xml"
-        />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
 
         <NextSeo
           useAppDir={true}

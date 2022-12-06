@@ -11,11 +11,11 @@ specifiers:
   '@types/node': 18.11.10
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
-  '@types/rss': ^0.0.29
   autoprefixer: ^10.4.13
   clsx: ^1.2.1
   eslint: 8.28.0
   eslint-config-next: 13.0.5
+  feed: ^4.2.2
   next: 13.0.5
   next-mdx-remote: ^4.2.0
   next-sanity: ^3.1.2
@@ -29,7 +29,6 @@ specifiers:
   rehype-prism-plus: ^1.5.0
   rehype-slug: ^5.1.0
   remark-gfm: ^3.0.1
-  rss: ^1.2.2
   sharp: ^0.31.2
   tailwind-merge: ^1.8.0
   tailwindcss: ^3.2.4
@@ -42,6 +41,7 @@ dependencies:
   '@sanity/image-url': 1.0.1
   '@sanity/webhook': 2.0.0
   clsx: 1.2.1
+  feed: 4.2.2
   next: 13.0.5_biqbaboplfbrettd7655fr4n2y
   next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
   next-sanity: 3.1.2_next@13.0.5+react@18.2.0
@@ -53,7 +53,6 @@ dependencies:
   rehype-prism-plus: 1.5.0
   rehype-slug: 5.1.0
   remark-gfm: 3.0.1
-  rss: 1.2.2
   sharp: 0.31.2
   tailwind-merge: 1.8.0
 
@@ -63,7 +62,6 @@ devDependencies:
   '@types/node': 18.11.10
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
-  '@types/rss': 0.0.29
   autoprefixer: 10.4.13_postcss@8.4.19
   eslint: 8.28.0
   eslint-config-next: 13.0.5_hsf322ms6xhhd4b5ne6lb74y4a
@@ -606,10 +604,6 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
       csstype: 3.1.1
-
-  /@types/rss/0.0.29:
-    resolution: {integrity: sha512-9hAYKyOcoxWqkJMue6bi0fcNXxjJiRutVvqyImy732LmTCxRz9BYPmSmujG7uddK0ZEP/35K3QVZ0sfAVyPnQw==}
-    dev: true
 
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
@@ -1628,6 +1622,13 @@ packages:
     dependencies:
       reusify: 1.0.4
     dev: true
+
+  /feed/4.2.2:
+    resolution: {integrity: sha512-u5/sxGfiMfZNtJ3OvQpXcvotFpYkL0n9u9mM2vkui2nGo8b4wvDkJ8gAkYqbA8QpGyFCv3RK0Z+Iv+9veCS9bQ==}
+    engines: {node: '>=0.4.0'}
+    dependencies:
+      xml-js: 1.6.11
+    dev: false
 
   /file-entry-cache/6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
@@ -2865,18 +2866,6 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /mime-db/1.25.0:
-    resolution: {integrity: sha512-5k547tI4Cy+Lddr/hdjNbBEWBwSl8EBc5aSdKvedav8DReADgWJzcYiktaRIw3GtGC1jjwldXtTzvqJZmtvC7w==}
-    engines: {node: '>= 0.6'}
-    dev: false
-
-  /mime-types/2.1.13:
-    resolution: {integrity: sha512-ryBDp1Z/6X90UvjUK3RksH0IBPM137T7cmg4OgD5wQBojlAiUwuok0QeELkim/72EtcYuNlmbkrcGuxj3Kl0YQ==}
-    engines: {node: '>= 0.6'}
-    dependencies:
-      mime-db: 1.25.0
-    dev: false
-
   /mimic-response/3.1.0:
     resolution: {integrity: sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==}
     engines: {node: '>=10'}
@@ -3639,13 +3628,6 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rss/1.2.2:
-    resolution: {integrity: sha512-xUhRTgslHeCBeHAqaWSbOYTydN2f0tAzNXvzh3stjz7QDhQMzdgHf3pfgNIngeytQflrFPfy6axHilTETr6gDg==}
-    dependencies:
-      mime-types: 2.1.13
-      xml: 1.0.1
-    dev: false
-
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
@@ -3684,6 +3666,10 @@ packages:
 
   /same-origin/0.1.1:
     resolution: {integrity: sha512-effkSW9cap879l6CVNdwL5iubVz8tkspqgfiqwgBgFQspV7152WHaLzr5590yR8oFgt7E1d4lO09uUhtAgUPoA==}
+    dev: false
+
+  /sax/1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
     dev: false
 
   /scheduler/0.23.0:
@@ -4261,8 +4247,11 @@ packages:
   /wrappy/1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
-  /xml/1.0.1:
-    resolution: {integrity: sha512-huCv9IH9Tcf95zuYCsQraZtWnJvBtLVE0QHMOs8bWyZAFZNDcYjsPq1nEx8jKA9y+Beo9v+7OBPRisQTjinQMw==}
+  /xml-js/1.6.11:
+    resolution: {integrity: sha512-7rVi2KMfwfWFl+GpPg6m80IVMWXLRjO+PxTq7V2CDhoGak0wzYzFgUY2m4XJ47OGdXd8eLE8EmwfAmdjw7lC1g==}
+    hasBin: true
+    dependencies:
+      sax: 1.2.4
     dev: false
 
   /xtend/4.0.2:

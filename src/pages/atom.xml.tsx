@@ -9,7 +9,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     "Cache-Control",
     "public, s-maxage=1200, stale-while-revalidate=600"
   );
-  res.write(feed.rss2());
+  res.write(feed.atom1());
   res.end();
 
   return {
@@ -17,6 +17,6 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   };
 };
 
-export default function RSSFeed() {
+export default function AtomFeed() {
   return null;
 }
