@@ -1,7 +1,7 @@
-import type { GetServerSideProps } from "next";
 import GetFeed from "@lib/feed";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   const feed = await GetFeed();
 
   res.setHeader("Content-Type", "text/xml");
@@ -11,12 +11,4 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   );
   res.write(feed.atom1());
   res.end();
-
-  return {
-    props: {},
-  };
-};
-
-export default function AtomFeed() {
-  return null;
 }

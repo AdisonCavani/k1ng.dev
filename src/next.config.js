@@ -7,6 +7,19 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
 
+  async rewrites() {
+    return [
+      {
+        source: "/atom.xml",
+        destination: "/api/atom",
+      },
+      {
+        source: "/rss.xml",
+        destination: "/api/rss",
+      },
+    ];
+  },
+
   experimental: {
     appDir: true,
   },
