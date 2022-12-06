@@ -8,7 +8,7 @@ type Props = {
   };
 };
 
-async function Head({ params: { slugs } }: Props) {
+function Head({ params: { slugs } }: Props) {
   const name = slugs
     ? slugs[0]?.toLowerCase().charAt(0).toUpperCase()! +
       slugs[0]?.toLowerCase().substring(1)
