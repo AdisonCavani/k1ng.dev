@@ -20,6 +20,7 @@ specifiers:
   next-mdx-remote: ^4.2.0
   next-sanity: ^3.1.2
   next-seo: ^5.15.0
+  next-sitemap: ^3.1.32
   postcss: ^8.4.19
   prettier: ^2.8.0
   react: 18.2.0
@@ -46,6 +47,7 @@ dependencies:
   next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
   next-sanity: 3.1.2_next@13.0.5+react@18.2.0
   next-seo: 5.15.0_7iuvftg57tblwyxclfkwku5xo4
+  next-sitemap: 3.1.32_next@13.0.5
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   rehype-autolink-headings: 6.1.1
@@ -86,6 +88,10 @@ packages:
     dependencies:
       regenerator-runtime: 0.13.11
     dev: true
+
+  /@corex/deepmerge/4.0.29:
+    resolution: {integrity: sha512-q/yVUnqckA8Do+EvAfpy7RLdumnBy9ZsducMUtZTvpdbJC7azEf1hGtnYYxm0QfphYxjwggv6XtH64prvS1W+A==}
+    dev: false
 
   /@eslint/eslintrc/1.3.3:
     resolution: {integrity: sha512-uj3pT6Mg+3t39fvLrj8iuCIJ38zKO9FpGtJ4BBJebJhEwjoT+KLVNCcHT5QC9NGRIEi7fZ0ZR8YRb884auB4Lg==}
@@ -2976,6 +2982,19 @@ packages:
       next: 13.0.5_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /next-sitemap/3.1.32_next@13.0.5:
+    resolution: {integrity: sha512-jkIKpwLXpWWTPfmDO46+6nu4+qpar4CjvUwCR9rYZHWtzE/wFfaCVFKpGtFMl6MFjpu8GjiE6kWFEa7uF3bzzg==}
+    engines: {node: '>=14.18'}
+    hasBin: true
+    peerDependencies:
+      '@next/env': '*'
+      next: '*'
+    dependencies:
+      '@corex/deepmerge': 4.0.29
+      minimist: 1.2.7
+      next: 13.0.5_biqbaboplfbrettd7655fr4n2y
     dev: false
 
   /next/13.0.5_biqbaboplfbrettd7655fr4n2y:
