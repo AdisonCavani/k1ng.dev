@@ -5,6 +5,7 @@ export const NEXT_SEO_DEFAULT: NextSeoProps = {
   title: "Home",
   titleTemplate: `%s - ${SITE_TITLE}`,
   description: SITE_DESCRIPTION,
+  canonical: SITE_URL,
   openGraph: {
     type: "website",
     locale: "en_US",

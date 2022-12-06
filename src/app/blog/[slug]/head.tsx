@@ -25,6 +25,7 @@ async function Head({ params: { slug } }: Props) {
     ...NEXT_SEO_DEFAULT,
     title: title,
     description: description,
+    canonical: `${SITE_URL}/blog/${slug}`,
     openGraph: {
       type: "article",
       locale: "en_US",

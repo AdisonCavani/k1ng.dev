@@ -1,3 +1,4 @@
+import { SITE_URL } from "config";
 import { NextSeo, NextSeoProps } from "next-seo";
 import { NEXT_SEO_DEFAULT } from "next-seo.config";
 
@@ -8,15 +9,16 @@ type Props = {
 };
 
 async function Head({ params: { slugs } }: Props) {
+  const name = slugs
+    ? slugs[0]?.toLowerCase().charAt(0).toUpperCase()! +
+      slugs[0]?.toLowerCase().substring(1)
+    : "Index";
+
   const updateMeta: NextSeoProps = {
     ...NEXT_SEO_DEFAULT,
-    title: `${
-      slugs
-        ? slugs[0]?.toLowerCase().charAt(0).toUpperCase()! +
-          slugs[0]?.toLowerCase().substring(1)
-        : "Index"
-    } / Wiki`,
-    description: `${""} wiki page. Official documentation for distro-grub-themes.`,
+    title: `${name} / Wiki`,
+    description: `${name} wiki page. Official documentation for distro-grub-themes.`,
+    canonical: `${SITE_URL}/distro-grub-themes${slugs ? `/${slugs[0]}` : ""}`,
   };
 
   return <NextSeo {...updateMeta} useAppDir={true} />;
