@@ -50,10 +50,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Run production locally
 
-Start production build and serve page:
+Start production build and generate sitemap:
 
 ```bash
-pnpm preview
+pnpm build && pnpm postbuild
+```
+
+Serve page:
+
+```bash
+pnpm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
