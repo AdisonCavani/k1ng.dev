@@ -72,7 +72,7 @@ function RootLayout({ children }: Props) {
             <Script
               strategy="lazyOnload"
               data-domain="adison.me"
-              src="https://analytics.adison.me/js/script.js"
+              src="https://insights.adison.me/js/script.js"
             />
             <Script strategy="lazyOnload" id="plausible-script">
               {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
