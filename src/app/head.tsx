@@ -8,12 +8,16 @@ function Head() {
       <NextSeo {...NEXT_SEO_DEFAULT} useAppDir={true} />
 
       {process.env.NODE_ENV === "production" && (
-        <Script
-          type="application/javascript"
-          data-domain="adison.me"
-          src="https://analytics.adison.me/js/script.js"
-          strategy="lazyOnload"
-        />
+        <>
+          <Script
+            strategy="lazyOnload"
+            data-domain="adison.me"
+            src="https://analytics.adison.me/js/script.js"
+          />
+          <Script strategy="lazyOnload" id="plausible-script">
+            {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
+          </Script>
+        </>
       )}
     </>
   );
