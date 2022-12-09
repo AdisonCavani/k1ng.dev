@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { cn } from "@lib/helpers";
 import { NextSeo } from "next-seo";
+import Script from "next/script";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -65,6 +66,19 @@ function RootLayout({ children }: Props) {
           themeColor="#ffffff"
           titleTemplate="%s | Adison Cavani"
         />
+
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Script
+              strategy="lazyOnload"
+              data-domain="adison.me"
+              src="https://analytics.adison.me/js/script.js"
+            />
+            <Script strategy="lazyOnload" id="plausible-script">
+              {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
+            </Script>
+          </>
+        )}
       </head>
       <body>
         <Header />
