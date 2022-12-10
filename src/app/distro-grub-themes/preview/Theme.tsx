@@ -4,9 +4,17 @@ import Image from "next/image";
 
 interface Props extends WikiThemeSchema {
   priority: boolean;
+  latestTag: string;
 }
 
-function Theme({ image, name, priority, theme }: Props) {
+function Theme({
+  image,
+  name,
+  priority,
+  theme,
+  latestTag,
+  versionAdded,
+}: Props) {
   return (
     <div className="flex flex-col ease-[spring(1 100 10 10)] overflow-hidden rounded-lg border bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
       <div className="w-full cursor-pointer">
@@ -26,8 +34,18 @@ function Theme({ image, name, priority, theme }: Props) {
         <div className="mt-4 mb-3 flex flex-row justify-between">
           <h3 className="font-medium">{name}</h3>
           <div>
-            <span className="rounded-xl px-2.5 py-0.5 text-[11px] font-bold bg-blue-100 text-blue-700">
-              v2.8
+            <span
+              className={`rounded-xl px-2.5 py-0.5 text-[11px] font-bold ${
+                versionAdded === latestTag
+                  ? "bg-red-100 text-red-700"
+                  : "bg-blue-100 text-blue-700"
+              }`}
+            >
+              {versionAdded === latestTag
+                ? "New"
+                : versionAdded
+                ? versionAdded
+                : "v2.8"}
             </span>
           </div>
         </div>

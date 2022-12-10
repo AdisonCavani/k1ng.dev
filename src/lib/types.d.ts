@@ -67,6 +67,7 @@ export type WikiThemeSchema = {
   name: string;
   image: string;
   theme: string;
+  versionAdded?: string | undefined;
 };
 
 export type WikiSidebarSchema = {

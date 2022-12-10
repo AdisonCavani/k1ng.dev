@@ -72,3 +72,15 @@ export const getSidebarData = async () => {
 
   return result;
 };
+
+export const getReleaseData = async () => {
+  const res = await octokit.request(
+    "GET /repos/{owner}/{repo}/releases/latest",
+    {
+      owner: "AdisonCavani",
+      repo: "distro-grub-themes",
+    }
+  );
+
+  return res.data.tag_name;
+};
