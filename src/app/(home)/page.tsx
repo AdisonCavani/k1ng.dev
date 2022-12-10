@@ -3,6 +3,7 @@ import {
   GetTechCategoryData,
   GetTechItemsData,
 } from "@lib/queries";
+import { SITE_AUTHOR } from "config";
 import Image from "next/image";
 import ProjectCard from "./ProjectCard";
 import TechStack from "./TechStack";
@@ -21,7 +22,7 @@ async function Home() {
         <div className="flex max-w-2xl flex-col-reverse items-start sm:flex-row">
           <div className="flex flex-col pr-8">
             <h1 className="mb-2 text-4xl font-bold tracking-tight">
-              Adison Cavani
+              {SITE_AUTHOR}
             </h1>
             <h2 className="mb-4">
               Full-stack Developer,{" "}
@@ -35,7 +36,7 @@ async function Home() {
           <div className="relative mb-8 mr-auto w-20 rounded-full border-2 sm:mb-0 sm:w-44">
             <Image
               src="/static/images/avatar.webp"
-              alt="Adison Cavani"
+              alt="Avatar"
               width={176}
               height={176}
               sizes="20vw"

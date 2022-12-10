@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu } from "@headlessui/react";
+import { SITE_AUTHOR } from "config";
 import Link from "next/link";
 
 function MobileNav() {
@@ -50,7 +51,7 @@ function MobileNav() {
                   <polyline points="17 8 21 12 17 16"></polyline>
                   <line x1="14" y1="4" x2="10" y2="20"></line>
                 </svg>
-                <span className="font-bold">Adison Cavani</span>
+                <span className="font-bold">{SITE_AUTHOR}</span>
               </Link>
             )}
           </Menu.Item>
@@ -82,7 +83,7 @@ function MobileNav() {
               {({ close }) => (
                 <a
                   onClick={close}
-                  href="https://github.com/AdisonCavani/adison.me"
+                  href="https://github.com/AdisonCavani/k1ng.dev"
                   target="_blank"
                   rel="noreferrer"
                   className="flex w-full items-center rounded-md px-2 py-2 text-sm font-medium hover:underline"

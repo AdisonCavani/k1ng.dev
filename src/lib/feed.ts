@@ -8,8 +8,8 @@ async function GetFeed(): Promise<Feed> {
   const allTags = await GetTagsData();
 
   const feed = new Feed({
-    title: "Feed - Adison Cavani",
-    description: "adison.me RSS feed",
+    title: `Feed - ${SITE_AUTHOR}`,
+    description: "k1ng.dev RSS feed",
     id: SITE_URL,
     link: SITE_URL,
     language: "en-US",

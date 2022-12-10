@@ -1,3 +1,4 @@
+import { SITE_AUTHOR } from "config";
 import Link from "next/link";
 import HeaderLink from "./HeaderLink";
 import MobileNav from "./MobileNav";
@@ -23,14 +24,14 @@ function Header() {
             <polyline points="17 8 21 12 17 16"></polyline>
             <line x1="14" y1="4" x2="10" y2="20"></line>
           </svg>
-          <span className="font-bold ml-2">Adison Cavani</span>
+          <span className="font-bold ml-2">{SITE_AUTHOR}</span>
         </Link>
 
         <div className="hidden md:flex gap-x-6">
           <HeaderLink href="/blog">Blog</HeaderLink>
           <HeaderLink href="/distro-grub-themes">Wiki</HeaderLink>
           <HeaderLink
-            href="https://github.com/AdisonCavani/adison.me"
+            href="https://github.com/AdisonCavani/k1ng.dev"
             target="_blank"
             rel="noreferrer"
           >

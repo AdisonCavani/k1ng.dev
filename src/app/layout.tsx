@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import { cn } from "@lib/helpers";
 import { NextSeo } from "next-seo";
 import Script from "next/script";
+import { SITE_AUTHOR } from "config";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -64,15 +65,15 @@ function RootLayout({ children }: Props) {
         <NextSeo
           useAppDir={true}
           themeColor="#ffffff"
-          titleTemplate="%s | Adison Cavani"
+          titleTemplate={`%s | ${SITE_AUTHOR}`}
         />
 
         {process.env.NODE_ENV === "production" && (
           <>
             <Script
               strategy="lazyOnload"
-              data-domain="adison.me"
-              src="https://insights.adison.me/js/script.js"
+              data-domain="k1ng.dev"
+              src="https://insights.k1ng.dev/js/script.js"
             />
             <Script strategy="lazyOnload" id="plausible-script">
               {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
