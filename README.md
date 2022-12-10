@@ -21,7 +21,7 @@ It provides DDoS protection, CDN, caching, proxing with load balancing and much 
 
 [Plausible Analytics](https://plausible.io) is self-hosted on [Google Cloud Provider](https://cloud.google.com) - [Compute Engine](https://cloud.google.com/compute) e2-micro instance.
 
-It has assigned subdomain - [analytics.adison.me](https://analytics.adison.me).  
+It has assigned subdomain - [insights.k1ng.dev](https://insights.k1ng.dev).  
 [Cerbot](https://certbot.eff.org) is used for SSL certificate management.
 
 ## Development
