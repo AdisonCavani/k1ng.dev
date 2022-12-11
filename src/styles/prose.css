@@ -170,3 +170,7 @@ code.language-css,
 code.language-yaml {
   @apply text-indigo-900;
 }
+
+.language-shell .token {
+  @apply text-black;
+}
