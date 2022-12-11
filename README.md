@@ -2,15 +2,16 @@
 
 - **CSS**: [Tailwind CSS](https://tailwindcss.com)
 - **Language**: [TypeScript](https://www.typescriptlang.org)
-- **Framework**: [Astro](https://astro.build)
-- **Deployment**: [Netlify](https://netlify.com)
-- **Headless CMS**: [Sanity](https://sanity.io)
+- **Library**: [React.js](https://reactjs.org)
+- **Framework**: [Next.js](https://nextjs.org)
+- **Headless CMS**: [Sanity.io](https://www.sanity.io)
+- **Deployment**: [Vercel](https://vercel.com)
 - **Analytics**: [Plausible Analytics](https://plausible.io) - self-hosted
 
 ### Website hosting
 
-This website is using SSG (static site generation) deployed to [Netlify](https://netlify.com).  
-When content changes, [Sanity](https://sanity.io) triggers page rebuild via webhook.
+This website is using Next.js SSG (static site generation) deployed to [Vercel](https://vercel.com).  
+When content changes, [Sanity.io](https://www.sanity.io) triggers page rebuild (Incremental Static Regeneration) via webhook.
 
 ### DNS - Cloudflare
 
