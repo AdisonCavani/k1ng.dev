@@ -59,7 +59,12 @@ async function BlogPost({ params: { slug } }: Props) {
             <span className="px-2 text-xs font-medium" aria-hidden={true}>
               |
             </span>
-            <a href="/rss.xml" target="_blank" rel="noreferrer">
+            <a
+              href="/rss.xml"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="RSS Feed"
+            >
               <svg
                 className="w-4 h-4"
                 xmlns="http://www.w3.org/2000/svg"
