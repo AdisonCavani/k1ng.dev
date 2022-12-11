@@ -2,6 +2,8 @@
 
 import type { MDXComponents } from "mdx/types";
 import { cn } from "@lib/helpers";
+import Image from "next/image";
+import Callout from "./Callout";
 
 const MdxComponents2: MDXComponents = {
   h1: ({ className, ...props }) => (
@@ -138,6 +140,8 @@ const MdxComponents2: MDXComponents = {
       {...props}
     />
   ),
+  Image,
+  Callout,
 };
 
 export default MdxComponents2;
