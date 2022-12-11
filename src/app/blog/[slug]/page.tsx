@@ -101,7 +101,7 @@ async function BlogPost({ params: { slug } }: Props) {
           </div>
         </div>
         <Image
-          src={urlFor(coverImage).url()}
+          src={urlFor(coverImage).width(720).height(405).url()}
           alt={title}
           width={720}
           height={405}
@@ -147,7 +147,7 @@ async function BlogPost({ params: { slug } }: Props) {
           name: `${firstName} ${lastName}`,
           url: `https://github.com/${github}`,
         }))}
-        images={[urlFor(coverImage).url()]}
+        images={[urlFor(coverImage).width(1200).height(630).url()]}
       />
     </>
   );

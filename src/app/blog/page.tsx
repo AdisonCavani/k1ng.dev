@@ -30,7 +30,7 @@ async function Blog() {
               className="group relative flex flex-col space-y-2"
             >
               <Image
-                src={urlFor(coverImage).url()}
+                src={urlFor(coverImage).width(804).height(452).url()}
                 width={804}
                 height={452}
                 alt="Cover image"

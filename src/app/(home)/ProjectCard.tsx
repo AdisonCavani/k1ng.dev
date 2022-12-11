@@ -31,7 +31,7 @@ async function ProjectCard({
             <Image
               width={480}
               height={270}
-              src={urlFor(image).url()}
+              src={urlFor(image).width(480).height(270).url()}
               alt="Project image"
               className="w-full"
               sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
@@ -43,7 +43,7 @@ async function ProjectCard({
             <Image
               width={480}
               height={270}
-              src={urlFor(image).url()}
+              src={urlFor(image).width(480).height(270).url()}
               alt="Project image"
               className="w-full"
               sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"

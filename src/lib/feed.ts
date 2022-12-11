@@ -36,7 +36,7 @@ async function GetFeed(): Promise<Feed> {
         link: `${SITE_URL}/blog/${slug}`,
         description: description,
         date: new Date(datePublished),
-        image: urlFor(coverImage).url(),
+        image: urlFor(coverImage).width(1200).height(630).url(),
         author: authors.map(({ firstName, lastName, github }) => ({
           name: `${firstName} ${lastName}`,
           link: `https://github.com/${github}`,
