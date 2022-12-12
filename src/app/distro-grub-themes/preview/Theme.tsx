@@ -28,6 +28,7 @@ function Theme({
           className="w-full"
           sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
           priority={priority ?? false}
+          loading={priority ? undefined : "lazy"}
         />
       </div>
       <div className="px-6 pb-5 flex flex-col flex-grow">
