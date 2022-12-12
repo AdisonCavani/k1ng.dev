@@ -3,7 +3,6 @@ import "./globals.css";
 import type { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { cn } from "@lib/helpers";
 import { NextSeo } from "next-seo";
 import Script from "next/script";
 import { SITE_AUTHOR } from "config";
@@ -21,10 +20,7 @@ function RootLayout({ children }: Props) {
   return (
     <html
       lang="en"
-      className={cn(
-        "bg-white font-sans text-slate-900 antialiased",
-        fontSans.variable
-      )}
+      className={`bg-white font-sans text-slate-900 antialiased ${fontSans.variable}`}
     >
       <head>
         <meta charSet="utf-8" />

@@ -1,4 +1,4 @@
-import { cn } from "@lib/helpers";
+import { clsx } from "clsx";
 
 type CalloutProps = {
   children?: React.ReactNode;
@@ -8,7 +8,7 @@ type CalloutProps = {
 function Callout({ children, type = "default", ...props }: CalloutProps) {
   return (
     <div
-      className={cn(
+      className={clsx(
         "my-6 flex flex-col items-start rounded-md border border-l-4 p-4 ",
         {
           "border-blue-500 bg-blue-50": type === "default",
@@ -19,7 +19,7 @@ function Callout({ children, type = "default", ...props }: CalloutProps) {
       {...props}
     >
       <span
-        className={cn("inline-flex items-center", {
+        className={clsx("inline-flex items-center", {
           "text-blue-600": type === "default",
           "text-yellow-600": type === "warning",
           "text-red-600": type === "danger",
