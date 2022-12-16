@@ -5,7 +5,7 @@ let nextConfig = {
   reactStrictMode: true,
 
   images: {
-    domains: ["cdn.sanity.io", "raw.githubusercontent.com", "contrib.rocks"],
+    domains: ["cdn.sanity.io", "raw.githubusercontent.com"],
     formats: ["image/avif", "image/webp"],
   },
 
