@@ -1,3 +1,4 @@
+import { groq } from "next-sanity";
 import { sanityClient } from "./sanityServer";
 import type {
   FooterSchema,
@@ -9,7 +10,7 @@ import type {
 } from "./types";
 
 // Blog queries
-const TagsQuery = `
+const TagsQuery = groq`
 *[_type == "category"] {
   name,
   "slug": slug.current
@@ -19,7 +20,7 @@ export const GetTagsData = async (): Promise<Array<TagSchema>> => {
   return await sanityClient.fetch(TagsQuery);
 };
 
-const AuthorFields = `
+const AuthorFields = groq`
   firstName,
   lastName,
   "slug": slug.current,
@@ -27,12 +28,12 @@ const AuthorFields = `
   github
 `;
 
-const TagFields = `
+const TagFields = groq`
   name,
   "slug": slug.current
 `;
 
-const PostFields = `
+const PostFields = groq`
   title,
   description,
   "datePublished": _createdAt,
@@ -47,7 +48,7 @@ const PostFields = `
   "slug": slug.current
 `;
 
-const BlogQuery = `
+const BlogQuery = groq`
 *[_type == "post"] | order(_createdAt desc) {
   ${PostFields}
 }
@@ -57,7 +58,7 @@ export const GetBlogData = async (): Promise<Array<PostSchema>> => {
   return await sanityClient.fetch(BlogQuery);
 };
 
-const BlogTagQuery = `
+const BlogTagQuery = groq`
 *[_type == "post" && $tag in categories[]->slug.current] {
   ${PostFields}
 }
@@ -69,7 +70,7 @@ export const GetBlogTagData = async (
   return await sanityClient.fetch(BlogTagQuery, { tag: tag });
 };
 
-const PostQuery = `
+const PostQuery = groq`
 *[_type == "post" && slug.current == $slug] | order(_createdAt desc) [0] {
   ${PostFields},
   content
@@ -80,7 +81,7 @@ export const GetPostData = async (slug: string): Promise<PostSchema> => {
   return await sanityClient.fetch(PostQuery, { slug: slug });
 };
 
-const PostSlugsQuery = `
+const PostSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
 `;
 
@@ -89,7 +90,7 @@ export const GetPostSlugsData = async (): Promise<Array<string>> => {
 };
 
 // Index queries
-const FooterQuery = `
+const FooterQuery = groq`
 *[_type == "footer"] | order(lower(name) asc)  {
   name,
   url
@@ -99,11 +100,11 @@ export const GetFooterData = async (): Promise<Array<FooterSchema>> => {
   return await sanityClient.fetch(FooterQuery);
 };
 
-const TechCategoryFields = `
+const TechCategoryFields = groq`
   "id": _id
 `;
 
-const TechCategoryQuery = `
+const TechCategoryQuery = groq`
 *[_type == "tech-category"] | order(lower(name) asc) {
   ${TechCategoryFields},
   name,
@@ -118,7 +119,7 @@ export const GetTechCategoryData = async (): Promise<
   return await sanityClient.fetch(TechCategoryQuery);
 };
 
-const TechItemsQuery = `
+const TechItemsQuery = groq`
 *[_type == "tech-item"] | order(lower(name) asc) {
   name,
   description,
@@ -134,7 +135,7 @@ export const GetTechItemsData = async (): Promise<Array<TechItemSchema>> => {
   return await sanityClient.fetch(TechItemsQuery);
 };
 
-const ProjectsQuery = `
+const ProjectsQuery = groq`
 *[_type == "project"] | order(lower(name) asc) {
   name,
   description,
@@ -149,6 +150,6 @@ export const GetProjectsData = async (): Promise<Array<ProjectSchema>> => {
   return await sanityClient.fetch(ProjectsQuery);
 };
 
-export const PostUpdatedQuery = `
+export const PostUpdatedQuery = groq`
 *[_type == "post" && _id == $id].slug.current
 `;
