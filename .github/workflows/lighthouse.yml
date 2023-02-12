@@ -13,6 +13,6 @@ jobs:
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v9
         with:
-          urls: 'https://adison.me/'
+          urls: 'https://k1ng.dev/'
           uploadArtifacts: true # Save results as an action artifacts
           temporaryPublicStorage: true # Upload lighthouse report to the temporary storage
