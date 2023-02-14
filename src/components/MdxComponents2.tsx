@@ -1,5 +1,3 @@
-"use client";
-
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Callout from "./Callout";

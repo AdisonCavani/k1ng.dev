@@ -1,11 +1,11 @@
-import Markdown from "@components/Markdown";
-import MdxComponents from "@components/MdxComponents";
 import { isUrlInternal } from "@lib/helpers";
-import { mdxToHtml } from "@lib/markdown";
 import { urlFor } from "@lib/sanity";
 import type { ProjectSchema } from "@lib/types";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { mdxOptions } from "@lib/mdx";
 import Image from "next/image";
 import Link from "next/link";
+import MdxComponents from "@components/MdxComponents";
 
 interface Props extends ProjectSchema {
   priority?: boolean;
@@ -21,8 +21,6 @@ async function ProjectCard({
   url,
   priority,
 }: Props) {
-  const mdxSource = await mdxToHtml(description);
-
   return (
     <div className="flex flex-col ease-[spring(1 100 10 10)] overflow-hidden rounded-lg border bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
       <div className="w-full cursor-pointer">
@@ -66,7 +64,12 @@ async function ProjectCard({
         </div>
         <div className="flex flex-col justify-between h-full">
           <div className="text-sm text-neutral-600">
-            <Markdown mdxSource={mdxSource} mdxComponents={MdxComponents} />
+            {/* @ts-expect-error */}
+            <MDXRemote
+              source={description}
+              options={mdxOptions}
+              components={MdxComponents}
+            />
           </div>
           <a
             href={github}

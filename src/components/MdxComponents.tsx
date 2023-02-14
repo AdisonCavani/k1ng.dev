@@ -1,5 +1,3 @@
-"use client";
-
 import type { MDXComponents } from "mdx/types";
 import type { ReactNode } from "react";
 import { isUrlInternal } from "@lib/helpers";

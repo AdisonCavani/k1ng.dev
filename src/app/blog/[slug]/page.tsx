@@ -1,6 +1,5 @@
 import "@styles/prose.css";
-import Markdown from "@components/Markdown";
-import { mdxToHtml } from "@lib/markdown";
+
 import { GetPostData, GetPostSlugsData } from "@lib/queries";
 import { urlFor } from "@lib/sanity";
 import Image from "next/image";
@@ -9,6 +8,8 @@ import Link from "next/link";
 import { formatDate } from "@lib/helpers";
 import { ArticleJsonLd } from "next-seo";
 import { SITE_URL } from "config";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { mdxOptions } from "@lib/mdx";
 
 type Props = {
   params: {
@@ -26,7 +27,6 @@ async function BlogPost({ params: { slug } }: Props) {
     description,
     title,
   } = await GetPostData(slug);
-  const mdxSource = await mdxToHtml(content);
 
   return (
     <>
@@ -114,7 +114,12 @@ async function BlogPost({ params: { slug } }: Props) {
           priority
         />
         <article className="prose">
-          <Markdown mdxSource={mdxSource} mdxComponents={MdxComponents2} />
+          {/* @ts-expect-error */}
+          <MDXRemote
+            source={content}
+            options={mdxOptions}
+            components={MdxComponents2}
+          />
         </article>
         <hr className="my-4 border-slate-200" />
         <div className="flex justify-center py-6 lg:py-10">

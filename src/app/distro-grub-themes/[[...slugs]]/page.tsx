@@ -1,10 +1,10 @@
 import "@styles/prose.css";
 
-import Markdown from "@components/Markdown";
-import { getBySlug, getDocsDir } from "@lib/github";
-import { mdxToHtml } from "@lib/markdown";
 import Sidebar from "../Sidebar";
+import { getBySlug, getDocsDir } from "@lib/github";
 import MdxComponents2 from "@components/MdxComponents2";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { mdxOptions } from "@lib/mdx";
 
 type Props = {
   params: {
@@ -14,12 +14,16 @@ type Props = {
 
 async function Wiki({ params: { slugs } }: Props) {
   const content = await getBySlug(slugs ? slugs[0] : undefined);
-  const mdxSource = await mdxToHtml(content);
 
   return (
     <main className="max-w-7xl py-8 px-8 mx-auto mt-16 flex gap-4 flex-col lg:flex-row">
       <article className="w-full max-w-none prose">
-        <Markdown mdxSource={mdxSource} mdxComponents={MdxComponents2} />
+        {/* @ts-expect-error */}
+        <MDXRemote
+          source={content}
+          options={mdxOptions}
+          components={MdxComponents2}
+        />
       </article>
 
       {/* @ts-expect-error */}

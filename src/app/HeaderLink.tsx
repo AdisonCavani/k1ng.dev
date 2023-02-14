@@ -13,18 +13,17 @@ function HeaderLink(props: Props) {
     props.href && isUrlInternal(props.href) ? "" : "hover:underline"
   }`;
 
+  if (props.href && isUrlInternal(props.href))
+    return (
+      <Link href={props.href} className={classes}>
+        {props.children}
+      </Link>
+    );
+
   return (
-    <>
-      {props.href && isUrlInternal(props.href) ? (
-        <Link href={props.href} className={classes}>
-          {props.children}
-        </Link>
-      ) : (
-        <a className={classes} {...props}>
-          {props.children}
-        </a>
-      )}
-    </>
+    <a className={classes} {...props}>
+      {props.children}
+    </a>
   );
 }
 
