@@ -41,7 +41,7 @@ function Summary({ href, index, itemsCount, name, slug, headings }: Props) {
         <button
           aria-label={state ? "Show less" : "Show more"}
           aria-hidden={!visible}
-          className={`hover:bg-neutral-200 rounded aspect-square text-neutral-500 fill-neutral-500 p-1 ${
+          className={`aspect-square rounded fill-neutral-500 p-1 text-neutral-500 hover:bg-neutral-200 ${
             visible ? "" : "invisible"
           }`}
           onClick={async () => {
@@ -100,7 +100,7 @@ function Summary({ href, index, itemsCount, name, slug, headings }: Props) {
         </button>
         <Link
           href={`/distro-grub-themes/${href}`}
-          className="flex-1 font-semibold text-blue-600 text-sm"
+          className="flex-1 text-sm font-semibold text-blue-600"
         >
           {name}
         </Link>

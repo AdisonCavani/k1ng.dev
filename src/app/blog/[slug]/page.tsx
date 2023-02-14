@@ -66,7 +66,7 @@ async function BlogPost({ params: { slug } }: Props) {
               aria-label="RSS Feed"
             >
               <svg
-                className="w-4 h-4"
+                className="h-4 w-4"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -93,7 +93,7 @@ async function BlogPost({ params: { slug } }: Props) {
                   alt="Author image"
                   width={42}
                   height={42}
-                  className="rounded-full aspect-square"
+                  className="aspect-square rounded-full"
                 />
                 <div className="flex-1 text-left leading-tight">
                   <p className="font-medium text-slate-900">

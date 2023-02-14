@@ -16,8 +16,8 @@ async function Wiki({ params: { slugs } }: Props) {
   const content = await getBySlug(slugs ? slugs[0] : undefined);
 
   return (
-    <main className="max-w-7xl py-8 px-8 mx-auto mt-16 flex gap-4 flex-col lg:flex-row">
-      <article className="w-full max-w-none prose">
+    <main className="mx-auto mt-16 flex max-w-7xl flex-col gap-4 py-8 px-8 lg:flex-row">
+      <article className="prose w-full max-w-none">
         {/* @ts-expect-error */}
         <MDXRemote
           source={content}

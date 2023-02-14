@@ -20,10 +20,10 @@ async function Sidebar({ slug }: Props) {
   }
 
   return (
-    <aside className="flex flex-col w-full lg:w-80 border rounded-lg h-min">
-      <div className="px-4 py-2 bg-neutral-200 w-full inline-flex items-center gap-x-2">
-        <p className="font-bold text-sm">Pages</p>
-        <span className="bg-neutral-600 text-white rounded-full w-5 h-5 inline-flex items-center justify-center text-xs">
+    <aside className="flex h-min w-full flex-col rounded-lg border lg:w-80">
+      <div className="inline-flex w-full items-center gap-x-2 bg-neutral-200 px-4 py-2">
+        <p className="text-sm font-bold">Pages</p>
+        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-neutral-600 text-xs text-white">
           {count}
         </span>
       </div>

@@ -18,7 +18,7 @@ function TechStack({ categories, items }: Props) {
           <Tab as={Fragment} key={index}>
             {({ selected }) => (
               <button
-                className="focus:outline-none rounded-3xl px-4 py-2 bg-neutral-200 text-neutral-600"
+                className="rounded-3xl bg-neutral-200 px-4 py-2 text-neutral-600 focus:outline-none"
                 style={{
                   color: selected ? color : undefined,
                   backgroundColor: selected ? background : undefined,

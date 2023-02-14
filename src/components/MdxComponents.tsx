@@ -25,7 +25,7 @@ const CustomLink = ({ children, href }: Props) => {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="text-blue-600 no-underline hover:underline underline-offset-2"
+      className="text-blue-600 no-underline underline-offset-2 hover:underline"
     >
       {children}
     </a>

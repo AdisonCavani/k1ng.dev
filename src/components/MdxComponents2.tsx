@@ -75,10 +75,10 @@ const MdxComponents2: MDXComponents = {
     />
   ),
   ul: ({ className, ...props }) => (
-    <ul className={clsx("my-6 ml-6 p-0 list-disc", className)} {...props} />
+    <ul className={clsx("my-6 ml-6 list-disc p-0", className)} {...props} />
   ),
   ol: ({ className, ...props }) => (
-    <ol className={clsx("my-6 ml-6 p-0 list-decimal", className)} {...props} />
+    <ol className={clsx("my-6 ml-6 list-decimal p-0", className)} {...props} />
   ),
   li: ({ className, ...props }) => (
     <li className={clsx("mt-2 p-0", className)} {...props} />

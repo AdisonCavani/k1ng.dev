@@ -16,7 +16,7 @@ function Theme({
   versionAdded,
 }: Props) {
   return (
-    <div className="flex flex-col ease-[spring(1 100 10 10)] overflow-hidden rounded-lg border bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+    <div className="ease-[spring(1 100 10 10)] flex flex-col overflow-hidden rounded-lg border bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
       <div className="w-full cursor-pointer">
         <Image
           width={480}
@@ -31,7 +31,7 @@ function Theme({
           loading={priority ? undefined : "lazy"}
         />
       </div>
-      <div className="px-6 pb-5 flex flex-col flex-grow">
+      <div className="flex flex-grow flex-col px-6 pb-5">
         <div className="mt-4 mb-3 flex flex-row justify-between">
           <h3 className="font-medium">{name}</h3>
           <div>
@@ -50,7 +50,7 @@ function Theme({
             </span>
           </div>
         </div>
-        <div className="flex flex-col justify-between h-full">
+        <div className="flex h-full flex-col justify-between">
           <div className="text-sm text-neutral-600">
             <p>
               A clean and minimalistic GRUB theme with color accent for {name}
@@ -62,7 +62,7 @@ function Theme({
             )}`}
             target="_blank"
             rel="noreferrer"
-            className="w-full mt-4 rounded-md bg-blue-100 text-blue-700 py-2 text-sm font-semibold"
+            className="mt-4 w-full rounded-md bg-blue-100 py-2 text-sm font-semibold text-blue-700"
           >
             <div className="flex justify-center gap-2">
               <svg

@@ -16,7 +16,7 @@ async function Home() {
   const categories = await GetTechCategoryData();
 
   return (
-    <main className="max-w-5xl py-8 px-8 mx-auto mt-16">
+    <main className="mx-auto mt-16 max-w-5xl py-8 px-8">
       <div className="flex flex-col gap-6">
         {/* Introduction */}
         <div className="flex max-w-2xl flex-col-reverse items-start sm:flex-row">

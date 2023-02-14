@@ -10,7 +10,7 @@ async function Blog() {
   const posts = await GetBlogData();
 
   return (
-    <main className="container max-w-4xl py-6 lg:py-10 mx-auto mt-16">
+    <main className="container mx-auto mt-16 max-w-4xl py-6 lg:py-10">
       <div className="flex-1 space-y-4">
         <h1 className="inline-block text-4xl font-extrabold tracking-tight text-slate-900 lg:text-5xl">
           Blog

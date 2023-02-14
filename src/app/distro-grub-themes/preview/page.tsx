@@ -16,9 +16,9 @@ async function Preview() {
   const latestTag = await getReleaseData();
 
   return (
-    <main className="max-w-7xl py-8 px-8 mx-auto mt-16 flex gap-4 flex-col lg:flex-row">
+    <main className="mx-auto mt-16 flex max-w-7xl flex-col gap-4 py-8 px-8 lg:flex-row">
       <article className="w-full max-w-none">
-        <div className="flex justify-center my-6">
+        <div className="my-6 flex justify-center">
           <div className="flex flex-col gap-4">
             <h2 className="text-center text-4xl font-bold">Distro themes</h2>
             <hr className="border-t-2 border-neutral-300" />
@@ -38,7 +38,7 @@ async function Preview() {
           ))}
         </div>
 
-        <div className="flex justify-center my-6">
+        <div className="my-6 flex justify-center">
           <div className="flex flex-col gap-4">
             <h2 className="text-center text-4xl font-bold">Vendor themes</h2>
             <hr className="border-t-2 border-neutral-300" />

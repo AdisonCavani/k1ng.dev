@@ -8,8 +8,8 @@ async function Footer() {
   const data = await GetFooterData();
 
   return (
-    <footer className="mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8">
-      <div className="border-t border-slate-900/15 py-10">
+    <footer className="max-w-container mx-auto w-full px-4 sm:px-6 lg:px-8">
+      <div className="border-slate-900/15 border-t py-10">
         <p className="text-center text-sm leading-6 text-slate-600">
           © {new Date().getUTCFullYear()} {SITE_AUTHOR}. All rights reserved.
         </p>
