@@ -1,26 +1,23 @@
-import { Inter as FontSans } from "@next/font/google";
 import "./globals.css";
-import type { ReactNode } from "react";
+
+import { Inter } from "@next/font/google";
+import type { PropsWithChildren } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { NextSeo } from "next-seo";
 import Script from "next/script";
 import { SITE_AUTHOR } from "config";
 
-const fontSans = FontSans({
+const fontInter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
-type Props = {
-  children: ReactNode;
-};
-
-function RootLayout({ children }: Props) {
+function RootLayout({ children }: PropsWithChildren) {
   return (
     <html
       lang="en"
-      className={`bg-white font-sans text-slate-900 antialiased ${fontSans.variable}`}
+      className={`bg-white font-sans text-slate-900 antialiased ${fontInter.variable}`}
     >
       <head>
         <meta charSet="utf-8" />

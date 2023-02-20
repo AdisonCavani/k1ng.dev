@@ -1,4 +1,5 @@
 import { isUrlInternal } from "@lib/helpers";
+import clsx from "clsx";
 import Link from "next/link";
 import type { AnchorHTMLAttributes, DetailedHTMLProps } from "react";
 
@@ -9,9 +10,10 @@ interface Props
   > {}
 
 function HeaderLink(props: Props) {
-  const classes = `flex items-center text-lg font-semibold sm:text-sm leading-none text-slate-600 ${
-    props.href && isUrlInternal(props.href) ? "" : "hover:underline"
-  }`;
+  const classes = clsx(
+    "flex items-center text-lg font-semibold sm:text-sm leading-none text-slate-600",
+    props.href && isUrlInternal(props.href) && "hover:underline"
+  );
 
   if (props.href && isUrlInternal(props.href))
     return (
