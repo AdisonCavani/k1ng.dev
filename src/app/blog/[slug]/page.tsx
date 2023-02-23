@@ -159,7 +159,6 @@ async function BlogPost({ params: { slug } }: Props) {
                   width={42}
                   height={42}
                   className="aspect-square rounded-full"
-                  priority
                 />
                 <div className="flex-1 text-left leading-tight">
                   <p className="font-medium text-slate-900">
@@ -177,7 +176,7 @@ async function BlogPost({ params: { slug } }: Props) {
           width={720}
           height={405}
           className="my-8 rounded-md border border-slate-200 bg-slate-200 transition-colors group-hover:border-slate-900"
-          priority
+          priority={true}
         />
         <article className="prose">
           {/* @ts-expect-error */}
