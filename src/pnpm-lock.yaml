@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@headlessui/react': ^1.7.11
-  '@next/bundle-analyzer': ^13.1.6
+  '@next/bundle-analyzer': ^13.2.0
   '@octokit/core': ^4.2.0
   '@sanity/image-url': ^1.0.2
   '@sanity/webhook': ^2.0.0
@@ -22,7 +22,6 @@ specifiers:
   next: 13.1.7-canary.27
   next-mdx-remote: ^4.3.0
   next-sanity: ^4.1.5
-  next-seo: ^5.15.0
   next-sitemap: ^3.1.52
   nprogress: ^0.2.0
   postcss: ^8.4.21
@@ -35,6 +34,7 @@ specifiers:
   rehype-prism-plus: ^1.5.1
   rehype-slug: ^5.1.0
   remark-gfm: ^3.0.1
+  schema-dts: ^1.1.0
   sharp: ^0.31.3
   tailwindcss: ^3.2.7
   typescript: 4.9.5
@@ -49,7 +49,6 @@ dependencies:
   next: 13.1.7-canary.27_biqbaboplfbrettd7655fr4n2y
   next-mdx-remote: 4.3.0_biqbaboplfbrettd7655fr4n2y
   next-sanity: 4.1.5_qbxwpgi2uj3egqj3hrpwxrcf5a
-  next-seo: 5.15.0_vqal4mgbsuul25fclkcoriragu
   next-sitemap: 3.1.52_next@13.1.7-canary.27
   nprogress: 0.2.0
   react: 18.2.0
@@ -57,7 +56,7 @@ dependencies:
   sharp: 0.31.3
 
 devDependencies:
-  '@next/bundle-analyzer': 13.1.6
+  '@next/bundle-analyzer': 13.2.0
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.7
   '@types/node': 18.14.0
   '@types/nprogress': 0.2.0
@@ -77,6 +76,7 @@ devDependencies:
   rehype-prism-plus: 1.5.1
   rehype-slug: 5.1.0
   remark-gfm: 3.0.1
+  schema-dts: 1.1.0_typescript@4.9.5
   tailwindcss: 3.2.7_postcss@8.4.21
   typescript: 4.9.5
 
@@ -176,8 +176,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@next/bundle-analyzer/13.1.6:
-    resolution: {integrity: sha512-rJS9CtLoGT58mL+v2ISKANosFFWP/0YKYByHQ3vTaZrbQP8b1rYRxd2QVMJmnSXaFkiP9URt1XJ6OdGyVq5b6g==}
+  /@next/bundle-analyzer/13.2.0:
+    resolution: {integrity: sha512-ygZLD/hEMQ1ea0/Crp66AZ6PDHCBffgkO410X5d165c+Nlgnn6hf2M+gOML6GndDm+Gh0yWR7LLL/VIVpF/oyg==}
     dependencies:
       webpack-bundle-analyzer: 4.7.0
     transitivePeerDependencies:
@@ -882,7 +882,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001457
-      electron-to-chromium: 1.4.308
+      electron-to-chromium: 1.4.309
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
     dev: true
@@ -1185,8 +1185,8 @@ packages:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
     dev: true
 
-  /electron-to-chromium/1.4.308:
-    resolution: {integrity: sha512-qyTx2aDFjEni4UnRWEME9ubd2Xc9c0zerTUl/ZinvD4QPsF0S7kJTV/Es/lPCTkNX6smyYar+z/n8Cl6pFr8yQ==}
+  /electron-to-chromium/1.4.309:
+    resolution: {integrity: sha512-U7DTiKe4h+irqBG6h4EZ0XXaZuJj4md3xIXXaGSYhwiumPZ4BSc6rgf9UD0hVUMaeP/jB0q5pKWCPxvhO8fvZA==}
     dev: true
 
   /emoji-regex/9.2.2:
@@ -3056,18 +3056,6 @@ packages:
       - supports-color
     dev: false
 
-  /next-seo/5.15.0_vqal4mgbsuul25fclkcoriragu:
-    resolution: {integrity: sha512-LGbcY91yDKGMb7YI+28n3g+RuChUkt6pXNpa8FkfKkEmNiJkeRDEXTnnjVtwT9FmMhG6NH8qwHTelGrlYm9rgg==}
-    peerDependencies:
-      next: ^8.1.1-canary.54 || >=9.0.0
-      react: '>=16.0.0'
-      react-dom: '>=16.0.0'
-    dependencies:
-      next: 13.1.7-canary.27_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
   /next-sitemap/3.1.52_next@13.1.7-canary.27:
     resolution: {integrity: sha512-tY469i4QRV1PwM9BoL+HdKYBCJ83IQl3PmUNapG/Hxp0MIYIw1hINU8E+Edf5Kr8vHXfVzPqDoul/Abu2P0vkw==}
     engines: {node: '>=14.18'}
@@ -3847,6 +3835,14 @@ packages:
     dependencies:
       loose-envify: 1.4.0
     dev: false
+
+  /schema-dts/1.1.0_typescript@4.9.5:
+    resolution: {integrity: sha512-vdmbs/5ycj4zyKpZIDqTcy+IZi4s7c38RVAYuDmRi7zgxUT8wRWPMLzg0jr7FjdVunYu9yZ00F3+XcZTTFcTOQ==}
+    peerDependencies:
+      typescript: '>=4.1.0'
+    dependencies:
+      typescript: 4.9.5
+    dev: true
 
   /semver/6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}

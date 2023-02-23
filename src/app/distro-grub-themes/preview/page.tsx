@@ -3,8 +3,15 @@ import Theme from "./Theme";
 import Sidebar from "../Sidebar";
 import { DISTRO_GRUB_THEMES_CONTENT } from "config";
 import { getReleaseData } from "@lib/github";
+import type { Metadata } from "next";
 
 export const dynamic = "force-static";
+
+export const metadata: Metadata = {
+  title: "Preview / Wiki",
+  description:
+    "Preview wiki page. Official documentation for distro-grub-themes.",
+};
 
 async function Preview() {
   const data = (await fetch(`${DISTRO_GRUB_THEMES_CONTENT}/themes.json`).then(

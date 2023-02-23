@@ -5,6 +5,7 @@ import { getBySlug, getDocsDir } from "@lib/github";
 import MdxComponents2 from "@components/MdxComponents2";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxOptions } from "@lib/mdx";
+import type { Metadata } from "next";
 
 export const dynamic = "force-static";
 
@@ -13,6 +14,18 @@ type Props = {
     slugs: string[];
   };
 };
+
+export function generateMetadata({ params: { slugs } }: Props): Metadata {
+  const name = slugs
+    ? slugs[0]?.toLowerCase().charAt(0).toUpperCase()! +
+      slugs[0]?.toLowerCase().substring(1)
+    : "Index";
+
+  return {
+    title: `${name} / Wiki`,
+    description: `${name} wiki page. Official documentation for distro-grub-themes.`,
+  };
+}
 
 async function Wiki({ params: { slugs } }: Props) {
   const content = await getBySlug(slugs ? slugs[0] : undefined);

@@ -4,11 +4,16 @@ import {
   GetTechItemsData,
 } from "@lib/queries";
 import { SITE_AUTHOR } from "config";
+import type { Metadata } from "next";
 import Image from "next/image";
 import ProjectCard from "./ProjectCard";
 import TechStack from "./TechStack";
 
 export const dynamic = "force-static";
+
+export const metadata: Metadata = {
+  title: "Home",
+};
 
 async function Home() {
   const projects = await GetProjectsData();

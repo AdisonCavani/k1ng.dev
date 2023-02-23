@@ -1,8 +1,8 @@
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Callout from "./Callout";
-import { FAQPageJsonLd } from "next-seo";
 import { clsx } from "clsx";
+import JsonLd from "./JsonLd";
 
 const MdxComponents2: MDXComponents = {
   h1: ({ className, ...props }) => (
@@ -141,7 +141,7 @@ const MdxComponents2: MDXComponents = {
   ),
   Image,
   Callout,
-  FAQPageJsonLd,
+  JsonLd,
 };
 
 export default MdxComponents2;

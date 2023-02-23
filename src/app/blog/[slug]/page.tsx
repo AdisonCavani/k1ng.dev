@@ -6,16 +6,58 @@ import Image from "next/image";
 import MdxComponents2 from "@components/MdxComponents2";
 import Link from "next/link";
 import { formatDate } from "@lib/helpers";
-import { ArticleJsonLd } from "next-seo";
 import { SITE_URL } from "config";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxOptions } from "@lib/mdx";
+import type { Article } from "schema-dts";
+import type { Metadata } from "next";
 
 type Props = {
   params: {
     slug: string;
   };
 };
+
+export async function generateMetadata({
+  params: { slug },
+}: Props): Promise<Metadata> {
+  const {
+    authors,
+    categories,
+    coverImage,
+    dateModified,
+    datePublished,
+    description,
+    title,
+  } = await GetPostData(slug);
+
+  return {
+    title: title,
+    description: description,
+
+    openGraph: {
+      type: "article",
+      locale: "en_US",
+      url: `${SITE_URL}/blog/${slug}`,
+      title: title,
+      description: description,
+      images: [
+        {
+          url: urlFor(coverImage).width(1200).height(630).url(),
+          width: 1200,
+          height: 630,
+          alt: "Article cover image",
+        },
+      ],
+      authors: authors.map(
+        (author) => `${author.firstName} ${author.lastName}`
+      ),
+      publishedTime: datePublished,
+      modifiedTime: dateModified,
+      tags: categories.map((category) => category.name),
+    },
+  };
+}
 
 async function BlogPost({ params: { slug } }: Props) {
   const {
@@ -27,6 +69,25 @@ async function BlogPost({ params: { slug } }: Props) {
     description,
     title,
   } = await GetPostData(slug);
+
+  const jsonLd: Article = {
+    "@type": "Article",
+    description: description,
+    dateModified: dateModified,
+    datePublished: datePublished,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${slug}`,
+    },
+    headline: title,
+    image: [urlFor(coverImage).width(1200).height(630).url()],
+    author: authors.map(({ firstName, lastName, github }) => ({
+      "@type": "Person",
+      name: `${firstName} ${lastName}`,
+      url: `https://github.com/${github}`,
+    })),
+    isAccessibleForFree: true,
+  };
 
   return (
     <>
@@ -145,19 +206,10 @@ async function BlogPost({ params: { slug } }: Props) {
           </Link>
         </div>
       </main>
-      <ArticleJsonLd
-        useAppDir={true}
-        url={`${SITE_URL}/blog/${slug}`}
-        title={title}
-        description={description}
-        datePublished={datePublished}
-        dateModified={dateModified}
-        isAccessibleForFree={true}
-        authorName={authors.map(({ firstName, lastName, github }) => ({
-          name: `${firstName} ${lastName}`,
-          url: `https://github.com/${github}`,
-        }))}
-        images={[urlFor(coverImage).width(1200).height(630).url()]}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
     </>
   );

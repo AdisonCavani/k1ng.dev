@@ -5,15 +5,75 @@ import type { PropsWithChildren } from "react";
 import NProgressWrapper from "./NProgressWrapper";
 import Header from "./Header";
 import Footer from "./Footer";
-import { NextSeo } from "next-seo";
 import Script from "next/script";
-import { SITE_AUTHOR } from "config";
+
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL, TWITTER_HANDLE } from "config";
+import type { Metadata } from "next";
 
 const fontInter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  title: {
+    default: SITE_TITLE,
+    template: `%s - ${SITE_TITLE}`,
+  },
+  description: SITE_DESCRIPTION,
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: `${SITE_URL}/static/images/og-image.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Website image",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    creator: TWITTER_HANDLE,
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  alternates: {
+    canonical: SITE_URL,
+    types: {
+      "application/atom+xml": new URL("/atom.xml", SITE_URL),
+      "application/rss+xml": new URL("/rss.xml", SITE_URL),
+    },
+  },
+
+  manifest: "/static/manifest.json",
+
+  icons: {
+    icon: [
+      {
+        url: "/static/favicons/favicon.ico",
+      },
+    ],
+    apple: [
+      {
+        url: "/static/favicons/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
+};
 
 function RootLayout({ children }: PropsWithChildren) {
   return (
@@ -22,47 +82,6 @@ function RootLayout({ children }: PropsWithChildren) {
       className={`bg-white font-sans text-slate-900 antialiased ${fontInter.variable}`}
     >
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
-        <link href="/static/favicons/site.webmanifest" rel="manifest" />
-        <link
-          href="/static/favicons/apple-touch-icon.png"
-          rel="apple-touch-icon"
-          sizes="180x180"
-        />
-        <link
-          href="/static/favicons/favicon-32x32.png"
-          rel="icon"
-          sizes="32x32"
-          type="image/png"
-        />
-        <link
-          href="/static/favicons/favicon-16x16.png"
-          rel="icon"
-          sizes="16x16"
-          type="image/png"
-        />
-        <link
-          color="#4a9885"
-          href="/static/favicons/safari-pinned-tab.svg"
-          rel="mask-icon"
-        />
-        <meta content="#ffffff" name="msapplication-TileColor" />
-        <meta
-          content="/static/favicons/browserconfig.xml"
-          name="msapplication-config"
-        />
-        <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
-        <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
-
-        <NextSeo
-          useAppDir={true}
-          themeColor="#ffffff"
-          titleTemplate={`%s | ${SITE_AUTHOR}`}
-        />
-
         {process.env.NODE_ENV === "production" && (
           <>
             <Script
