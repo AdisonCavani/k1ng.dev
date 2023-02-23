@@ -1,6 +1,7 @@
 import { formatDate } from "@lib/helpers";
 import { GetBlogData } from "@lib/queries";
 import { urlFor } from "@lib/sanity";
+import { SITE_URL } from "config";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +11,9 @@ export const dynamic = "force-static";
 export const metadata: Metadata = {
   title: "Blog",
   description: "A blog built using Sanity CMS. Posts are written in MDX.",
+  alternates: {
+    canonical: `${SITE_URL}/blog`,
+  },
 };
 
 async function Blog() {

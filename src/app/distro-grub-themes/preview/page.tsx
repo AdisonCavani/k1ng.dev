@@ -1,7 +1,7 @@
 import type { WikiPreviewSchema } from "@lib/types";
 import Theme from "./Theme";
 import Sidebar from "../Sidebar";
-import { DISTRO_GRUB_THEMES_CONTENT } from "config";
+import { DISTRO_GRUB_THEMES_CONTENT, SITE_URL } from "config";
 import { getReleaseData } from "@lib/github";
 import type { Metadata } from "next";
 
@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Preview / Wiki",
   description:
     "Preview wiki page. Official documentation for distro-grub-themes.",
+  alternates: {
+    canonical: `${SITE_URL}/distro-grub-themes/preview`,
+  },
 };
 
 async function Preview() {

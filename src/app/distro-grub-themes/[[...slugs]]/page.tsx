@@ -6,6 +6,7 @@ import MdxComponents2 from "@components/MdxComponents2";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxOptions } from "@lib/mdx";
 import type { Metadata } from "next";
+import { SITE_URL } from "config";
 
 export const dynamic = "force-static";
 
@@ -24,6 +25,9 @@ export function generateMetadata({ params: { slugs } }: Props): Metadata {
   return {
     title: `${name} / Wiki`,
     description: `${name} wiki page. Official documentation for distro-grub-themes.`,
+    alternates: {
+      canonical: `${SITE_URL}/distro-grub-themes${slugs ? `/${slugs[0]}` : ""}`,
+    },
   };
 }
 
