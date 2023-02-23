@@ -430,8 +430,8 @@ packages:
     resolution: {integrity: sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==}
     dev: true
 
-  /@sanity/client/5.2.1:
-    resolution: {integrity: sha512-fkpVdywu23gPWjNGC+Z2uAM+CFlQuEoDQMc9aVWJQqQwPthD6jCkmTgbwZDscFjTjn6eu6+6s5PHdNM6fPPoDA==}
+  /@sanity/client/5.2.2:
+    resolution: {integrity: sha512-AhOLSIZI0IO6/vDYYQekhAokqiAmDW2bVvNx3xW8T2hpJLRKHsw98Y+iOcX4dnH6y1Y7IO6upgb76D35xa2Szg==}
     engines: {node: '>=14.18'}
     dependencies:
       '@sanity/eventsource': 4.0.0
@@ -452,10 +452,10 @@ packages:
     resolution: {integrity: sha512-fAkZ6Jg+whIo1COEKaBF4jbMg1lEaqx4Em2vHbh639JMLTI/jffRjFAD832SVkw0pCQ1xAXpyW+Edbw/FLfQVw==}
     engines: {node: '>=14'}
     dependencies:
-      '@sanity/types': 3.4.0
+      '@sanity/types': 3.5.0
       eventsource: 2.0.2
       fast-deep-equal: 3.1.3
-      groq: 3.4.0
+      groq: 3.5.0
       groq-js: 1.1.7
       mendoza: 2.1.1
       simple-get: 4.0.1
@@ -485,10 +485,10 @@ packages:
       - supports-color
     dev: false
 
-  /@sanity/types/3.4.0:
-    resolution: {integrity: sha512-d3vul0wZqVYHmqqtVYDgcUDe4tUdFGnronpM17652wWDk1HuQjskq94Gv49rGDuXi2k41ZlmvW7Y9HDJDu3n2Q==}
+  /@sanity/types/3.5.0:
+    resolution: {integrity: sha512-6gWA/tU+5yUbYVPsf7xlBrbewgZ1iOfFke+aGyJYbWe8hUGf/3FJsKePyjA8FCCuprDu3Y9CySKOLNqi4dwHmQ==}
     dependencies:
-      '@sanity/client': 5.2.1
+      '@sanity/client': 5.2.2
       '@types/react': 18.0.28
     transitivePeerDependencies:
       - supports-color
@@ -857,7 +857,7 @@ packages:
     dependencies:
       buffer: 5.7.1
       inherits: 2.0.4
-      readable-stream: 3.6.0
+      readable-stream: 3.6.1
     dev: false
 
   /brace-expansion/1.1.11:
@@ -880,7 +880,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001457
-      electron-to-chromium: 1.4.303
+      electron-to-chromium: 1.4.308
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
     dev: true
@@ -1183,8 +1183,8 @@ packages:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
     dev: true
 
-  /electron-to-chromium/1.4.303:
-    resolution: {integrity: sha512-XaqiQhVsGO5ymf/Lg6XEGpv2h8b5AFqQDQ9fQckolNP2VtD2VL1pn1TIx1SSYsf0srfXVi2Sm7n/K3slJSX3ig==}
+  /electron-to-chromium/1.4.308:
+    resolution: {integrity: sha512-qyTx2aDFjEni4UnRWEME9ubd2Xc9c0zerTUl/ZinvD4QPsF0S7kJTV/Es/lPCTkNX6smyYar+z/n8Cl6pFr8yQ==}
     dev: true
 
   /emoji-regex/9.2.2:
@@ -1742,7 +1742,7 @@ packages:
     resolution: {integrity: sha512-OMcX/4IC/uqEPVgGeyfN22LJk6AZrMkRZHxcHBMBvHScDGgwTm2GT2Wkgtocyd3JfZffjj2kYUDXXII0Fk9W0g==}
     dependencies:
       inherits: 2.0.4
-      readable-stream: 2.3.7
+      readable-stream: 2.3.8
     dev: false
 
   /fs-constants/1.0.0:
@@ -1925,8 +1925,8 @@ packages:
     engines: {node: '>= 14'}
     dev: false
 
-  /groq/3.4.0:
-    resolution: {integrity: sha512-x1ba7zNLHOcuj83JkXMge9H0uD7W3ZVNSDuLgympoOdVDYCOafS3gwmd/z4rVH7sOCxO7DtbUmyrbCW+aA5N+A==}
+  /groq/3.5.0:
+    resolution: {integrity: sha512-ewaCMW9Vj9nuVgt7ymwK+WfIQ+wmN4dDbczESo6A+hv1k05DdPc37zmTRqojiu5uYeI2GK03d64XGaN1xybSzg==}
     engines: {node: '>=14'}
     dev: false
 
@@ -3044,10 +3044,10 @@ packages:
       sanity: ^3
       styled-components: ^5.2
     dependencies:
-      '@sanity/client': 5.2.1
+      '@sanity/client': 5.2.2
       '@sanity/preview-kit': 1.3.4_react@18.2.0
       '@sanity/webhook': 2.0.0
-      groq: 3.4.0
+      groq: 3.5.0
       next: 13.1.7-canary.21_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
     transitivePeerDependencies:
@@ -3610,8 +3610,8 @@ packages:
       pify: 2.3.0
     dev: true
 
-  /readable-stream/2.3.7:
-    resolution: {integrity: sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==}
+  /readable-stream/2.3.8:
+    resolution: {integrity: sha512-8p0AUk4XODgIewSi0l8Epjs+EVnWiK7NoDIEGU0HhE7+ZyY8D1IMY7odu5lRrFXGg71L15KG8QrPmum45RTtdA==}
     dependencies:
       core-util-is: 1.0.3
       inherits: 2.0.4
@@ -3622,8 +3622,8 @@ packages:
       util-deprecate: 1.0.2
     dev: false
 
-  /readable-stream/3.6.0:
-    resolution: {integrity: sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA==}
+  /readable-stream/3.6.1:
+    resolution: {integrity: sha512-+rQmrWMYGA90yenhTYsLWAsLsqVC8osOw6PKE1HDYiO0gdPeKe/xDHNzIAIn4C91YQ6oenEhfYqqc1883qHbjQ==}
     engines: {node: '>= 6'}
     dependencies:
       inherits: 2.0.4
@@ -4128,7 +4128,7 @@ packages:
       end-of-stream: 1.4.4
       fs-constants: 1.0.0
       inherits: 2.0.4
-      readable-stream: 3.6.0
+      readable-stream: 3.6.1
     dev: false
 
   /text-table/0.2.0:
@@ -4143,7 +4143,7 @@ packages:
   /through2/2.0.5:
     resolution: {integrity: sha512-/mrRod8xqpA+IHSLyGCQ2s8SPHiCDEeQJSep1jqLYeEUClOFG2Qsh+4FU6G9VeqpZnGW/Su8LQGc4YKni5rYSQ==}
     dependencies:
-      readable-stream: 2.3.7
+      readable-stream: 2.3.8
       xtend: 4.0.2
     dev: false
 
