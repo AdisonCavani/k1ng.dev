@@ -1,13 +1,26 @@
+"use client";
+
 import { SITE_AUTHOR } from "config";
 import Link from "next/link";
+import { useContext } from "react";
 import HeaderLink from "./HeaderLink";
 import MobileNav from "./MobileNav";
+import RouterContext from "./RouterContext";
 
 function Header() {
+  const startChange = useContext(RouterContext);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 mx-auto w-full max-w-[1440px] bg-white/70 px-6 backdrop-blur">
       <nav className="flex h-16 items-center gap-x-6 border-b border-neutral-200 py-4 md:gap-x-10">
-        <Link href="/" className="hidden items-center space-x-2 md:flex">
+        <Link
+          href="/"
+          className="hidden items-center space-x-2 md:flex"
+          onClick={() => {
+            const { pathname, search, hash } = window.location;
+            if ("/" !== pathname + search + hash) startChange();
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="26"

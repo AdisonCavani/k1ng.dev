@@ -3,9 +3,12 @@
 import { Menu, Transition } from "@headlessui/react";
 import { SITE_AUTHOR } from "config";
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
+import RouterContext from "./RouterContext";
 
 function MobileNav() {
+  const startChange = useContext(RouterContext);
+
   return (
     <Menu>
       <Menu.Button className="flex items-center space-x-2 md:hidden">
@@ -42,7 +45,11 @@ function MobileNav() {
             <Menu.Item>
               {({ close }) => (
                 <Link
-                  onClick={close}
+                  onClick={() => {
+                    close();
+                    const { pathname, search, hash } = window.location;
+                    if ("/" !== pathname + search + hash) startChange();
+                  }}
                   href="/"
                   className="flex items-center space-x-2"
                 >
@@ -71,7 +78,11 @@ function MobileNav() {
               <Menu.Item>
                 {({ close }) => (
                   <Link
-                    onClick={close}
+                    onClick={() => {
+                      close();
+                      const { pathname, search, hash } = window.location;
+                      if ("/blog" !== pathname + search + hash) startChange();
+                    }}
                     href="/blog"
                     className="flex w-full items-center rounded-md px-2 py-2 text-sm font-medium hover:underline"
                   >
@@ -82,7 +93,12 @@ function MobileNav() {
               <Menu.Item>
                 {({ close }) => (
                   <Link
-                    onClick={close}
+                    onClick={() => {
+                      close();
+                      const { pathname, search, hash } = window.location;
+                      if ("/distro-grub-themes" !== pathname + search + hash)
+                        startChange();
+                    }}
                     href="/distro-grub-themes"
                     className="flex w-full items-center rounded-md px-2 py-2 text-sm font-medium hover:underline"
                   >

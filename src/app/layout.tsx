@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { Inter } from "next/font/google";
 import type { PropsWithChildren } from "react";
+import NProgressWrapper from "./NProgressWrapper";
 import Header from "./Header";
 import Footer from "./Footer";
 import { NextSeo } from "next-seo";
@@ -76,7 +77,9 @@ function RootLayout({ children }: PropsWithChildren) {
         )}
       </head>
       <body>
-        <Header />
+        <NProgressWrapper>
+          <Header />
+        </NProgressWrapper>
         {children}
         {/* @ts-expect-error */}
         <Footer />
