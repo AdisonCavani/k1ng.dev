@@ -159,6 +159,7 @@ async function BlogPost({ params: { slug } }: Props) {
                   width={42}
                   height={42}
                   className="aspect-square rounded-full"
+                  priority
                 />
                 <div className="flex-1 text-left leading-tight">
                   <p className="font-medium text-slate-900">
