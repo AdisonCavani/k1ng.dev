@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 import type { PropsWithChildren } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -11,6 +11,7 @@ import { SITE_AUTHOR } from "config";
 const fontInter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 function RootLayout({ children }: PropsWithChildren) {

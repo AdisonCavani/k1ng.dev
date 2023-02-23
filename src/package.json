@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.11",
-    "@next/font": "13.1.6",
     "@octokit/core": "^4.2.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/webhook": "^2.0.0",

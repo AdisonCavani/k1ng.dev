@@ -3,7 +3,6 @@ lockfileVersion: 5.4
 specifiers:
   '@headlessui/react': ^1.7.11
   '@next/bundle-analyzer': ^13.1.6
-  '@next/font': 13.1.6
   '@octokit/core': ^4.2.0
   '@sanity/image-url': ^1.0.2
   '@sanity/webhook': ^2.0.0
@@ -40,7 +39,6 @@ specifiers:
 
 dependencies:
   '@headlessui/react': 1.7.11_biqbaboplfbrettd7655fr4n2y
-  '@next/font': 13.1.6
   '@octokit/core': 4.2.0_encoding@0.1.13
   '@sanity/image-url': 1.0.2
   '@sanity/webhook': 2.0.0
@@ -192,10 +190,6 @@ packages:
     dependencies:
       glob: 7.1.7
     dev: true
-
-  /@next/font/13.1.6:
-    resolution: {integrity: sha512-AITjmeb1RgX1HKMCiA39ztx2mxeAyxl4ljv2UoSBUGAbFFMg8MO7YAvjHCgFhD39hL7YTbFjol04e/BPBH5RzQ==}
-    dev: false
 
   /@next/swc-android-arm-eabi/13.1.7-canary.21:
     resolution: {integrity: sha512-DPHm1aY/+1+TgZhRJXxspKExvwIdONC6ZHCLaU8xhqKEuojZbkwYiB8wG/qukhwy/6H2G8O9jD5qzbkWZQdt8w==}
