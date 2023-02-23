@@ -6,6 +6,8 @@ import MdxComponents2 from "@components/MdxComponents2";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxOptions } from "@lib/mdx";
 
+export const dynamic = "force-static";
+
 type Props = {
   params: {
     slugs: string[];
