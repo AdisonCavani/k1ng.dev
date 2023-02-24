@@ -52,10 +52,10 @@ async function Home() {
 
         {/* Projects */}
         <div className="flex justify-center">
-          <div className="flex flex-col gap-4">
-            <h2 className="text-center text-4xl font-bold">My projects</h2>
+          <div className="flex flex-col gap-y-2">
+            <h2 className="text-center text-3xl font-bold">My projects</h2>
 
-            <hr className="undefined border-t-2 border-neutral-300" />
+            <hr className="border-t-1 border-neutral-300" />
 
             <p className="text-center text-lg font-medium text-neutral-600">
               A list of my personal projects.
@@ -71,10 +71,10 @@ async function Home() {
 
         {/* Tech-stack */}
         <div className="flex justify-center">
-          <div className="flex flex-col gap-4">
-            <h2 className="text-center text-4xl font-bold">Technologies</h2>
+          <div className="flex flex-col gap-y-2">
+            <h2 className="text-center text-3xl font-bold">Technologies</h2>
 
-            <hr className="undefined border-t-2 border-neutral-300" />
+            <hr className="border-t-1 border-neutral-300" />
 
             <p className="text-center text-lg font-medium text-neutral-600">
               A list of technologies I&apos;m familiar with.
