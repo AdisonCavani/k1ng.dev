@@ -39,14 +39,16 @@ async function Blog() {
               key={index}
               className="group relative flex flex-col space-y-2"
             >
-              <Image
-                src={urlFor(coverImage).width(804).height(452).url()}
-                width={804}
-                height={452}
-                alt="Cover image"
-                priority={index <= 1}
-                className="rounded-md border border-slate-200 bg-slate-200 transition-colors group-hover:border-slate-900"
-              />
+              <div className="overflow-hidden rounded-md border border-slate-200 transition-colors ease-in group-hover:border-slate-900">
+                <Image
+                  src={urlFor(coverImage).width(804).height(452).url()}
+                  width={804}
+                  height={452}
+                  alt="Cover image"
+                  priority={index <= 1}
+                  className="transition-transform group-hover:scale-105"
+                />
+              </div>
               <h2 className="text-2xl font-extrabold">{title}</h2>
               <p className="text-slate-600">{description}</p>
               <time dateTime={datePublished} className="text-sm text-slate-600">
