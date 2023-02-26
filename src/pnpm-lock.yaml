@@ -8,7 +8,7 @@ specifiers:
   '@sanity/webhook': ^2.0.0
   '@tailwindcss/typography': ^0.5.9
   '@types/mdx': ^2.0.3
-  '@types/node': 18.14.1
+  '@types/node': 18.14.2
   '@types/nprogress': ^0.2.0
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
@@ -58,7 +58,7 @@ dependencies:
 devDependencies:
   '@next/bundle-analyzer': 13.2.0
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.7
-  '@types/node': 18.14.1
+  '@types/node': 18.14.2
   '@types/nprogress': 0.2.0
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
@@ -568,8 +568,8 @@ packages:
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
 
-  /@types/node/18.14.1:
-    resolution: {integrity: sha512-QH+37Qds3E0eDlReeboBxfHbX9omAcBCXEzswCu6jySP642jiM3cYSIkU/REqwhCUqXdonHFuBfJDiAJxMNhaQ==}
+  /@types/node/18.14.2:
+    resolution: {integrity: sha512-1uEQxww3DaghA0RxqHx0O0ppVlo43pJhepY51OxuQIKHpjbnYLA7vcdwioNPzIqmC2u3I/dmylcqjlh0e7AyUA==}
     dev: true
 
   /@types/nprogress/0.2.0:
