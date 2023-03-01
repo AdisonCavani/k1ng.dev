@@ -1,9 +1,9 @@
+import RouterContext from "./router-context";
 import { Menu } from "@headlessui/react";
 import clsx from "clsx";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { PropsWithChildren, useContext } from "react";
-import RouterContext from "./RouterContext";
 
 type Props = {
   href: string;
@@ -20,7 +20,7 @@ function NavLink({ href, className, children }: PropsWithChildren<Props>) {
       as={Link}
       href={href}
       className={clsx(
-        "flex w-full items-center space-x-2 rounded-md px-2 py-2 text-sm font-medium hover:underline",
+        "flex w-full items-center space-x-2 rounded-md p-2 text-sm font-medium hover:underline",
         !isActive && "text-slate-600",
         className
       )}

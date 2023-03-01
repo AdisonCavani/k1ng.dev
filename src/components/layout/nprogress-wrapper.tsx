@@ -1,10 +1,10 @@
 "use client";
 
-import type { PropsWithChildren } from "react";
-import { useCallback, useState, useEffect } from "react";
+import RouterContext from "./router-context";
 import { usePathname, useSearchParams } from "next/navigation";
 import { configure, start, done } from "nprogress";
-import RouterContext from "./RouterContext";
+import type { PropsWithChildren } from "react";
+import { useCallback, useState, useEffect } from "react";
 
 function NProgressWrapper({ children }: PropsWithChildren) {
   configure({

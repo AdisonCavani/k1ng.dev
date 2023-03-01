@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { sanityClient } from "@lib/sanityServer";
 import { PostUpdatedQuery } from "@lib/queries";
+import { sanityClient } from "@lib/sanityServer";
 import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 const secret = process.env.SANITY_STUDIO_REVALIDATE_SECRET;
 

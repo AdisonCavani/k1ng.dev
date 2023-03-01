@@ -1,9 +1,9 @@
-import remarkGfm from "remark-gfm";
-import rehypeSlug from "rehype-slug";
+import type { SerializeOptions } from "next-mdx-remote/dist/types";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrism from "rehype-prism-plus";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import type { SerializeOptions } from "next-mdx-remote/dist/types";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 
 export const mdxOptions: SerializeOptions = {
   mdxOptions: {

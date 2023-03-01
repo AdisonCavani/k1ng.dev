@@ -1,10 +1,10 @@
 "use client";
 
+import Details from "./details";
 import { getHeadings, slugify } from "@lib/helpers";
 import type { WikiHeadingsSchema } from "@lib/types";
 import Link from "next/link";
 import { useState } from "react";
-import Details from "./Details";
 
 type Props = {
   index: number;
@@ -33,7 +33,7 @@ function Summary({ href, index, itemsCount, name, slug, headings }: Props) {
 
   return (
     <li
-      className={`block px-2 py-2 ${
+      className={`block p-2 ${
         index !== 0 && index !== itemsCount - 1 && "border-y"
       }`}
     >

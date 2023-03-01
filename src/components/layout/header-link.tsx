@@ -1,11 +1,11 @@
 "use client";
 
+import RouterContext from "./router-context";
 import { isUrlInternal } from "@lib/helpers";
 import clsx from "clsx";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { AnchorHTMLAttributes, DetailedHTMLProps, useContext } from "react";
-import RouterContext from "./RouterContext";
 
 interface Props
   extends DetailedHTMLProps<
@@ -18,11 +18,11 @@ function HeaderLink(props: Props) {
   const isActive = segment === props.href?.slice(1);
 
   const classes = clsx(
-    "flex items-center text-lg font-semibold sm:text-sm leading-none",
+    "flex items-center text-lg font-semibold leading-none sm:text-sm",
     !isActive && "text-slate-600",
     props.href &&
       isUrlInternal(props.href) &&
-      "hover:underline decoration-slate-600"
+      "decoration-slate-600 hover:underline"
   );
 
   const startChange = useContext(RouterContext);

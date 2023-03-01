@@ -1,9 +1,9 @@
 "use client";
 
-import type { TechCategorySchema, TechItemSchema } from "@lib/types";
+import TechIcon from "./tech-icon";
 import { Tab } from "@headlessui/react";
+import type { TechCategorySchema, TechItemSchema } from "@lib/types";
 import { Fragment } from "react";
-import TechIcon from "./TechIcon";
 
 type Props = {
   categories: Array<TechCategorySchema>;

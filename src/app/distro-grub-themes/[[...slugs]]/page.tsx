@@ -1,12 +1,11 @@
 import "@styles/prose.css";
-
-import Sidebar from "../Sidebar";
+import MdxComponents2 from "@components/mdx/mdx-components2";
+import Sidebar from "@components/wiki/sidebar";
 import { getBySlug, getDocsDir } from "@lib/github";
-import MdxComponents2 from "@components/MdxComponents2";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxOptions } from "@lib/mdx";
-import type { Metadata } from "next";
 import { SITE_URL } from "config";
+import type { Metadata } from "next";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 export const dynamic = "force-static";
 
@@ -35,7 +34,7 @@ async function Wiki({ params: { slugs } }: Props) {
   const content = await getBySlug(slugs ? slugs[0] : undefined);
 
   return (
-    <main className="mx-auto mt-16 flex max-w-7xl flex-col gap-4 py-8 px-8 lg:flex-row">
+    <main className="mx-auto mt-16 flex max-w-7xl flex-col gap-4 p-8 lg:flex-row">
       <article className="prose w-full max-w-none">
         {/* @ts-expect-error */}
         <MDXRemote

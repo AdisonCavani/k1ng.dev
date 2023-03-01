@@ -1,8 +1,8 @@
-import type { WikiPreviewSchema } from "@lib/types";
-import Theme from "./Theme";
-import Sidebar from "../Sidebar";
-import { DISTRO_GRUB_THEMES_CONTENT, SITE_URL } from "config";
+import Sidebar from "@components/wiki/sidebar";
+import Theme from "@components/wiki/theme";
 import { getReleaseData } from "@lib/github";
+import type { WikiPreviewSchema } from "@lib/types";
+import { DISTRO_GRUB_THEMES_CONTENT, SITE_URL } from "config";
 import type { Metadata } from "next";
 
 export const dynamic = "force-static";
@@ -26,7 +26,7 @@ async function Preview() {
   const latestTag = await getReleaseData();
 
   return (
-    <main className="mx-auto mt-16 flex max-w-7xl flex-col gap-4 py-8 px-8 lg:flex-row">
+    <main className="mx-auto mt-16 flex max-w-7xl flex-col gap-4 p-8 lg:flex-row">
       <article className="w-full max-w-none">
         <div className="my-6 flex justify-center">
           <div className="flex flex-col gap-4">

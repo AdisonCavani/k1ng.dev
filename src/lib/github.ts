@@ -1,6 +1,6 @@
-import { Octokit } from "@octokit/core";
 import { slugify } from "./helpers";
 import type { WikiSidebarSchema } from "./types";
+import { Octokit } from "@octokit/core";
 
 const octokit = new Octokit({ auth: process.env.GITHUB_PAT });
 

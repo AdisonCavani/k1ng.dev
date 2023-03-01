@@ -16,7 +16,7 @@ function Theme({
   versionAdded,
 }: Props) {
   return (
-    <div className="ease-[spring(1 100 10 10)] flex flex-col overflow-hidden rounded-lg border bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+    <div className="flex flex-col overflow-hidden rounded-lg border bg-white transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg">
       <div className="w-full cursor-pointer">
         <Image
           width={480}
@@ -31,7 +31,7 @@ function Theme({
           loading={priority ? undefined : "lazy"}
         />
       </div>
-      <div className="flex flex-grow flex-col px-6 pb-5">
+      <div className="flex grow flex-col px-6 pb-5">
         <div className="mt-4 mb-3 flex flex-row justify-between">
           <h3 className="font-medium">{name}</h3>
           <div>

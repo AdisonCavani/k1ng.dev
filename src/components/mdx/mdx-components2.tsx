@@ -1,8 +1,8 @@
+import Callout from "./callout";
+import JsonLd from "./json-ld";
+import { clsx } from "clsx";
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
-import Callout from "./Callout";
-import { clsx } from "clsx";
-import JsonLd from "./JsonLd";
 
 const MdxComponents2: MDXComponents = {
   h1: ({ className, ...props }) => (

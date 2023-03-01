@@ -1,11 +1,11 @@
+import MdxComponents from "@components/mdx/mdx-components";
 import { isUrlInternal } from "@lib/helpers";
+import { mdxOptions } from "@lib/mdx";
 import { urlFor } from "@lib/sanity";
 import type { ProjectSchema } from "@lib/types";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { mdxOptions } from "@lib/mdx";
 import Image from "next/image";
 import Link from "next/link";
-import MdxComponents from "@components/MdxComponents";
 
 interface Props extends ProjectSchema {
   priority?: boolean;
@@ -22,7 +22,7 @@ async function ProjectCard({
   priority,
 }: Props) {
   return (
-    <div className="ease-[spring(1 100 10 10)] flex flex-col overflow-hidden rounded-lg border bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+    <div className="flex flex-col overflow-hidden rounded-lg border bg-white transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg">
       <div className="w-full cursor-pointer">
         {isUrlInternal(url) ? (
           <Link href={url}>
@@ -50,7 +50,7 @@ async function ProjectCard({
           </a>
         )}
       </div>
-      <div className="flex flex-grow flex-col px-6 pb-5">
+      <div className="flex grow flex-col px-6 pb-5">
         <div className="mt-4 mb-3 flex flex-row justify-between">
           <p className="font-medium">{name}</p>
           <div>

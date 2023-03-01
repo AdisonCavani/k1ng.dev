@@ -1,9 +1,9 @@
 "use client";
 
+import NavLink from "./nav-link";
 import { Menu, Transition } from "@headlessui/react";
 import { SITE_AUTHOR } from "config";
 import { Fragment } from "react";
-import NavLink from "./NavLink";
 
 function MobileNav() {
   return (
@@ -67,7 +67,7 @@ function MobileNav() {
                 target="_blank"
                 rel="noreferrer"
                 href="https://github.com/AdisonCavani/k1ng.dev"
-                className="flex w-full items-center rounded-md px-2 py-2 text-sm font-medium text-slate-600 hover:underline"
+                className="flex w-full items-center rounded-md p-2 text-sm font-medium text-slate-600 hover:underline"
               >
                 Github
               </Menu.Item>

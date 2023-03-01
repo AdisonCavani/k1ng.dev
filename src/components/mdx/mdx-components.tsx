@@ -1,7 +1,7 @@
-import type { MDXComponents } from "mdx/types";
-import type { ReactNode } from "react";
 import { isUrlInternal } from "@lib/helpers";
+import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 const MdxComponents: MDXComponents = {
   a: (props) => <CustomLink {...props} />,

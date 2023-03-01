@@ -1,14 +1,12 @@
-import "./globals.css";
-
-import { Inter } from "next/font/google";
-import type { PropsWithChildren } from "react";
-import NProgressWrapper from "./NProgressWrapper";
-import Header from "./Header";
-import Footer from "./Footer";
-import Script from "next/script";
-
+import "@styles/globals.css";
+import Footer from "@components/layout/footer";
+import Header from "@components/layout/header";
+import NProgressWrapper from "@components/layout/nprogress-wrapper";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL, TWITTER_HANDLE } from "config";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Script from "next/script";
+import type { PropsWithChildren } from "react";
 
 const fontInter = Inter({
   subsets: ["latin"],

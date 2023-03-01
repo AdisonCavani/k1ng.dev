@@ -13,7 +13,6 @@
     "@octokit/core": "^4.2.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/webhook": "^2.0.0",
-    "@types/mdx": "^2.0.3",
     "feed": "^4.2.2",
     "next": "13.2.3",
     "next-mdx-remote": "^4.4.0",
@@ -25,8 +24,10 @@
     "sharp": "^0.31.3"
   },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^3.7.1",
     "@next/bundle-analyzer": "^13.2.3",
     "@tailwindcss/typography": "^0.5.9",
+    "@types/mdx": "^2.0.3",
     "@types/node": "18.14.2",
     "@types/nprogress": "^0.2.0",
     "@types/react": "18.0.28",
@@ -37,6 +38,8 @@
     "encoding": "^0.1.13",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-tailwindcss": "^3.10.1",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.3",

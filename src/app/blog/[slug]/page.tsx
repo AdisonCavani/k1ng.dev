@@ -1,16 +1,15 @@
 import "@styles/prose.css";
-
+import MdxComponents2 from "@components/mdx/mdx-components2";
+import { formatDate } from "@lib/helpers";
+import { mdxOptions } from "@lib/mdx";
 import { GetPostData, GetPostSlugsData } from "@lib/queries";
 import { urlFor } from "@lib/sanity";
-import Image from "next/image";
-import MdxComponents2 from "@components/MdxComponents2";
-import Link from "next/link";
-import { formatDate } from "@lib/helpers";
 import { SITE_URL } from "config";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { mdxOptions } from "@lib/mdx";
-import type { Article } from "schema-dts";
 import type { Metadata } from "next";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import Image from "next/image";
+import Link from "next/link";
+import type { Article } from "schema-dts";
 
 type Props = {
   params: {
@@ -98,7 +97,7 @@ async function BlogPost({ params: { slug } }: Props) {
       <main className="container relative mt-16 max-w-3xl py-6 lg:py-10">
         <Link
           href="/blog"
-          className="absolute top-14 -left-[200px] hidden items-center justify-center text-sm font-medium text-slate-600 hover:text-slate-900 xl:inline-flex"
+          className="absolute top-14 left-[-200px] hidden items-center justify-center text-sm font-medium text-slate-600 hover:text-slate-900 xl:inline-flex"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

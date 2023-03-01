@@ -1,3 +1,5 @@
+import ProjectCard from "@components/home/project-card";
+import TechStack from "@components/home/tech-stack";
 import {
   GetProjectsData,
   GetTechCategoryData,
@@ -6,8 +8,6 @@ import {
 import { SITE_AUTHOR } from "config";
 import type { Metadata } from "next";
 import Image from "next/image";
-import ProjectCard from "./ProjectCard";
-import TechStack from "./TechStack";
 
 export const dynamic = "force-static";
 
@@ -21,7 +21,7 @@ async function Home() {
   const categories = await GetTechCategoryData();
 
   return (
-    <main className="mx-auto mt-16 max-w-5xl py-8 px-8">
+    <main className="mx-auto mt-16 max-w-5xl p-8">
       <div className="flex flex-col gap-6">
         {/* Introduction */}
         <div className="flex max-w-2xl flex-col-reverse items-start sm:flex-row">
@@ -55,7 +55,7 @@ async function Home() {
           <div className="flex flex-col gap-y-2">
             <h2 className="text-center text-3xl font-bold">My projects</h2>
 
-            <hr className="border-t-1 border-neutral-300" />
+            <hr className="border-t border-neutral-300" />
 
             <p className="text-center text-lg font-medium text-neutral-600">
               A list of my personal projects.
@@ -74,7 +74,7 @@ async function Home() {
           <div className="flex flex-col gap-y-2">
             <h2 className="text-center text-3xl font-bold">Technologies</h2>
 
-            <hr className="border-t-1 border-neutral-300" />
+            <hr className="border-t border-neutral-300" />
 
             <p className="text-center text-lg font-medium text-neutral-600">
               A list of technologies I&apos;m familiar with.

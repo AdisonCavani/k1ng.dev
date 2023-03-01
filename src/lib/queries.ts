@@ -1,4 +1,3 @@
-import { groq } from "next-sanity";
 import { sanityClient } from "./sanityServer";
 import type {
   FooterSchema,
@@ -8,6 +7,7 @@ import type {
   TechCategorySchema,
   TechItemSchema,
 } from "./types";
+import { groq } from "next-sanity";
 
 // Blog queries
 const TagsQuery = groq`

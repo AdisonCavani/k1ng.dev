@@ -1,7 +1,7 @@
+import Summary from "./summary";
 import { getBySlug, getSidebarData } from "@lib/github";
 import { getHeadings, slugify } from "@lib/helpers";
 import type { WikiHeadingsSchema } from "@lib/types";
-import Summary from "./Summary";
 
 type Props = {
   slug: string;

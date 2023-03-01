@@ -1,7 +1,7 @@
-import { Feed } from "feed";
 import { GetBlogData, GetTagsData } from "@lib/queries";
-import { GITHUB_PROFILE, SITE_AUTHOR, SITE_URL } from "config";
 import { urlFor } from "@lib/sanity";
+import { GITHUB_PROFILE, SITE_AUTHOR, SITE_URL } from "config";
+import { Feed } from "feed";
 
 async function GetFeed(): Promise<Feed> {
   const blogData = await GetBlogData();
