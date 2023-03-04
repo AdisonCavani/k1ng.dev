@@ -25,7 +25,7 @@ specifiers:
   next: 13.2.3
   next-mdx-remote: ^4.4.0
   next-sanity: ^4.1.5
-  next-sitemap: ^3.1.55
+  next-sitemap: ^4.0.0
   nprogress: ^0.2.0
   postcss: ^8.4.21
   prettier: ^2.8.4
@@ -51,7 +51,7 @@ dependencies:
   next: 13.2.3_biqbaboplfbrettd7655fr4n2y
   next-mdx-remote: 4.4.0_biqbaboplfbrettd7655fr4n2y
   next-sanity: 4.1.5_next@13.2.3+react@18.2.0
-  next-sitemap: 3.1.55_next@13.2.3
+  next-sitemap: 4.0.1_next@13.2.3
   nprogress: 0.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -3430,8 +3430,8 @@ packages:
       - supports-color
     dev: false
 
-  /next-sitemap/3.1.55_next@13.2.3:
-    resolution: {integrity: sha512-ZjkRfkqoSLbU+e8W9TWWe0zfOGNA47lpvm35kNcUCmj73gpLX2PIn51gwHT/B6bgGVAFYY0OXixJDrxIIwcEHw==}
+  /next-sitemap/4.0.1_next@13.2.3:
+    resolution: {integrity: sha512-dY6vKE/uayNYSfhXA64U9NZYSJtFzK01oBouY+XqgQieksKBG9BWNmq8yGSJUermyux4wCnNa9gLHwSk38emhA==}
     engines: {node: '>=14.18'}
     hasBin: true
     peerDependencies:
