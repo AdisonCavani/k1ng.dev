@@ -19,7 +19,6 @@
         "name": "next"
       }
     ],
-    "importsNotUsedAsValues": "error",
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
