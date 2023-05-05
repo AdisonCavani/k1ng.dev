@@ -64,8 +64,8 @@ devDependencies:
     specifier: 18.2.5
     version: 18.2.5
   '@types/react-dom':
-    specifier: 18.2.3
-    version: 18.2.3
+    specifier: 18.2.4
+    version: 18.2.4
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.21)
@@ -1769,8 +1769,8 @@ packages:
       '@types/react': 18.2.5
     dev: false
 
-  /@types/react-dom@18.2.3:
-    resolution: {integrity: sha512-hxXEXWxFJXbY0LMj/T69mznqOZJXNtQMqVxIiirVAZnnpeYiD4zt+lPsgcr/cfWg2VLsxZ1y26vigG03prYB+Q==}
+  /@types/react-dom@18.2.4:
+    resolution: {integrity: sha512-G2mHoTMTL4yoydITgOGwWdWMVd8sNgyEP85xVmMKAPUBwQWm9wBPQUmvbeF4V3WBY1P7mmL4BkjQ0SqUpf1snw==}
     dependencies:
       '@types/react': 18.2.5
     dev: true
