@@ -32,7 +32,7 @@ function Theme({
         />
       </div>
       <div className="flex grow flex-col px-6 pb-5">
-        <div className="mt-4 mb-3 flex flex-row justify-between">
+        <div className="mb-3 mt-4 flex flex-row justify-between">
           <h3 className="font-medium">{name}</h3>
           <div>
             <span

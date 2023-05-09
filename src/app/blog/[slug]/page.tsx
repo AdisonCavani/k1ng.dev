@@ -97,7 +97,7 @@ async function BlogPost({ params: { slug } }: Props) {
       <main className="container relative mt-16 max-w-3xl py-6 lg:py-10">
         <Link
           href="/blog"
-          className="absolute top-14 left-[-200px] hidden items-center justify-center text-sm font-medium text-slate-600 hover:text-slate-900 xl:inline-flex"
+          className="absolute left-[-200px] top-14 hidden items-center justify-center text-sm font-medium text-slate-600 hover:text-slate-900 xl:inline-flex"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
