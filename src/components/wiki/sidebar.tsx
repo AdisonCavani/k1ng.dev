@@ -19,9 +19,9 @@ async function Sidebar({ slug }: Props) {
     headings = getHeadings(data);
   }
   items.push({
-    name: 'Preview',
-    href: 'preview'
-  })
+    name: "Preview",
+    href: "preview",
+  });
 
   return (
     <aside className="flex h-min w-full flex-col rounded-lg border lg:w-80">

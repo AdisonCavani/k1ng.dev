@@ -6,7 +6,7 @@ import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL, TWITTER_HANDLE } from "config";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
-import type { PropsWithChildren } from "react";
+import { PropsWithChildren, Suspense } from "react";
 
 const fontInter = Inter({
   subsets: ["latin"],
@@ -93,9 +93,11 @@ function RootLayout({ children }: PropsWithChildren) {
         )}
       </head>
       <body>
-        <NProgressWrapper>
-          <Header />
-        </NProgressWrapper>
+        <Suspense>
+          <NProgressWrapper>
+            <Header />
+          </NProgressWrapper>
+        </Suspense>
         {children}
         {/* @ts-expect-error */}
         <Footer />
