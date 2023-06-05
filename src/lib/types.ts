@@ -70,12 +70,7 @@ export type WikiThemeSchema = {
   versionAdded?: string | undefined;
 };
 
-export type WikiSidebarSchema = {
-  count: number;
-  items: WikiSidebarItemSchema[];
-};
-
-type WikiSidebarItemSchema = {
+export type WikiSidebarItemSchema = {
   name: string;
   href: string;
 };

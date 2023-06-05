@@ -1,6 +1,6 @@
-import { slugify } from "./helpers";
-import type { WikiSidebarSchema } from "./types";
 import { Octokit } from "@octokit/core";
+import { slugify } from "./helpers";
+import type { WikiSidebarItemSchema } from "./types";
 
 const octokit = new Octokit({ auth: process.env.GITHUB_PAT });
 
@@ -52,23 +52,25 @@ export const getSidebarData = async () => {
 
   const arr = res.data as any[];
 
-  const result: WikiSidebarSchema = {
-    count: arr.length,
-    items: arr.map((item) => {
-      const name = item.name.split(".")[0] as string;
+  const result: WikiSidebarItemSchema[] = arr.map((item) => {
+    const name = item.name.split(".")[0] as string;
 
-      if (name.toLowerCase() === "index")
-        return {
-          name: "Index",
-          href: "",
-        };
-
+    if (name.toLowerCase() === "index")
       return {
-        name: name,
-        href: slugify(item.name.split(".")[0]),
+        name: "Index",
+        href: "",
       };
-    }),
-  };
+
+    return {
+      name: name,
+      href: slugify(item.name.split(".")[0]),
+    };
+  });
+
+  result.push({
+    name: 'Preview',
+    href: 'preview'
+  })
 
   return result;
 };

@@ -1,10 +1,10 @@
 "use client";
 
-import Details from "./details";
 import { getHeadings, slugify } from "@lib/helpers";
 import type { WikiHeadingsSchema } from "@lib/types";
 import Link from "next/link";
 import { useState } from "react";
+import Details from "./details";
 
 type Props = {
   index: number;

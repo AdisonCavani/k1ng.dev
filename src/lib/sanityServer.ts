@@ -4,8 +4,8 @@
  * code that is not used on the client side.
  */
 
-import { sanityConfig } from "./sanityConfig";
 import { createClient } from "next-sanity";
+import { sanityConfig } from "./sanityConfig";
 
 // Set up the client for fetching data in the getProps page functions
 export const sanityClient = createClient(sanityConfig);

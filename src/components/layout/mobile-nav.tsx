@@ -1,9 +1,9 @@
 "use client";
 
-import NavLink from "./nav-link";
 import { Menu, Transition } from "@headlessui/react";
 import { SITE_AUTHOR } from "config";
 import { Fragment } from "react";
+import NavLink from "./nav-link";
 
 function MobileNav() {
   return (

@@ -1,14 +1,14 @@
-import Summary from "./summary";
 import { getBySlug, getSidebarData } from "@lib/github";
 import { getHeadings, slugify } from "@lib/helpers";
 import type { WikiHeadingsSchema } from "@lib/types";
+import Summary from "./summary";
 
 type Props = {
   slug: string;
 };
 
 async function Sidebar({ slug }: Props) {
-  const { count, items } = await getSidebarData();
+  const items = await getSidebarData();
 
   if (slug === undefined) slug = "index";
 
@@ -24,7 +24,7 @@ async function Sidebar({ slug }: Props) {
       <div className="inline-flex w-full items-center gap-x-2 bg-neutral-200 px-4 py-2">
         <p className="text-sm font-bold">Pages</p>
         <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-neutral-600 text-xs text-white">
-          {count}
+          {items.length}
         </span>
       </div>
       <ul>
