@@ -43,8 +43,10 @@ async function POST(request: Request) {
       status: 200,
     });
 
-  revalidatePath("/distro-grub-themes/preview")
-  revalidatePath("/distro-grub-themes/[slugs]")
+  revalidatePath("/distro-grub-themes");
+  revalidatePath("/distro-grub-themes/contributing");
+  revalidatePath("/distro-grub-themes/installation");
+  revalidatePath("/distro-grub-themes/preview");
 
   return new Response("Ok", {
     status: 200,
