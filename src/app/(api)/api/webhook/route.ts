@@ -44,7 +44,7 @@ async function POST(request: Request) {
     });
 
   revalidatePath("/distro-grub-themes/preview")
-  revalidatePath("/distro-grub-themes/[[...slugs]]")
+  revalidatePath("/distro-grub-themes/[slugs]")
 
   return new Response("Ok", {
     status: 200,
