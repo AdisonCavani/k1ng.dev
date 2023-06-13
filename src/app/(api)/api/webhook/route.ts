@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import { revalidatePath } from "next/cache";
 
 const WEBHOOK_SECRET = process.env.GITHUB_WEBHOOK_SECRET;
 
@@ -42,7 +43,8 @@ async function POST(request: Request) {
       status: 200,
     });
 
-  console.error("Webhook good");
+  revalidatePath("/distro-grub-themes/preview")
+  revalidatePath("/distro-grub-themes/[[...slugs]]")
 
   return new Response("Ok", {
     status: 200,
