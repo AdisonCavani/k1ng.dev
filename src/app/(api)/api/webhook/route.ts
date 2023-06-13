@@ -11,7 +11,7 @@ async function POST(request: Request) {
       .update(JSON.stringify(request.body))
       .digest("hex");
 
-  if (request.headers.get("x-hub-signature-256") !== expectedSignature)
+  if (request.headers.get("X-Hub-Signature-256") !== expectedSignature)
     return new Response("Unauthorized", {
       status: 401,
     });
