@@ -1,4 +1,5 @@
 import { colorInput } from "@sanity/color-input";
+import { defaultDocumentNode } from "@sanity/lib/doc-node";
 import { visionTool } from "@sanity/vision";
 import { defineConfig, definePlugin, isDev } from "sanity";
 import { markdownSchema } from "sanity-plugin-markdown";
@@ -12,7 +13,9 @@ const sharedConfig = definePlugin({
   name: "shareConfig",
   plugins: [
     colorInput(),
-    deskTool(),
+    deskTool({
+      defaultDocumentNode: defaultDocumentNode,
+    }),
     markdownSchema(),
     ...(isDev ? devOnlyPlugins : []),
   ],
