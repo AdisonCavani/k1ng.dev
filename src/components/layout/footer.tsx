@@ -1,11 +1,11 @@
 import { isUrlInternal } from "@lib/helpers";
-import { GetFooterData } from "@lib/queries";
+import { getFooterData } from "@lib/queries";
 import { SITE_AUTHOR } from "config";
 import Link from "next/link";
 import { Fragment } from "react";
 
 async function Footer() {
-  const data = await GetFooterData();
+  const data = await getFooterData();
 
   return (
     <footer className="mx-auto w-full px-4 sm:px-6 lg:px-8">

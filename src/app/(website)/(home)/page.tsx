@@ -1,10 +1,4 @@
-import ProjectCard from "@components/home/project-card";
-import TechStack from "@components/home/tech-stack";
-import {
-  GetProjectsData,
-  GetTechCategoryData,
-  GetTechItemsData,
-} from "@lib/queries";
+import ProjectsWrapper from "@components/home/projects-wrapper";
 import { SITE_AUTHOR } from "config";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -15,11 +9,7 @@ export const metadata: Metadata = {
   title: "Home",
 };
 
-async function Home() {
-  const projects = await GetProjectsData();
-  const items = await GetTechItemsData();
-  const categories = await GetTechCategoryData();
-
+function Home() {
   return (
     <main className="mx-auto mt-16 max-w-5xl p-8">
       <div className="flex flex-col gap-6">
@@ -63,9 +53,7 @@ async function Home() {
           </div>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((value, index) => (
-            <ProjectCard key={index} {...value} priority={index === 0} />
-          ))}
+          <ProjectsWrapper />
         </div>
 
         {/* Tech-stack */}
@@ -81,7 +69,7 @@ async function Home() {
           </div>
         </div>
 
-        <TechStack categories={categories} items={items} />
+        {/* <TechStack categories={categories} items={items} /> */}
       </div>
     </main>
   );

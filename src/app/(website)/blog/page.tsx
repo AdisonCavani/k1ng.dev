@@ -1,10 +1,10 @@
-import { formatDate } from "@lib/helpers";
-import { GetBlogData } from "@lib/queries";
-import { urlForImage } from "@sanity/lib/image";
+import BlogPage from "@components/blog/page";
+import PreviewSuspense from "@components/layout/preview-suspense";
+import { getBlogData } from "@lib/queries";
 import { SITE_URL } from "config";
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
+import { draftMode } from "next/headers";
+import { lazy } from "react";
 
 export const dynamic = "force-static";
 
@@ -16,53 +16,21 @@ export const metadata: Metadata = {
   },
 };
 
+const BlogPagePreview = lazy(() => import("@components/blog/page-preview"));
+
 async function Blog() {
-  const posts = await GetBlogData();
+  const { isEnabled } = draftMode();
 
-  return (
-    <main className="container mx-auto mt-16 max-w-4xl py-6 lg:py-10">
-      <div className="flex-1 space-y-4">
-        <h1 className="inline-block text-4xl font-extrabold tracking-tight text-slate-900 lg:text-5xl">
-          Blog
-        </h1>
-        <p className="text-xl text-slate-600">
-          A blog built using Sanity CMS. Posts are written in MDX.
-        </p>
-      </div>
+  if (isEnabled)
+    return (
+      <PreviewSuspense fallback="Loading">
+        <BlogPagePreview />
+      </PreviewSuspense>
+    );
 
-      <hr className="my-8 border-slate-200" />
+  const posts = await getBlogData();
 
-      <section className="grid gap-10 sm:grid-cols-2">
-        {posts.map(
-          ({ coverImage, datePublished, description, slug, title }, index) => (
-            <article
-              key={index}
-              className="group relative flex flex-col space-y-2"
-            >
-              <div className="overflow-hidden rounded-md border border-slate-200 transition-colors ease-in group-hover:border-slate-900">
-                <Image
-                  src={urlForImage(coverImage).width(804).height(452).url()}
-                  width={804}
-                  height={452}
-                  alt="Cover image"
-                  priority={index <= 1}
-                  className="transition-transform group-hover:scale-105"
-                />
-              </div>
-              <h2 className="text-2xl font-extrabold">{title}</h2>
-              <p className="text-slate-600">{description}</p>
-              <time dateTime={datePublished} className="text-sm text-slate-600">
-                {formatDate(datePublished)}
-              </time>
-              <Link href={`/blog/${slug}`} className="absolute inset-0">
-                <span className="sr-only">View Article</span>
-              </Link>
-            </article>
-          )
-        )}
-      </section>
-    </main>
-  );
+  return <BlogPage posts={posts} />;
 }
 
 export default Blog;

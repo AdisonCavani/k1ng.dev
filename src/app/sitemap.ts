@@ -1,10 +1,10 @@
 import { getSidebarData } from "@lib/github";
-import { GetBlogData } from "@lib/queries";
+import { getBlogData } from "@lib/queries";
 import { SITE_URL } from "config";
 import { MetadataRoute } from "next";
 
 async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = (await GetBlogData()).map(({ slug, dateModified }) => ({
+  const posts = (await getBlogData()).map(({ slug, dateModified }) => ({
     url: `${SITE_URL}/blog/${slug}`,
     lastModified: dateModified,
   }));

@@ -10,17 +10,17 @@ import type {
 } from "./types";
 
 // Blog queries
-const TagsQuery = groq`
+export const tagsQuery = groq`
 *[_type == "category"] {
   name,
   "slug": slug.current
 }`;
 
-export const GetTagsData = async (): Promise<Array<TagSchema>> => {
-  return await clientFetch(TagsQuery);
+export const getTagsData = async (): Promise<Array<TagSchema>> => {
+  return await clientFetch(tagsQuery);
 };
 
-const AuthorFields = groq`
+export const authorFields = groq`
   firstName,
   lastName,
   "slug": slug.current,
@@ -28,98 +28,86 @@ const AuthorFields = groq`
   github
 `;
 
-const TagFields = groq`
+export const tagFields = groq`
   name,
   "slug": slug.current
 `;
 
-const PostFields = groq`
+export const postFields = groq`
   title,
   description,
   "datePublished": _createdAt,
   "dateModified": _updatedAt,
   coverImage,
   "authors": authors[]-> {
-    ${AuthorFields}
+    ${authorFields}
   },
   "categories": categories[]-> {
-    ${TagFields}
+    ${tagFields}
   },
   "slug": slug.current
 `;
 
-const BlogQuery = groq`
+export const blogQuery = groq`
 *[_type == "post"] | order(_createdAt desc) {
-  ${PostFields}
+  ${postFields}
 }
 `;
 
-export const GetBlogData = async (): Promise<Array<PostSchema>> => {
-  return await clientFetch(BlogQuery);
+export const getBlogData = async (): Promise<Array<PostSchema>> => {
+  return await clientFetch(blogQuery);
 };
 
-const BlogTagQuery = groq`
-*[_type == "post" && $tag in categories[]->slug.current] {
-  ${PostFields}
-}
-`;
-
-export const GetBlogTagData = async (
-  tag: string
-): Promise<Array<PostSchema>> => {
-  return await clientFetch(BlogTagQuery, { tag: tag });
-};
-
-const PostQuery = groq`
+export const postQuery = groq`
 *[_type == "post" && slug.current == $slug] | order(_createdAt desc) [0] {
-  ${PostFields},
+  ${postFields},
   content
 }
 `;
 
-export const GetPostData = async (slug: string): Promise<PostSchema> => {
-  return await clientFetch(PostQuery, { slug: slug });
+export const getPostData = async (slug: string): Promise<PostSchema> => {
+  return await clientFetch(postQuery, { slug: slug });
 };
 
-const PostSlugsQuery = groq`
+export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
 `;
 
-export const GetPostSlugsData = async (): Promise<Array<string>> => {
-  return await clientFetch(PostSlugsQuery);
+export const getPostSlugsData = async (): Promise<Array<string>> => {
+  return await clientFetch(postSlugsQuery);
 };
 
 // Index queries
-const FooterQuery = groq`
+export const footerQuery = groq`
 *[_type == "footer"] | order(lower(name) asc)  {
   name,
   url
 }`;
 
-export const GetFooterData = async (): Promise<Array<FooterSchema>> => {
-  return await clientFetch(FooterQuery);
+export const getFooterData = async (): Promise<Array<FooterSchema>> => {
+  return await clientFetch(footerQuery);
 };
 
-const TechCategoryFields = groq`
+export const techCategoryFields = groq`
   "id": _id
 `;
 
-const TechCategoryQuery = groq`
+export const techCategoryQuery = groq`
 *[_type == "tech-category"] | order(lower(name) asc) {
-  ${TechCategoryFields},
+  ${techCategoryFields},
   name,
   image,
   "color": color.hex,
   "background": background.hex
 }`;
 
-export const GetTechCategoryData = async (): Promise<
+export const getTechCategoryData = async (): Promise<
   Array<TechCategorySchema>
 > => {
-  return await clientFetch(TechCategoryQuery);
+  return await clientFetch(techCategoryQuery);
 };
 
-const TechItemsQuery = groq`
+export const techItemsQuery = groq`
 *[_type == "tech-item"] | order(lower(name) asc) {
   name,
   description,
@@ -127,15 +115,15 @@ const TechItemsQuery = groq`
   image,
   "background": background.hex,
   category -> {
-    ${TechCategoryFields}
+    ${techCategoryFields}
   }
 }`;
 
-export const GetTechItemsData = async (): Promise<Array<TechItemSchema>> => {
-  return await clientFetch(TechItemsQuery);
+export const getTechItemsData = async (): Promise<Array<TechItemSchema>> => {
+  return await clientFetch(techItemsQuery);
 };
 
-const ProjectsQuery = groq`
+export const projectsQuery = groq`
 *[_type == "project"] | order(lower(name) asc) {
   name,
   description,
@@ -146,10 +134,10 @@ const ProjectsQuery = groq`
   "color": color.hex
 }`;
 
-export const GetProjectsData = async (): Promise<Array<ProjectSchema>> => {
-  return await clientFetch(ProjectsQuery);
+export const getProjectsData = async (): Promise<Array<ProjectSchema>> => {
+  return await clientFetch(projectsQuery);
 };
 
-export const PostUpdatedQuery = groq`
+export const postUpdatedQuery = groq`
 *[_type == "post" && _id == $id].slug.current
 `;

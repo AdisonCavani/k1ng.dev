@@ -1,4 +1,4 @@
-import { PostUpdatedQuery } from "@lib/queries";
+import { postUpdatedQuery } from "@lib/queries";
 import { clientFetch } from "@sanity/lib/client";
 import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
 import type { NextApiRequest, NextApiResponse } from "next";
@@ -24,7 +24,7 @@ export default async function handler(
   }
 
   try {
-    const slug = await clientFetch(PostUpdatedQuery, { id });
+    const slug = await clientFetch(postUpdatedQuery, { id });
     await Promise.all([
       res.revalidate("/blog"),
       res.revalidate(`/blog/${slug}`),
