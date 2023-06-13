@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
-    "@octokit/core": "^4.2.1",
     "@sanity/image-url": "^1.0.2",
     "@sanity/webhook": "^2.0.0",
     "feed": "^4.2.2",

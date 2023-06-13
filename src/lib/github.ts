@@ -1,35 +1,27 @@
-import { Octokit } from "@octokit/core";
 import { slugify } from "./helpers";
 import type { WikiSidebarItemSchema } from "./types";
 
-const octokit = new Octokit({ auth: process.env.GITHUB_PAT });
+const token = process.env.GITHUB_PAT;
+const owner = "AdisonCavani";
+const repo = "distro-grub-themes";
 
 export const getBySlug = async (slug: string | undefined) => {
   if (!slug) slug = "index";
 
-  const res = await octokit.request(
-    "GET /repos/{owner}/{repo}/contents/{path}{?ref}",
-    {
-      owner: "AdisonCavani",
-      repo: "distro-grub-themes",
-      path: `/docs/${slug.charAt(0).toUpperCase() + slug.slice(1)}.mdx`,
-    }
+  const path = `/docs/${slug.charAt(0).toUpperCase() + slug.slice(1)}.mdx`;
+  const response = await fetchGithubApi(
+    `/repos/${owner}/${repo}/contents/${path}`
   );
 
-  return Buffer.from(res.data.content, "base64").toString("utf-8");
+  return Buffer.from(response.content, "base64").toString("utf-8");
 };
 
 export const getDocsDir = async () => {
-  const res = await octokit.request(
-    "GET /repos/{owner}/{repo}/contents/{path}{?ref}",
-    {
-      owner: "AdisonCavani",
-      repo: "distro-grub-themes",
-      path: "/docs",
-    }
+  const response = await fetchGithubApi(
+    `/repos/${owner}/${repo}/contents/docs`
   );
 
-  return (res.data as any[])
+  return (response as any[])
     .map((item) => {
       const slug = slugify(item.name.split(".")[0]);
 
@@ -41,16 +33,11 @@ export const getDocsDir = async () => {
 };
 
 export const getSidebarData = async () => {
-  const res = await octokit.request(
-    "GET /repos/{owner}/{repo}/contents/{path}{?ref}",
-    {
-      owner: "AdisonCavani",
-      repo: "distro-grub-themes",
-      path: "/docs",
-    }
+  const response = await fetchGithubApi(
+    `/repos/${owner}/${repo}/contents/docs`
   );
 
-  const arr = res.data as any[];
+  const arr = response as any[];
 
   const result: WikiSidebarItemSchema[] = arr.map((item) => {
     const name = item.name.split(".")[0] as string;
@@ -76,13 +63,26 @@ export const getSidebarData = async () => {
 };
 
 export const getReleaseData = async () => {
-  const res = await octokit.request(
-    "GET /repos/{owner}/{repo}/releases/latest",
-    {
-      owner: "AdisonCavani",
-      repo: "distro-grub-themes",
-    }
+  const response = await fetchGithubApi(
+    `/repos/{${owner}}/${repo}/releases/latest`
   );
 
-  return res.data.tag_name;
+  return response.tag_name;
 };
+
+async function fetchGithubApi(path: string) {
+  const headers = new Headers();
+
+  headers.append("Accept", "application/vnd.github.v3+json");
+  headers.append("User-Agent", "k1ng.dev");
+
+  if (typeof window === "undefined")
+    headers.append("Authorization", `Bearer ${token}`);
+
+  const response = await fetch(`https://api.github.com${path}`, {
+    method: "GET",
+    headers: headers,
+  });
+
+  return await response.json();
+}
