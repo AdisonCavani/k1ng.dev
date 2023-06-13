@@ -33,13 +33,11 @@ export const getDocsDir = async () => {
 };
 
 export const getSidebarData = async () => {
-  const response = await fetchGithubApi(
+  const response = (await fetchGithubApi(
     `/repos/${owner}/${repo}/contents/docs`
-  );
+  )) as any[];
 
-  const arr = response as any[];
-
-  const result: WikiSidebarItemSchema[] = arr.map((item) => {
+  const result: WikiSidebarItemSchema[] = response.map((item) => {
     const name = item.name.split(".")[0] as string;
 
     if (name.toLowerCase() === "index")
