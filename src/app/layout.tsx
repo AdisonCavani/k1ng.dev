@@ -46,6 +46,8 @@ export const metadata: Metadata = {
     follow: true,
   },
 
+  metadataBase: new URL(SITE_URL),
+
   alternates: {
     canonical: SITE_URL,
     types: {
@@ -99,7 +101,6 @@ function RootLayout({ children }: PropsWithChildren) {
           </NProgressWrapper>
         </Suspense>
         {children}
-        {/* @ts-expect-error */}
         <Footer />
       </body>
     </html>

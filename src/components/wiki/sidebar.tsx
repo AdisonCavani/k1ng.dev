@@ -4,13 +4,13 @@ import type { WikiHeadingsSchema } from "@lib/types";
 import Summary from "./summary";
 
 type Props = {
-  slug: string;
+  slug?: string | undefined;
 };
 
 async function Sidebar({ slug }: Props) {
   const items = await getSidebarData();
 
-  if (slug === undefined) slug = "index";
+  if (!slug) slug = "index";
 
   let data: string | undefined;
   let headings: WikiHeadingsSchema[] | undefined;
@@ -48,7 +48,7 @@ async function Sidebar({ slug }: Props) {
               itemsCount={items.length}
               name={name}
               href={href}
-              slug={slug}
+              slug={slug!}
             />
           );
         })}

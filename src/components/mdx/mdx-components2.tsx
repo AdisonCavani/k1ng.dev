@@ -139,6 +139,7 @@ const MdxComponents2: MDXComponents = {
       {...props}
     />
   ),
+  // @ts-expect-error
   Image,
   Callout,
   JsonLd,

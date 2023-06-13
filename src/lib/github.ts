@@ -68,9 +68,9 @@ export const getSidebarData = async () => {
   });
 
   result.push({
-    name: 'Preview',
-    href: 'preview'
-  })
+    name: "Preview",
+    href: "preview",
+  });
 
   return result;
 };

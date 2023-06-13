@@ -64,7 +64,6 @@ async function Home() {
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((value, index) => (
-            // @ts-expect-error
             <ProjectCard key={index} {...value} priority={index === 0} />
           ))}
         </div>

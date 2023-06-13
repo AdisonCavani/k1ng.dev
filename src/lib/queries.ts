@@ -1,5 +1,5 @@
 import { groq } from "next-sanity";
-import { sanityClient } from "./sanityServer";
+import { clientFetch } from "./sanityServer";
 import type {
   FooterSchema,
   PostSchema,
@@ -17,7 +17,7 @@ const TagsQuery = groq`
 }`;
 
 export const GetTagsData = async (): Promise<Array<TagSchema>> => {
-  return await sanityClient.fetch(TagsQuery);
+  return await clientFetch(TagsQuery);
 };
 
 const AuthorFields = groq`
@@ -55,7 +55,7 @@ const BlogQuery = groq`
 `;
 
 export const GetBlogData = async (): Promise<Array<PostSchema>> => {
-  return await sanityClient.fetch(BlogQuery);
+  return await clientFetch(BlogQuery);
 };
 
 const BlogTagQuery = groq`
@@ -67,7 +67,7 @@ const BlogTagQuery = groq`
 export const GetBlogTagData = async (
   tag: string
 ): Promise<Array<PostSchema>> => {
-  return await sanityClient.fetch(BlogTagQuery, { tag: tag });
+  return await clientFetch(BlogTagQuery, { tag: tag });
 };
 
 const PostQuery = groq`
@@ -78,7 +78,7 @@ const PostQuery = groq`
 `;
 
 export const GetPostData = async (slug: string): Promise<PostSchema> => {
-  return await sanityClient.fetch(PostQuery, { slug: slug });
+  return await clientFetch(PostQuery, { slug: slug });
 };
 
 const PostSlugsQuery = groq`
@@ -86,7 +86,7 @@ const PostSlugsQuery = groq`
 `;
 
 export const GetPostSlugsData = async (): Promise<Array<string>> => {
-  return await sanityClient.fetch(PostSlugsQuery);
+  return await clientFetch(PostSlugsQuery);
 };
 
 // Index queries
@@ -97,7 +97,7 @@ const FooterQuery = groq`
 }`;
 
 export const GetFooterData = async (): Promise<Array<FooterSchema>> => {
-  return await sanityClient.fetch(FooterQuery);
+  return await clientFetch(FooterQuery);
 };
 
 const TechCategoryFields = groq`
@@ -116,7 +116,7 @@ const TechCategoryQuery = groq`
 export const GetTechCategoryData = async (): Promise<
   Array<TechCategorySchema>
 > => {
-  return await sanityClient.fetch(TechCategoryQuery);
+  return await clientFetch(TechCategoryQuery);
 };
 
 const TechItemsQuery = groq`
@@ -132,7 +132,7 @@ const TechItemsQuery = groq`
 }`;
 
 export const GetTechItemsData = async (): Promise<Array<TechItemSchema>> => {
-  return await sanityClient.fetch(TechItemsQuery);
+  return await clientFetch(TechItemsQuery);
 };
 
 const ProjectsQuery = groq`
@@ -147,7 +147,7 @@ const ProjectsQuery = groq`
 }`;
 
 export const GetProjectsData = async (): Promise<Array<ProjectSchema>> => {
-  return await sanityClient.fetch(ProjectsQuery);
+  return await clientFetch(ProjectsQuery);
 };
 
 export const PostUpdatedQuery = groq`

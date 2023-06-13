@@ -64,7 +64,6 @@ async function ProjectCard({
         </div>
         <div className="flex h-full flex-col justify-between">
           <div className="text-sm text-neutral-600">
-            {/* @ts-expect-error */}
             <MDXRemote
               source={description}
               options={mdxOptions}

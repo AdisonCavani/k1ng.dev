@@ -36,7 +36,6 @@ async function Wiki({ params: { slugs } }: Props) {
   return (
     <main className="mx-auto mt-16 flex max-w-7xl flex-col gap-4 p-8 lg:flex-row">
       <article className="prose w-full max-w-none">
-        {/* @ts-expect-error */}
         <MDXRemote
           source={content}
           options={mdxOptions}
@@ -44,7 +43,6 @@ async function Wiki({ params: { slugs } }: Props) {
         />
       </article>
 
-      {/* @ts-expect-error */}
       <Sidebar slug={slugs ? slugs[0] : undefined} />
     </main>
   );

@@ -178,7 +178,6 @@ async function BlogPost({ params: { slug } }: Props) {
           priority={true}
         />
         <article className="prose">
-          {/* @ts-expect-error */}
           <MDXRemote
             source={content}
             options={mdxOptions}

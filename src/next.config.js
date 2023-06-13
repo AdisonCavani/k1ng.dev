@@ -8,10 +8,6 @@ let nextConfig = {
     domains: ["cdn.sanity.io", "raw.githubusercontent.com"],
     formats: ["image/avif", "image/webp"],
   },
-
-  experimental: {
-    appDir: true,
-  },
 };
 
 if (shouldAnalyzeBundles) {

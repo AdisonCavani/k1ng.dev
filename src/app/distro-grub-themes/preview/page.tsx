@@ -69,7 +69,6 @@ async function Preview() {
         </div>
       </article>
 
-      {/* @ts-expect-error */}
       <Sidebar slug="preview" />
     </main>
   );
