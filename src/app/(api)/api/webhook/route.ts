@@ -3,20 +3,20 @@ import crypto from "crypto";
 const WEBHOOK_SECRET = process.env.GITHUB_WEBHOOK_SECRET;
 
 async function POST(request: Request) {
+  const body = await request.json();
+
   // Verify the secret
   const expectedSignature =
-    "sha256=" +
+    "sha1=" +
     crypto
-      .createHmac("sha256", WEBHOOK_SECRET)
-      .update(JSON.stringify(request.body))
+      .createHmac("sha1", WEBHOOK_SECRET)
+      .update(JSON.stringify(body))
       .digest("hex");
 
-  if (request.headers.get("X-Hub-Signature-256") !== expectedSignature)
+  if (request.headers.get("X-Hub-Signature") !== expectedSignature)
     return new Response("Unauthorized", {
       status: 401,
     });
-
-  const body = await request.json();
 
   // Verify the branch is "master"
   const branch = body.ref;
