@@ -5,5 +5,6 @@ declare namespace NodeJS {
     NEXT_PUBLIC_SANITY_PROJECT_ID: string;
     SANITY_STUDIO_REVALIDATE_SECRET: string;
     GITHUB_PAT: string;
+    GITHUB_WEBHOOK_SECRET: string;
   }
 }
