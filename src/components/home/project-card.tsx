@@ -64,11 +64,11 @@ async function ProjectCard({
         </div>
         <div className="flex h-full flex-col justify-between">
           <div className="text-sm text-neutral-600">
-            {/* <MDXRemote
+            <MDXRemote
               source={description}
               options={mdxOptions}
               components={MdxComponents}
-            /> */}
+            />
           </div>
           <a
             href={github}
