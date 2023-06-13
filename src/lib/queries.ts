@@ -1,5 +1,5 @@
+import { clientFetch } from "@sanity/lib/client";
 import { groq } from "next-sanity";
-import { clientFetch } from "./sanityServer";
 import type {
   FooterSchema,
   PostSchema,

@@ -1,3 +1,5 @@
+import type { Image } from "sanity";
+
 // Index types
 export type FooterSchema = {
   name: string;
@@ -9,7 +11,7 @@ export type ProjectSchema = {
   description: string;
   url: string;
   github: string;
-  image: string;
+  image: Image;
   technology: string;
   color: string;
 };
@@ -17,7 +19,7 @@ export type ProjectSchema = {
 export type TechCategorySchema = {
   id: string;
   name: string;
-  image: string;
+  image: Image;
   color: string;
   background: string;
 };
@@ -26,7 +28,7 @@ export type TechItemSchema = {
   name: string;
   description: string;
   href: string;
-  image: string;
+  image: Image;
   background: string;
   category: TechCategorySchema;
 };
@@ -40,7 +42,7 @@ export type TagSchema = {
 export type AuthorSchema = {
   firstName: string;
   lastName: string;
-  image: string;
+  image: Image;
   github: string;
   slug: string;
 };
@@ -50,7 +52,7 @@ export type PostSchema = {
   description: string;
   datePublished: string;
   dateModified: string;
-  coverImage: string;
+  coverImage: Image;
   authors: Array<AuthorSchema>;
   categories: Array<TagSchema>;
   content: string;

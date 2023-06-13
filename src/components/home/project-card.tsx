@@ -1,8 +1,8 @@
 import MdxComponents from "@components/mdx/mdx-components";
 import { isUrlInternal } from "@lib/helpers";
 import { mdxOptions } from "@lib/mdx";
-import { urlFor } from "@lib/sanity";
 import type { ProjectSchema } from "@lib/types";
+import { urlForImage } from "@sanity/lib/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,7 +29,7 @@ async function ProjectCard({
             <Image
               width={480}
               height={270}
-              src={urlFor(image).width(480).height(270).url()}
+              src={urlForImage(image).width(480).height(270).url()}
               alt="Project image"
               className="w-full"
               sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
@@ -41,7 +41,7 @@ async function ProjectCard({
             <Image
               width={480}
               height={270}
-              src={urlFor(image).width(480).height(270).url()}
+              src={urlForImage(image).width(480).height(270).url()}
               alt="Project image"
               className="w-full"
               sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"

@@ -1,6 +1,6 @@
 import { formatDate } from "@lib/helpers";
 import { GetBlogData } from "@lib/queries";
-import { urlFor } from "@lib/sanity";
+import { urlForImage } from "@sanity/lib/image";
 import { SITE_URL } from "config";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -41,7 +41,7 @@ async function Blog() {
             >
               <div className="overflow-hidden rounded-md border border-slate-200 transition-colors ease-in group-hover:border-slate-900">
                 <Image
-                  src={urlFor(coverImage).width(804).height(452).url()}
+                  src={urlForImage(coverImage).width(804).height(452).url()}
                   width={804}
                   height={452}
                   alt="Cover image"

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "skipLibCheck": true,
@@ -32,6 +32,7 @@
     "paths": {
       "@components/*": ["components/*"],
       "@lib/*": ["lib/*"],
+      "@sanity/*": ["sanity/*"],
       "@styles/*": ["styles/*"]
     }
   },

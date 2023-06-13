@@ -1,5 +1,5 @@
 import { GetBlogData, GetTagsData } from "@lib/queries";
-import { urlFor } from "@lib/sanity";
+import { urlForImage } from "@sanity/lib/image";
 import { GITHUB_PROFILE, SITE_AUTHOR, SITE_URL } from "config";
 import { Feed } from "feed";
 
@@ -36,7 +36,7 @@ async function GetFeed(): Promise<Feed> {
         link: `${SITE_URL}/blog/${slug}`,
         description: description,
         date: new Date(datePublished),
-        image: urlFor(coverImage).url(),
+        image: urlForImage(coverImage).url(),
         author: authors.map(({ firstName, lastName, github }) => ({
           name: `${firstName} ${lastName}`,
           link: `https://github.com/${github}`,

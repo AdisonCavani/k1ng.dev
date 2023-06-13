@@ -3,7 +3,7 @@ import MdxComponents2 from "@components/mdx/mdx-components2";
 import { formatDate } from "@lib/helpers";
 import { mdxOptions } from "@lib/mdx";
 import { GetPostData, GetPostSlugsData } from "@lib/queries";
-import { urlFor } from "@lib/sanity";
+import { urlForImage } from "@sanity/lib/image";
 import { SITE_URL } from "config";
 import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -46,7 +46,7 @@ export async function generateMetadata({
       description: description,
       images: [
         {
-          url: urlFor(coverImage).width(1200).height(630).url(),
+          url: urlForImage(coverImage).width(1200).height(630).url(),
           width: 1200,
           height: 630,
           alt: "Article cover image",
@@ -83,7 +83,7 @@ async function BlogPost({ params: { slug } }: Props) {
       "@id": `${SITE_URL}/blog/${slug}`,
     },
     headline: title,
-    image: [urlFor(coverImage).width(1200).height(630).url()],
+    image: [urlForImage(coverImage).width(1200).height(630).url()],
     author: authors.map(({ firstName, lastName, github }) => ({
       "@type": "Person",
       name: `${firstName} ${lastName}`,
@@ -153,7 +153,7 @@ async function BlogPost({ params: { slug } }: Props) {
                 className="flex items-center space-x-2 text-sm"
               >
                 <Image
-                  src={urlFor(author.image).width(42).height(42).url()}
+                  src={urlForImage(author.image).width(42).height(42).url()}
                   alt="Author image"
                   width={42}
                   height={42}
@@ -170,7 +170,7 @@ async function BlogPost({ params: { slug } }: Props) {
           </div>
         </div>
         <Image
-          src={urlFor(coverImage).width(720).height(405).url()}
+          src={urlForImage(coverImage).width(720).height(405).url()}
           alt={title}
           width={720}
           height={405}

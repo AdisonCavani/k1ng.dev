@@ -1,5 +1,5 @@
-import { urlFor } from "@lib/sanity";
 import type { TechItemSchema } from "@lib/types";
+import { urlForImage } from "@sanity/lib/image";
 import Image from "next/image";
 
 function TechIcon({
@@ -23,7 +23,7 @@ function TechIcon({
             className="absolute inset-0 h-[52px] w-[52px] rounded-md opacity-20"
           />
           <Image
-            src={urlFor(image).url()}
+            src={urlForImage(image).url()}
             alt={`${name} logo`}
             width={36}
             height={36}

@@ -1,5 +1,5 @@
 import { PostUpdatedQuery } from "@lib/queries";
-import { clientFetch } from "@lib/sanityServer";
+import { clientFetch } from "@sanity/lib/client";
 import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
 import type { NextApiRequest, NextApiResponse } from "next";
 
