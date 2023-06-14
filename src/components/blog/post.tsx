@@ -1,17 +1,17 @@
-// import MdxComponents2 from "@components/mdx/mdx-components2";
+import MdxComponents2 from "@components/mdx/mdx-components2";
 import { formatDate } from "@lib/helpers";
-// import { mdxOptions } from "@lib/mdx";
+import { mdxOptions } from "@lib/mdx";
 import { PostSchema } from "@lib/types";
 import { urlForImage } from "@sanity/lib/image";
 import { SITE_URL } from "config";
-// import { MDXRemote } from "next-mdx-remote/rsc";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import Link from "next/link";
 import { Article } from "schema-dts";
 
 function Post({
   authors,
-  // content,
+  content,
   coverImage,
   dateModified,
   datePublished,
@@ -124,11 +124,11 @@ function Post({
           priority={true}
         />
         <article className="prose">
-          {/* <MDXRemote
+          <MDXRemote
             source={content}
             options={mdxOptions}
             components={MdxComponents2}
-          /> */}
+          />
         </article>
         <hr className="my-4 border-slate-200" />
         <div className="flex justify-center py-6 lg:py-10">

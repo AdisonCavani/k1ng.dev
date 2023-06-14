@@ -1,17 +1,18 @@
-import { SITE_AUTHOR } from "config"
-import Image from "next/image"
-import TechStack from "./tech-stack"
-import { ProjectSchema, TechCategorySchema, TechItemSchema } from "@lib/types"
-import ProjectCard from "./project-card"
+import { ProjectSchema, TechCategorySchema, TechItemSchema } from "@lib/types";
+import { SITE_AUTHOR } from "config";
+import Image from "next/image";
+import ProjectCard from "./project-card";
+import TechStack from "./tech-stack";
 
 type Props = {
-  categories: TechCategorySchema[]
-  items: TechItemSchema[]
-  projects: ProjectSchema[]
-}
+  categories: TechCategorySchema[];
+  items: TechItemSchema[];
+  projects: ProjectSchema[];
+};
 
-function HomePage({categories, items, projects}: Props) {
-  return (<main className="mx-auto mt-16 max-w-5xl p-8">
+function HomePage({ categories, items, projects }: Props) {
+  return (
+    <main className="mx-auto mt-16 max-w-5xl p-8">
       <div className="flex flex-col gap-6">
         {/* Introduction */}
         <div className="flex max-w-2xl flex-col-reverse items-start sm:flex-row">
@@ -53,7 +54,9 @@ function HomePage({categories, items, projects}: Props) {
           </div>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((value, index) => <ProjectCard key={index} {...value} /> )}
+          {projects.map((value, index) => (
+            <ProjectCard key={index} {...value} />
+          ))}
         </div>
 
         {/* Tech-stack */}
@@ -71,7 +74,8 @@ function HomePage({categories, items, projects}: Props) {
 
         <TechStack categories={categories} items={items} />
       </div>
-    </main>)
+    </main>
+  );
 }
 
-export default HomePage
+export default HomePage;

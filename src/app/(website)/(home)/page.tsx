@@ -1,6 +1,10 @@
 import HomePage from "@components/home/page";
 import PreviewSuspense from "@components/layout/preview-suspense";
-import { getProjectsData, getTechCategoryData, getTechItemsData } from "@lib/queries";
+import {
+  getProjectsData,
+  getTechCategoryData,
+  getTechItemsData,
+} from "@lib/queries";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { lazy } from "react";
@@ -23,13 +27,11 @@ async function Home() {
       </PreviewSuspense>
     );
 
-  const categories = await getTechCategoryData()
-  const items = await getTechItemsData()
-  const projects = await getProjectsData()
+  const categories = await getTechCategoryData();
+  const items = await getTechItemsData();
+  const projects = await getProjectsData();
 
-  return (
-    <HomePage categories={categories} items={items} projects={projects} />
-  );
+  return <HomePage categories={categories} items={items} projects={projects} />;
 }
 
 export default Home;
