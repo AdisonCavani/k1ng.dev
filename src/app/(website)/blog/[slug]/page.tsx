@@ -1,8 +1,10 @@
 import "@styles/prose.css";
 import Post from "@components/blog/post";
 import PreviewSuspense from "@components/layout/preview-suspense";
-import { getPostData, getPostSlugsData } from "@lib/queries";
+import { getPostData, getPostSlugsData, postQuery } from "@lib/queries";
+import { PostSchema } from "@lib/types";
 import { urlForImage } from "@sanity/lib/image";
+import { usePreview } from "@sanity/lib/preview";
 import { SITE_URL } from "config";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
@@ -19,6 +21,12 @@ const PostPreview = lazy(() => import("@components/blog/post-preview"));
 export async function generateMetadata({
   params: { slug },
 }: Props): Promise<Metadata> {
+  const { isEnabled } = draftMode();
+
+  if (isEnabled) {
+    return {};
+  }
+
   const {
     authors,
     categories,

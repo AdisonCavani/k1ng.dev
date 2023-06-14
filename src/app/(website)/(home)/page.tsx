@@ -31,9 +31,12 @@ async function Home() {
   // const items = await getTechItemsData();
   const projects = await getProjectsData();
 
-  return <HomePage 
-  // categories={categories} items={items} 
-  projects={projects} />;
+  return (
+    <HomePage
+      // categories={categories} items={items}
+      projects={projects}
+    />
+  );
 }
 
 export default Home;
