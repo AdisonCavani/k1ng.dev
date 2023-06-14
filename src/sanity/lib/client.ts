@@ -1,5 +1,4 @@
 import { createClient } from "next-sanity";
-import { cache } from "react";
 import { apiVersion, dataset, projectId, useCdn } from "../env";
 
 const client = createClient({
@@ -9,6 +8,4 @@ const client = createClient({
   useCdn,
 });
 
-const clientFetch = cache(client.fetch.bind(client));
-
-export { clientFetch };
+export { client };

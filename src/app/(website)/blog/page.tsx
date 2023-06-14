@@ -1,6 +1,6 @@
 import BlogPage from "@components/blog/page";
 import PreviewSuspense from "@components/layout/preview-suspense";
-import { getBlogData } from "@lib/queries";
+import { getBlogData } from "@lib/query-methods";
 import { SITE_URL } from "config";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";

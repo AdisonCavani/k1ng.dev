@@ -1,5 +1,5 @@
 import { isUrlInternal } from "@lib/helpers";
-import { getFooterData } from "@lib/queries";
+import { getFooterData } from "@lib/query-methods";
 import { SITE_AUTHOR } from "config";
 import Link from "next/link";
 import { Fragment } from "react";

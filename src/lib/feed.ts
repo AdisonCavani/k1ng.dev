@@ -1,4 +1,4 @@
-import { getBlogData, getTagsData } from "@lib/queries";
+import { getBlogData, getTagsData } from "@lib/query-methods";
 import { urlForImage } from "@sanity/lib/image";
 import { GITHUB_PROFILE, SITE_AUTHOR, SITE_URL } from "config";
 import { Feed } from "feed";

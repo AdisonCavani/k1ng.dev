@@ -1,5 +1,5 @@
 import { getSidebarData } from "@lib/github";
-import { getBlogData } from "@lib/queries";
+import { getBlogData } from "@lib/query-methods";
 import { SITE_URL } from "config";
 import { MetadataRoute } from "next";
 

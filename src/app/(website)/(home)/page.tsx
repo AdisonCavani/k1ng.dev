@@ -4,7 +4,7 @@ import {
   getProjectsData,
   // getTechCategoryData,
   // getTechItemsData,
-} from "@lib/queries";
+} from "@lib/query-methods";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { lazy } from "react";

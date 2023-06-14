@@ -1,7 +1,7 @@
 import "@styles/prose.css";
 import Post from "@components/blog/post";
 import PreviewSuspense from "@components/layout/preview-suspense";
-import { getPostData, getPostSlugsData } from "@lib/queries";
+import { getPostData, getPostSlugsData } from "@lib/query-methods";
 import { urlForImage } from "@sanity/lib/image";
 import { SITE_URL } from "config";
 import type { Metadata } from "next";
