@@ -3,6 +3,7 @@ import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Callout from "./callout";
 import JsonLd from "./json-ld";
+import { ComponentProps } from "react";
 
 const MdxComponents2: MDXComponents = {
   h1: ({ className, ...props }) => (
@@ -139,8 +140,9 @@ const MdxComponents2: MDXComponents = {
       {...props}
     />
   ),
-  // @ts-expect-error
-  Image,
+  Image : ({className, ...props}: ComponentProps<typeof Image>) => (
+    <Image className={clsx(className, "my-8 rounded-md border border-slate-200 bg-slate-200 transition-colors")} {...props}/>
+  ),
   Callout,
   JsonLd,
 };
