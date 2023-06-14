@@ -1,16 +1,23 @@
-import { ProjectSchema, TechCategorySchema, TechItemSchema } from "@lib/types";
+import {
+  ProjectSchema,
+  // TechCategorySchema, TechItemSchema
+} from "@lib/types";
 import { SITE_AUTHOR } from "config";
 import Image from "next/image";
 import ProjectCard from "./project-card";
-import TechStack from "./tech-stack";
+
+// import TechStack from "./tech-stack";
 
 type Props = {
-  categories: TechCategorySchema[];
-  items: TechItemSchema[];
+  // categories: TechCategorySchema[];
+  // items: TechItemSchema[];
   projects: ProjectSchema[];
 };
 
-function HomePage({ categories, items, projects }: Props) {
+function HomePage({
+  // categories, items,
+  projects,
+}: Props) {
   return (
     <main className="mx-auto mt-16 max-w-5xl p-8">
       <div className="flex flex-col gap-6">
@@ -72,7 +79,7 @@ function HomePage({ categories, items, projects }: Props) {
           </div>
         </div>
 
-        <TechStack categories={categories} items={items} />
+        {/* <TechStack categories={categories} items={items} /> */}
       </div>
     </main>
   );
