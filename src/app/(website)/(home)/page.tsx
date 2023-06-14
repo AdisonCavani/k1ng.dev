@@ -2,8 +2,8 @@ import HomePage from "@components/home/page";
 import PreviewSuspense from "@components/layout/preview-suspense";
 import {
   getProjectsData,
-  getTechCategoryData,
-  getTechItemsData,
+  // getTechCategoryData,
+  // getTechItemsData,
 } from "@lib/queries";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
@@ -27,11 +27,13 @@ async function Home() {
       </PreviewSuspense>
     );
 
-  const categories = await getTechCategoryData();
-  const items = await getTechItemsData();
+  // const categories = await getTechCategoryData();
+  // const items = await getTechItemsData();
   const projects = await getProjectsData();
 
-  return <HomePage categories={categories} items={items} projects={projects} />;
+  return <HomePage 
+  // categories={categories} items={items} 
+  projects={projects} />;
 }
 
 export default Home;
