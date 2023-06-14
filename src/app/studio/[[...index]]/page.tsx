@@ -1,10 +1,9 @@
-"use client";
+import Studio from "@components/studio";
 
-import { NextStudio } from "next-sanity/studio";
-import config from "sanity.config";
+export { metadata } from "next-sanity/studio/metadata";
 
 function Page() {
-  return <NextStudio config={config} />;
+  return <Studio />;
 }
 
 export default Page;
