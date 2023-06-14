@@ -8,7 +8,6 @@ import { SITE_URL } from "config";
 import Image from "next/image";
 import Link from "next/link";
 import { Article } from "schema-dts";
-import { SITE_URL } from "../../config";
 
 function Post({
   authors,
