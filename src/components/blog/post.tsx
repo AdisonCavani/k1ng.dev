@@ -4,6 +4,7 @@ import { formatDate } from "@lib/helpers";
 import { PostSchema } from "@lib/types";
 import { urlForImage } from "@sanity/lib/image";
 import { SITE_URL } from "config";
+// import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import Link from "next/link";
 import { Article } from "schema-dts";
