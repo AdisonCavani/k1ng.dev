@@ -1,10 +1,8 @@
 import "@styles/prose.css";
 import Post from "@components/blog/post";
 import PreviewSuspense from "@components/layout/preview-suspense";
-import { getPostData, getPostSlugsData, postQuery } from "@lib/queries";
-import { PostSchema } from "@lib/types";
+import { getPostData, getPostSlugsData } from "@lib/queries";
 import { urlForImage } from "@sanity/lib/image";
-import { usePreview } from "@sanity/lib/preview";
 import { SITE_URL } from "config";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
