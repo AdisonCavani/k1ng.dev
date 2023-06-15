@@ -67,8 +67,6 @@ export type WikiPreviewSchema = {
 
 export type WikiThemeSchema = {
   name: string;
-  image: string;
-  theme: string;
   versionAdded?: string | undefined;
 };
 

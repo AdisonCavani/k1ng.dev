@@ -62,7 +62,7 @@ export const getSidebarData = async () => {
 
 export const getReleaseData = async () => {
   const response = await fetchGithubApi(
-    `/repos/{${owner}}/${repo}/releases/latest`
+    `/repos/${owner}/${repo}/releases/latest`
   );
 
   return response.tag_name;

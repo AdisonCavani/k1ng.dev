@@ -7,7 +7,7 @@ const secret = process.env.SANITY_STUDIO_REVALIDATE_SECRET;
 
 async function POST(request: Request) {
   const signature = request.headers.get(SIGNATURE_HEADER_NAME);
-  const body = await request.text()
+  const body = await request.text();
 
   if (signature === null)
     return new Response("Signature cannot be empty", {
@@ -22,7 +22,7 @@ async function POST(request: Request) {
       }
     );
 
-  const jsonBody = await JSON.parse(body)
+  const jsonBody = await JSON.parse(body);
   const { _id: id } = jsonBody;
 
   if (typeof id !== "string" || !id)
