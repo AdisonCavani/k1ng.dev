@@ -19,9 +19,13 @@ type Link = "/" | "/blog" | undefined;
 
 function resolveHref2(type: string): Link {
   switch (type) {
-    case "project" || "tech_category" || "tech_item":
+    case "project":
+    case "tech_category":
+    case "tech_item":
       return "/";
-    case "author" || "category" || "post":
+    case "author":
+    case "category":
+    case "post":
       return "/blog";
     default:
       console.warn("Invalid _type:", type);
