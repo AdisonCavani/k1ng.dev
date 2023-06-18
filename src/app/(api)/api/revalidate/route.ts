@@ -51,7 +51,20 @@ async function POST(request: Request) {
       });
     }
 
+    if (type !== "post") {
+      revalidatePath("/blog");
+
+      return new Response(JSON.stringify({ message: "Updated /blog" }), {
+        status: 200,
+      });
+    }
+
     const postSlug = await client.fetch(postUpdatedQuery, { id });
+
+    if (!postSlug)
+      return new Response(JSON.stringify({ message: "Cannot find post with this _id" }), {
+        status: 400,
+      });
 
     await Promise.all([
       revalidatePath("/blog"),
