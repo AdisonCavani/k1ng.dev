@@ -1,5 +1,6 @@
 import { postUpdatedQuery } from "@lib/queries";
 import { client } from "@sanity/lib/client";
+import { resolveHref2 } from "@sanity/lib/links";
 import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
 import { revalidatePath } from "next/cache";
 
@@ -31,21 +32,38 @@ async function POST(request: Request) {
       status: 400,
     });
 
-  try {
-    const slug = await client.fetch(postUpdatedQuery, { id });
+  const slug = resolveHref2(type);
 
-    console.error("Id:", id);
-    console.error("Slug:", slug);
-    console.error("Type:", type);
+  console.error("Id:", id);
+  console.error("Type:", type);
+
+  if (!slug)
+    return new Response(JSON.stringify({ message: "Invalid _type" }), {
+      status: 400,
+    });
+
+  try {
+    if (slug === "/") {
+      revalidatePath(slug);
+
+      return new Response(JSON.stringify({ message: `Updated /` }), {
+        status: 200,
+      });
+    }
+
+    const postSlug = await client.fetch(postUpdatedQuery, { id });
 
     await Promise.all([
       revalidatePath("/blog"),
-      revalidatePath(`/blog/${slug}`),
+      revalidatePath(`/blog/${postSlug}`),
     ]);
 
-    return new Response(JSON.stringify({ message: `Updated ${slug}` }), {
-      status: 200,
-    });
+    return new Response(
+      JSON.stringify({ message: `Updated /blog & /blog/${postSlug}` }),
+      {
+        status: 200,
+      }
+    );
   } catch (err: any) {
     return new Response(JSON.stringify({ message: err.message }), {
       status: 500,
