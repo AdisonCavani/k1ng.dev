@@ -24,6 +24,7 @@ async function POST(request: Request) {
 
   const jsonBody = await JSON.parse(body);
   const { _id: id } = jsonBody;
+  const { _type: type } = jsonBody;
 
   if (typeof id !== "string" || !id)
     return new Response(JSON.stringify({ message: "Invalid _id" }), {
@@ -35,6 +36,7 @@ async function POST(request: Request) {
 
     console.error("Id:", id);
     console.error("Slug:", slug);
+    console.error("Type:", type);
 
     await Promise.all([
       revalidatePath("/blog"),
