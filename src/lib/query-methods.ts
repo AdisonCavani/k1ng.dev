@@ -1,7 +1,6 @@
 import { clientFetch } from "@sanity/lib/cached-client";
 import {
   blogQuery,
-  footerQuery,
   postQuery,
   postSlugsQuery,
   projectsQuery,
@@ -10,7 +9,6 @@ import {
   techItemsQuery,
 } from "./queries";
 import type {
-  FooterSchema,
   PostSchema,
   ProjectSchema,
   TagSchema,
@@ -30,10 +28,6 @@ export const getTechCategoryData = async (): Promise<
   Array<TechCategorySchema>
 > => {
   return await clientFetch(techCategoryQuery);
-};
-
-export const getFooterData = async (): Promise<Array<FooterSchema>> => {
-  return await clientFetch(footerQuery);
 };
 
 export const getPostSlugsData = async (): Promise<Array<string>> => {

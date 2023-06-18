@@ -32,10 +32,15 @@ async function POST(request: Request) {
 
   try {
     const slug = await client.fetch(postUpdatedQuery, { id });
+
+    console.error("Id:", id);
+    console.error("Slug:", slug);
+
     await Promise.all([
       revalidatePath("/blog"),
       revalidatePath(`/blog/${slug}`),
     ]);
+
     return new Response(JSON.stringify({ message: `Updated ${slug}` }), {
       status: 200,
     });

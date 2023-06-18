@@ -53,12 +53,6 @@ export const postSlugsQuery = groq`
 `;
 
 // Index queries
-export const footerQuery = groq`
-*[_type == "footer"] | order(lower(name) asc)  {
-  name,
-  url
-}`;
-
 export const techCategoryFields = groq`
   "id": _id
 `;

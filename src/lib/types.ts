@@ -1,11 +1,6 @@
 import type { Image } from "sanity";
 
 // Index types
-export type FooterSchema = {
-  name: string;
-  url: string;
-};
-
 export type ProjectSchema = {
   name: string;
   description: string;
