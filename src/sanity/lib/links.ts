@@ -20,8 +20,8 @@ type Link = "/" | "/blog" | undefined;
 function resolveHref2(type: string): Link {
   switch (type) {
     case "project":
-    case "tech_category":
-    case "tech_item":
+    case "tech-category":
+    case "tech-item":
       return "/";
     case "author":
     case "category":
