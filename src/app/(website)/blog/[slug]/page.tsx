@@ -1,20 +1,18 @@
 import "@styles/prose.css";
 import Post from "@components/blog/post";
-import PreviewSuspense from "@components/layout/preview-suspense";
 import { getPostData, getPostSlugsData } from "@lib/query-methods";
 import { urlForImage } from "@sanity/lib/image";
 import { SITE_URL } from "config";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
-import { lazy } from "react";
+import PreviewProvider from "@components/studio/preview-provider";
+import PostPreview from "@components/blog/post-preview";
 
 type Props = {
   params: {
     slug: string;
   };
 };
-
-const PostPreview = lazy(() => import("@components/blog/post-preview"));
 
 export async function generateMetadata({
   params: { slug },
@@ -69,15 +67,14 @@ export async function generateMetadata({
 
 async function BlogPost({ params: { slug } }: Props) {
   const { isEnabled } = draftMode();
+  const data = await getPostData(slug);
 
   if (isEnabled)
     return (
-      <PreviewSuspense fallback="Loading">
-        <PostPreview slug={slug} />
-      </PreviewSuspense>
+      <PreviewProvider>
+        <PostPreview initialData={data} slug={slug} />
+      </PreviewProvider>
     );
-
-  const data = await getPostData(slug);
 
   return <Post {...data} />;
 }

@@ -1,15 +1,44 @@
 "use client";
 
 import { projectsQuery, techCategoryQuery, techItemsQuery } from "@lib/queries";
-import { usePreview } from "@sanity/lib/preview";
+import type {
+  ProjectSchema,
+  TechCategorySchema,
+  TechItemSchema,
+} from "@lib/types";
+import { useLiveQuery } from "next-sanity/preview";
 import HomePage from "./page";
 
-function HomePagePreview() {
-  const categories = usePreview(null, techCategoryQuery);
-  const items = usePreview(null, techItemsQuery);
-  const projects = usePreview(null, projectsQuery);
+type Props = {
+  initialCategories: TechCategorySchema[];
+  initialItems: TechItemSchema[];
+  initialProjects: ProjectSchema[];
+};
 
-  return <HomePage categories={categories} items={items} projects={projects} />;
+function HomePagePreview({
+  initialCategories,
+  initialItems,
+  initialProjects,
+}: Props) {
+  const [categories, loading1] = useLiveQuery<TechCategorySchema[]>(
+    initialCategories,
+    techCategoryQuery
+  );
+  const [items, loading2] = useLiveQuery<TechItemSchema[]>(
+    initialItems,
+    techItemsQuery
+  );
+  const [projects, loading3] = useLiveQuery<ProjectSchema[]>(
+    initialProjects,
+    projectsQuery
+  );
+
+  if (!loading1 && !loading2 && !loading3)
+    return (
+      <HomePage categories={categories} items={items} projects={projects} />
+    );
+
+  return <p>Loading...</p>;
 }
 
 export default HomePagePreview;

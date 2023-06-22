@@ -1,10 +1,10 @@
 import BlogPage from "@components/blog/page";
-import PreviewSuspense from "@components/layout/preview-suspense";
+import BlogPagePreview from "@components/blog/page-preview";
+import PreviewProvider from "@components/studio/preview-provider";
 import { getBlogData } from "@lib/query-methods";
 import { SITE_URL } from "config";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
-import { lazy } from "react";
 
 export const dynamic = "force-static";
 
@@ -16,19 +16,16 @@ export const metadata: Metadata = {
   },
 };
 
-const BlogPagePreview = lazy(() => import("@components/blog/page-preview"));
-
 async function Blog() {
   const { isEnabled } = draftMode();
+  const posts = await getBlogData();
 
   if (isEnabled)
     return (
-      <PreviewSuspense fallback="Loading">
-        <BlogPagePreview />
-      </PreviewSuspense>
+      <PreviewProvider>
+        <BlogPagePreview initialData={posts} />
+      </PreviewProvider>
     );
-
-  const posts = await getBlogData();
 
   return <BlogPage posts={posts} />;
 }

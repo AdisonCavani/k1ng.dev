@@ -17,6 +17,7 @@ const sharedConfig = definePlugin({
       defaultDocumentNode: defaultDocumentNode,
     }),
     markdownSchema(),
+    // @ts-expect-error
     ...(isDev ? devOnlyPlugins : []),
   ],
 

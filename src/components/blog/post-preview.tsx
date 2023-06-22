@@ -2,13 +2,22 @@
 
 import { postQuery } from "@lib/queries";
 import { PostSchema } from "@lib/types";
-import { usePreview } from "@sanity/lib/preview";
+import { useLiveQuery } from "next-sanity/preview";
 import Post from "./post";
 
-function PostPreview({ slug }: { slug: string }) {
-  const data = usePreview(null, postQuery, { slug: slug }) as PostSchema;
+type Props = {
+  initialData: PostSchema;
+  slug: string;
+};
 
-  return <Post {...data} />;
+function PostPreview({ initialData, slug }: Props) {
+  const [post, loading] = useLiveQuery<PostSchema>(initialData, postQuery, {
+    slug: slug,
+  });
+
+  if (loading) return <p>Loading...</p>;
+
+  return <Post {...post} />;
 }
 
 export default PostPreview;

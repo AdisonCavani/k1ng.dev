@@ -62,9 +62,12 @@ async function POST(request: Request) {
     const postSlug = await client.fetch(postUpdatedQuery, { id });
 
     if (!postSlug)
-      return new Response(JSON.stringify({ message: "Cannot find post with this _id" }), {
-        status: 400,
-      });
+      return new Response(
+        JSON.stringify({ message: "Cannot find post with this _id" }),
+        {
+          status: 400,
+        }
+      );
 
     await Promise.all([
       revalidatePath("/blog"),
