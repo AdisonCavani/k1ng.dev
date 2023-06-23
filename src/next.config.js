@@ -2,7 +2,7 @@ const shouldAnalyzeBundles = process.env.ANALYZE === "true";
 
 /** @type {import('next').NextConfig} */
 let nextConfig = {
-  reactStrictMode: true,
+  // reactStrictMode: true,
 
   images: {
     domains: ["cdn.sanity.io", "raw.githubusercontent.com"],

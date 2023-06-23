@@ -1,11 +1,23 @@
-import { createClient } from "next-sanity";
-import { apiVersion, dataset, projectId, useCdn } from "../env";
+import { apiVersion, dataset, projectId, useCdn } from "@sanity/env";
+import { createClient, type SanityClient } from "next-sanity";
 
-const client = createClient({
-  apiVersion,
-  dataset,
-  projectId,
-  useCdn,
-});
+function getClient(preview?: { token: string }): SanityClient {
+  const client = createClient({
+    projectId,
+    dataset,
+    apiVersion,
+    useCdn,
+  });
+  if (!preview) return client;
 
-export { client };
+  if (!preview.token)
+    throw new Error("You must provide a token to preview drafts");
+
+  return client.withConfig({
+    token: preview.token,
+    useCdn: false,
+    ignoreBrowserTokenWarning: true,
+  });
+}
+
+export { getClient };

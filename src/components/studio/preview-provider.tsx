@@ -1,10 +1,16 @@
 "use client";
 
-import { client } from "@sanity/lib/client";
+import { getClient } from "@sanity/lib/client";
 import { LiveQueryProvider } from "next-sanity/preview";
-import type { PropsWithChildren } from "react";
+import { useMemo, type PropsWithChildren } from "react";
 
-function PreviewProvider({ children }: PropsWithChildren) {
+type Props = {
+  token: string;
+};
+
+function PreviewProvider({ children, token }: PropsWithChildren<Props>) {
+  const client = useMemo(() => getClient({ token }), [token]);
+
   return <LiveQueryProvider client={client}>{children}</LiveQueryProvider>;
 }
 

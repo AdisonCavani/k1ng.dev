@@ -1,6 +1,5 @@
 import HomePage from "@components/home/page";
 import HomePagePreview from "@components/home/page-preview";
-import PreviewProvider from "@components/studio/preview-provider";
 import {
   getProjectsData,
   getTechCategoryData,
@@ -17,15 +16,20 @@ export const metadata: Metadata = {
 
 async function Home() {
   const { isEnabled } = draftMode();
-  const categories = await getTechCategoryData();
-  const items = await getTechItemsData();
-  const projects = await getProjectsData();
+
+  const [categories, items, projects] = await Promise.all([
+    getTechCategoryData(),
+    getTechItemsData(),
+    getProjectsData(),
+  ]);
 
   if (isEnabled)
     return (
-      <PreviewProvider>
-        <HomePagePreview initialCategories={categories} initialItems={items} initialProjects={projects} />
-      </PreviewProvider>
+      <HomePagePreview
+        initialCategories={categories}
+        initialItems={items}
+        initialProjects={projects}
+      />
     );
 
   return <HomePage categories={categories} items={items} projects={projects} />;

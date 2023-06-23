@@ -1,23 +1,4 @@
-function resolveHref(
-  documentType: string | null,
-  slug: string | null
-): string | undefined {
-  switch (documentType) {
-    case "index":
-      return "/";
-    case "blog":
-      return "/blog";
-    case "post":
-      return slug ? `/blog/${slug}` : undefined;
-    default:
-      console.warn("Invalid document type:", documentType);
-      return undefined;
-  }
-}
-
-type Link = "/" | "/blog" | undefined;
-
-function resolveHref2(type: string): Link {
+function resolveHref(type: string, _: string | null) {
   switch (type) {
     case "project":
     case "tech-category":
@@ -33,4 +14,4 @@ function resolveHref2(type: string): Link {
   }
 }
 
-export { resolveHref, resolveHref2 };
+export { resolveHref };

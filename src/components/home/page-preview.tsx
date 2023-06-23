@@ -20,25 +20,17 @@ function HomePagePreview({
   initialItems,
   initialProjects,
 }: Props) {
-  const [categories, loading1] = useLiveQuery<TechCategorySchema[]>(
+  const [categories] = useLiveQuery<TechCategorySchema[]>(
     initialCategories,
     techCategoryQuery
   );
-  const [items, loading2] = useLiveQuery<TechItemSchema[]>(
-    initialItems,
-    techItemsQuery
-  );
-  const [projects, loading3] = useLiveQuery<ProjectSchema[]>(
+  const [items] = useLiveQuery<TechItemSchema[]>(initialItems, techItemsQuery);
+  const [projects] = useLiveQuery<ProjectSchema[]>(
     initialProjects,
     projectsQuery
   );
 
-  if (!loading1 && !loading2 && !loading3)
-    return (
-      <HomePage categories={categories} items={items} projects={projects} />
-    );
-
-  return <p>Loading...</p>;
+  return <HomePage categories={categories} items={items} projects={projects} />;
 }
 
 export default HomePagePreview;

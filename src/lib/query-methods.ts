@@ -1,4 +1,4 @@
-import { clientFetch } from "@sanity/lib/cached-client";
+import { getClient } from "@sanity/lib/client";
 import {
   blogQuery,
   postQuery,
@@ -17,31 +17,31 @@ import type {
 } from "./types";
 
 export const getProjectsData = async (): Promise<Array<ProjectSchema>> => {
-  return await clientFetch(projectsQuery);
+  return await getClient().fetch(projectsQuery);
 };
 
 export const getTechItemsData = async (): Promise<Array<TechItemSchema>> => {
-  return await clientFetch(techItemsQuery);
+  return await getClient().fetch(techItemsQuery);
 };
 
 export const getTechCategoryData = async (): Promise<
   Array<TechCategorySchema>
 > => {
-  return await clientFetch(techCategoryQuery);
+  return await getClient().fetch(techCategoryQuery);
 };
 
 export const getPostSlugsData = async (): Promise<Array<string>> => {
-  return await clientFetch(postSlugsQuery);
+  return await getClient().fetch(postSlugsQuery);
 };
 
 export const getPostData = async (slug: string): Promise<PostSchema> => {
-  return await clientFetch(postQuery, { slug: slug });
+  return await getClient().fetch(postQuery, { slug: slug });
 };
 
 export const getBlogData = async (): Promise<Array<PostSchema>> => {
-  return await clientFetch(blogQuery);
+  return await getClient().fetch(blogQuery);
 };
 
 export const getTagsData = async (): Promise<Array<TagSchema>> => {
-  return await clientFetch(tagsQuery);
+  return await getClient().fetch(tagsQuery);
 };

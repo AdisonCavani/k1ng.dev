@@ -1,12 +1,11 @@
 import "@styles/prose.css";
 import Post from "@components/blog/post";
+import PostPreview from "@components/blog/post-preview";
 import { getPostData, getPostSlugsData } from "@lib/query-methods";
 import { urlForImage } from "@sanity/lib/image";
 import { SITE_URL } from "config";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
-import PreviewProvider from "@components/studio/preview-provider";
-import PostPreview from "@components/blog/post-preview";
 
 type Props = {
   params: {
@@ -69,12 +68,7 @@ async function BlogPost({ params: { slug } }: Props) {
   const { isEnabled } = draftMode();
   const data = await getPostData(slug);
 
-  if (isEnabled)
-    return (
-      <PreviewProvider>
-        <PostPreview initialData={data} slug={slug} />
-      </PreviewProvider>
-    );
+  if (isEnabled) return <PostPreview initialData={data} slug={slug} />;
 
   return <Post {...data} />;
 }

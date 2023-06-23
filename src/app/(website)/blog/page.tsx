@@ -1,6 +1,5 @@
 import BlogPage from "@components/blog/page";
 import BlogPagePreview from "@components/blog/page-preview";
-import PreviewProvider from "@components/studio/preview-provider";
 import { getBlogData } from "@lib/query-methods";
 import { SITE_URL } from "config";
 import type { Metadata } from "next";
@@ -20,12 +19,7 @@ async function Blog() {
   const { isEnabled } = draftMode();
   const posts = await getBlogData();
 
-  if (isEnabled)
-    return (
-      <PreviewProvider>
-        <BlogPagePreview initialData={posts} />
-      </PreviewProvider>
-    );
+  if (isEnabled) return <BlogPagePreview initialData={posts} />;
 
   return <BlogPage posts={posts} />;
 }

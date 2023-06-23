@@ -1,5 +1,5 @@
 import { postUpdatedQuery } from "@lib/queries";
-import { client } from "@sanity/lib/client";
+import { getClient } from "@sanity/lib/client";
 import { resolveHref2 } from "@sanity/lib/links";
 import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
 import { revalidatePath } from "next/cache";
@@ -59,6 +59,7 @@ async function POST(request: Request) {
       });
     }
 
+    const client = getClient();
     const postSlug = await client.fetch(postUpdatedQuery, { id });
 
     if (!postSlug)
