@@ -2,7 +2,6 @@ import Footer from "@components/layout/footer";
 import Header from "@components/layout/header";
 import NProgressWrapper from "@components/layout/nprogress-wrapper";
 import PreviewProvider from "@components/studio/preview-provider";
-import { readToken } from "@sanity/env";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL, TWITTER_HANDLE } from "config";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
@@ -70,7 +69,7 @@ export const metadata: Metadata = {
 };
 
 function Layout({ children }: PropsWithChildren) {
-  const preview = draftMode().isEnabled ? { token: readToken! } : undefined;
+  const {isEnabled} = draftMode()
 
   const layout = (
     <>
@@ -84,8 +83,8 @@ function Layout({ children }: PropsWithChildren) {
     </>
   );
 
-  if (preview)
-    return <PreviewProvider token={preview.token}>{layout}</PreviewProvider>;
+  if (isEnabled)
+    return <PreviewProvider>{layout}</PreviewProvider>;
 
   return layout;
 }

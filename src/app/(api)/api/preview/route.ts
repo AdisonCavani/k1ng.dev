@@ -1,5 +1,5 @@
-import { previewSecretId, readToken } from "@sanity/env";
-import { getClient } from "@sanity/lib/client";
+import { previewSecretId } from "@sanity/env";
+import { client } from "@sanity/lib/client";
 import { resolveHref } from "@sanity/lib/links";
 import { getSecret } from "@sanity/plugins/production-url/utils";
 import { draftMode } from "next/headers";
@@ -15,13 +15,6 @@ async function GET(request: Request) {
   if (!documentType)
     return new Response("documentType is missing", { status: 400 });
 
-  if (!readToken) {
-    throw new Error(
-      "A secret is provided but there is no `SANITY_API_READ_TOKEN` environment variable setup."
-    );
-  }
-
-  const client = getClient().withConfig({ useCdn: false, token: readToken });
   const generatedSecret = await getSecret(client, previewSecretId);
 
   if (generatedSecret !== secret)

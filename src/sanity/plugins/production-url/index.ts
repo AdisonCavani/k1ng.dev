@@ -6,12 +6,13 @@
 
 import { definePlugin, type Slug } from "sanity";
 import { getSecret } from "./utils";
+import { client } from "@sanity/lib/client";
 
 export const productionUrl = definePlugin<{
   previewSecretId: `${string}.${string}`;
   types: string[];
   apiVersion?: string;
-}>(({ previewSecretId, types: _types, apiVersion = "2022-11-17" }) => {
+}>(({ previewSecretId, types: _types }) => {
   if (!previewSecretId) {
     throw new TypeError("`previewSecretId` is required");
   }
@@ -27,10 +28,9 @@ export const productionUrl = definePlugin<{
   return {
     name: "productionUrl",
     document: {
-      productionUrl: async (prev, { document, getClient }) => {
+      productionUrl: async (prev, { document }) => {
         const url = new URL("/api/preview", location.origin);
 
-        const client = getClient({ apiVersion });
         const secret = await getSecret(client, previewSecretId, true);
         if (secret) {
           url.searchParams.set("secret", secret);
