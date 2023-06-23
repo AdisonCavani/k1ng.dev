@@ -69,7 +69,7 @@ export const metadata: Metadata = {
 };
 
 function Layout({ children }: PropsWithChildren) {
-  const {isEnabled} = draftMode()
+  const { isEnabled } = draftMode();
 
   const layout = (
     <>
@@ -83,8 +83,7 @@ function Layout({ children }: PropsWithChildren) {
     </>
   );
 
-  if (isEnabled)
-    return <PreviewProvider>{layout}</PreviewProvider>;
+  if (isEnabled) return <PreviewProvider>{layout}</PreviewProvider>;
 
   return layout;
 }

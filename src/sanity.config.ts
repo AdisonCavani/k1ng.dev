@@ -1,20 +1,14 @@
 import { colorInput } from "@sanity/color-input";
-import { apiVersion, previewSecretId, projectId } from "@sanity/env";
-import { defaultDocumentNode } from "@sanity/lib/doc-node";
-// import { previewDocumentNode } from "@sanity/plugins/preview";
-import { productionUrl } from "@sanity/plugins/production-url";
+import { apiVersion, projectId } from "@sanity/env";
+import { previewDocumentNode } from "@sanity/lib/doc-node";
 import blogAuthor from "@sanity/schemas/blog/author";
 import blogCategory from "@sanity/schemas/blog/category";
 import blogPost from "@sanity/schemas/blog/post";
 import project from "@sanity/schemas/index/project";
 import techCategory from "@sanity/schemas/index/tech/category";
 import techItem from "@sanity/schemas/index/tech/item";
-// import { visionTool } from "@sanity/vision";
-import {
-  defineConfig,
-  definePlugin,
-  // , isDev
-} from "sanity";
+import { visionTool } from "@sanity/vision";
+import { defineConfig, definePlugin, isDev } from "sanity";
 import { markdownSchema } from "sanity-plugin-markdown";
 import { deskTool } from "sanity/desk";
 
@@ -25,23 +19,17 @@ export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
   techItem.name,
 ];
 
-// TODO: add this again
-// const devOnlyPlugins = [visionTool({ defaultApiVersion: apiVersion })];
+const devOnlyPlugins = [visionTool({ defaultApiVersion: apiVersion })];
 
 const sharedConfig = definePlugin({
   name: "shareConfig",
   plugins: [
     colorInput(),
     deskTool({
-      defaultDocumentNode: defaultDocumentNode,
+      defaultDocumentNode: previewDocumentNode,
     }),
     markdownSchema(),
-    productionUrl({
-      apiVersion,
-      previewSecretId,
-      types: PREVIEWABLE_DOCUMENT_TYPES,
-    }),
-    // ...(isDev ? devOnlyPlugins : []),
+    ...(isDev ? devOnlyPlugins : []),
   ],
 
   schema: {
