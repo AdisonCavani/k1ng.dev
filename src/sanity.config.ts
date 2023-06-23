@@ -1,6 +1,7 @@
 import { colorInput } from "@sanity/color-input";
 import { apiVersion, previewSecretId, projectId } from "@sanity/env";
-import { previewDocumentNode } from "@sanity/plugins/preview";
+import { defaultDocumentNode } from "@sanity/lib/doc-node";
+// import { previewDocumentNode } from "@sanity/plugins/preview";
 import { productionUrl } from "@sanity/plugins/production-url";
 import blogAuthor from "@sanity/schemas/blog/author";
 import blogCategory from "@sanity/schemas/blog/category";
@@ -32,7 +33,7 @@ const sharedConfig = definePlugin({
   plugins: [
     colorInput(),
     deskTool({
-      defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
+      defaultDocumentNode: defaultDocumentNode,
     }),
     markdownSchema(),
     productionUrl({
