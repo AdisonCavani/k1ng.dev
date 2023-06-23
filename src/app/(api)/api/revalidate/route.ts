@@ -1,6 +1,6 @@
 import { postUpdatedQuery } from "@lib/queries";
 import { getClient } from "@sanity/lib/client";
-import { resolveHref2 } from "@sanity/lib/links";
+import { resolveHref } from "@sanity/lib/links";
 import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
 import { revalidatePath } from "next/cache";
 
@@ -32,7 +32,7 @@ async function POST(request: Request) {
       status: 400,
     });
 
-  const slug = resolveHref2(type);
+  const slug = resolveHref(type, null);
 
   console.error("Id:", id);
   console.error("Type:", type);
