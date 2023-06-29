@@ -16,7 +16,7 @@
     "feed": "^4.2.2",
     "next": "^13.4.7",
     "next-mdx-remote": "^4.4.1",
-    "next-sanity": "5.0.2",
+    "next-sanity": "5.1.0",
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
