@@ -6,6 +6,7 @@ const client = createClient({
   dataset,
   apiVersion,
   useCdn,
+  perspective: "previewDrafts"
 });
 
 export { client };

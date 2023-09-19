@@ -13,6 +13,7 @@ export const mdxOptions: SerializeOptions = {
       // Order matters!
       rehypeSlug,
       rehypeCodeTitles,
+      // @ts-expect-error
       rehypePrism,
       [
         rehypeAutolinkHeadings,
