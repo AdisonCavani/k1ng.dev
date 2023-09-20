@@ -1,9 +1,6 @@
-import MdxComponents from "@components/mdx/mdx-components";
 import { isUrlInternal } from "@lib/helpers";
-import { mdxOptions } from "@lib/mdx";
 import type { ProjectSchema } from "@lib/types";
 import { urlForImage } from "@sanity/lib/image";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +8,7 @@ interface Props extends ProjectSchema {
   priority?: boolean;
 }
 
-async function ProjectCard({
+function ProjectCard({
   color,
   description,
   github,
@@ -64,11 +61,7 @@ async function ProjectCard({
         </div>
         <div className="flex h-full flex-col justify-between">
           <div className="text-sm text-neutral-600">
-            <MDXRemote
-              source={description}
-              options={mdxOptions}
-              components={MdxComponents}
-            />
+            {description}
           </div>
           <a
             href={github}
