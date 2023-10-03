@@ -9,7 +9,7 @@ type FooterEntry = {
 };
 
 const footerData: FooterEntry[] = [
-  { name: "Analytics", url: "https://insights.k1ng.dev" },
+  { name: "Analytics", url: "https://insights.k1ng.dev/k1ng.dev" },
   { name: "Privacy", url: "https://plausible.io/privacy" },
   { name: "RSS feed", url: "/atom.xml" },
   { name: "To-do List", url: "https://todo.k1ng.dev" },
