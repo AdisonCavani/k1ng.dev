@@ -2,6 +2,7 @@ import "@styles/globals.css";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { PropsWithChildren } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const fontInter = Inter({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ function RootLayout({ children }: PropsWithChildren) {
             <Script strategy="lazyOnload" id="plausible-script">
               {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
             </Script>
+            <SpeedInsights />
           </>
         )}
       </head>

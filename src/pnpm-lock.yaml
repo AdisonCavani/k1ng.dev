@@ -20,6 +20,9 @@ dependencies:
   '@sanity/webhook':
     specifier: ^4.0.0
     version: 4.0.0
+  '@vercel/speed-insights':
+    specifier: ^1.0.3
+    version: 1.0.3
   feed:
     specifier: ^4.2.2
     version: 4.2.2
@@ -2374,6 +2377,11 @@ packages:
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
+
+  /@vercel/speed-insights@1.0.3:
+    resolution: {integrity: sha512-bKIt0HDdF6hP2bJZyS+za3k6sKeAXNRLSIUbwVwvyvKdsHBWS6ILBvmD1wXHZZyTqjU1TP7dTE/F6lHM6rBdKA==}
+    requiresBuild: true
+    dev: false
 
   /@vercel/stega@0.1.0:
     resolution: {integrity: sha512-5b0PkOJsFBX5alChuIO3qpkt5vIZBevzLPhUQ1UP8UzVjL3F1VllnZxp/thfD8R5ol7D7WHkgZHIjdUBX4tDpQ==}
