@@ -20,7 +20,7 @@ async function POST(request: Request) {
       JSON.stringify({ success: false, message: "Invalid signature" }),
       {
         status: 401,
-      }
+      },
     );
 
   const jsonBody = await JSON.parse(body);
@@ -66,7 +66,7 @@ async function POST(request: Request) {
         JSON.stringify({ message: "Cannot find post with this _id" }),
         {
           status: 400,
-        }
+        },
       );
 
     await Promise.all([
@@ -78,7 +78,7 @@ async function POST(request: Request) {
       JSON.stringify({ message: `Updated /blog & /blog/${postSlug}` }),
       {
         status: 200,
-      }
+      },
     );
   } catch (err: any) {
     return new Response(JSON.stringify({ message: err.message }), {

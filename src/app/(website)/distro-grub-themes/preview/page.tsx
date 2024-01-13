@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 async function Preview() {
   const data = (await fetch(`${DISTRO_GRUB_THEMES_CONTENT}/themes.json`).then(
-    (res) => res.json()
+    (res) => res.json(),
   )) as WikiPreviewSchema;
 
   const distros = data.distros.sort((a, b) => a.name.localeCompare(b.name));

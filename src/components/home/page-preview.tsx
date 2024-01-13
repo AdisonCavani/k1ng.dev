@@ -22,12 +22,12 @@ function HomePagePreview({
 }: Props) {
   const [categories] = useLiveQuery<TechCategorySchema[]>(
     initialCategories,
-    techCategoryQuery
+    techCategoryQuery,
   );
   const [items] = useLiveQuery<TechItemSchema[]>(initialItems, techItemsQuery);
   const [projects] = useLiveQuery<ProjectSchema[]>(
     initialProjects,
-    projectsQuery
+    projectsQuery,
   );
 
   return <HomePage categories={categories} items={items} projects={projects} />;

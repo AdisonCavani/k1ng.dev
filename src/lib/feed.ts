@@ -42,7 +42,7 @@ async function GetFeed(): Promise<Feed> {
           link: `https://github.com/${github}`,
         })),
       });
-    }
+    },
   );
 
   allTags.forEach((tag) => {

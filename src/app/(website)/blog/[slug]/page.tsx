@@ -55,7 +55,7 @@ export async function generateMetadata({
         },
       ],
       authors: authors.map(
-        (author) => `${author.firstName} ${author.lastName}`
+        (author) => `${author.firstName} ${author.lastName}`,
       ),
       publishedTime: datePublished,
       modifiedTime: dateModified,

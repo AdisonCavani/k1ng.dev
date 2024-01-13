@@ -22,7 +22,7 @@ function HeaderLink(props: Props) {
     !isActive && "text-slate-600",
     props.href &&
       isUrlInternal(props.href) &&
-      "decoration-slate-600 hover:underline"
+      "decoration-slate-600 hover:underline",
   );
 
   const startChange = useContext(RouterContext);

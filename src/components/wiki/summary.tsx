@@ -28,7 +28,7 @@ function Summary({ href, index, itemsCount, name, slug, headings }: Props) {
       !(
         currentSlug === slug &&
         (headings === undefined || headings.length === 0)
-      )
+      ),
   );
 
   return (
@@ -52,7 +52,7 @@ function Summary({ href, index, itemsCount, name, slug, headings }: Props) {
             const json = await fetch(
               `https://api.github.com/repos/AdisonCavani/distro-grub-themes/contents/docs/${
                 currentSlug.charAt(0).toUpperCase() + currentSlug.slice(1)
-              }.mdx`
+              }.mdx`,
             );
             const res = await json.json();
             const markdown = atob(res.content ?? "");

@@ -1,8 +1,8 @@
 import "@styles/globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { PropsWithChildren } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const fontInter = Inter({
   subsets: ["latin"],

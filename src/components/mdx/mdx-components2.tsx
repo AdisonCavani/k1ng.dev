@@ -10,7 +10,7 @@ const MdxComponents2: MDXComponents = {
     <h1
       className={clsx(
         "mt-2 scroll-m-20 text-4xl font-bold tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -19,7 +19,7 @@ const MdxComponents2: MDXComponents = {
     <h2
       className={clsx(
         "mt-10 scroll-m-20 border-b border-b-slate-200 pb-1 text-3xl font-semibold tracking-tight first:mt-0",
-        className
+        className,
       )}
       {...props}
     />
@@ -28,7 +28,7 @@ const MdxComponents2: MDXComponents = {
     <h3
       className={clsx(
         "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -37,7 +37,7 @@ const MdxComponents2: MDXComponents = {
     <h4
       className={clsx(
         "mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -46,7 +46,7 @@ const MdxComponents2: MDXComponents = {
     <h5
       className={clsx(
         "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -55,7 +55,7 @@ const MdxComponents2: MDXComponents = {
     <h6
       className={clsx(
         "mt-8 scroll-m-20 text-base font-semibold tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -64,7 +64,7 @@ const MdxComponents2: MDXComponents = {
     <a
       className={clsx(
         "font-medium text-slate-900 underline underline-offset-4",
-        className
+        className,
       )}
       {...props}
     />
@@ -88,7 +88,7 @@ const MdxComponents2: MDXComponents = {
     <blockquote
       className={clsx(
         "mt-6 border-l-2 border-slate-300 pl-6 italic text-slate-800 [&>*]:text-slate-600",
-        className
+        className,
       )}
       {...props}
     />
@@ -117,7 +117,7 @@ const MdxComponents2: MDXComponents = {
     <tr
       className={clsx(
         "m-0 border-t border-slate-300 p-0 even:bg-slate-100",
-        className
+        className,
       )}
       {...props}
     />
@@ -126,7 +126,7 @@ const MdxComponents2: MDXComponents = {
     <th
       className={clsx(
         "border border-slate-200 px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
-        className
+        className,
       )}
       {...props}
     />
@@ -135,7 +135,7 @@ const MdxComponents2: MDXComponents = {
     <td
       className={clsx(
         "border border-slate-200 px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
-        className
+        className,
       )}
       {...props}
     />
@@ -144,7 +144,7 @@ const MdxComponents2: MDXComponents = {
     <Image
       className={clsx(
         className,
-        "my-8 rounded-md border border-slate-200 bg-slate-200 transition-colors"
+        "my-8 rounded-md border border-slate-200 bg-slate-200 transition-colors",
       )}
       alt={alt}
       {...props}

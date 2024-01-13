@@ -14,7 +14,7 @@ function Callout({ children, type = "default", ...props }: CalloutProps) {
           "border-blue-500 bg-blue-50": type === "default",
           "border-yellow-500 bg-yellow-50": type === "warning",
           "border-red-500 bg-red-50": type === "danger",
-        }
+        },
       )}
       {...props}
     >

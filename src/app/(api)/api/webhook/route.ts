@@ -35,7 +35,7 @@ async function POST(request: Request) {
       ...commit.modified,
       ...commit.removed,
     ],
-    []
+    [],
   );
 
   if (!changedFiles.some((file: any) => file.startsWith("docs/")))

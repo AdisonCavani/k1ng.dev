@@ -48,7 +48,7 @@ function BlogPage({ posts }: Props) {
                 <span className="sr-only">View Article</span>
               </Link>
             </article>
-          )
+          ),
         )}
       </section>
     </main>

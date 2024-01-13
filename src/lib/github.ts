@@ -10,7 +10,7 @@ export const getBySlug = async (slug: string | undefined) => {
 
   const path = `/docs/${slug.charAt(0).toUpperCase() + slug.slice(1)}.mdx`;
   const response = await fetchGithubApi(
-    `/repos/${owner}/${repo}/contents/${path}`
+    `/repos/${owner}/${repo}/contents/${path}`,
   );
 
   return Buffer.from(response.content, "base64").toString("utf-8");
@@ -18,7 +18,7 @@ export const getBySlug = async (slug: string | undefined) => {
 
 export const getDocsDir = async () => {
   const response = await fetchGithubApi(
-    `/repos/${owner}/${repo}/contents/docs`
+    `/repos/${owner}/${repo}/contents/docs`,
   );
 
   return (response as any[])
@@ -34,7 +34,7 @@ export const getDocsDir = async () => {
 
 export const getSidebarData = async () => {
   const response = (await fetchGithubApi(
-    `/repos/${owner}/${repo}/contents/docs`
+    `/repos/${owner}/${repo}/contents/docs`,
   )) as any[];
 
   const result: WikiSidebarItemSchema[] = response.map((item) => {
@@ -62,7 +62,7 @@ export const getSidebarData = async () => {
 
 export const getReleaseData = async () => {
   const response = await fetchGithubApi(
-    `/repos/${owner}/${repo}/releases/latest`
+    `/repos/${owner}/${repo}/releases/latest`,
   );
 
   return response.tag_name;

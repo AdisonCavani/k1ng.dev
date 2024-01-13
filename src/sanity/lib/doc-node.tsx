@@ -5,7 +5,7 @@ import { resolveHref } from "./links";
 
 const previewDocumentNode: DefaultDocumentNodeResolver = (
   S,
-  { schemaType }
+  { schemaType },
 ) => {
   if (!PREVIEWABLE_DOCUMENT_TYPES.includes(schemaType)) return null;
 

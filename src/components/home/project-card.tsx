@@ -60,9 +60,7 @@ function ProjectCard({
           </div>
         </div>
         <div className="flex h-full flex-col justify-between">
-          <div className="text-sm text-neutral-600">
-            {description}
-          </div>
+          <div className="text-sm text-neutral-600">{description}</div>
           <a
             href={github}
             target="_blank"

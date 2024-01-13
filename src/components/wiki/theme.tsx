@@ -40,8 +40,8 @@ function Theme({ name, priority, latestTag, versionAdded }: Props) {
                 {versionAdded === latestTag
                   ? "New"
                   : versionAdded
-                  ? versionAdded
-                  : "v2.8"}
+                    ? versionAdded
+                    : "v2.8"}
               </span>
             </div>
           )}

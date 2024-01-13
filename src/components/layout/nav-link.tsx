@@ -22,7 +22,7 @@ function NavLink({ href, className, children }: PropsWithChildren<Props>) {
       className={clsx(
         "flex w-full items-center space-x-2 rounded-md p-2 text-sm font-medium hover:underline",
         !isActive && "text-slate-600",
-        className
+        className,
       )}
       onClick={() => {
         const { pathname, search, hash } = window.location;

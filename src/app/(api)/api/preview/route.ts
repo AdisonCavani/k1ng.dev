@@ -15,7 +15,7 @@ async function GET(request: Request) {
   if (!href)
     return new Response(
       "Unable to resolve preview URL based on the current document type and slug",
-      { status: 400 }
+      { status: 400 },
     );
 
   draftMode().enable();
