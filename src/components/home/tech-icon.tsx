@@ -20,14 +20,14 @@ function TechIcon({
         <div className="relative overflow-hidden p-2">
           <div
             style={{ backgroundColor: background }}
-            className="absolute inset-0 h-[52px] w-[52px] rounded-md opacity-20"
+            className="absolute inset-0 size-[52px] rounded-md opacity-20"
           />
           <Image
             src={urlForImage(image).url()}
             alt={`${name} logo`}
             width={36}
             height={36}
-            className="h-9 w-9 rounded-md"
+            className="size-9 rounded-md"
             loading="lazy"
           />
         </div>

@@ -23,7 +23,7 @@ async function Sidebar({ slug }: Props) {
     <aside className="flex h-min w-full flex-col rounded-lg border lg:w-80">
       <div className="inline-flex w-full items-center gap-x-2 bg-neutral-200 px-4 py-2">
         <p className="text-sm font-bold">Pages</p>
-        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-neutral-600 text-xs text-white">
+        <span className="inline-flex size-5 items-center justify-center rounded-full bg-neutral-600 text-xs text-white">
           {items.length}
         </span>
       </div>

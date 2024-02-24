@@ -55,7 +55,7 @@ function Post({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="mr-2 h-4 w-4"
+            className="mr-2 size-4"
           >
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
@@ -76,7 +76,7 @@ function Post({
               aria-label="RSS Feed"
             >
               <svg
-                className="h-4 w-4"
+                className="size-4"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -146,7 +146,7 @@ function Post({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="mr-2 h-4 w-4"
+              className="mr-2 size-4"
             >
               <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
