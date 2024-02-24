@@ -62,5 +62,6 @@ const Iframe = memo(({ documentType, slug }: Props) => {
     />
   );
 });
+Iframe.displayName = "Iframe";
 
 export { previewDocumentNode };

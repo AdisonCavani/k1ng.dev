@@ -68,7 +68,7 @@ async function BlogPost({ params: { slug } }: Props) {
   const { isEnabled } = draftMode();
   const data = await getPostData(slug);
 
-  if (isEnabled) return <PostPreview initialData={data} slug={slug} />;
+  if (isEnabled) return <PostPreview slug={slug} />;
 
   return <Post {...data} />;
 }

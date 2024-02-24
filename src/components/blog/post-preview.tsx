@@ -6,18 +6,22 @@ import { useLiveQuery } from "next-sanity/preview";
 import Post from "./post";
 
 type Props = {
-  initialData: PostSchema;
   slug: string;
 };
 
-function PostPreview({ initialData, slug }: Props) {
-  const [post, loading] = useLiveQuery<PostSchema>(initialData, postQuery, {
+function PostPreview({ slug }: Props) {
+  const [post, loading] = useLiveQuery<PostSchema | null>(null, postQuery, {
     slug: slug,
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <main className="container relative mt-16 max-w-3xl py-6 lg:py-10">
+        <p>Loading...</p>
+      </main>
+    );
 
-  return <Post {...post} />;
+  return <Post {...post!} />;
 }
 
 export default PostPreview;
