@@ -23,7 +23,7 @@ async function POST(request: Request) {
   const branch = body.ref;
   if (branch !== "refs/heads/master")
     return new Response("Not master branch", {
-      status: 200,
+      status: 403,
     });
 
   // Verify there was a change in the "docs" folder
@@ -38,9 +38,12 @@ async function POST(request: Request) {
     [],
   );
 
-  if (!changedFiles.some((file: any) => file.startsWith("docs/")))
-    return new Response("No change in docs folder", {
-      status: 200,
+  if (
+    !changedFiles.some((file: any) => file.startsWith("docs/")) &&
+    !changedFiles.some((file: any) => file === "themes.json")
+  )
+    return new Response("No change in docs folder or themes.json", {
+      status: 304,
     });
 
   revalidatePath("/distro-grub-themes");
