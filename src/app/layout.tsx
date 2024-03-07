@@ -20,12 +20,9 @@ function RootLayout({ children }: PropsWithChildren) {
           <>
             <Script
               strategy="lazyOnload"
-              data-domain="k1ng.dev"
-              src="https://insights.k1ng.dev/js/script.js"
+              data-website-id="49cda9c6-378d-4c19-b985-35f1dcd0b891"
+              src="https://insights.k1ng.dev/script.js"
             />
-            <Script strategy="lazyOnload" id="plausible-script">
-              {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
-            </Script>
             <SpeedInsights />
           </>
         )}
