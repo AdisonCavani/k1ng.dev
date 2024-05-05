@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "skipLibCheck": true,
@@ -19,6 +18,13 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["app/_components/*"],
+      "@lib/*": ["lib/*"],
+      "@sanity/*": ["sanity/*"],
+      "@styles/*": ["app/_styles/*"]
+    },
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -27,14 +33,7 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["components/*"],
-      "@lib/*": ["lib/*"],
-      "@sanity/*": ["sanity/*"],
-      "@styles/*": ["styles/*"]
-    }
+    "allowUnusedLabels": false
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
