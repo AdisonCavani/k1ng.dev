@@ -1,6 +1,6 @@
 import Studio from "@components/studio";
 
-export { metadata } from "next-sanity/studio/metadata";
+export { metadata, viewport } from "next-sanity/studio";
 
 function Page() {
   return <Studio />;

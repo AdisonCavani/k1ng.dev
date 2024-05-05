@@ -1,9 +1,9 @@
 "use client";
 
 import { blogQuery } from "@lib/queries";
-import { PostSchema } from "@lib/types";
+import type { PostSchema } from "@lib/types";
 import { useLiveQuery } from "next-sanity/preview";
-import BlogPage from "./page";
+import BlogPage from "./page-comp";
 
 type Props = {
   initialData: any;

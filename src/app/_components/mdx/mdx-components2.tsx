@@ -1,7 +1,7 @@
 import { clsx } from "clsx";
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 import Callout from "./callout";
 import JsonLd from "./json-ld";
 

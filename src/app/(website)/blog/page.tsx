@@ -1,4 +1,4 @@
-import BlogPage from "@components/blog/page";
+import BlogPage from "@components/blog/page-comp";
 import BlogPagePreview from "@components/blog/page-preview";
 import { getBlogData } from "@lib/query-methods";
 import { SITE_URL } from "config";

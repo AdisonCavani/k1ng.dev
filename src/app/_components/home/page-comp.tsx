@@ -1,4 +1,8 @@
-import { ProjectSchema, TechCategorySchema, TechItemSchema } from "@lib/types";
+import type {
+  ProjectSchema,
+  TechCategorySchema,
+  TechItemSchema,
+} from "@lib/types";
 import { SITE_AUTHOR } from "config";
 import Image from "next/image";
 import ProjectCard from "./project-card";

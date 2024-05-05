@@ -1,6 +1,9 @@
-import { ComponentProps, memo, Suspense } from "react";
+import { memo, Suspense, type ComponentProps } from "react";
 import { PREVIEWABLE_DOCUMENT_TYPES } from "sanity.config";
-import { DefaultDocumentNodeResolver, UserViewComponent } from "sanity/desk";
+import type {
+  DefaultDocumentNodeResolver,
+  UserViewComponent,
+} from "sanity/desk";
 import { resolveHref } from "./links";
 
 const previewDocumentNode: DefaultDocumentNodeResolver = (

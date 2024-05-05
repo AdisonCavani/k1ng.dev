@@ -1,4 +1,4 @@
-import HomePage from "@components/home/page";
+import HomePage from "@components/home/page-comp";
 import HomePagePreview from "@components/home/page-preview";
 import {
   getProjectsData,

@@ -1,5 +1,5 @@
 import { formatDate } from "@lib/helpers";
-import { PostSchema } from "@lib/types";
+import type { PostSchema } from "@lib/types";
 import { urlForImage } from "@sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";

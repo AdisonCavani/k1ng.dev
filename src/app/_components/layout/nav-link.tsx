@@ -2,7 +2,7 @@ import { Menu } from "@headlessui/react";
 import clsx from "clsx";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { PropsWithChildren, useContext } from "react";
+import { useContext, type PropsWithChildren } from "react";
 import RouterContext from "./router-context";
 
 type Props = {

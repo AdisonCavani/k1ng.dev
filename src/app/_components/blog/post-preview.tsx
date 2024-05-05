@@ -1,7 +1,7 @@
 "use client";
 
 import { postQuery } from "@lib/queries";
-import { PostSchema } from "@lib/types";
+import type { PostSchema } from "@lib/types";
 import { useLiveQuery } from "next-sanity/preview";
 import Post from "./post";
 

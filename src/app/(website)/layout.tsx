@@ -5,7 +5,7 @@ import PreviewProvider from "@components/studio/preview-provider";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL, TWITTER_HANDLE } from "config";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
-import { PropsWithChildren, Suspense } from "react";
+import { Suspense, type PropsWithChildren } from "react";
 
 export const metadata: Metadata = {
   title: {

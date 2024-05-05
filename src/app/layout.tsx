@@ -2,7 +2,7 @@ import "@styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 
 const fontInter = Inter({
   subsets: ["latin"],

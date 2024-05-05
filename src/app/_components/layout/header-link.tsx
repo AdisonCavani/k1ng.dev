@@ -4,7 +4,11 @@ import { isUrlInternal } from "@lib/helpers";
 import clsx from "clsx";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { AnchorHTMLAttributes, DetailedHTMLProps, useContext } from "react";
+import {
+  useContext,
+  type AnchorHTMLAttributes,
+  type DetailedHTMLProps,
+} from "react";
 import RouterContext from "./router-context";
 
 interface Props

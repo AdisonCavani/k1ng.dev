@@ -7,7 +7,7 @@ import type {
   TechItemSchema,
 } from "@lib/types";
 import { useLiveQuery } from "next-sanity/preview";
-import HomePage from "./page";
+import HomePage from "./page-comp";
 
 type Props = {
   initialCategories: TechCategorySchema[];
