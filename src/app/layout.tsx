@@ -1,3 +1,4 @@
+import TodoListAlert from "@components/layout/todolist-alert";
 import "@styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter } from "next/font/google";
@@ -27,7 +28,10 @@ function RootLayout({ children }: PropsWithChildren) {
           </>
         )}
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <TodoListAlert />
+      </body>
     </html>
   );
 }

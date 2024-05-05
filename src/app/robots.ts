@@ -8,6 +8,7 @@ function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: SITE_URL + "/sitemap.xml",
+    host: SITE_URL,
   };
 }
 
